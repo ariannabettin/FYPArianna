@@ -1,0 +1,127 @@
+#include "selection.h"
+#include "ui_selection.h"
+#include "gloabal.h"
+#include "visualisation.h"
+#include <QMessageBox>
+#include <QListWidgetItem>
+
+
+Selection::Selection(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Selection)
+{
+    ui->setupUi(this);
+}
+
+Selection::~Selection()
+{
+    delete ui;
+}
+
+void Selection::on_showAllButton_clicked()
+{
+    if(k == 0){
+        QMessageBox::warning(this,"Select Plans:","Ops! It looks like there are not saved plans..");
+    }else{
+        if(counter == 0){
+            numItems = 0;
+            ui->li->clear();
+            for(int i = 0; i<k;i++){
+                      QListWidgetItem * checkB = new QListWidgetItem(plans[i]);    // Add checked boxes with all the plans stored in the array, if the list widget is empty
+                      checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                      checkB->setCheckState(Qt::Unchecked);
+                      ui->li->addItem(checkB);
+                      counter = i;
+                      numItems = numItems+1;
+            }
+        }else{
+            for(int i = counter+1; i<k;i++){
+                      QListWidgetItem *checkB = new QListWidgetItem(plans[i]);     // Add checked boxes with the remaining plans stored in the array, which are not already listed
+                      checkB->setCheckState(Qt::Unchecked);
+                      ui->li->addItem(checkB);
+                      counter = i;
+                      numItems = numItems+1;
+            }
+        }
+    }
+}
+
+
+
+void Selection::on_showLastButton_clicked()
+{
+    if(k == 0){
+        QMessageBox::warning(this,"Select Plans:","Ops! It looks like there are not saved plans..");
+    }else {
+        ui->li->clear();
+        QListWidgetItem *checkB = new QListWidgetItem(plans[k-1]);                  // Shows only the last plan added, the one with index k-1
+        checkB->setCheckState(Qt::Unchecked);
+        ui->li->addItem(checkB);
+        counter = 0;
+        numItems = 1;
+    }
+}
+
+void Selection::on_clearButton_clicked()
+{
+    counter = 0;                                                                   // As the button "Clear" clears the list widget, both "counter" and "numItem" are set on 0.
+    numItems = 0;
+}
+
+
+
+void Selection::on_deleteButton_clicked()
+{
+    QMessageBox::warning(this,"Warning!","The plans selected will be deleted!");
+    int j = 0;
+    int IDs[10];
+    for(int i = 0; i<numItems; i++){
+        bool isChecked = ui->li->item(i)->checkState();
+        if(isChecked == true){
+            for(int i = 0; i<k; i++){
+                if (plans[i] == ui->li->item(i)->text()){ //comparing with plans
+                    IDs[j] = i;
+
+                }
+             }
+        }
+
+     }
+    QString s = QString::number(j);
+    QMessageBox::information(this,"a",s);
+
+
+   /* for(int i = 0; i<checked->length(); i++){
+        for (int j = 0; j<plans->length(); j++){
+            if(checked[i]==plans[j]){
+            QString s = QString::number(i);
+            QMessageBox::information(this,"a",s);
+            }
+
+        }
+     }*/
+}
+
+
+
+
+void Selection::on_visualiseButton_clicked()
+{
+    if(k == 0){
+        QMessageBox::warning(this,"Visualise Plan","Ops! It looks like there are not saved plans..");
+    }else{
+        id = k-1;  //will be changed with the id of the checked plan
+        visualise = new Visualisation(this);
+        visualise->show();
+        this->hide();
+    }
+
+}
+
+void Selection::on_homeButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+
+}
