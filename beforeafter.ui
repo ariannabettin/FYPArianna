@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BeforeAfter</class>
+ <widget class="QDialog" name="BeforeAfter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>240</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="doneButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>280</y>
+     <width>61</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>161</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Choose an option: </string>
+   </property>
+   <widget class="QRadioButton" name="optionA">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>before</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="optionB">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>after</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="optionC">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>90</y>
+      <width>151</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>before n steps</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="optionD">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>151</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>after n steps</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Set number of steps</string>
+   </property>
+   <widget class="QLineEdit" name="stepsLine">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>141</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

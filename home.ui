@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Home</class>
+ <widget class="QMainWindow" name="Home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>676</width>
+    <height>437</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Home</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>611</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Load the domain file and the problem file:</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Domain:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Problem:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="domainPathLine">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>421</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="problemPathLine">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>421</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="DomainLoadButton">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>30</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Load</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ProblemLoadButton">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>60</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Load</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelButton">
+     <property name="geometry">
+      <rect>
+       <x>418</x>
+       <y>130</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="doneButton">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>130</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Done</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>261</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Give your plan a name:</string>
+    </property>
+    <widget class="QLineEdit" name="NamePlanLine">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>221</width>
+       <height>25</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="saveButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="loadNewButton">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>350</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load new Plan</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="selectButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>350</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="homeButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Home</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>loadNewButton</sender>
+   <signal>clicked()</signal>
+   <receiver>NamePlanLine</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>502</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadNewButton</sender>
+   <signal>clicked()</signal>
+   <receiver>problemPathLine</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>364</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadNewButton</sender>
+   <signal>clicked()</signal>
+   <receiver>domainPathLine</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>454</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>problemPathLine</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>136</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>domainPathLine</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>517</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>

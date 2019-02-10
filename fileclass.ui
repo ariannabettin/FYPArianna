@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fileClass</class>
+ <widget class="QDialog" name="fileClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>140</y>
+     <width>371</width>
+     <height>341</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>291</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Use this button to open the domain file:</string>
+   </property>
+   <widget class="QPushButton" name="readButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open File</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>120</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Domain of:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="title_label">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>120</y>
+     <width>251</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>131</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>New file buttons:</string>
+   </property>
+   <widget class="QPushButton" name="newFile">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open new File</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="close">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="writeButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollBar" name="verticalScrollBar">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>140</y>
+     <width>16</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
