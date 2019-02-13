@@ -18,8 +18,6 @@ public:
 private slots:
     void on_homeButton_clicked();
 
-    void on_selecyButton_clicked();
-
     void on_visualiseButton_clicked();
 
     void on_selectButton_clicked();
@@ -31,6 +29,8 @@ private slots:
     void on_removeFileButton_clicked();
 
     void on_modifyButton_clicked();
+
+
 
 private:
     Ui::RemoveAction *ui;

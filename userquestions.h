@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "comparison.h"
+#include "rescheduleaction.h"
 
 namespace Ui {
 class UserQuestions;
@@ -20,7 +21,6 @@ public:
 
 
 private slots:
-    void on_choiceButton_clicked();
 
     void on_homeButton_clicked();
 
@@ -39,6 +39,7 @@ private slots:
 private:
     Ui::UserQuestions *ui;
     Comparison * compare;
+    RescheduleAction *reschedule;
 };
 
 #endif // USERQUESTIONS_H

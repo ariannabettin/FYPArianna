@@ -40,13 +40,12 @@ public:
     QRadioButton *addOption;
     QRadioButton *removeOption;
     QRadioButton *replaceOption;
-    QRadioButton *windowOption;
-    QRadioButton *actionOption;
-    QRadioButton *actionOption2;
-    QPushButton *choiceButton;
+    QRadioButton *rescheduleOption;
     QPushButton *completeButton;
     QLabel *question_label0;
     QPushButton *addButton_2;
+    QLabel *question_label2;
+    QLabel *question_label3;
 
     void setupUi(QDialog *UserQuestions)
     {
@@ -55,7 +54,7 @@ public:
         UserQuestions->resize(640, 480);
         planArea = new QPlainTextEdit(UserQuestions);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(10, 360, 16, 20));
+        planArea->setGeometry(QRect(0, 460, 20, 20));
         doneButton = new QPushButton(UserQuestions);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
         doneButton->setGeometry(QRect(450, 280, 61, 25));
@@ -73,16 +72,16 @@ public:
         selectButton->setGeometry(QRect(70, 0, 71, 41));
         question_label = new QLabel(UserQuestions);
         question_label->setObjectName(QString::fromUtf8("question_label"));
-        question_label->setGeometry(QRect(60, 330, 41, 17));
+        question_label->setGeometry(QRect(40, 340, 61, 20));
         question_label1 = new QLabel(UserQuestions);
         question_label1->setObjectName(QString::fromUtf8("question_label1"));
-        question_label1->setGeometry(QRect(180, 330, 311, 20));
+        question_label1->setGeometry(QRect(250, 340, 231, 20));
         list = new QListWidget(UserQuestions);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(440, 70, 161, 201));
+        list->setGeometry(QRect(450, 70, 161, 201));
         groupBox = new QGroupBox(UserQuestions);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(20, 60, 371, 221));
+        groupBox->setGeometry(QRect(20, 60, 371, 171));
         addOption = new QRadioButton(groupBox);
         addOption->setObjectName(QString::fromUtf8("addOption"));
         addOption->setGeometry(QRect(20, 40, 471, 23));
@@ -92,27 +91,24 @@ public:
         replaceOption = new QRadioButton(groupBox);
         replaceOption->setObjectName(QString::fromUtf8("replaceOption"));
         replaceOption->setGeometry(QRect(20, 100, 491, 23));
-        windowOption = new QRadioButton(groupBox);
-        windowOption->setObjectName(QString::fromUtf8("windowOption"));
-        windowOption->setGeometry(QRect(20, 130, 461, 23));
-        actionOption = new QRadioButton(groupBox);
-        actionOption->setObjectName(QString::fromUtf8("actionOption"));
-        actionOption->setGeometry(QRect(20, 160, 501, 23));
-        actionOption2 = new QRadioButton(groupBox);
-        actionOption2->setObjectName(QString::fromUtf8("actionOption2"));
-        actionOption2->setGeometry(QRect(20, 190, 221, 23));
-        choiceButton = new QPushButton(groupBox);
-        choiceButton->setObjectName(QString::fromUtf8("choiceButton"));
-        choiceButton->setGeometry(QRect(260, 190, 89, 25));
+        rescheduleOption = new QRadioButton(groupBox);
+        rescheduleOption->setObjectName(QString::fromUtf8("rescheduleOption"));
+        rescheduleOption->setGeometry(QRect(20, 130, 461, 23));
         completeButton = new QPushButton(UserQuestions);
         completeButton->setObjectName(QString::fromUtf8("completeButton"));
         completeButton->setGeometry(QRect(530, 280, 71, 25));
         question_label0 = new QLabel(UserQuestions);
         question_label0->setObjectName(QString::fromUtf8("question_label0"));
-        question_label0->setGeometry(QRect(90, 330, 67, 17));
+        question_label0->setGeometry(QRect(110, 319, 131, 81));
         addButton_2 = new QPushButton(UserQuestions);
         addButton_2->setObjectName(QString::fromUtf8("addButton_2"));
-        addButton_2->setGeometry(QRect(540, 360, 61, 25));
+        addButton_2->setGeometry(QRect(530, 434, 81, 31));
+        question_label2 = new QLabel(UserQuestions);
+        question_label2->setObjectName(QString::fromUtf8("question_label2"));
+        question_label2->setGeometry(QRect(370, 320, 161, 81));
+        question_label3 = new QLabel(UserQuestions);
+        question_label3->setObjectName(QString::fromUtf8("question_label3"));
+        question_label3->setGeometry(QRect(490, 340, 67, 17));
 
         retranslateUi(UserQuestions);
 
@@ -127,19 +123,18 @@ public:
         questionsButton->setText(QApplication::translate("UserQuestions", "Questions", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("UserQuestions", "Visualise", 0, QApplication::UnicodeUTF8));
         selectButton->setText(QApplication::translate("UserQuestions", "Select", 0, QApplication::UnicodeUTF8));
-        question_label->setText(QApplication::translate("UserQuestions", "-", 0, QApplication::UnicodeUTF8));
-        question_label1->setText(QApplication::translate("UserQuestions", "1", 0, QApplication::UnicodeUTF8));
+        question_label->setText(QString());
+        question_label1->setText(QString());
         groupBox->setTitle(QApplication::translate("UserQuestions", "Select one of the following question:", 0, QApplication::UnicodeUTF8));
         addOption->setText(QApplication::translate("UserQuestions", "Why A is not involved in the plan?", 0, QApplication::UnicodeUTF8));
         removeOption->setText(QApplication::translate("UserQuestions", "Why A is involved in the plan?", 0, QApplication::UnicodeUTF8));
         replaceOption->setText(QApplication::translate("UserQuestions", "Why A insted of B? ", 0, QApplication::UnicodeUTF8));
-        windowOption->setText(QApplication::translate("UserQuestions", "Why A not at time t[i]?", 0, QApplication::UnicodeUTF8));
-        actionOption->setText(QApplication::translate("UserQuestions", "Why A not before B?", 0, QApplication::UnicodeUTF8));
-        actionOption2->setText(QApplication::translate("UserQuestions", "Why A not after B?", 0, QApplication::UnicodeUTF8));
-        choiceButton->setText(QApplication::translate("UserQuestions", "Continue", 0, QApplication::UnicodeUTF8));
+        rescheduleOption->setText(QApplication::translate("UserQuestions", "Why A at this time? ", 0, QApplication::UnicodeUTF8));
         completeButton->setText(QApplication::translate("UserQuestions", "Done", 0, QApplication::UnicodeUTF8));
-        question_label0->setText(QApplication::translate("UserQuestions", "0", 0, QApplication::UnicodeUTF8));
+        question_label0->setText(QString());
         addButton_2->setText(QApplication::translate("UserQuestions", "Add", 0, QApplication::UnicodeUTF8));
+        question_label2->setText(QString());
+        question_label3->setText(QString());
     } // retranslateUi
 
 };

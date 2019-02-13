@@ -36,6 +36,7 @@ public:
     QLabel *title_label2;
     QPushButton *valButton;
     QPushButton *saveButton;
+    QLabel *instruction;
 
     void setupUi(QDialog *Comparison)
     {
@@ -78,8 +79,14 @@ public:
         saveButton = new QPushButton(Comparison);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
         saveButton->setGeometry(QRect(550, 60, 61, 31));
+        instruction = new QLabel(Comparison);
+        instruction->setObjectName(QString::fromUtf8("instruction"));
+        instruction->setGeometry(QRect(20, 70, 531, 17));
 
         retranslateUi(Comparison);
+        QObject::connect(addButton, SIGNAL(clicked()), planArea, SLOT(clear()));
+        QObject::connect(addButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
+        QObject::connect(saveButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Comparison);
     } // setupUi
@@ -97,6 +104,7 @@ public:
         title_label2->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
         valButton->setText(QApplication::translate("Comparison", "VAL", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("Comparison", "Save", 0, QApplication::UnicodeUTF8));
+        instruction->setText(QApplication::translate("Comparison", "Please, save the plan if you want to keep working on it after the modification.", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

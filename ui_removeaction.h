@@ -26,9 +26,9 @@ class Ui_RemoveAction
 {
 public:
     QPushButton *homeButton;
-    QPushButton *selecyButton;
-    QPushButton *visualiseButton;
     QPushButton *selectButton;
+    QPushButton *visualiseButton;
+    QPushButton *modifyButton;
     QPushButton *removeButton;
     QPushButton *removePlanButton;
     QPushButton *removeFileButton;
@@ -45,15 +45,15 @@ public:
         homeButton = new QPushButton(RemoveAction);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
-        selecyButton = new QPushButton(RemoveAction);
-        selecyButton->setObjectName(QString::fromUtf8("selecyButton"));
-        selecyButton->setGeometry(QRect(70, 0, 71, 41));
+        selectButton = new QPushButton(RemoveAction);
+        selectButton->setObjectName(QString::fromUtf8("selectButton"));
+        selectButton->setGeometry(QRect(70, 0, 71, 41));
         visualiseButton = new QPushButton(RemoveAction);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
-        selectButton = new QPushButton(RemoveAction);
-        selectButton->setObjectName(QString::fromUtf8("selectButton"));
-        selectButton->setGeometry(QRect(210, 0, 71, 41));
+        modifyButton = new QPushButton(RemoveAction);
+        modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
+        modifyButton->setGeometry(QRect(210, 0, 71, 41));
         removeButton = new QPushButton(RemoveAction);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
         removeButton->setGeometry(QRect(280, 0, 71, 41));
@@ -86,9 +86,9 @@ public:
     {
         RemoveAction->setWindowTitle(QApplication::translate("RemoveAction", "Dialog", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("RemoveAction", "Home", 0, QApplication::UnicodeUTF8));
-        selecyButton->setText(QApplication::translate("RemoveAction", "Select", 0, QApplication::UnicodeUTF8));
+        selectButton->setText(QApplication::translate("RemoveAction", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("RemoveAction", "Visualise", 0, QApplication::UnicodeUTF8));
-        selectButton->setText(QApplication::translate("RemoveAction", "Modify", 0, QApplication::UnicodeUTF8));
+        modifyButton->setText(QApplication::translate("RemoveAction", "Modify", 0, QApplication::UnicodeUTF8));
         removeButton->setText(QApplication::translate("RemoveAction", "Remove", 0, QApplication::UnicodeUTF8));
         removePlanButton->setText(QApplication::translate("RemoveAction", "Remove from plan", 0, QApplication::UnicodeUTF8));
         removeFileButton->setText(QApplication::translate("RemoveAction", "Remove from file", 0, QApplication::UnicodeUTF8));

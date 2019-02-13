@@ -26,7 +26,7 @@
     <string>Home</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="selecyButton">
+  <widget class="QPushButton" name="selectButton">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -52,7 +52,7 @@
     <string>Visualise</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="selectButton">
+  <widget class="QPushButton" name="modifyButton">
    <property name="geometry">
     <rect>
      <x>210</x>
