@@ -15,7 +15,7 @@ QString problems[10];
 QString Plan;
 QString Plan2;
 QString checked[10];
-QString action;
+QString action[100];
 QString text;
 QString checkedValue[100];
 QString linesValue[100];

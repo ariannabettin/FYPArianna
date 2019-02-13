@@ -17,7 +17,7 @@ extern QString problems[10];
 extern QString Plan;
 extern QString Plan2;
 extern QString checked[10];
-extern QString action;
+extern QString action[100];
 extern QString text;
 extern QString linesValue[100];
 extern QString checkedValue[100];

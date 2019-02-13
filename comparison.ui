@@ -163,7 +163,69 @@
     <string>Save</string>
    </property>
   </widget>
+  <widget class="QLabel" name="instruction">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>531</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Please, save the plan if you want to keep working on it after the modification.</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>planArea</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>12</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>planArea_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>planArea_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>580</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

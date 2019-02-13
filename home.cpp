@@ -75,7 +75,7 @@ void Home::on_saveButton_clicked()
         QMessageBox::warning(this,"Give your plan a title:","Ops! Too many plans loaded, please try to delete one before than adding a new one.");
     }
 
-    QFile file("PLAN.txt");
+    QFile file("/home/rosplan/Documents/Projects/FYP2019/Plan.txt");
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::information(this, "Error: ", "Not file found");
     }
