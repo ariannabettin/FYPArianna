@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>fileClass</class>
- <widget class="QDialog" name="fileClass">
+ <class>fileclassPF</class>
+ <widget class="QDialog" name="fileclassPF">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,66 +13,30 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPlainTextEdit" name="planArea">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>140</y>
-     <width>371</width>
-     <height>341</height>
+     <x>10</x>
+     <y>340</y>
+     <width>161</width>
+     <height>17</height>
     </rect>
    </property>
+   <property name="text">
+    <string>Use the plan showed in </string>
+   </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>30</y>
-     <width>291</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Use this button to open the domain file:</string>
-   </property>
-   <widget class="QPushButton" name="readButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open File</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>120</y>
-     <width>81</width>
-     <height>17</height>
+     <y>360</y>
+     <width>121</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Domain of:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="title_label">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>120</y>
-     <width>251</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
+    <string> the the text area</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
@@ -127,17 +91,53 @@
     </property>
    </widget>
   </widget>
-  <widget class="QScrollBar" name="verticalScrollBar">
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>30</x>
+     <y>380</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string> for this session:</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="planArea">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
      <y>140</y>
-     <width>16</width>
+     <width>371</width>
      <height>341</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>120</y>
+     <width>111</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Problem file of:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="title_label">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>120</y>
+     <width>251</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
   <widget class="QPushButton" name="replaceButton">
@@ -153,44 +153,31 @@
     <string>Replace</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>340</y>
-     <width>161</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Use the plan showed in </string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>360</y>
-     <width>121</width>
-     <height>20</height>
+     <y>30</y>
+     <width>291</width>
+     <height>61</height>
     </rect>
    </property>
-   <property name="text">
-    <string> the the text area</string>
+   <property name="title">
+    <string>Use this button to open the domain file:</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>380</y>
-     <width>111</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string> for this session:</string>
-   </property>
+   <widget class="QPushButton" name="readButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open File</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

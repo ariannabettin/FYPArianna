@@ -24,7 +24,7 @@ void fileClass::on_writeButton_clicked()
     if(!file.open(QFile::WriteOnly | QFile::Text)){
     }
     QTextStream out(&file);
-    QString text = ui->plainTextEdit->toPlainText();
+    QString text = ui->planArea->toPlainText();
     out<< text;
     file.flush();
     file.close();
@@ -39,7 +39,7 @@ void fileClass::on_readButton_clicked()
     }
     QTextStream in(&file);
     QString text = in.readAll();
-    ui->plainTextEdit->setPlainText(text);
+    ui->planArea->setPlainText(text);
     file.close();
 }
 
@@ -51,11 +51,18 @@ void fileClass::on_newFile_clicked()
     }
     QTextStream in(&file);
     QString text = in.readAll();
-    ui->plainTextEdit->setPlainText(text);
+    ui->planArea->setPlainText(text);
     file.close();
 }
 
 void fileClass::on_close_clicked()
 {
     this->hide();
+}
+
+
+
+void fileClass::on_replaceButton_clicked()
+{
+    domains[id] = "newDomainAIP.pddl";
 }

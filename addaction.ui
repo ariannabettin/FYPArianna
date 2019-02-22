@@ -222,19 +222,6 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addButton_3">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>61</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -42,7 +42,8 @@ SOURCES += \
     fileclass.cpp \
     listofactions.cpp \
     userquestions.cpp \
-    comparison.cpp
+    comparison.cpp \
+    fileclasspf.cpp
 
 HEADERS += \
         home.h \
@@ -61,7 +62,8 @@ HEADERS += \
     fileclass.h \
     listofactions.h \
     userquestions.h \
-    comparison.h
+    comparison.h \
+    fileclasspf.h
 
 FORMS += \
         home.ui \
@@ -79,7 +81,8 @@ FORMS += \
     fileclass.ui \
     listofactions.ui \
     userquestions.ui \
-    comparison.ui
+    comparison.ui \
+    fileclasspf.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

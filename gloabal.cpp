@@ -19,4 +19,5 @@ QString action[100];
 QString text;
 QString checkedValue[100];
 QString linesValue[100];
+QString compareButtonName;
 

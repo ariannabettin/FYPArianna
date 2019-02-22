@@ -45,8 +45,7 @@ static const char qt_meta_stringdata_Comparison[] = {
     "on_homeButton_clicked()\0"
     "on_selectButton_clicked()\0"
     "on_visualiseButton_clicked()\0"
-    "on_modifyButton_clicked()\0"
-    "on_addButton_clicked()\0"
+    "on_modifyButton_clicked()\0on_Button_clicked()\0"
 };
 
 void Comparison::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -60,7 +59,7 @@ void Comparison::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->on_selectButton_clicked(); break;
         case 3: _t->on_visualiseButton_clicked(); break;
         case 4: _t->on_modifyButton_clicked(); break;
-        case 5: _t->on_addButton_clicked(); break;
+        case 5: _t->on_Button_clicked(); break;
         default: ;
         }
     }

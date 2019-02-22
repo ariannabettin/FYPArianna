@@ -65,7 +65,7 @@
     <string>Visualise</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addButton">
+  <widget class="QPushButton" name="Button">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -180,7 +180,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>addButton</sender>
+   <sender>Button</sender>
    <signal>clicked()</signal>
    <receiver>planArea</receiver>
    <slot>clear()</slot>
@@ -196,7 +196,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>addButton</sender>
+   <sender>Button</sender>
    <signal>clicked()</signal>
    <receiver>planArea_2</receiver>
    <slot>clear()</slot>

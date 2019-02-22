@@ -26,7 +26,7 @@ private slots:
 
     void on_modifyButton_clicked();
 
-    void on_addButton_clicked();
+    void on_Button_clicked();
 
 private:
     Ui::Comparison *ui;

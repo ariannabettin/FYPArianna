@@ -21,5 +21,6 @@ extern QString action[100];
 extern QString text;
 extern QString linesValue[100];
 extern QString checkedValue[100];
+extern QString compareButtonName;
 
 #endif // GLOABAL_H

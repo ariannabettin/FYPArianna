@@ -1,14 +1,14 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'fileclass.h'
+** Meta object code from reading C++ file 'fileclasspf.h'
 **
 ** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "fileclass.h"
+#include "fileclasspf.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'fileclass.h' doesn't include <QObject>."
+#error "The header file 'fileclasspf.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.7. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -16,7 +16,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_fileClass[] = {
+static const uint qt_meta_data_fileclassPF[] = {
 
  // content:
        6,       // revision
@@ -30,29 +30,29 @@ static const uint qt_meta_data_fileClass[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      11,   10,   10,   10, 0x08,
-      36,   10,   10,   10, 0x08,
-      60,   10,   10,   10, 0x08,
-      81,   10,   10,   10, 0x08,
-     100,   10,   10,   10, 0x08,
+      13,   12,   12,   12, 0x08,
+      37,   12,   12,   12, 0x08,
+      62,   12,   12,   12, 0x08,
+      83,   12,   12,   12, 0x08,
+     102,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_fileClass[] = {
-    "fileClass\0\0on_writeButton_clicked()\0"
-    "on_readButton_clicked()\0on_newFile_clicked()\0"
+static const char qt_meta_stringdata_fileclassPF[] = {
+    "fileclassPF\0\0on_readButton_clicked()\0"
+    "on_writeButton_clicked()\0on_newFile_clicked()\0"
     "on_close_clicked()\0on_replaceButton_clicked()\0"
 };
 
-void fileClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void fileclassPF::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        fileClass *_t = static_cast<fileClass *>(_o);
+        fileclassPF *_t = static_cast<fileclassPF *>(_o);
         switch (_id) {
-        case 0: _t->on_writeButton_clicked(); break;
-        case 1: _t->on_readButton_clicked(); break;
+        case 0: _t->on_readButton_clicked(); break;
+        case 1: _t->on_writeButton_clicked(); break;
         case 2: _t->on_newFile_clicked(); break;
         case 3: _t->on_close_clicked(); break;
         case 4: _t->on_replaceButton_clicked(); break;
@@ -62,33 +62,33 @@ void fileClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData fileClass::staticMetaObjectExtraData = {
+const QMetaObjectExtraData fileclassPF::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject fileClass::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_fileClass,
-      qt_meta_data_fileClass, &staticMetaObjectExtraData }
+const QMetaObject fileclassPF::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_fileclassPF,
+      qt_meta_data_fileclassPF, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &fileClass::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &fileclassPF::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *fileClass::metaObject() const
+const QMetaObject *fileclassPF::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *fileClass::qt_metacast(const char *_clname)
+void *fileclassPF::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_fileClass))
-        return static_cast<void*>(const_cast< fileClass*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_fileclassPF))
+        return static_cast<void*>(const_cast< fileclassPF*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int fileClass::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int fileclassPF::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

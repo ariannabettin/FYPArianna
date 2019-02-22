@@ -101,13 +101,11 @@ void AddAction::on_existinButton_clicked()
         if(!isDomain){
             QMessageBox::information(this,"Error","The file loaded is not a domain");                //if no file o no "action" found, warn the user
         }
-
-      // file.close();
       numItems = actions;
 
 }
 
-//TO DO find which action has been selected
+
 
 
 
@@ -168,7 +166,7 @@ void AddAction::on_addButton_2_clicked()                                        
         Plan2 = Plan2 + " " + action[i];
     }
 
-
+    compareButtonName = "Add";
     compare = new Comparison(this);
     compare->show();
     this->hide();

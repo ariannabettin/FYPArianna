@@ -13,7 +13,7 @@ Comparison::Comparison(QWidget *parent) :
     ui->planArea->setText(Plan);                                               // displays the old and the new plan
     ui->planArea_2->setText(Plan2);
     ui->instruction->setText("Please, save the plan if you want to keep working on it after the modification.");
-
+    ui->Button->setText(compareButtonName);
 }
 
 Comparison::~Comparison()
@@ -23,11 +23,14 @@ Comparison::~Comparison()
 
 void Comparison::on_saveButton_clicked()    //saves the new plan and deletes the previous one
 {
-    ui->planArea->clear();
-    ui->planArea_2->clear();
+
     QMessageBox::warning(this,"Saving", "If you save this plan the old version will be deleted!");
     Plan = Plan2;
     Plan2 = " ";
+    QWidget *parent = this->parentWidget();
+    parent->show();
+    this->hide();
+
 
 }
 
@@ -68,9 +71,12 @@ void Comparison::on_modifyButton_clicked()
     Plan2 = " ";
     QWidget *parent = this->parentWidget()->parentWidget();
     parent->show();
+    this->hide();
 }
 
-void Comparison::on_addButton_clicked()
+
+
+void Comparison::on_Button_clicked()
 {
     ui->planArea->clear();
     ui->planArea_2->clear();

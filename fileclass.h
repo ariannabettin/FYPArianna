@@ -24,6 +24,8 @@ private slots:
 
     void on_close_clicked();
 
+    void on_replaceButton_clicked();
+
 private:
     Ui::fileClass *ui;
 };

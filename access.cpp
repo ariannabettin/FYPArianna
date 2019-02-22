@@ -23,8 +23,8 @@ void Access::on_domainButton_clicked()
 
 void Access::on_problemButton_clicked()
 {
-   /* newB = new NewActionT(this);
-    newB->show();*/
+    PFfile = new fileclassPF(this);
+    PFfile->show();
 }
 
 void Access::on_homeButton_clicked()
@@ -38,19 +38,19 @@ void Access::on_selecyButton_clicked()
 {
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
-     this->hide();
+    this->hide();
 }
 
 void Access::on_visualiseButton_clicked()
 {
     QWidget *parent = this->parentWidget()->parentWidget();
     parent->show();
-     this->hide();
+    this->hide();
 }
 
 void Access::on_modifyButton_clicked()
 {
     QWidget *parent = this->parentWidget();
     parent->show();
-     this->hide();
+    this->hide();
 }

@@ -1,6 +1,7 @@
 #ifndef ACCESS_H
 #define ACCESS_H
 #include "fileclass.h"
+#include "fileclasspf.h"
 #include <QDialog>
 
 namespace Ui {
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::Access *ui;
     fileClass *file;
+    fileclassPF * PFfile;
 };
 
 #endif // ACCESS_H
