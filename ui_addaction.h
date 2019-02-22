@@ -43,7 +43,6 @@ public:
     QLineEdit *actionToAdd;
     QLineEdit *actionToAdd2;
     QPushButton *addButton_2;
-    QPushButton *addButton_3;
 
     void setupUi(QDialog *AddAction)
     {
@@ -101,9 +100,6 @@ public:
         addButton_2 = new QPushButton(AddAction);
         addButton_2->setObjectName(QString::fromUtf8("addButton_2"));
         addButton_2->setGeometry(QRect(540, 470, 61, 25));
-        addButton_3 = new QPushButton(AddAction);
-        addButton_3->setObjectName(QString::fromUtf8("addButton_3"));
-        addButton_3->setGeometry(QRect(20, 20, 61, 25));
 
         retranslateUi(AddAction);
 
@@ -126,7 +122,6 @@ public:
         doneButton->setText(QApplication::translate("AddAction", "Done", 0, QApplication::UnicodeUTF8));
         label1->setText(QApplication::translate("AddAction", "Action/s to add:", 0, QApplication::UnicodeUTF8));
         addButton_2->setText(QApplication::translate("AddAction", "Add", 0, QApplication::UnicodeUTF8));
-        addButton_3->setText(QApplication::translate("AddAction", "Add", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

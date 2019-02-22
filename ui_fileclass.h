@@ -26,7 +26,7 @@ QT_BEGIN_NAMESPACE
 class Ui_fileClass
 {
 public:
-    QPlainTextEdit *plainTextEdit;
+    QPlainTextEdit *planArea;
     QGroupBox *groupBox;
     QPushButton *readButton;
     QLabel *label;
@@ -36,15 +36,19 @@ public:
     QPushButton *close;
     QPushButton *writeButton;
     QScrollBar *verticalScrollBar;
+    QPushButton *replaceButton;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
 
     void setupUi(QDialog *fileClass)
     {
         if (fileClass->objectName().isEmpty())
             fileClass->setObjectName(QString::fromUtf8("fileClass"));
         fileClass->resize(640, 480);
-        plainTextEdit = new QPlainTextEdit(fileClass);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(190, 140, 371, 341));
+        planArea = new QPlainTextEdit(fileClass);
+        planArea->setObjectName(QString::fromUtf8("planArea"));
+        planArea->setGeometry(QRect(190, 140, 371, 341));
         groupBox = new QGroupBox(fileClass);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(30, 30, 291, 61));
@@ -73,6 +77,18 @@ public:
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
         verticalScrollBar->setGeometry(QRect(550, 140, 16, 341));
         verticalScrollBar->setOrientation(Qt::Vertical);
+        replaceButton = new QPushButton(fileClass);
+        replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
+        replaceButton->setGeometry(QRect(30, 410, 111, 25));
+        label_2 = new QLabel(fileClass);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(10, 340, 161, 17));
+        label_3 = new QLabel(fileClass);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(30, 360, 121, 20));
+        label_4 = new QLabel(fileClass);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(30, 380, 111, 20));
 
         retranslateUi(fileClass);
 
@@ -90,6 +106,10 @@ public:
         newFile->setText(QApplication::translate("fileClass", "Open new File", 0, QApplication::UnicodeUTF8));
         close->setText(QApplication::translate("fileClass", "Close", 0, QApplication::UnicodeUTF8));
         writeButton->setText(QApplication::translate("fileClass", "Save", 0, QApplication::UnicodeUTF8));
+        replaceButton->setText(QApplication::translate("fileClass", "Replace", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("fileClass", "Use the plan showed in ", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("fileClass", " the the text area", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("fileClass", " for this session:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

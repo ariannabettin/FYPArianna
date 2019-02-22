@@ -2,7 +2,10 @@
 #include "ui_removeaction.h"
 #include "newaction.h"
 #include "gloabal.h"
+#include "comparison.h"
 #include <QListWidgetItem>
+#include <QMessageBox>
+#include "gloabal.h"
 
 RemoveAction::RemoveAction(QWidget *parent) :
     QDialog(parent),
@@ -49,13 +52,11 @@ void RemoveAction::on_modifyButton_clicked()
 
 void RemoveAction::on_removePlanButton_clicked()
 {
-   /* QStringList line = Plan.split(QRegExp("[\r\n\t]+"),QString::SkipEmptyParts);
-     for(int i = 0; i<line.size(); i++ ){
-            QListWidgetItem * checkB = new QListWidgetItem(line[i+1]);
-            checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-            checkB->setCheckState(Qt::Unchecked);
-
-     }*/
+    Plan2 = ui->planArea->toPlainText();
+    compareButtonName = "Remove";
+    compare = new Comparison(this);
+    compare->show();
+    this->hide();
 }
 
 void RemoveAction::on_valButton_clicked()
@@ -71,5 +72,18 @@ void RemoveAction::on_removeFileButton_clicked()
 }
 
 
+void RemoveAction::on_removeButton_clicked()
+{
+    ui->planArea->setText(Plan);
+}
 
+void RemoveAction::on_restoreButton_clicked()
+{
+    ui->planArea->setText(Plan);
+}
 
+void RemoveAction::on_planArea_selectionChanged()
+{
+    QTextCursor cur = ui->planArea->textCursor();
+    cur.removeSelectedText();
+}

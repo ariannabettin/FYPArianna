@@ -1,6 +1,7 @@
 #ifndef REMOVEACTION_H
 #define REMOVEACTION_H
 #include "fileclass.h"
+#include "comparison.h"
 #include <QDialog>
 
 namespace Ui {
@@ -30,11 +31,16 @@ private slots:
 
     void on_modifyButton_clicked();
 
+    void on_removeButton_clicked();
 
+    void on_restoreButton_clicked();
+
+    void on_planArea_selectionChanged();
 
 private:
     Ui::RemoveAction *ui;
     fileClass* file;
+    Comparison *compare;
 
 };
 

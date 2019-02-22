@@ -14,10 +14,10 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
+#include <QtGui/QFrame>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
-#include <QtGui/QScrollBar>
 #include <QtGui/QTextEdit>
 
 QT_BEGIN_NAMESPACE
@@ -30,12 +30,19 @@ public:
     QPushButton *visualiseButton;
     QPushButton *modifyButton;
     QPushButton *removeButton;
-    QPushButton *removePlanButton;
-    QPushButton *removeFileButton;
     QTextEdit *planArea;
     QLabel *title_label;
     QPushButton *valButton;
-    QScrollBar *verticalScrollBar;
+    QLabel *label_4;
+    QFrame *frame;
+    QLabel *label;
+    QLabel *label_2;
+    QPushButton *removePlanButton;
+    QPushButton *restoreButton;
+    QFrame *frame_2;
+    QLabel *label_3;
+    QLabel *label_5;
+    QPushButton *removeFileButton;
 
     void setupUi(QDialog *RemoveAction)
     {
@@ -57,25 +64,49 @@ public:
         removeButton = new QPushButton(RemoveAction);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
         removeButton->setGeometry(QRect(280, 0, 71, 41));
-        removePlanButton = new QPushButton(RemoveAction);
-        removePlanButton->setObjectName(QString::fromUtf8("removePlanButton"));
-        removePlanButton->setGeometry(QRect(0, 40, 131, 31));
-        removeFileButton = new QPushButton(RemoveAction);
-        removeFileButton->setObjectName(QString::fromUtf8("removeFileButton"));
-        removeFileButton->setGeometry(QRect(0, 70, 131, 31));
         planArea = new QTextEdit(RemoveAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(130, 120, 381, 361));
+        planArea->setGeometry(QRect(130, 150, 381, 331));
         title_label = new QLabel(RemoveAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(130, 100, 371, 17));
+        title_label->setGeometry(QRect(130, 130, 371, 17));
         valButton = new QPushButton(RemoveAction);
         valButton->setObjectName(QString::fromUtf8("valButton"));
         valButton->setGeometry(QRect(560, 430, 51, 31));
-        verticalScrollBar = new QScrollBar(RemoveAction);
-        verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(500, 120, 16, 361));
-        verticalScrollBar->setOrientation(Qt::Vertical);
+        label_4 = new QLabel(RemoveAction);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(340, 70, 67, 17));
+        frame = new QFrame(RemoveAction);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(10, 50, 311, 80));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        label = new QLabel(frame);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 0, 311, 21));
+        label_2 = new QLabel(frame);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(0, 20, 311, 17));
+        removePlanButton = new QPushButton(frame);
+        removePlanButton->setObjectName(QString::fromUtf8("removePlanButton"));
+        removePlanButton->setGeometry(QRect(10, 40, 131, 31));
+        restoreButton = new QPushButton(frame);
+        restoreButton->setObjectName(QString::fromUtf8("restoreButton"));
+        restoreButton->setGeometry(QRect(170, 40, 131, 31));
+        frame_2 = new QFrame(RemoveAction);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setGeometry(QRect(330, 50, 301, 80));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        label_3 = new QLabel(frame_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(0, 0, 291, 21));
+        label_5 = new QLabel(frame_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(0, 20, 291, 17));
+        removeFileButton = new QPushButton(frame_2);
+        removeFileButton->setObjectName(QString::fromUtf8("removeFileButton"));
+        removeFileButton->setGeometry(QRect(160, 40, 131, 31));
 
         retranslateUi(RemoveAction);
 
@@ -90,10 +121,16 @@ public:
         visualiseButton->setText(QApplication::translate("RemoveAction", "Visualise", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("RemoveAction", "Modify", 0, QApplication::UnicodeUTF8));
         removeButton->setText(QApplication::translate("RemoveAction", "Remove", 0, QApplication::UnicodeUTF8));
-        removePlanButton->setText(QApplication::translate("RemoveAction", "Remove from plan", 0, QApplication::UnicodeUTF8));
-        removeFileButton->setText(QApplication::translate("RemoveAction", "Remove from file", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("RemoveAction", "TextLabel", 0, QApplication::UnicodeUTF8));
         valButton->setText(QApplication::translate("RemoveAction", "VAL", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QString());
+        label->setText(QApplication::translate("RemoveAction", " Delete ancion from the text area and use the", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("RemoveAction", " button below to see th: modified plan:", 0, QApplication::UnicodeUTF8));
+        removePlanButton->setText(QApplication::translate("RemoveAction", "Remove from plan", 0, QApplication::UnicodeUTF8));
+        restoreButton->setText(QApplication::translate("RemoveAction", "Restore Plan", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("RemoveAction", " Remove an action directly from the domain", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("RemoveAction", " file:", 0, QApplication::UnicodeUTF8));
+        removeFileButton->setText(QApplication::translate("RemoveAction", "Remove from file", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

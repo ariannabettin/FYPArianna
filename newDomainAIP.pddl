@@ -1,4 +1,3 @@
-HELLO
 (define (domain Delivery)
 (:requirements :strips :typing :time :numeric-fluents :durative-actions :conditional-effects :equality )
 (:types
@@ -6,7 +5,7 @@ HELLO
     vehicle item dronebase - locatable
     drone truck - vehicle
 )
-
+d
 (:predicates
     (at ?item - locatable ?loc - place)
     (in ?item - locatable ?v - vehicle)

@@ -14,7 +14,9 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
+#include <QtGui/QFrame>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -22,25 +24,23 @@ QT_BEGIN_NAMESPACE
 class Ui_Access
 {
 public:
-    QPushButton *domainButton;
-    QPushButton *problemButton;
     QPushButton *modifyButton;
     QPushButton *accessButton;
     QPushButton *homeButton;
     QPushButton *selecyButton;
     QPushButton *visualiseButton;
+    QFrame *frame;
+    QLabel *label;
+    QLabel *label_2;
+    QPushButton *domainButton;
+    QPushButton *problemButton;
+    QFrame *line;
 
     void setupUi(QDialog *Access)
     {
         if (Access->objectName().isEmpty())
             Access->setObjectName(QString::fromUtf8("Access"));
         Access->resize(640, 480);
-        domainButton = new QPushButton(Access);
-        domainButton->setObjectName(QString::fromUtf8("domainButton"));
-        domainButton->setGeometry(QRect(0, 40, 121, 31));
-        problemButton = new QPushButton(Access);
-        problemButton->setObjectName(QString::fromUtf8("problemButton"));
-        problemButton->setGeometry(QRect(0, 70, 121, 31));
         modifyButton = new QPushButton(Access);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
@@ -56,6 +56,28 @@ public:
         visualiseButton = new QPushButton(Access);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
+        frame = new QFrame(Access);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(40, 90, 561, 121));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        label = new QLabel(frame);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 10, 271, 17));
+        label_2 = new QLabel(frame);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(290, 10, 261, 17));
+        domainButton = new QPushButton(frame);
+        domainButton->setObjectName(QString::fromUtf8("domainButton"));
+        domainButton->setGeometry(QRect(70, 60, 121, 31));
+        problemButton = new QPushButton(frame);
+        problemButton->setObjectName(QString::fromUtf8("problemButton"));
+        problemButton->setGeometry(QRect(370, 60, 121, 31));
+        line = new QFrame(frame);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(270, 0, 20, 121));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
 
         retranslateUi(Access);
 
@@ -65,13 +87,15 @@ public:
     void retranslateUi(QDialog *Access)
     {
         Access->setWindowTitle(QApplication::translate("Access", "Dialog", 0, QApplication::UnicodeUTF8));
-        domainButton->setText(QApplication::translate("Access", "Domain File", 0, QApplication::UnicodeUTF8));
-        problemButton->setText(QApplication::translate("Access", "Problem File", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("Access", "Modify", 0, QApplication::UnicodeUTF8));
         accessButton->setText(QApplication::translate("Access", " Access File", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Access", "Home", 0, QApplication::UnicodeUTF8));
         selecyButton->setText(QApplication::translate("Access", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("Access", "Visualise", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Access", " Access Domain File using this button:", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("Access", "Access Problem File using this button:", 0, QApplication::UnicodeUTF8));
+        domainButton->setText(QApplication::translate("Access", "Domain File", 0, QApplication::UnicodeUTF8));
+        problemButton->setText(QApplication::translate("Access", "Problem File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

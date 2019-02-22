@@ -183,24 +183,31 @@ void UserQuestions::on_addButton_2_clicked() // to check
 
     if (numChecked == 1){
             if(buttonValue == "Add"){
+                compareButtonName = "Add";
                 Plan2 =Plan + action[numChecked-1];  // add
+                compare = new Comparison(this);
+                compare->show();
+                this->hide();
             }else if(buttonValue == "Remove"){
+                compareButtonName = "Remove";
                 QStringList line = Plan.split(QRegExp(" "),QString::SkipEmptyParts);                     //splits the text
                 for(int i = 0; i<line.size(); i++ ){
                     if (!line[i].contains(action[0])){
                         Plan2 = Plan2 + " " + line[i];
                     }
                 }
+                compare = new Comparison(this);
+                compare->show();
+                this->hide();
             } else if(buttonValue == "Reschedule"){
                 reschedule = new RescheduleAction(this);
                 reschedule->show();
                 this->hide();
            }
-            compare = new Comparison(this);
-            compare->show();
-            this->hide();
+
     }else if(numChecked == 2){
             if (buttonValue == "Replace"){
+                 compareButtonName = "Replace";
                 QString A = action[0];
                 QString B = action[1];
                 QStringList line = Plan.split(QRegExp(" "),QString::SkipEmptyParts); //[\r\n\t ]+
@@ -228,14 +235,15 @@ void UserQuestions::on_addButton_2_clicked() // to check
                          }
                     }
                }
+                compare = new Comparison(this);
+                compare->show();
+                this->hide();
             }else if(ui->question_label0->text() == "SEQUENCE"){
                 reschedule = new RescheduleAction(this);
                 reschedule->show();
                 this->hide();
             }
-            compare = new Comparison(this);
-            compare->show();
-            this->hide();
+
      }else if(numChecked == 0){
             QMessageBox::warning(this,"Error:", "Please select an action from the list");
     }else{

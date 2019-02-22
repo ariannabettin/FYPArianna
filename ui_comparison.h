@@ -28,7 +28,7 @@ public:
     QPushButton *homeButton;
     QPushButton *selectButton;
     QPushButton *visualiseButton;
-    QPushButton *addButton;
+    QPushButton *Button;
     QPushButton *compareButton;
     QTextEdit *planArea;
     QTextEdit *planArea_2;
@@ -55,9 +55,9 @@ public:
         visualiseButton = new QPushButton(Comparison);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
-        addButton = new QPushButton(Comparison);
-        addButton->setObjectName(QString::fromUtf8("addButton"));
-        addButton->setGeometry(QRect(280, 0, 71, 41));
+        Button = new QPushButton(Comparison);
+        Button->setObjectName(QString::fromUtf8("Button"));
+        Button->setGeometry(QRect(280, 0, 71, 41));
         compareButton = new QPushButton(Comparison);
         compareButton->setObjectName(QString::fromUtf8("compareButton"));
         compareButton->setGeometry(QRect(350, 0, 89, 41));
@@ -84,8 +84,8 @@ public:
         instruction->setGeometry(QRect(20, 70, 531, 17));
 
         retranslateUi(Comparison);
-        QObject::connect(addButton, SIGNAL(clicked()), planArea, SLOT(clear()));
-        QObject::connect(addButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
+        QObject::connect(Button, SIGNAL(clicked()), planArea, SLOT(clear()));
+        QObject::connect(Button, SIGNAL(clicked()), planArea_2, SLOT(clear()));
         QObject::connect(saveButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Comparison);
@@ -98,7 +98,7 @@ public:
         homeButton->setText(QApplication::translate("Comparison", "Home", 0, QApplication::UnicodeUTF8));
         selectButton->setText(QApplication::translate("Comparison", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("Comparison", "Visualise", 0, QApplication::UnicodeUTF8));
-        addButton->setText(QApplication::translate("Comparison", "Add", 0, QApplication::UnicodeUTF8));
+        Button->setText(QApplication::translate("Comparison", "Add", 0, QApplication::UnicodeUTF8));
         compareButton->setText(QApplication::translate("Comparison", "Compare", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
         title_label2->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
