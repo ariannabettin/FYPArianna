@@ -63,22 +63,30 @@ void UserQuestions::on_doneButton_clicked()
     bool firstActionInvalid  = false;
     if(text.contains("action")){
         isDomain++;
+
         if(isDomain == 1){
-            QStringList line = t.split(QRegExp(" "),QString::SkipEmptyParts);
+          //  QStringList line = t.split(QRegExp(delimiters),QString::SkipEmptyParts);
+            QStringList line = t.split("\n");
             for(int i = 0; i<line.size(); i++ ){
-              if(line[i].contains("action")){
-                linesValue[act] = line[i+1];
-                act = act + 1;
-                if(firstActionInvalid){
-                    QListWidgetItem * checkB = new QListWidgetItem(line[i+1]);
-                    checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-                    checkB->setCheckState(Qt::Unchecked);
-                    ui->list->addItem(checkB);
-                    ui->list->setFont(f);
+                if(line[i].contains("action")){
+                    QStringList word = line[i].split(" ");
+                    for(int j = 0; j<word.size(); j++ ){
+                        if(word[j].contains("action")){
+                            linesValue[act] = word[j+1];
+                            act = act + 1;
+                            if(firstActionInvalid){
+                                QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
+                                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                                checkB->setCheckState(Qt::Unchecked);
+                                ui->list->addItem(checkB);
+                                ui->list->setFont(f);
+                            }
+                            firstActionInvalid = true;
+                        }
+                    }
                 }
-                firstActionInvalid = true;
-              }
             }
+
         }else{
             QMessageBox::information(this, "Error: ", "Are you sure that the file you uploaded is a domain file?");
         }
@@ -87,6 +95,7 @@ void UserQuestions::on_doneButton_clicked()
 
        file.close();
 }
+
 }
 
 void UserQuestions::on_completeButton_clicked()

@@ -16,9 +16,11 @@
 #include <QtGui/QDialog>
 #include <QtGui/QFrame>
 #include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QListWidget>
 #include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,8 +30,12 @@ public:
     QPushButton *homeButton;
     QPushButton *selectButton;
     QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_2;
     QListWidget *list;
     QFrame *frame;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
     QPushButton *showAllButton;
     QPushButton *showLastButton;
     QPushButton *deleteButton;
@@ -49,30 +55,58 @@ public:
         selectButton->setGeometry(QRect(70, 0, 71, 41));
         groupBox = new QGroupBox(Selection);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 60, 571, 251));
+        groupBox->setGeometry(QRect(20, 60, 571, 261));
+        verticalLayout_2 = new QVBoxLayout(groupBox);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         list = new QListWidget(groupBox);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(20, 40, 256, 192));
+
+        horizontalLayout_2->addWidget(list);
+
         frame = new QFrame(groupBox);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(290, 40, 261, 191));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout = new QHBoxLayout(frame);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         showAllButton = new QPushButton(frame);
         showAllButton->setObjectName(QString::fromUtf8("showAllButton"));
-        showAllButton->setGeometry(QRect(10, 10, 89, 25));
+
+        verticalLayout->addWidget(showAllButton);
+
         showLastButton = new QPushButton(frame);
         showLastButton->setObjectName(QString::fromUtf8("showLastButton"));
-        showLastButton->setGeometry(QRect(10, 50, 89, 25));
+
+        verticalLayout->addWidget(showLastButton);
+
         deleteButton = new QPushButton(frame);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
-        deleteButton->setGeometry(QRect(10, 130, 89, 25));
+
+        verticalLayout->addWidget(deleteButton);
+
         clearButton = new QPushButton(frame);
         clearButton->setObjectName(QString::fromUtf8("clearButton"));
-        clearButton->setGeometry(QRect(10, 90, 89, 25));
+
+        verticalLayout->addWidget(clearButton);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
         visualiseButton = new QPushButton(frame);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
-        visualiseButton->setGeometry(QRect(160, 160, 89, 25));
+
+        horizontalLayout->addWidget(visualiseButton);
+
+
+        horizontalLayout_2->addWidget(frame);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
 
         retranslateUi(Selection);
         QObject::connect(clearButton, SIGNAL(clicked()), list, SLOT(clear()));
@@ -85,7 +119,7 @@ public:
         Selection->setWindowTitle(QApplication::translate("Selection", "Dialog", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Selection", "Home", 0, QApplication::UnicodeUTF8));
         selectButton->setText(QApplication::translate("Selection", "Select", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Selection", "Use buttons below to see the plans that you saved:", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("Selection", " Use buttons below to see the plans that you saved:", 0, QApplication::UnicodeUTF8));
         showAllButton->setText(QApplication::translate("Selection", "Show all", 0, QApplication::UnicodeUTF8));
         showLastButton->setText(QApplication::translate("Selection", "Show last", 0, QApplication::UnicodeUTF8));
         deleteButton->setText(QApplication::translate("Selection", "Delete", 0, QApplication::UnicodeUTF8));
