@@ -41,6 +41,17 @@ void Home::on_ProblemLoadButton_clicked()
     }
 }
 
+void Home::on_PathLoadButton_clicked()
+{
+    plan_path = QFileDialog::getOpenFileName(this,"Problem File", "C://");
+
+    if(plan_path.isEmpty()){
+         ui->PathLine->setText("");
+    }else{
+        ui->PathLine->setText(problem_path);
+    }
+}
+
 void Home::on_doneButton_clicked()
 {
    // I will probably delete this button
@@ -75,7 +86,7 @@ void Home::on_saveButton_clicked()
         QMessageBox::warning(this,"Give your plan a title:","Ops! Too many plans loaded, please try to delete one before than adding a new one.");
     }
 
-    QFile file("/home/rosplan/Documents/Projects/FYP2019/Plan.txt");
+    QFile file(plan_path);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::information(this, "Error: ", "Not file found");
     }
@@ -89,3 +100,5 @@ void Home::on_selectButton_clicked()
     select->show();
     this->hide();
 }
+
+

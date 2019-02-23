@@ -17,6 +17,7 @@ public:
     ~Home();
     QString domain_path;
     QString problem_path;
+    QString plan_path;
     QString newPlan[3];
 
 
@@ -30,6 +31,8 @@ private slots:
     void on_saveButton_clicked();
 
     void on_selectButton_clicked();
+
+    void on_PathLoadButton_clicked();
 
 private:
     Ui::Home *ui;

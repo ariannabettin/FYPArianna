@@ -73,35 +73,46 @@ void AddAction::on_existinButton_clicked()
         QMessageBox::information(this, "Error: ", "Not file found");
     }
     QTextStream in(&file);
-    text = in.readAll();
-    int actions = 0;                                                                                 // variable which states the number of actions in the plan
-    bool isDomain = false;                                                                           // variable which states if the file is a PDDL Domain
-    bool firstActionInvalid  = false;                                                                // varianble used to skip the action declaration in the PDDL file
+    QString text = in.readAll();
+    ui->planArea->setPlainText(text);
+    QString t = ui->planArea->toPlainText();
+    int act = 0;
+    int isDomain = 0;
+    bool firstActionInvalid  = false;
     if(text.contains("action")){
-        isDomain = true;
-        if(isDomain == 1){
-            QStringList line = text.split(QRegExp(" "),QString::SkipEmptyParts);                     //splits the text
-            for(int i = 0; i<line.size(); i++ ){
-              if(line[i].contains("action")){                                                        // if the line contains the word "action" get the word right after it
-                linesValue[actions] = line[i+1];
-                actions = actions + 1;
-                if(firstActionInvalid){
-                    QListWidgetItem * checkB = new QListWidgetItem(line[i+1]);                       // create a list of check boxes with names of actions
-                    checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-                    checkB->setCheckState(Qt::Unchecked);
-                    ui->list->addItem(checkB);
-                    ui->list->setFont(f);
-                }
-                firstActionInvalid = true;
-               }
-             }
-          }
-    }
+        isDomain++;
 
-        if(!isDomain){
-            QMessageBox::information(this,"Error","The file loaded is not a domain");                //if no file o no "action" found, warn the user
+        if(isDomain == 1){
+          //  QStringList line = t.split(QRegExp(delimiters),QString::SkipEmptyParts);
+            QStringList line = t.split("\n");
+            for(int i = 0; i<line.size(); i++ ){
+                if(line[i].contains("action")){
+                    QStringList word = line[i].split(" ");
+                    for(int j = 0; j<word.size(); j++ ){
+                        if(word[j].contains("action")){
+                            linesValue[act] = word[j+1];
+                            act = act + 1;
+                            if(firstActionInvalid){
+                                QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
+                                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                                checkB->setCheckState(Qt::Unchecked);
+                                ui->list->addItem(checkB);
+                                ui->list->setFont(f);
+                            }
+                            firstActionInvalid = true;
+                        }
+                    }
+                }
+            }
+
+        }else{
+            QMessageBox::information(this, "Error: ", "Are you sure that the file you uploaded is a domain file?");
         }
-      numItems = actions;
+
+       numItems = act;
+
+       file.close();
+}
 
 }
 
