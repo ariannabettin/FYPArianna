@@ -15,6 +15,11 @@ ReplaceAction::ReplaceAction(QWidget *parent) :
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
+
+    QPixmap pixmap1("doneIcon.png");
+    QIcon ButtonIcon1(pixmap1);
+    ui->replaceActionsButton->setIcon(ButtonIcon1);
+    ui->replaceActionsButton->setIconSize(QSize(35, 45));
 }
 
 ReplaceAction::~ReplaceAction()

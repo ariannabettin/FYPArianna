@@ -29,6 +29,8 @@ private slots:
 
     void on_homeButton_clicked();
 
+    void on_saveButton_clicked();
+
 private:
     Ui::Selection *ui;
     Visualisation *visualise;

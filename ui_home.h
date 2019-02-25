@@ -21,6 +21,7 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
+#include <QtGui/QSpacerItem>
 #include <QtGui/QStatusBar>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -50,27 +51,31 @@ public:
     QPushButton *ProblemLoadButton;
     QPushButton *PathLoadButton;
     QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer;
     QPushButton *cancelButton;
-    QPushButton *doneButton;
     QHBoxLayout *horizontalLayout_6;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_3;
-    QLineEdit *NamePlanLine;
-    QPushButton *saveButton;
     QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_3;
+    QLineEdit *NamePlanLine;
+    QPushButton *saveButton;
+    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout_8;
+    QLabel *savedPlanlabel;
     QPushButton *loadNewButton;
-    QPushButton *selectButton;
+    QPushButton *doneButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *Home)
     {
         if (Home->objectName().isEmpty())
             Home->setObjectName(QString::fromUtf8("Home"));
-        Home->resize(653, 443);
+        Home->resize(653, 514);
         centralWidget = new QWidget(Home);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         homeButton = new QPushButton(centralWidget);
@@ -159,15 +164,20 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        horizontalSpacer = new QSpacerItem(438, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer);
+
         cancelButton = new QPushButton(groupBox);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
 
-        horizontalLayout_3->addWidget(cancelButton);
+        horizontalLayout_7->addWidget(cancelButton);
 
-        doneButton = new QPushButton(groupBox);
-        doneButton->setObjectName(QString::fromUtf8("doneButton"));
 
-        horizontalLayout_3->addWidget(doneButton);
+        horizontalLayout_3->addLayout(horizontalLayout_7);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
@@ -190,6 +200,15 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
@@ -204,32 +223,23 @@ public:
         verticalLayout_3->addWidget(saveButton);
 
 
-        horizontalLayout->addLayout(verticalLayout_3);
+        horizontalLayout_4->addLayout(verticalLayout_3);
 
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        horizontalSpacer_2 = new QSpacerItem(208, 28, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_2);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+
+        horizontalLayout_4->addLayout(verticalLayout_8);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_4);
+
 
         verticalLayout_7->addLayout(verticalLayout_6);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        loadNewButton = new QPushButton(groupBox_2);
-        loadNewButton->setObjectName(QString::fromUtf8("loadNewButton"));
-
-        horizontalLayout_4->addWidget(loadNewButton);
-
-        selectButton = new QPushButton(groupBox_2);
-        selectButton->setObjectName(QString::fromUtf8("selectButton"));
-
-        horizontalLayout_4->addWidget(selectButton);
-
-
-        verticalLayout_7->addLayout(horizontalLayout_4);
 
 
         horizontalLayout->addLayout(verticalLayout_7);
@@ -243,6 +253,15 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_6);
 
+        savedPlanlabel = new QLabel(centralWidget);
+        savedPlanlabel->setObjectName(QString::fromUtf8("savedPlanlabel"));
+        savedPlanlabel->setGeometry(QRect(20, 420, 601, 21));
+        loadNewButton = new QPushButton(centralWidget);
+        loadNewButton->setObjectName(QString::fromUtf8("loadNewButton"));
+        loadNewButton->setGeometry(QRect(460, 450, 107, 25));
+        doneButton = new QPushButton(centralWidget);
+        doneButton->setObjectName(QString::fromUtf8("doneButton"));
+        doneButton->setGeometry(QRect(582, 444, 51, 41));
         Home->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(Home);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -254,6 +273,8 @@ public:
         QObject::connect(loadNewButton, SIGNAL(clicked()), domainPathLine, SLOT(clear()));
         QObject::connect(cancelButton, SIGNAL(clicked()), problemPathLine, SLOT(clear()));
         QObject::connect(cancelButton, SIGNAL(clicked()), domainPathLine, SLOT(clear()));
+        QObject::connect(cancelButton, SIGNAL(clicked()), PathLine, SLOT(clear()));
+        QObject::connect(loadNewButton, SIGNAL(clicked()), PathLine, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Home);
     } // setupUi
@@ -262,19 +283,19 @@ public:
     {
         Home->setWindowTitle(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Home", " Load the domain file and the problem file:", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("Home", " Load the domain file, problem file and the plan:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("Home", "Domain:", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("Home", "Problem:", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("Home", "Label:", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("Home", "Plan:", 0, QApplication::UnicodeUTF8));
         DomainLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
         ProblemLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
         PathLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
         cancelButton->setText(QApplication::translate("Home", "Cancel", 0, QApplication::UnicodeUTF8));
-        doneButton->setText(QApplication::translate("Home", "Done", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("Home", " Give your plan a name:", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("Home", "Save", 0, QApplication::UnicodeUTF8));
+        savedPlanlabel->setText(QApplication::translate("Home", "TextLabel", 0, QApplication::UnicodeUTF8));
         loadNewButton->setText(QApplication::translate("Home", "Load new Plan", 0, QApplication::UnicodeUTF8));
-        selectButton->setText(QApplication::translate("Home", "Select", 0, QApplication::UnicodeUTF8));
+        doneButton->setText(QString());
     } // retranslateUi
 
 };

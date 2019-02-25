@@ -11,6 +11,22 @@ Selection::Selection(QWidget *parent) :
     ui(new Ui::Selection)
 {
     ui->setupUi(this);
+    ui->renamedPlanLabel->setText(" ");
+
+    QPixmap pixmap1("binIcon.jpeg");
+    QIcon ButtonIcon1(pixmap1);
+    ui->deleteButton->setIcon(ButtonIcon1);
+    ui->deleteButton->setIconSize(QSize(25, 25));
+
+    QPixmap pixmap2("clearIcon.jpeg");
+    QIcon ButtonIcon2(pixmap2);
+    ui->clearButton->setIcon(ButtonIcon2);
+    ui->clearButton->setIconSize(QSize(25, 25));
+
+    QPixmap pixmap3("doneIcon.png");
+    QIcon ButtonIcon3(pixmap3);
+    ui->visualiseButton->setIcon(ButtonIcon3);
+    ui->visualiseButton->setIconSize(QSize(35, 45));
 }
 
 Selection::~Selection()
@@ -44,6 +60,8 @@ void Selection::on_showAllButton_clicked()
             }
         }
     }
+    counter = 0;
+
 }
 
 
@@ -150,4 +168,49 @@ void Selection::on_homeButton_clicked()
     parent->show();
      this->hide();
 
+}
+
+void Selection::on_saveButton_clicked()
+{
+    int d = 0;
+    for(int i = 0; i<numItems; i++){
+        bool isChecked = ui->list->item(i)->checkState();
+        if(isChecked == true){
+            for(int z = 0; z<k; z++){
+                QMessageBox::information(this,"a",plans[z]+" "+ ui->list->item(i)->text());
+                if (plans[z] == ui->list->item(i)->text()){
+                    IDs[d] = z;
+                    d = d +1;
+                 }
+            }
+        }
+    }
+    id = IDs[d];
+    if(d == 0){
+        QMessageBox::warning(this,"Rename plan error:", "You need to choose a plan from the list.");
+    }else if (d>1){
+        QMessageBox::warning(this,"Rename plan error:", "You need to select only one plan from the list.");
+    }else{
+        QString plan_name = ui->NamePlanLine->text();
+        int counter = 0;                                       // used to check if the name given to the plan is unique
+        if( ui->NamePlanLine->text().isEmpty()) {
+            QMessageBox::warning(this,"Give your plan a title:","Ops! You need to give a title to the plan. ");
+        } else {
+            for (int i = 0; i<k; i++){
+                if(plan_name == plans[i]){
+                   QMessageBox::warning(this,"Give your plan a title:","Ops! You have already used this name for a plan ");
+                   counter = counter + 1;                       //if it is not, the counter increases
+                }
+            }
+            if(counter == 0){                                   // if the counter is == 0, the name is saved
+                QString oldName = plans[id];
+                plans[id] = plan_name;
+                ui->list->clear();
+                QListWidgetItem *checkB = new QListWidgetItem(plans[id]);                  // Shows only the last plan added, the one with index k-1
+                checkB->setCheckState(Qt::Checked);
+                ui->list->addItem(checkB);
+                ui->renamedPlanLabel->setText("You have renamed '" + oldName + "' with '" + plan_name + "'");
+            }
+        }
+    }
 }

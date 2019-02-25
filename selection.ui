@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>480</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,10 +42,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>60</y>
-     <width>571</width>
-     <height>261</height>
+     <width>581</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="title">
@@ -55,9 +55,6 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QListWidget" name="list"/>
-      </item>
-      <item>
        <widget class="QFrame" name="frame">
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -66,6 +63,9 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QListWidget" name="list"/>
+         </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
@@ -85,30 +85,90 @@
            <item>
             <widget class="QPushButton" name="deleteButton">
              <property name="text">
-              <string>Delete</string>
+              <string/>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QPushButton" name="clearButton">
              <property name="text">
-              <string>Clear</string>
+              <string/>
              </property>
             </widget>
            </item>
           </layout>
          </item>
-         <item>
-          <widget class="QPushButton" name="visualiseButton">
-           <property name="text">
-            <string>Visualise</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
      </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="visualiseButton">
+   <property name="geometry">
+    <rect>
+     <x>559</x>
+     <y>534</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="renamedPlanLabel">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>520</y>
+     <width>541</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>370</y>
+     <width>331</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string> Rename the selected plan:</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="NamePlanLine"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="saveButton">
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -122,8 +182,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>198</y>
+     <x>586</x>
+     <y>313</y>
     </hint>
     <hint type="destinationlabel">
      <x>224</x>

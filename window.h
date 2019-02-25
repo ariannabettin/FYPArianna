@@ -15,6 +15,7 @@ public:
     explicit Window(QWidget *parent = 0);
     ~Window();
 
+
 private slots:
     void on_doneButton_clicked();
 

@@ -32,17 +32,16 @@ public:
     QPushButton *removeButton;
     QTextEdit *planArea;
     QLabel *title_label;
-    QPushButton *valButton;
     QLabel *label_4;
     QFrame *frame;
     QLabel *label;
     QLabel *label_2;
     QPushButton *removePlanButton;
-    QPushButton *restoreButton;
     QFrame *frame_2;
     QLabel *label_3;
     QLabel *label_5;
     QPushButton *removeFileButton;
+    QPushButton *restoreButton;
 
     void setupUi(QDialog *RemoveAction)
     {
@@ -66,13 +65,10 @@ public:
         removeButton->setGeometry(QRect(280, 0, 71, 41));
         planArea = new QTextEdit(RemoveAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(130, 150, 381, 331));
+        planArea->setGeometry(QRect(80, 170, 381, 311));
         title_label = new QLabel(RemoveAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(130, 130, 371, 17));
-        valButton = new QPushButton(RemoveAction);
-        valButton->setObjectName(QString::fromUtf8("valButton"));
-        valButton->setGeometry(QRect(560, 430, 51, 31));
+        title_label->setGeometry(QRect(80, 150, 371, 17));
         label_4 = new QLabel(RemoveAction);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(340, 70, 67, 17));
@@ -90,9 +86,6 @@ public:
         removePlanButton = new QPushButton(frame);
         removePlanButton->setObjectName(QString::fromUtf8("removePlanButton"));
         removePlanButton->setGeometry(QRect(10, 40, 131, 31));
-        restoreButton = new QPushButton(frame);
-        restoreButton->setObjectName(QString::fromUtf8("restoreButton"));
-        restoreButton->setGeometry(QRect(170, 40, 131, 31));
         frame_2 = new QFrame(RemoveAction);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
         frame_2->setGeometry(QRect(330, 50, 301, 80));
@@ -107,6 +100,9 @@ public:
         removeFileButton = new QPushButton(frame_2);
         removeFileButton->setObjectName(QString::fromUtf8("removeFileButton"));
         removeFileButton->setGeometry(QRect(160, 40, 131, 31));
+        restoreButton = new QPushButton(RemoveAction);
+        restoreButton->setObjectName(QString::fromUtf8("restoreButton"));
+        restoreButton->setGeometry(QRect(490, 440, 131, 31));
 
         retranslateUi(RemoveAction);
 
@@ -122,15 +118,14 @@ public:
         modifyButton->setText(QApplication::translate("RemoveAction", "Modify", 0, QApplication::UnicodeUTF8));
         removeButton->setText(QApplication::translate("RemoveAction", "Remove", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("RemoveAction", "TextLabel", 0, QApplication::UnicodeUTF8));
-        valButton->setText(QApplication::translate("RemoveAction", "VAL", 0, QApplication::UnicodeUTF8));
         label_4->setText(QString());
-        label->setText(QApplication::translate("RemoveAction", " Delete ancion from the text area and use the", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("RemoveAction", " button below to see th: modified plan:", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("RemoveAction", " Delete actions from the text area and use the", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("RemoveAction", " button below to see the modified plan:", 0, QApplication::UnicodeUTF8));
         removePlanButton->setText(QApplication::translate("RemoveAction", "Remove from plan", 0, QApplication::UnicodeUTF8));
-        restoreButton->setText(QApplication::translate("RemoveAction", "Restore Plan", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("RemoveAction", " Remove an action directly from the domain", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("RemoveAction", " file:", 0, QApplication::UnicodeUTF8));
         removeFileButton->setText(QApplication::translate("RemoveAction", "Remove from file", 0, QApplication::UnicodeUTF8));
+        restoreButton->setText(QApplication::translate("RemoveAction", "Restore Plan", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

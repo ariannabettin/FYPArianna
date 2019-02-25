@@ -14,6 +14,22 @@ Visualisation::Visualisation(QWidget *parent) :
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
 
+    QPixmap pixmap1("QMIcon.jpg");
+    QIcon ButtonIcon1(pixmap1);
+    ui->questionButton->setIcon(ButtonIcon1);
+    ui->questionButton->setIconSize(QSize(65, 65));
+
+    QPixmap pixmap2("editIcon.png");
+    QIcon ButtonIcon2(pixmap2);
+    ui->modifyButton->setIcon(ButtonIcon2);
+    ui->modifyButton->setIconSize(QSize(65, 65));
+
+    QPixmap pixmap3("loadIcon.png");
+    QIcon ButtonIcon3(pixmap3);
+    ui->addNewButton->setIcon(ButtonIcon3);
+    ui->addNewButton->setIconSize(QSize(65, 65));
+
+
 }
 
 Visualisation::~Visualisation()

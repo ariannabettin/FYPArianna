@@ -14,11 +14,14 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
+#include <QtGui/QFrame>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
-#include <QtGui/QScrollBar>
+#include <QtGui/QSpacerItem>
 #include <QtGui/QTextEdit>
+#include <QtGui/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -29,16 +32,24 @@ public:
     QPushButton *selectButton;
     QPushButton *visualiseButton;
     QPushButton *modifyButton;
-    QPushButton *removeButton;
-    QPushButton *replaceButton;
-    QPushButton *rescheduleButton;
-    QPushButton *changeButton;
-    QPushButton *accessButton;
     QTextEdit *planArea;
     QLabel *title_label;
     QPushButton *valButton;
+    QFrame *frame;
+    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
     QPushButton *addButton;
-    QScrollBar *verticalScrollBar;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *rescheduleButton;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *changeButton;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *removeButton;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *replaceButton;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *accessButton;
 
     void setupUi(QDialog *Modification)
     {
@@ -57,37 +68,83 @@ public:
         modifyButton = new QPushButton(Modification);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
-        removeButton = new QPushButton(Modification);
-        removeButton->setObjectName(QString::fromUtf8("removeButton"));
-        removeButton->setGeometry(QRect(0, 70, 111, 31));
-        replaceButton = new QPushButton(Modification);
-        replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
-        replaceButton->setGeometry(QRect(0, 100, 111, 31));
-        rescheduleButton = new QPushButton(Modification);
-        rescheduleButton->setObjectName(QString::fromUtf8("rescheduleButton"));
-        rescheduleButton->setGeometry(QRect(0, 130, 111, 31));
-        changeButton = new QPushButton(Modification);
-        changeButton->setObjectName(QString::fromUtf8("changeButton"));
-        changeButton->setGeometry(QRect(0, 160, 111, 31));
-        accessButton = new QPushButton(Modification);
-        accessButton->setObjectName(QString::fromUtf8("accessButton"));
-        accessButton->setGeometry(QRect(0, 190, 111, 31));
         planArea = new QTextEdit(Modification);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(130, 130, 381, 351));
+        planArea->setGeometry(QRect(130, 190, 381, 291));
         title_label = new QLabel(Modification);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(140, 110, 67, 17));
+        title_label->setGeometry(QRect(130, 170, 371, 17));
         valButton = new QPushButton(Modification);
         valButton->setObjectName(QString::fromUtf8("valButton"));
         valButton->setGeometry(QRect(570, 440, 51, 31));
-        addButton = new QPushButton(Modification);
+        frame = new QFrame(Modification);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(60, 60, 511, 101));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_3 = new QHBoxLayout(frame);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        addButton = new QPushButton(frame);
         addButton->setObjectName(QString::fromUtf8("addButton"));
-        addButton->setGeometry(QRect(0, 40, 111, 31));
-        verticalScrollBar = new QScrollBar(Modification);
-        verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(500, 130, 16, 351));
-        verticalScrollBar->setOrientation(Qt::Vertical);
+
+        horizontalLayout->addWidget(addButton);
+
+        horizontalSpacer = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        rescheduleButton = new QPushButton(frame);
+        rescheduleButton->setObjectName(QString::fromUtf8("rescheduleButton"));
+
+        horizontalLayout->addWidget(rescheduleButton);
+
+        horizontalSpacer_2 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        changeButton = new QPushButton(frame);
+        changeButton->setObjectName(QString::fromUtf8("changeButton"));
+
+        horizontalLayout->addWidget(changeButton);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        removeButton = new QPushButton(frame);
+        removeButton->setObjectName(QString::fromUtf8("removeButton"));
+
+        horizontalLayout_2->addWidget(removeButton);
+
+        horizontalSpacer_3 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+        replaceButton = new QPushButton(frame);
+        replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
+
+        horizontalLayout_2->addWidget(replaceButton);
+
+        horizontalSpacer_5 = new QSpacerItem(48, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_5);
+
+        accessButton = new QPushButton(frame);
+        accessButton->setObjectName(QString::fromUtf8("accessButton"));
+
+        horizontalLayout_2->addWidget(accessButton);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+
+        horizontalLayout_3->addLayout(verticalLayout);
+
 
         retranslateUi(Modification);
 
@@ -101,14 +158,14 @@ public:
         selectButton->setText(QApplication::translate("Modification", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("Modification", "Visualise", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("Modification", "Modify", 0, QApplication::UnicodeUTF8));
-        removeButton->setText(QApplication::translate("Modification", "Remove", 0, QApplication::UnicodeUTF8));
-        replaceButton->setText(QApplication::translate("Modification", "Replace", 0, QApplication::UnicodeUTF8));
-        rescheduleButton->setText(QApplication::translate("Modification", "Reschedule", 0, QApplication::UnicodeUTF8));
-        changeButton->setText(QApplication::translate("Modification", "Change", 0, QApplication::UnicodeUTF8));
-        accessButton->setText(QApplication::translate("Modification", "Access File", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("Modification", "TextLabel", 0, QApplication::UnicodeUTF8));
         valButton->setText(QApplication::translate("Modification", "VAL", 0, QApplication::UnicodeUTF8));
         addButton->setText(QApplication::translate("Modification", "Add", 0, QApplication::UnicodeUTF8));
+        rescheduleButton->setText(QApplication::translate("Modification", "Reschedule", 0, QApplication::UnicodeUTF8));
+        changeButton->setText(QApplication::translate("Modification", "Change", 0, QApplication::UnicodeUTF8));
+        removeButton->setText(QApplication::translate("Modification", "Remove", 0, QApplication::UnicodeUTF8));
+        replaceButton->setText(QApplication::translate("Modification", "Replace", 0, QApplication::UnicodeUTF8));
+        accessButton->setText(QApplication::translate("Modification", "Access File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
