@@ -20,4 +20,7 @@ QString text;
 QString checkedValue[100];
 QString linesValue[100];
 QString compareButtonName;
-
+QString startTime;
+QString endTime;
+QString windowOpt;
+QString beforeafterOpt;

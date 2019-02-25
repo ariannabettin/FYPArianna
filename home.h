@@ -26,13 +26,13 @@ private slots:
 
     void on_ProblemLoadButton_clicked();
 
+    void on_PathLoadButton_clicked();
+
     void on_doneButton_clicked();
 
     void on_saveButton_clicked();
 
-    void on_selectButton_clicked();
 
-    void on_PathLoadButton_clicked();
 
 private:
     Ui::Home *ui;

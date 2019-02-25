@@ -11,6 +11,12 @@ Home::Home(QWidget *parent) :
     ui(new Ui::Home)
 {
     ui->setupUi(this);
+    ui->savedPlanlabel->setText(" ");
+
+    QPixmap pixmap1("doneIcon.png");
+    QIcon ButtonIcon1(pixmap1);
+    ui->doneButton->setIcon(ButtonIcon1);
+    ui->doneButton->setIconSize(QSize(35, 45));
 }
 
 Home::~Home()
@@ -44,23 +50,25 @@ void Home::on_ProblemLoadButton_clicked()
 void Home::on_PathLoadButton_clicked()
 {
     plan_path = QFileDialog::getOpenFileName(this,"Problem File", "C://");
-
     if(plan_path.isEmpty()){
-         ui->PathLine->setText("");
+         ui->problemPathLine->setText("");
     }else{
-        ui->PathLine->setText(problem_path);
+         ui->PathLine->setText(plan_path);
     }
 }
 
 void Home::on_doneButton_clicked()
 {
-   // I will probably delete this button
+    select = new Selection(this);                               // go to "selection" window
+    select->show();
+    this->hide();
 
 }
 
 void Home::on_saveButton_clicked()
 {
     QString plan_name = ui->NamePlanLine->text();
+    QString planSaved;
 
     if (k < 10){                                               // A maximum of 10 plans can be saved in one session
         int counter = 0;                                       // used to check if the name given to the plan is unique
@@ -77,7 +85,7 @@ void Home::on_saveButton_clicked()
                 plans[k] = plan_name;
                 domains[k] = domain_path;
                 problems[k] = problem_path;
-                QMessageBox::information(this,"Give your plan a title:","You have given to the plan the following title: " + plans[k]);
+                planSaved = "You have given to the plan the following title: '" + plans[k] + "'";
                 k = k +1;
             }
         }
@@ -92,13 +100,9 @@ void Home::on_saveButton_clicked()
     }
     QTextStream in(&file);
     Plan = in.readAll();
+    ui->savedPlanlabel->setText(planSaved);
 }
 
-void Home::on_selectButton_clicked()
-{
-    select = new Selection(this);                               // go to "selection" window
-    select->show();
-    this->hide();
-}
+
 
 

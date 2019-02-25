@@ -22,5 +22,9 @@ extern QString text;
 extern QString linesValue[100];
 extern QString checkedValue[100];
 extern QString compareButtonName;
+extern QString startTime;
+extern QString endTime;
+extern QString windowOpt;
+extern QString beforeafterOpt;
 
 #endif // GLOABAL_H

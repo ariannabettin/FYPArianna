@@ -17,6 +17,11 @@ AddAction::AddAction(QWidget *parent) :
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
+
+    QPixmap pixmap1("doneIcon.png");
+    QIcon ButtonIcon1(pixmap1);
+    ui->addButton_2->setIcon(ButtonIcon1);
+    ui->addButton_2->setIconSize(QSize(35, 45));
 }
 
 AddAction::~AddAction()

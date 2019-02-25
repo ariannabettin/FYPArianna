@@ -22,7 +22,7 @@ static const uint qt_meta_data_Selection[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,7 @@ static const uint qt_meta_data_Selection[] = {
       91,   10,   10,   10, 0x08,
      117,   10,   10,   10, 0x08,
      146,   10,   10,   10, 0x08,
+     170,   10,   10,   10, 0x08,
 
        0        // eod
 };
@@ -46,7 +47,7 @@ static const char qt_meta_stringdata_Selection[] = {
     "on_clearButton_clicked()\0"
     "on_deleteButton_clicked()\0"
     "on_visualiseButton_clicked()\0"
-    "on_homeButton_clicked()\0"
+    "on_homeButton_clicked()\0on_saveButton_clicked()\0"
 };
 
 void Selection::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -61,6 +62,7 @@ void Selection::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 3: _t->on_deleteButton_clicked(); break;
         case 4: _t->on_visualiseButton_clicked(); break;
         case 5: _t->on_homeButton_clicked(); break;
+        case 6: _t->on_saveButton_clicked(); break;
         default: ;
         }
     }
@@ -99,9 +101,9 @@ int Selection::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
