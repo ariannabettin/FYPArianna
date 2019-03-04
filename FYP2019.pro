@@ -43,7 +43,13 @@ SOURCES += \
     listofactions.cpp \
     userquestions.cpp \
     comparison.cpp \
-    fileclasspf.cpp
+    fileclasspf.cpp \
+    reschedulequestion.cpp \
+    validplan.cpp \
+    invalidplan.cpp \
+    domainfile.cpp \
+    reschdulewindow.cpp \
+    reschdulebeforeafter.cpp
 
 HEADERS += \
         home.h \
@@ -63,7 +69,13 @@ HEADERS += \
     listofactions.h \
     userquestions.h \
     comparison.h \
-    fileclasspf.h
+    fileclasspf.h \
+    reschedulequestion.h \
+    validplan.h \
+    invalidplan.h \
+    domainfile.h \
+    reschdulewindow.h \
+    reschdulebeforeafter.h
 
 FORMS += \
         home.ui \
@@ -82,7 +94,13 @@ FORMS += \
     listofactions.ui \
     userquestions.ui \
     comparison.ui \
-    fileclasspf.ui
+    fileclasspf.ui \
+    reschedulequestion.ui \
+    validplan.ui \
+    invalidplan.ui \
+    domainfile.ui \
+    reschdulewindow.ui \
+    reschdulebeforeafter.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

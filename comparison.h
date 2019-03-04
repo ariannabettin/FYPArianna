@@ -2,6 +2,8 @@
 #define COMPARISON_H
 
 #include <QDialog>
+#include "validplan.h"
+#include "invalidplan.h"
 
 namespace Ui {
 class Comparison;
@@ -28,8 +30,13 @@ private slots:
 
     void on_Button_clicked();
 
+    void on_valButton_clicked();
+
 private:
     Ui::Comparison *ui;
+    validPlan *valid;
+    invalidPlan *invalid;
+
 };
 
 #endif // COMPARISON_H

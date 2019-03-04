@@ -22,7 +22,7 @@ static const uint qt_meta_data_BeforeAfter[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -31,12 +31,14 @@ static const uint qt_meta_data_BeforeAfter[] = {
 
  // slots: signature, parameters, type, tag, flags
       13,   12,   12,   12, 0x08,
+      37,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_BeforeAfter[] = {
     "BeforeAfter\0\0on_doneButton_clicked()\0"
+    "on_closeButton_clicked()\0"
 };
 
 void BeforeAfter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,6 +48,7 @@ void BeforeAfter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         BeforeAfter *_t = static_cast<BeforeAfter *>(_o);
         switch (_id) {
         case 0: _t->on_doneButton_clicked(); break;
+        case 1: _t->on_closeButton_clicked(); break;
         default: ;
         }
     }
@@ -84,9 +87,9 @@ int BeforeAfter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }

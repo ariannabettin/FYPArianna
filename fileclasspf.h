@@ -16,15 +16,16 @@ public:
     ~fileclassPF();
 
 private slots:
-    void on_readButton_clicked();
-
-    void on_writeButton_clicked();
 
     void on_newFile_clicked();
 
     void on_close_clicked();
 
     void on_replaceButton_clicked();
+
+    void on_openFileButton_clicked();
+
+    void on_saveButton_clicked();
 
 private:
     Ui::fileclassPF *ui;

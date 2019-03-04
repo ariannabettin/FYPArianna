@@ -58,20 +58,18 @@ void AddAction::on_modifyButton_clicked()                                       
      this->hide();
 }
 
-void AddAction::on_valButton_clicked()
-{
-    //Validates plan thanks to an external validator
-}
 
 void AddAction::on_newActionButton_clicked()                                                        //opens the domain file and allows users to modify the domain file and add an action
 {
-    file  = new fileClass(this);
+    file  = new domainFile(this);
     file->show();
 
 }
 
 void AddAction::on_existinButton_clicked()
 {
+    // code partially taken by YouTube tutorials.
+    isClicked++;
     QFont f( "Arial",8);
     QFile file(domains[id]);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
@@ -79,8 +77,6 @@ void AddAction::on_existinButton_clicked()
     }
     QTextStream in(&file);
     QString text = in.readAll();
-    ui->planArea->setPlainText(text);
-    QString t = ui->planArea->toPlainText();
     int act = 0;
     int isDomain = 0;
     bool firstActionInvalid  = false;
@@ -88,8 +84,7 @@ void AddAction::on_existinButton_clicked()
         isDomain++;
 
         if(isDomain == 1){
-          //  QStringList line = t.split(QRegExp(delimiters),QString::SkipEmptyParts);
-            QStringList line = t.split("\n");
+            QStringList line = text.split("\n");
             for(int i = 0; i<line.size(); i++ ){
                 if(line[i].contains("action")){
                     QStringList word = line[i].split(" ");
@@ -128,64 +123,64 @@ void AddAction::on_existinButton_clicked()
 
 void AddAction::on_doneButton_clicked()                                                             // finds the checked actions and adds them to the edit lines.
 {
-    QFont f( "Arial",8);
-    int numChecked = 0;
-    QString action[100];
-     for(int i = 0; i<numItems-1; i++){
-        bool isChecked = ui->list->item(i)->checkState();
-        if(isChecked == true){
-              action[numChecked] = ui->list->item(i)->text();
-              numChecked++;
-         }
-     }
-     QString actionlist1;
-     QString actionlist2;
+    //code partially taken by StackOverFlow or by QtFroum
+    if(isClicked>0){
+            QFont f( "Arial",8);
+             for(int i = 0; i<numItems-1; i++){
+                bool isChecked = ui->list->item(i)->checkState();
+                if(isChecked == true){
+                      toAdd[numChecked] = ui->list->item(i)->text();
+                      numChecked++;
+                 }
+             }
 
-     for (int i = 0; i<4; i++){
-         if (i==0){
-           actionlist1 = action[0];
-         }else{
-           actionlist1 =  actionlist1 + "," + action[i];
-         }
+             QString actionlist1;
+             QString actionlist2;
 
-     }
+             for (int i = 0; i<4; i++){                         //adds first 4 actions to the first edit line
+                 if (i==0){
+                   actionlist1 = toAdd[0];
+                 }else{
+                   actionlist1 =  actionlist1 + "," + toAdd[i];
+                 }
 
-     for (int i = 4; i<numChecked; i++){
-         if (i==4){
-           actionlist2 = action[4];
-         }else{
-           actionlist2 =  actionlist2 + "," + action[i];
-         }
+             }
 
-     }
-     ui->label1->setText("Action/s to add: ");
-     ui->actionToAdd->setText(actionlist1);
-     ui->actionToAdd->setFont(f);
-     ui->actionToAdd2->setText(actionlist2);
-     ui->actionToAdd2->setFont(f);
+             for (int i = 4; i<numChecked; i++){                //adds all other to the second edit line
+                 if (i==4){
+                   actionlist2 = action[4];
+                 }else{
+                   actionlist2 =  actionlist2 + "," + action[i];
+                 }
+
+             }
+             ui->label1->setText("Orders of actions:");
+             ui->actionToAdd->setText(actionlist1);
+             ui->actionToAdd->setFont(f);
+             ui->actionToAdd2->setText(actionlist2);
+             ui->actionToAdd2->setFont(f);
+
+             actionlist1=" ";
+             actionlist2=" ";
+    }else{
+             QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
+    }
 
 }
 
 void AddAction::on_addButton_2_clicked()                                                                  // adds the selected action to the global variable Plan2 and opens the comparison window
 {
-    int numChecked;
-    QString action[100];
-    for(int i = 0; i<numItems-1; i++){
-       bool isChecked = ui->list->item(i)->checkState();
-       if(isChecked == true){
-             action[numChecked] = ui->list->item(i)->text();
-             numChecked++;
-        }
-    }
+    if(isClicked>0){
     Plan2 =Plan;
     for(int i = 0; i< numChecked; i++){
-        Plan2 = Plan2 + " " + action[i];
+        Plan2 = Plan2 + " " + toAdd[i];
     }
 
     compareButtonName = "Add";
     compare = new Comparison(this);
     compare->show();
     this->hide();
-
-
+    }else{
+        QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
+    }
 }

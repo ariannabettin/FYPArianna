@@ -31,18 +31,19 @@ static const uint qt_meta_data_fileClass[] = {
 
  // slots: signature, parameters, type, tag, flags
       11,   10,   10,   10, 0x08,
-      36,   10,   10,   10, 0x08,
-      60,   10,   10,   10, 0x08,
-      81,   10,   10,   10, 0x08,
-     100,   10,   10,   10, 0x08,
+      32,   10,   10,   10, 0x08,
+      51,   10,   10,   10, 0x08,
+      78,   10,   10,   10, 0x08,
+     106,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_fileClass[] = {
-    "fileClass\0\0on_writeButton_clicked()\0"
-    "on_readButton_clicked()\0on_newFile_clicked()\0"
+    "fileClass\0\0on_newFile_clicked()\0"
     "on_close_clicked()\0on_replaceButton_clicked()\0"
+    "on_openFileButton_clicked()\0"
+    "on_saveButton_clicked()\0"
 };
 
 void fileClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,11 +52,11 @@ void fileClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_ASSERT(staticMetaObject.cast(_o));
         fileClass *_t = static_cast<fileClass *>(_o);
         switch (_id) {
-        case 0: _t->on_writeButton_clicked(); break;
-        case 1: _t->on_readButton_clicked(); break;
-        case 2: _t->on_newFile_clicked(); break;
-        case 3: _t->on_close_clicked(); break;
-        case 4: _t->on_replaceButton_clicked(); break;
+        case 0: _t->on_newFile_clicked(); break;
+        case 1: _t->on_close_clicked(); break;
+        case 2: _t->on_replaceButton_clicked(); break;
+        case 3: _t->on_openFileButton_clicked(); break;
+        case 4: _t->on_saveButton_clicked(); break;
         default: ;
         }
     }

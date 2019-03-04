@@ -2,7 +2,7 @@
 #define ADDACTION_H
 
 #include <QDialog>
-#include "fileclass.h"
+#include "domainfile.h"
 #include "listofactions.h"
 #include "comparison.h"
 
@@ -17,6 +17,8 @@ class AddAction : public QDialog
 public:
     explicit AddAction(QWidget *parent = 0);
     ~AddAction();
+    int numChecked;
+    int isClicked = 0;
 
 private slots:
     void on_homeButton_clicked();
@@ -24,8 +26,6 @@ private slots:
     void on_visualiseButton_clicked();
 
     void on_modifyButton_clicked();
-
-    void on_valButton_clicked();
 
     void on_newActionButton_clicked();
 
@@ -39,7 +39,7 @@ private slots:
 
 private:
     Ui::AddAction *ui;
-    fileClass *file;
+    domainFile *file;
     ListOfActions * lists;
     Comparison * compare;
 

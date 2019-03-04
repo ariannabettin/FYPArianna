@@ -31,18 +31,19 @@ static const uint qt_meta_data_fileclassPF[] = {
 
  // slots: signature, parameters, type, tag, flags
       13,   12,   12,   12, 0x08,
-      37,   12,   12,   12, 0x08,
-      62,   12,   12,   12, 0x08,
-      83,   12,   12,   12, 0x08,
-     102,   12,   12,   12, 0x08,
+      34,   12,   12,   12, 0x08,
+      53,   12,   12,   12, 0x08,
+      80,   12,   12,   12, 0x08,
+     108,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_fileclassPF[] = {
-    "fileclassPF\0\0on_readButton_clicked()\0"
-    "on_writeButton_clicked()\0on_newFile_clicked()\0"
+    "fileclassPF\0\0on_newFile_clicked()\0"
     "on_close_clicked()\0on_replaceButton_clicked()\0"
+    "on_openFileButton_clicked()\0"
+    "on_saveButton_clicked()\0"
 };
 
 void fileclassPF::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,11 +52,11 @@ void fileclassPF::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_ASSERT(staticMetaObject.cast(_o));
         fileclassPF *_t = static_cast<fileclassPF *>(_o);
         switch (_id) {
-        case 0: _t->on_readButton_clicked(); break;
-        case 1: _t->on_writeButton_clicked(); break;
-        case 2: _t->on_newFile_clicked(); break;
-        case 3: _t->on_close_clicked(); break;
-        case 4: _t->on_replaceButton_clicked(); break;
+        case 0: _t->on_newFile_clicked(); break;
+        case 1: _t->on_close_clicked(); break;
+        case 2: _t->on_replaceButton_clicked(); break;
+        case 3: _t->on_openFileButton_clicked(); break;
+        case 4: _t->on_saveButton_clicked(); break;
         default: ;
         }
     }

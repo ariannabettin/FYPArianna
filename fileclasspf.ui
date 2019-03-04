@@ -77,7 +77,7 @@
      <string>Close</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="writeButton">
+   <widget class="QPushButton" name="saveButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -165,17 +165,17 @@
    <property name="title">
     <string>Use this button to open the domain file:</string>
    </property>
-   <widget class="QPushButton" name="readButton">
+   <widget class="QPushButton" name="openFileButton">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>89</width>
+      <width>141</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Open File</string>
+     <string>Open Original File</string>
     </property>
    </widget>
   </widget>

@@ -16,14 +16,14 @@ Access::~Access()
 
 void Access::on_domainButton_clicked()
 {
-    file  = new fileClass(this);
+    file  = new fileClass(this);            //opens domain file
     file->show();
 
 }
 
 void Access::on_problemButton_clicked()
 {
-    PFfile = new fileclassPF(this);
+    PFfile = new fileclassPF(this);         // opens problem file
     PFfile->show();
 }
 
@@ -31,7 +31,7 @@ void Access::on_homeButton_clicked()
 {
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
     parent->show();
-     this->hide();
+    this->hide();
 }
 
 void Access::on_selecyButton_clicked()

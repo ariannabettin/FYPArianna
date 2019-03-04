@@ -37,7 +37,6 @@ void Home::on_DomainLoadButton_clicked()
 
 void Home::on_ProblemLoadButton_clicked()
 {
-
     problem_path = QFileDialog::getOpenFileName(this,"Problem File", "C://");
 
     if(problem_path.isEmpty()){
@@ -62,12 +61,15 @@ void Home::on_doneButton_clicked()
     select = new Selection(this);                               // go to "selection" window
     select->show();
     this->hide();
-
 }
 
 void Home::on_saveButton_clicked()
 {
     QString plan_name = ui->NamePlanLine->text();
+    if (plan_name.size() < 4){
+        QMessageBox::warning(this,"Error:", "Please, give your plan a longer name.");
+    }
+
     QString planSaved;
 
     if (k < 10){                                               // A maximum of 10 plans can be saved in one session
@@ -99,7 +101,7 @@ void Home::on_saveButton_clicked()
         QMessageBox::information(this, "Error: ", "Not file found");
     }
     QTextStream in(&file);
-    Plan = in.readAll();
+    plansContent[k-1] = in.readAll();
     ui->savedPlanlabel->setText(planSaved);
 }
 
