@@ -27,8 +27,6 @@ private slots:
 
     void on_visualiseButton_clicked();
 
-    void on_valButton_clicked();
-
     void on_addButton_clicked();
 
     void on_removeButton_clicked();

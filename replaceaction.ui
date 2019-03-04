@@ -91,16 +91,6 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="planArea">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>120</y>
-     <width>381</width>
-     <height>361</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="existingButton">
    <property name="geometry">
     <rect>
@@ -137,19 +127,6 @@
     <string>List of existing actions:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="doneButton">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>340</y>
-     <width>61</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Done</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="replaceActionsButton">
    <property name="geometry">
     <rect>
@@ -163,32 +140,26 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="restoreButton">
+  <widget class="QListWidget" name="planArea">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>420</y>
-     <width>81</width>
-     <height>31</height>
+     <x>40</x>
+     <y>120</y>
+     <width>341</width>
+     <height>361</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Restore</string>
+  </widget>
+  <widget class="QTextEdit" name="plan">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>450</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
-  <zorder>planArea</zorder>
-  <zorder>visualiseButton</zorder>
-  <zorder>modifyButton</zorder>
-  <zorder>selectButton</zorder>
-  <zorder>replaceButton</zorder>
-  <zorder>homeButton</zorder>
-  <zorder>title_label</zorder>
-  <zorder>existingButton</zorder>
-  <zorder>list</zorder>
-  <zorder>label</zorder>
-  <zorder>doneButton</zorder>
-  <zorder>replaceActionsButton</zorder>
-  <zorder>restoreButton</zorder>
  </widget>
  <resources/>
  <connections/>

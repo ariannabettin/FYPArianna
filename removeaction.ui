@@ -78,20 +78,10 @@
     <string>Remove</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="planArea">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>170</y>
-     <width>381</width>
-     <height>311</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>140</x>
      <y>150</y>
      <width>371</width>
      <height>17</height>
@@ -224,17 +214,14 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="restoreButton">
+  <widget class="QListWidget" name="planArea">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>440</y>
-     <width>131</width>
-     <height>31</height>
+     <x>140</x>
+     <y>170</y>
+     <width>381</width>
+     <height>311</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Restore Plan</string>
    </property>
   </widget>
  </widget>

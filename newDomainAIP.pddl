@@ -5,7 +5,7 @@
     vehicle item dronebase - locatable
     drone truck - vehicle
 )
-d
+vvvvvv
 (:predicates
     (at ?item - locatable ?loc - place)
     (in ?item - locatable ?v - vehicle)

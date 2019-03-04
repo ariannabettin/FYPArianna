@@ -19,7 +19,6 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
-#include <QtGui/QScrollBar>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,14 +27,13 @@ class Ui_fileClass
 public:
     QPlainTextEdit *planArea;
     QGroupBox *groupBox;
-    QPushButton *readButton;
+    QPushButton *openFileButton;
     QLabel *label;
     QLabel *title_label;
     QGroupBox *groupBox_2;
     QPushButton *newFile;
     QPushButton *close;
-    QPushButton *writeButton;
-    QScrollBar *verticalScrollBar;
+    QPushButton *saveButton;
     QPushButton *replaceButton;
     QLabel *label_2;
     QLabel *label_3;
@@ -52,9 +50,9 @@ public:
         groupBox = new QGroupBox(fileClass);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(30, 30, 291, 61));
-        readButton = new QPushButton(groupBox);
-        readButton->setObjectName(QString::fromUtf8("readButton"));
-        readButton->setGeometry(QRect(10, 30, 89, 25));
+        openFileButton = new QPushButton(groupBox);
+        openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
+        openFileButton->setGeometry(QRect(10, 30, 141, 25));
         label = new QLabel(fileClass);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(190, 120, 81, 17));
@@ -70,13 +68,9 @@ public:
         close = new QPushButton(groupBox_2);
         close->setObjectName(QString::fromUtf8("close"));
         close->setGeometry(QRect(20, 140, 89, 25));
-        writeButton = new QPushButton(groupBox_2);
-        writeButton->setObjectName(QString::fromUtf8("writeButton"));
-        writeButton->setGeometry(QRect(20, 40, 89, 25));
-        verticalScrollBar = new QScrollBar(fileClass);
-        verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(550, 140, 16, 341));
-        verticalScrollBar->setOrientation(Qt::Vertical);
+        saveButton = new QPushButton(groupBox_2);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setGeometry(QRect(20, 40, 89, 25));
         replaceButton = new QPushButton(fileClass);
         replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
         replaceButton->setGeometry(QRect(30, 410, 111, 25));
@@ -99,13 +93,13 @@ public:
     {
         fileClass->setWindowTitle(QApplication::translate("fileClass", "Dialog", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("fileClass", "Use this button to open the domain file:", 0, QApplication::UnicodeUTF8));
-        readButton->setText(QApplication::translate("fileClass", "Open File", 0, QApplication::UnicodeUTF8));
+        openFileButton->setText(QApplication::translate("fileClass", "Open Original File", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("fileClass", "Domain of:", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("fileClass", "TextLabel", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("fileClass", "New file buttons:", 0, QApplication::UnicodeUTF8));
         newFile->setText(QApplication::translate("fileClass", "Open new File", 0, QApplication::UnicodeUTF8));
         close->setText(QApplication::translate("fileClass", "Close", 0, QApplication::UnicodeUTF8));
-        writeButton->setText(QApplication::translate("fileClass", "Save", 0, QApplication::UnicodeUTF8));
+        saveButton->setText(QApplication::translate("fileClass", "Save", 0, QApplication::UnicodeUTF8));
         replaceButton->setText(QApplication::translate("fileClass", "Replace", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("fileClass", "Use the plan showed in ", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("fileClass", " the the text area", 0, QApplication::UnicodeUTF8));

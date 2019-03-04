@@ -13,7 +13,15 @@ RemoveAction::RemoveAction(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
-    ui->planArea->setText(Plan);
+
+    QStringList line = Plan.split("\n");
+    for(int i = 0; i<line.size(); i++ ){
+        QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+        checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+        checkB->setCheckState(Qt::Unchecked);
+        ui->planArea->addItem(checkB);
+     }
+    numItems = line.size();
 }
 
 RemoveAction::~RemoveAction()
@@ -52,38 +60,43 @@ void RemoveAction::on_modifyButton_clicked()
 
 void RemoveAction::on_removePlanButton_clicked()
 {
-    Plan2 = ui->planArea->toPlainText();
+    numChecked = 0;
+    for(int i = 0; i<numItems-1; i++){
+        bool isChecked = ui->planArea->item(i)->checkState();
+        if(isChecked == true){
+              action[numChecked] = ui->planArea->item(i)->text();
+              numChecked++;
+         }
+     }
+
+    if(numChecked>1){
+        QMessageBox::information(this,"Error:","You can select only one action at once. Only the first action selected will be removed.");
+    }
+
+    toRemove = action[0];
+
+    QStringList line = Plan.split("\n");
+     for(int i = 0; i<line.size(); i++){
+         if(ui->planArea->item(i)->text() != toRemove){
+             Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+         }
+    }
     compareButtonName = "Remove";
     compare = new Comparison(this);
     compare->show();
     this->hide();
 }
 
-void RemoveAction::on_valButton_clicked()
-{
-    //validator
-}
+
 
 void RemoveAction::on_removeFileButton_clicked()
 {
-    file  = new fileClass(this);
+    file  = new domainFile(this);
     file->show();
 
 }
 
 
-void RemoveAction::on_removeButton_clicked()
-{
-    ui->planArea->setText(Plan);
-}
 
-void RemoveAction::on_restoreButton_clicked()
-{
-    ui->planArea->setText(Plan);
-}
 
-void RemoveAction::on_planArea_selectionChanged()
-{
-    QTextCursor cur = ui->planArea->textCursor();
-    cur.removeSelectedText();
-}
+

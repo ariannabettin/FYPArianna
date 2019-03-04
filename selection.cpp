@@ -128,6 +128,7 @@ void Selection::on_deleteButton_clicked()
 
 void Selection::on_visualiseButton_clicked()
 {
+    j = 0;
     for(int i = 0; i<numItems; i++){
         bool isChecked = ui->list->item(i)->checkState();
         if(isChecked == true){
@@ -147,10 +148,15 @@ void Selection::on_visualiseButton_clicked()
         this->hide();
     }else {
         if(j == 0){
-            QMessageBox::warning(this,"Visualise Plan","Ops! It looks like there are not selected plans..");
+            Plan = plansContent[k-1];
+            id = k-1;
+            visualise = new Visualisation(this);
+            visualise->show();
+            this->hide();
         }else if (j == 1) {
             j = j - 1;                                                          //if there is only one plan selected open the visualisation window.
             id = IDs[0];
+            Plan = plansContent[id];
             visualise = new Visualisation(this);
             visualise->show();
             this->hide();

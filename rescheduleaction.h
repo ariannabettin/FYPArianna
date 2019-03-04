@@ -2,6 +2,7 @@
 #define RESCHEDULEACTION_H
 #include "window.h"
 #include "beforeafter.h"
+#include "comparison.h"
 #include <QDialog>
 
 namespace Ui {
@@ -15,8 +16,15 @@ class RescheduleAction : public QDialog
 public:
     explicit RescheduleAction(QWidget *parent = 0);
     ~RescheduleAction();
+    int numChecked;
+    int isClicked = 0;
 
 private slots:
+
+    void on_listButton_clicked();
+
+    void on_doneButton_clicked();
+
     void on_timeWindow_clicked();
 
     void on_timeWindowSequence_clicked();
@@ -27,13 +35,15 @@ private slots:
 
     void on_homeButton_clicked();
 
-    void on_homeButton_2_clicked();
+    void on_selectButton_clicked();
 
     void on_visualiseButton_clicked();
 
     void on_modifyButton_clicked();
 
-    void on_selectButton_clicked();
+
+
+    void on_reschButton_clicked();
 
 private:
     Ui::RescheduleAction *ui;
@@ -41,6 +51,7 @@ private:
     Window *window2;
     BeforeAfter *befaft;
     BeforeAfter *befaft2;
+    Comparison *compare;
 
 };
 

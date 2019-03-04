@@ -1,14 +1,14 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'userquestions.h'
+** Meta object code from reading C++ file 'validplan.h'
 **
 ** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "userquestions.h"
+#include "validplan.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'userquestions.h' doesn't include <QObject>."
+#error "The header file 'validplan.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.7. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -16,7 +16,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_UserQuestions[] = {
+static const uint qt_meta_data_validPlan[] = {
 
  // content:
        6,       // revision
@@ -30,70 +30,69 @@ static const uint qt_meta_data_UserQuestions[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      15,   14,   14,   14, 0x08,
-      39,   14,   14,   14, 0x08,
-      65,   14,   14,   14, 0x08,
-      94,   14,   14,   14, 0x08,
-     118,   14,   14,   14, 0x08,
-     143,   14,   14,   14, 0x08,
+      11,   10,   10,   10, 0x08,
+      35,   10,   10,   10, 0x08,
+      61,   10,   10,   10, 0x08,
+      90,   10,   10,   10, 0x08,
+     116,   10,   10,   10, 0x08,
+     136,   10,   10,   10, 0x08,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_UserQuestions[] = {
-    "UserQuestions\0\0on_homeButton_clicked()\0"
+static const char qt_meta_stringdata_validPlan[] = {
+    "validPlan\0\0on_homeButton_clicked()\0"
     "on_selectButton_clicked()\0"
     "on_visualiseButton_clicked()\0"
-    "on_doneButton_clicked()\0"
-    "on_addButton_2_clicked()\0"
-    "on_completeButton_clicked()\0"
+    "on_modifyButton_clicked()\0on_Button_clicked()\0"
+    "on_compareButton_clicked()\0"
 };
 
-void UserQuestions::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void validPlan::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        UserQuestions *_t = static_cast<UserQuestions *>(_o);
+        validPlan *_t = static_cast<validPlan *>(_o);
         switch (_id) {
         case 0: _t->on_homeButton_clicked(); break;
         case 1: _t->on_selectButton_clicked(); break;
         case 2: _t->on_visualiseButton_clicked(); break;
-        case 3: _t->on_doneButton_clicked(); break;
-        case 4: _t->on_addButton_2_clicked(); break;
-        case 5: _t->on_completeButton_clicked(); break;
+        case 3: _t->on_modifyButton_clicked(); break;
+        case 4: _t->on_Button_clicked(); break;
+        case 5: _t->on_compareButton_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData UserQuestions::staticMetaObjectExtraData = {
+const QMetaObjectExtraData validPlan::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject UserQuestions::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_UserQuestions,
-      qt_meta_data_UserQuestions, &staticMetaObjectExtraData }
+const QMetaObject validPlan::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_validPlan,
+      qt_meta_data_validPlan, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &UserQuestions::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &validPlan::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *UserQuestions::metaObject() const
+const QMetaObject *validPlan::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *UserQuestions::qt_metacast(const char *_clname)
+void *validPlan::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_UserQuestions))
-        return static_cast<void*>(const_cast< UserQuestions*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_validPlan))
+        return static_cast<void*>(const_cast< validPlan*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int UserQuestions::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int validPlan::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

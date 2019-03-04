@@ -31,13 +31,12 @@ public:
     QPushButton *replaceButton;
     QPushButton *homeButton;
     QLabel *title_label;
-    QTextEdit *planArea;
     QPushButton *existingButton;
     QListWidget *list;
     QLabel *label;
-    QPushButton *doneButton;
     QPushButton *replaceActionsButton;
-    QPushButton *restoreButton;
+    QListWidget *planArea;
+    QTextEdit *plan;
 
     void setupUi(QDialog *ReplaceAction)
     {
@@ -62,9 +61,6 @@ public:
         title_label = new QLabel(ReplaceAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
         title_label->setGeometry(QRect(40, 100, 371, 17));
-        planArea = new QTextEdit(ReplaceAction);
-        planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(40, 120, 381, 361));
         existingButton = new QPushButton(ReplaceAction);
         existingButton->setObjectName(QString::fromUtf8("existingButton"));
         existingButton->setGeometry(QRect(460, 50, 111, 30));
@@ -74,28 +70,15 @@ public:
         label = new QLabel(ReplaceAction);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(460, 100, 161, 20));
-        doneButton = new QPushButton(ReplaceAction);
-        doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(560, 340, 61, 31));
         replaceActionsButton = new QPushButton(ReplaceAction);
         replaceActionsButton->setObjectName(QString::fromUtf8("replaceActionsButton"));
         replaceActionsButton->setGeometry(QRect(570, 410, 51, 41));
-        restoreButton = new QPushButton(ReplaceAction);
-        restoreButton->setObjectName(QString::fromUtf8("restoreButton"));
-        restoreButton->setGeometry(QRect(470, 420, 81, 31));
-        planArea->raise();
-        visualiseButton->raise();
-        modifyButton->raise();
-        selectButton->raise();
-        replaceButton->raise();
-        homeButton->raise();
-        title_label->raise();
-        existingButton->raise();
-        list->raise();
-        label->raise();
-        doneButton->raise();
-        replaceActionsButton->raise();
-        restoreButton->raise();
+        planArea = new QListWidget(ReplaceAction);
+        planArea->setObjectName(QString::fromUtf8("planArea"));
+        planArea->setGeometry(QRect(40, 120, 341, 361));
+        plan = new QTextEdit(ReplaceAction);
+        plan->setObjectName(QString::fromUtf8("plan"));
+        plan->setGeometry(QRect(10, 450, 21, 20));
 
         retranslateUi(ReplaceAction);
 
@@ -113,9 +96,7 @@ public:
         title_label->setText(QApplication::translate("ReplaceAction", "TextLabel", 0, QApplication::UnicodeUTF8));
         existingButton->setText(QApplication::translate("ReplaceAction", "Existing", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("ReplaceAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
-        doneButton->setText(QApplication::translate("ReplaceAction", "Done", 0, QApplication::UnicodeUTF8));
         replaceActionsButton->setText(QString());
-        restoreButton->setText(QApplication::translate("ReplaceAction", "Restore", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

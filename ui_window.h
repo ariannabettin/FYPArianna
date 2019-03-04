@@ -35,16 +35,12 @@ public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_3;
     QLineEdit *lW1;
-    QLineEdit *lW2;
     QLabel *label;
-    QLineEdit *lW3;
-    QLineEdit *lW4;
+    QLineEdit *lW2;
     QHBoxLayout *horizontalLayout_4;
     QLineEdit *lW1_2;
-    QLineEdit *lW2_2;
     QLabel *label_2;
-    QLineEdit *lW3_2;
-    QLineEdit *lW4_2;
+    QLineEdit *lW2_2;
     QLabel *statementLabel;
     QFrame *frame;
     QHBoxLayout *horizontalLayout_2;
@@ -55,6 +51,7 @@ public:
     QRadioButton *optionB;
     QRadioButton *optionC;
     QPushButton *doneButton;
+    QPushButton *closeButton;
 
     void setupUi(QDialog *Window)
     {
@@ -76,25 +73,15 @@ public:
 
         horizontalLayout_3->addWidget(lW1);
 
-        lW2 = new QLineEdit(groupBox);
-        lW2->setObjectName(QString::fromUtf8("lW2"));
-
-        horizontalLayout_3->addWidget(lW2);
-
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout_3->addWidget(label);
 
-        lW3 = new QLineEdit(groupBox);
-        lW3->setObjectName(QString::fromUtf8("lW3"));
+        lW2 = new QLineEdit(groupBox);
+        lW2->setObjectName(QString::fromUtf8("lW2"));
 
-        horizontalLayout_3->addWidget(lW3);
-
-        lW4 = new QLineEdit(groupBox);
-        lW4->setObjectName(QString::fromUtf8("lW4"));
-
-        horizontalLayout_3->addWidget(lW4);
+        horizontalLayout_3->addWidget(lW2);
 
 
         verticalLayout_2->addLayout(horizontalLayout_3);
@@ -106,25 +93,15 @@ public:
 
         horizontalLayout_4->addWidget(lW1_2);
 
-        lW2_2 = new QLineEdit(groupBox);
-        lW2_2->setObjectName(QString::fromUtf8("lW2_2"));
-
-        horizontalLayout_4->addWidget(lW2_2);
-
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         horizontalLayout_4->addWidget(label_2);
 
-        lW3_2 = new QLineEdit(groupBox);
-        lW3_2->setObjectName(QString::fromUtf8("lW3_2"));
+        lW2_2 = new QLineEdit(groupBox);
+        lW2_2->setObjectName(QString::fromUtf8("lW2_2"));
 
-        horizontalLayout_4->addWidget(lW3_2);
-
-        lW4_2 = new QLineEdit(groupBox);
-        lW4_2->setObjectName(QString::fromUtf8("lW4_2"));
-
-        horizontalLayout_4->addWidget(lW4_2);
+        horizontalLayout_4->addWidget(lW2_2);
 
 
         verticalLayout_2->addLayout(horizontalLayout_4);
@@ -181,6 +158,11 @@ public:
 
         verticalLayout_3->addWidget(doneButton);
 
+        closeButton = new QPushButton(Window);
+        closeButton->setObjectName(QString::fromUtf8("closeButton"));
+
+        verticalLayout_3->addWidget(closeButton);
+
 
         retranslateUi(Window);
 
@@ -199,6 +181,7 @@ public:
         optionB->setText(QApplication::translate("Window", "force at least once", 0, QApplication::UnicodeUTF8));
         optionC->setText(QApplication::translate("Window", "constrain and force", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QApplication::translate("Window", "Done", 0, QApplication::UnicodeUTF8));
+        closeButton->setText(QApplication::translate("Window", "Save", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

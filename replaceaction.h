@@ -16,6 +16,7 @@ public:
     explicit ReplaceAction(QWidget *parent = 0);
     ~ReplaceAction();
     int selectedItems;
+    int isClicked = 0;
 
 private slots:
 
@@ -31,13 +32,9 @@ private slots:
 
     void on_existingButton_clicked();
 
-    void on_doneButton_clicked();
-
-    void on_planArea_selectionChanged();
-
     void on_replaceActionsButton_clicked();
 
-    void on_restoreButton_clicked();
+
 
 private:
     Ui::ReplaceAction *ui;

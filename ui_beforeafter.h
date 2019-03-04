@@ -18,6 +18,7 @@
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
@@ -29,7 +30,7 @@ QT_BEGIN_NAMESPACE
 class Ui_BeforeAfter
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_4;
     QFrame *frame;
     QHBoxLayout *horizontalLayout;
@@ -40,23 +41,25 @@ public:
     QRadioButton *optionB;
     QRadioButton *optionC;
     QRadioButton *optionD;
+    QLabel *statement;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_3;
     QLineEdit *stepsLine;
     QPushButton *doneButton;
+    QPushButton *closeButton;
 
     void setupUi(QDialog *BeforeAfter)
     {
         if (BeforeAfter->objectName().isEmpty())
             BeforeAfter->setObjectName(QString::fromUtf8("BeforeAfter"));
-        BeforeAfter->resize(289, 320);
-        widget = new QWidget(BeforeAfter);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 10, 251, 301));
-        verticalLayout_4 = new QVBoxLayout(widget);
+        BeforeAfter->resize(289, 356);
+        layoutWidget = new QWidget(BeforeAfter);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 10, 251, 338));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        frame = new QFrame(widget);
+        frame = new QFrame(layoutWidget);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
@@ -97,7 +100,12 @@ public:
 
         verticalLayout_4->addWidget(frame);
 
-        groupBox = new QGroupBox(widget);
+        statement = new QLabel(layoutWidget);
+        statement->setObjectName(QString::fromUtf8("statement"));
+
+        verticalLayout_4->addWidget(statement);
+
+        groupBox = new QGroupBox(layoutWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         verticalLayout_3 = new QVBoxLayout(groupBox);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
@@ -109,10 +117,15 @@ public:
 
         verticalLayout_4->addWidget(groupBox);
 
-        doneButton = new QPushButton(widget);
+        doneButton = new QPushButton(layoutWidget);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
 
         verticalLayout_4->addWidget(doneButton);
+
+        closeButton = new QPushButton(layoutWidget);
+        closeButton->setObjectName(QString::fromUtf8("closeButton"));
+
+        verticalLayout_4->addWidget(closeButton);
 
 
         retranslateUi(BeforeAfter);
@@ -128,8 +141,10 @@ public:
         optionB->setText(QApplication::translate("BeforeAfter", "after", 0, QApplication::UnicodeUTF8));
         optionC->setText(QApplication::translate("BeforeAfter", "before n steps", 0, QApplication::UnicodeUTF8));
         optionD->setText(QApplication::translate("BeforeAfter", "after n steps", 0, QApplication::UnicodeUTF8));
+        statement->setText(QApplication::translate("BeforeAfter", "TextLabel", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("BeforeAfter", "  Set number of steps", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QApplication::translate("BeforeAfter", "Done", 0, QApplication::UnicodeUTF8));
+        closeButton->setText(QApplication::translate("BeforeAfter", "Save", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

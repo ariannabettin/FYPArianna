@@ -30,14 +30,14 @@ public:
     QGroupBox *groupBox_2;
     QPushButton *newFile;
     QPushButton *close;
-    QPushButton *writeButton;
+    QPushButton *saveButton;
     QLabel *label_4;
     QPlainTextEdit *planArea;
     QLabel *label;
     QLabel *title_label;
     QPushButton *replaceButton;
     QGroupBox *groupBox;
-    QPushButton *readButton;
+    QPushButton *openFileButton;
 
     void setupUi(QDialog *fileclassPF)
     {
@@ -59,9 +59,9 @@ public:
         close = new QPushButton(groupBox_2);
         close->setObjectName(QString::fromUtf8("close"));
         close->setGeometry(QRect(20, 140, 89, 25));
-        writeButton = new QPushButton(groupBox_2);
-        writeButton->setObjectName(QString::fromUtf8("writeButton"));
-        writeButton->setGeometry(QRect(20, 40, 89, 25));
+        saveButton = new QPushButton(groupBox_2);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setGeometry(QRect(20, 40, 89, 25));
         label_4 = new QLabel(fileclassPF);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(30, 380, 111, 20));
@@ -80,9 +80,9 @@ public:
         groupBox = new QGroupBox(fileclassPF);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(30, 30, 291, 61));
-        readButton = new QPushButton(groupBox);
-        readButton->setObjectName(QString::fromUtf8("readButton"));
-        readButton->setGeometry(QRect(10, 30, 89, 25));
+        openFileButton = new QPushButton(groupBox);
+        openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
+        openFileButton->setGeometry(QRect(10, 30, 141, 25));
 
         retranslateUi(fileclassPF);
 
@@ -97,13 +97,13 @@ public:
         groupBox_2->setTitle(QApplication::translate("fileclassPF", "New file buttons:", 0, QApplication::UnicodeUTF8));
         newFile->setText(QApplication::translate("fileclassPF", "Open new File", 0, QApplication::UnicodeUTF8));
         close->setText(QApplication::translate("fileclassPF", "Close", 0, QApplication::UnicodeUTF8));
-        writeButton->setText(QApplication::translate("fileclassPF", "Save", 0, QApplication::UnicodeUTF8));
+        saveButton->setText(QApplication::translate("fileclassPF", "Save", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("fileclassPF", " for this session:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("fileclassPF", "Problem file of:", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("fileclassPF", "TextLabel", 0, QApplication::UnicodeUTF8));
         replaceButton->setText(QApplication::translate("fileclassPF", "Replace", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("fileclassPF", "Use this button to open the domain file:", 0, QApplication::UnicodeUTF8));
-        readButton->setText(QApplication::translate("fileclassPF", "Open File", 0, QApplication::UnicodeUTF8));
+        openFileButton->setText(QApplication::translate("fileclassPF", "Open Original File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -38,12 +38,6 @@ void Modification::on_visualiseButton_clicked()                                 
      this->hide();
 }
 
-void Modification::on_valButton_clicked()
-{
-    //Validates plan thanks to an external validator
-}
-
-
 
 void Modification::on_removeButton_clicked()                                         // goes to the the remove action window
 {
