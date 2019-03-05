@@ -41,7 +41,7 @@ public:
     QPushButton *modifyButton;
     QFrame *frame_3;
     QLabel *stetement1_3;
-    QPushButton *addNewButton;
+    QPushButton *accessFile;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QWidget *verticalLayoutWidget_2;
@@ -101,10 +101,10 @@ public:
         frame_3->setFrameShadow(QFrame::Raised);
         stetement1_3 = new QLabel(frame_3);
         stetement1_3->setObjectName(QString::fromUtf8("stetement1_3"));
-        stetement1_3->setGeometry(QRect(50, 0, 231, 21));
-        addNewButton = new QPushButton(frame_3);
-        addNewButton->setObjectName(QString::fromUtf8("addNewButton"));
-        addNewButton->setGeometry(QRect(70, 30, 71, 71));
+        stetement1_3->setGeometry(QRect(40, 0, 231, 21));
+        accessFile = new QPushButton(frame_3);
+        accessFile->setObjectName(QString::fromUtf8("accessFile"));
+        accessFile->setGeometry(QRect(70, 30, 71, 71));
         verticalLayoutWidget = new QWidget(Visualisation);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(0, 160, 121, 351));
@@ -141,8 +141,8 @@ public:
         title_label->setText(QApplication::translate("Visualisation", "TextLabel", 0, QApplication::UnicodeUTF8));
         stetement1_2->setText(QApplication::translate("Visualisation", "Modify your plan:", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QString());
-        stetement1_3->setText(QApplication::translate("Visualisation", " Load a new plan:", 0, QApplication::UnicodeUTF8));
-        addNewButton->setText(QString());
+        stetement1_3->setText(QApplication::translate("Visualisation", "Access your files:", 0, QApplication::UnicodeUTF8));
+        accessFile->setText(QString());
     } // retranslateUi
 
 };

@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "comparison.h"
-#include "rescheduleaction.h"
+#include "reschedulequestion.h"
 
 namespace Ui {
 class UserQuestions;
@@ -18,6 +18,8 @@ public:
     ~UserQuestions();
     int oneAction;
     int twoActions;
+    int numChecked;
+    int isClicked = 0;
 
 
 private slots:
@@ -30,16 +32,15 @@ private slots:
 
     void on_doneButton_clicked();
 
+    void on_addButton_2_clicked();
+
     void on_completeButton_clicked();
 
-   // void on_question_label0_linkActivated(const QString &link);
-
-    void on_addButton_2_clicked();
 
 private:
     Ui::UserQuestions *ui;
     Comparison * compare;
-    RescheduleAction *reschedule;
+    RescheduleQuestion *reschedule;
 };
 
 #endif // USERQUESTIONS_H

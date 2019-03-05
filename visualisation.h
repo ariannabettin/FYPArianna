@@ -3,6 +3,7 @@
 #include "modification.h"
 #include "userquestions.h"
 #include <QDialog>
+#include "accessfile.h"
 
 namespace Ui {
 class Visualisation;
@@ -23,20 +24,17 @@ private slots:
 
     void on_modifyButton_clicked();
 
-    void on_addNewButton_clicked();
-
     void on_valButton_clicked();
-
-    void on_visualiseButton_2_clicked();
 
     void on_questionButton_clicked();
 
-
+    void on_accessFile_clicked();
 
 private:
     Ui::Visualisation *ui;
     Modification *modify;
     UserQuestions * question;
+    Access *access;
 };
 
 #endif // VISUALISATION_H

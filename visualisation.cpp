@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
+#include "accessfile.h"
 
 Visualisation::Visualisation(QWidget *parent) :
     QDialog(parent),
@@ -24,10 +25,10 @@ Visualisation::Visualisation(QWidget *parent) :
     ui->modifyButton->setIcon(ButtonIcon2);
     ui->modifyButton->setIconSize(QSize(65, 65));
 
-    QPixmap pixmap3("loadIcon.png");
+    /*QPixmap pixmap3("loadIcon.png");
     QIcon ButtonIcon3(pixmap3);
-    ui->addNewButton->setIcon(ButtonIcon3);
-    ui->addNewButton->setIconSize(QSize(65, 65));
+    ui->accessButtom->setIcon(ButtonIcon3);
+    ui->addNewButton->setIconSize(QSize(65, 65));*/
 
 
 }
@@ -58,10 +59,6 @@ void Visualisation::on_modifyButton_clicked()                                   
     this->hide();
 }
 
-void Visualisation::on_addNewButton_clicked()                                   // goes to the home window
-{
-    //home
-}
 
 void Visualisation::on_valButton_clicked()
 {
@@ -69,22 +66,16 @@ void Visualisation::on_valButton_clicked()
 }
 
 
-void Visualisation::on_visualiseButton_2_clicked()                               // displays the plan in the planArea
-{
-   /* QFile file("PLAN.txt");
-    if(!file.open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox::information(this, "Error: ", "Not file found");
-    }
-    QTextStream in(&file);
-    QString text = in.readAll();
-    ui->planArea->setPlainText(text);
-    Plan = ui->planArea->toPlainText();*/
-}
-
-
 void Visualisation::on_questionButton_clicked()                                  //goes to the user question window
 {
     question = new UserQuestions(this);
     question->show();
+    this->hide();
+}
+
+void Visualisation::on_accessFile_clicked()
+{
+    access = new Access(this);
+    access->show();
     this->hide();
 }

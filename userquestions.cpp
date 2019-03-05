@@ -7,7 +7,7 @@
 #include <QTextStream>
 #include <qlabel.h>
 #include "comparison.h"
-#include "rescheduleaction.h"
+#include "reschedulequestion.h"
 
 UserQuestions::UserQuestions(QWidget *parent) :
     QDialog(parent),
@@ -49,7 +49,10 @@ void UserQuestions::on_visualiseButton_clicked()
 
 void UserQuestions::on_doneButton_clicked()
 {
-    if(ui->addOption->isChecked() || ui->rescheduleOption->isChecked()){
+    //list the actions in the list area
+    isClicked ++;
+
+    if(ui->addOption->isChecked()){
         ui->list->clear();
         ui->list->addItem("A:");
         QFont f( "Arial",8);
@@ -98,7 +101,7 @@ void UserQuestions::on_doneButton_clicked()
            file.close();
     }
 
-    }else if(ui->removeOption->isChecked()){
+    }else if(ui->removeOption->isChecked()  || ui->rescheduleOption->isChecked()){
         ui->list->clear();
         ui->list->addItem("A:");
         QFont f( "Arial",8);
@@ -182,43 +185,53 @@ void UserQuestions::on_doneButton_clicked()
 void UserQuestions::on_completeButton_clicked()
 {
     ui->question_label->clear();
-    QString part1;
-    QString part2;
-    QString part3;
-    QString part4;
+    QString str1;
+    QString str2;
+    QString str3;
+    QString str4;
     QString quest;
     QStringList list;
     oneAction = 0;
     twoActions = 0;
     int j = 0;
 
+    //generate user question
+
     if(ui->addOption->isChecked()){
            quest = ui->addOption->text();
            list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
-            part1 = list[0];
-            part3 = list[2] + " " + list[3] + " " + list[4] + " " + list[5]+ " " + list[6]+ " " + list[7];
+            str1 = list[0];
+            for(int i = 2; i<list.size(); i++){
+                str3= str3 + " " + list[i];
+            }
             oneAction++;
             ui->addButton_2->setText("Add");
     }else if(ui->removeOption->isChecked()){
             quest = ui->removeOption->text();
             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
-            part1 = list[0];
-            part3 = list[2]+ " " + list[3]+ " " + list[4] + " " + list[5]+ " " + list[6];
+            str1 = list[0];
+            for(int i = 2; i<list.size(); i++){
+                str3= str3 + " " + list[i];
+            }
             oneAction++;
             ui->addButton_2->setText("Remove");
     }else if(ui->replaceOption->isChecked()){
             quest = ui->replaceOption->text();
             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
-            part1 = list[0];
-            part3 = list[2]+ " " + list[3];
+            str1 = list[0];
+            for(int i = 2; i<list.size()-1; i++){
+                str3= str3 + " " + list[i];
+            }
             twoActions++;
             ui->addButton_2->setText("Replace");
     }else if(ui->rescheduleOption->isChecked()){
             quest = ui->rescheduleOption->text();
             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
-            part1 = list[0];
-            part3 = list[2]+ " " + list[3]+ " " + list[4];
-            oneAction++;
+            str1 = list[0];
+            for(int i = 2; i<list.size()-2; i++){
+                str3= str3 + " " + list[i];
+            }
+            twoActions++;
             ui->addButton_2->setText("Reschedule");
     }else{
             QMessageBox::warning(this,"Window options:", "Please, select one of the options available");
@@ -238,20 +251,32 @@ void UserQuestions::on_completeButton_clicked()
             if(ui->addButton_2->text() != "Reschedule"){
                 QMessageBox::information(this,"Ops!","You have selected too many actions. You can only add one action at once.");
             }else{                                                                   //Reschedule with one action
-                part2 = "SEQUENCE";
-                ui->question_label->setText(part1 + " " + part2 + " " + part3);
+                str2 = "SEQUENCE";
+                ui->question_label->setText(str1 + " " + str2 + " " + str3);
             }
         }else{                                                                       // Add and remove with one action
-             part2 = action[0];
-             ui->question_label->setText(part1 + " " + part2 + " " + part3);
+            if(ui->addOption->isChecked()) {
+                str2 = action[0];
+                ui->question_label->setText(str1 + " " + str2 + " " + str3);
+            }else {
+                QStringList actionName = action[0].split(" ");
+                str2 = actionName[1];
+                ui->question_label->setText(str1 + " " + str2 + " " + str3);
+            }
         }
     }else if (oneAction<twoActions){                                                 // Replace, it needs two variables
         if(j>2){
              QMessageBox::information(this,"Ops!","You have selected too many actions. You should select 2 actions.");
+        }else if(j == 1){
+            QStringList actionName = action[0].split(" ");
+            str2 = actionName[1];
+            str4 = actionName[0];
+            ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
         }else{
-            part2 = action[0];
-            part4 = action[1];
-            ui->question_label->setText(part1 + " " + part2 + " " + part3 + " " + part4 + " " + "?");
+            QStringList actionName = action[0].split(" ");
+            str2 = actionName[1];
+            str4 = action[1];
+            ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
         }
 
      }
@@ -261,66 +286,69 @@ void UserQuestions::on_completeButton_clicked()
 
 void UserQuestions::on_addButton_2_clicked() // to check
 {
-
-    int numChecked = 0;
-    QString buttonValue  = ui->addButton_2->text();
-    QString action[100];
-    for(int i = 0; i<numItems-1; i++){
-       bool isChecked = ui->list->item(i)->checkState();
-       if(isChecked == true){
-             action[numChecked] = ui->list->item(i)->text();
-             numChecked++;
+    if(isClicked > 0){
+        int numChecked = 0;
+        QString buttonValue  = ui->addButton_2->text();
+        QString action[100];
+        for(int i = 0; i<numItems-1; i++){
+           bool isChecked = ui->list->item(i)->checkState();
+           if(isChecked == true){
+                 action[numChecked] = ui->list->item(i)->text();
+                 numChecked++;
+            }
         }
-    }
 
-    if (numChecked == 1){
-            if(buttonValue == "Add"){
-                compareButtonName = "Add";
-                Plan2 =Plan + action[numChecked-1];  // add
-                compare = new Comparison(this);
-                compare->show();
-                this->hide();
-            }else if(buttonValue == "Remove"){
-                compareButtonName = "Remove";
-                QStringList line = Plan.split("\n");                   //splits the text
-                for(int i = 0; i<line.size(); i++ ){
-                    if (line[i] != action[0]){
-                        Plan2 = Plan2 + "\n" + line[i];
+        if (numChecked == 1){
+                if(buttonValue == "Add"){
+                    compareButtonName = "Add";
+                    Plan2 =Plan + action[numChecked-1];  // add
+                    compare = new Comparison(this);
+                    compare->show();
+                    this->hide();
+                }else if(buttonValue == "Remove"){
+                    compareButtonName = "Remove";
+                    QStringList line = Plan.split("\n");                   //splits the text
+                    for(int i = 0; i<line.size(); i++ ){
+                        if (line[i] != action[0]){
+                            Plan2 = Plan2 + "\n" + line[i];
+                        }
                     }
+                    compare = new Comparison(this);
+                    compare->show();
+                    this->hide();
+                } else if(buttonValue == "Reschedule"){
+                    reschedule = new RescheduleQuestion(this);
+                    reschedule->show();
+                    this->hide();
                 }
-                compare = new Comparison(this);
-                compare->show();
-                this->hide();
-            } else if(buttonValue == "Reschedule"){
-                reschedule = new RescheduleAction(this);
-                reschedule->show();
-                this->hide();
+
+        }else if(numChecked == 2){
+            compareButtonName = "Remove";
+            QStringList line = Plan.split("\n");                   //splits the text
+            for(int i = 0; i<line.size(); i++ ){
+                if (line[i] != action[0]){
+                    Plan2 = Plan2 + "\n" + line[i];
+                }else{
+                    Plan2 = Plan2 + "\n" + action[1];
+                }
             }
 
-    }else if(numChecked == 2){
-        compareButtonName = "Remove";
-        QStringList line = Plan.split("\n");                   //splits the text
-        for(int i = 0; i<line.size(); i++ ){
-            if (line[i] != action[0]){
-                Plan2 = Plan2 + "\n" + line[i];
-            }else{
-                Plan2 = Plan2 + "\n" + action[1];
-            }
+         compare = new Comparison(this);
+         compare->show();
+         this->hide();
+
+        }else if(numChecked == 0){
+                QMessageBox::warning(this,"Error:", "Please select an action from the list");
+        }else{
+                if(ui->question_label->text() == "SEQUENCE"){
+                    reschedule = new RescheduleQuestion(this);
+                    reschedule->show();
+                    this->hide();
+                }else{
+                    QMessageBox::warning(this,"Error:", "Select only one action please. From this section you con add only one action at once");
+                }
         }
-
-     compare = new Comparison(this);
-     compare->show();
-     this->hide();
-
-    }else if(numChecked == 0){
-            QMessageBox::warning(this,"Error:", "Please select an action from the list");
     }else{
-            if(ui->question_label->text() == "SEQUENCE"){
-                reschedule = new RescheduleAction(this);
-                reschedule->show();
-                this->hide();
-            }else{
-                QMessageBox::warning(this,"Error:", "Select only one action please. From this section you con add only one action at once");
-            }
+        QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
     }
 }

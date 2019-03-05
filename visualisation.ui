@@ -190,17 +190,17 @@
    <widget class="QLabel" name="stetement1_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>0</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string> Load a new plan:</string>
+     <string>Access your files:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="addNewButton">
+   <widget class="QPushButton" name="accessFile">
     <property name="geometry">
      <rect>
       <x>70</x>

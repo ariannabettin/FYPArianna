@@ -28,9 +28,6 @@
            <widget class="QLineEdit" name="lW1"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lW2"/>
-          </item>
-          <item>
            <widget class="QLabel" name="label">
             <property name="text">
              <string>  :</string>
@@ -38,10 +35,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lW3"/>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lW4"/>
+           <widget class="QLineEdit" name="lW2"/>
           </item>
          </layout>
         </item>
@@ -51,9 +45,6 @@
            <widget class="QLineEdit" name="lW1_2"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="lW2_2"/>
-          </item>
-          <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
              <string>  :</string>
@@ -61,10 +52,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lW3_2"/>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lW4_2"/>
+           <widget class="QLineEdit" name="lW2_2"/>
           </item>
          </layout>
         </item>
@@ -130,6 +118,13 @@
     <widget class="QPushButton" name="doneButton">
      <property name="text">
       <string>Done</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="closeButton">
+     <property name="text">
+      <string>Save</string>
      </property>
     </widget>
    </item>
