@@ -35,9 +35,6 @@ private slots:
 
     void on_rescheduleButton_clicked();
 
-    void on_changeButton_clicked();
-
-    void on_accessButton_clicked();
 
 private:
     Ui::Modification *ui;

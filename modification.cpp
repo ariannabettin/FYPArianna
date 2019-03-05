@@ -66,18 +66,8 @@ void Modification::on_rescheduleButton_clicked()                                
     this->hide();
 }
 
-void Modification::on_changeButton_clicked()                                         // goes to the the change window
-{
-    change = new ChangeAction(this);
-    change->show();
-    this->hide();
-}
 
-void Modification::on_accessButton_clicked()                                         // goes to the the access file window
-{
-    access = new Access(this);
-    access->show();
-    this->hide();
-}
+
+
 
 
