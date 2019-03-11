@@ -17,6 +17,8 @@ Home::Home(QWidget *parent) :
     QIcon ButtonIcon1(pixmap1);
     ui->doneButton->setIcon(ButtonIcon1);
     ui->doneButton->setIconSize(QSize(35, 45));
+
+     numItemsConstant = 0;
 }
 
 Home::~Home()
@@ -48,7 +50,7 @@ void Home::on_ProblemLoadButton_clicked()
 
 void Home::on_PathLoadButton_clicked()
 {
-    plan_path = QFileDialog::getOpenFileName(this,"Problem File", "C://");
+    plan_path = QFileDialog::getOpenFileName(this,"Plan", "C://");
     if(plan_path.isEmpty()){
          ui->problemPathLine->setText("");
     }else{
@@ -68,7 +70,7 @@ void Home::on_saveButton_clicked()
     QString plan_name = ui->NamePlanLine->text();
     if (plan_name.size() < 4){
         QMessageBox::warning(this,"Error:", "Please, give your plan a longer name.");
-    }
+    }else{
 
     QString planSaved;
 
@@ -98,11 +100,12 @@ void Home::on_saveButton_clicked()
 
     QFile file(plan_path);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox::information(this, "Error: ", "Not file found");
+        //QMessageBox::information(this, "Error: ", "Not file found");
     }
     QTextStream in(&file);
     plansContent[k-1] = in.readAll();
     ui->savedPlanlabel->setText(planSaved);
+   }
 }
 
 

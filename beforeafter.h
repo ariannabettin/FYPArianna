@@ -14,6 +14,8 @@ class BeforeAfter : public QDialog
 public:
     explicit BeforeAfter(QWidget *parent = 0);
     ~BeforeAfter();
+    int isClicked = 0;
+    int numChecked;
 
 private slots:
     void on_doneButton_clicked();

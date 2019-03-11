@@ -90,14 +90,15 @@ void AddAction::on_existinButton_clicked()
                     QStringList word = line[i].split(" ");
                     for(int j = 0; j<word.size(); j++ ){
                         if(word[j].contains("action")){
-                            linesValue[act] = word[j+1];
-                            act = act + 1;
                             if(firstActionInvalid){
-                                QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
-                                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-                                checkB->setCheckState(Qt::Unchecked);
-                                ui->list->addItem(checkB);
-                                ui->list->setFont(f);
+                                if(!Plan.contains(word[j+1])){
+                                    QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
+                                    checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                                    checkB->setCheckState(Qt::Unchecked);
+                                    ui->list->addItem(checkB);
+                                    ui->list->setFont(f);
+                                    act = act + 1;
+                                }
                             }
                             firstActionInvalid = true;
                         }
@@ -124,44 +125,59 @@ void AddAction::on_existinButton_clicked()
 void AddAction::on_doneButton_clicked()                                                             // finds the checked actions and adds them to the edit lines.
 {
     //code partially taken by StackOverFlow or by QtFroum
-    if(isClicked>0){
-            QFont f( "Arial",8);
-             for(int i = 0; i<numItems-1; i++){
-                bool isChecked = ui->list->item(i)->checkState();
-                if(isChecked == true){
-                      toAdd[numChecked] = ui->list->item(i)->text();
-                      numChecked++;
-                 }
+   if(isClicked>0){
+
+        numChecked = 0;
+        for(int i = 0; i<numItems; i++){
+            bool isChecked = ui->list->item(i)->checkState();
+            if(isChecked == true){
+                        toAdd[numChecked] = ui->list->item(i)->text();
+                        numChecked++;
              }
+         }
 
-             QString actionlist1;
-             QString actionlist2;
+         QString actionlist1;
+         QString actionlist2;
 
-             for (int i = 0; i<4; i++){                         //adds first 4 actions to the first edit line
-                 if (i==0){
-                   actionlist1 = toAdd[0];
-                 }else{
-                   actionlist1 =  actionlist1 + "," + toAdd[i];
-                 }
+            if (numChecked < 4){
 
-             }
+                for (int i = 0; i<numChecked; i++){                         //adds first 4 actions to the first edit line
+                    if (i==0){
+                      actionlist1 = toAdd[0];
+                    }else{
+                      actionlist1 =  actionlist1 + "," + toAdd[i];
+                    }
+                }
+            }else{
+                for (int i = 0; i<4; i++){                         //adds first 4 actions to the first edit line
+                    if (i==0){
+                      actionlist1 = toAdd[0];
+                    }else{
+                      actionlist1 =  actionlist1 + "," + toAdd[i];
+                    }
+                }
 
-             for (int i = 4; i<numChecked; i++){                //adds all other to the second edit line
-                 if (i==4){
-                   actionlist2 = action[4];
-                 }else{
-                   actionlist2 =  actionlist2 + "," + action[i];
-                 }
+                for (int i = 4; i<numChecked; i++){                //adds all other to the second edit line
+                    if (i==4){
+                      actionlist2 = toAdd[4];
+                    }else{
+                      actionlist2 =  actionlist2 + "," + toAdd[i];
+                    }
+
+            }
+
+
 
              }
              ui->label1->setText("Orders of actions:");
              ui->actionToAdd->setText(actionlist1);
-             ui->actionToAdd->setFont(f);
+             //ui->actionToAdd->setFont(f);
              ui->actionToAdd2->setText(actionlist2);
-             ui->actionToAdd2->setFont(f);
+             //ui->actionToAdd2->setFont(f);
 
-             actionlist1=" ";
-             actionlist2=" ";
+
+
+
     }else{
              QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
     }
@@ -173,7 +189,7 @@ void AddAction::on_addButton_2_clicked()                                        
     if(isClicked>0){
     Plan2 =Plan;
     for(int i = 0; i< numChecked; i++){
-        Plan2 = Plan2 + " " + toAdd[i];
+            Plan2 = Plan2 + "\n" + toAdd[i] + "\n";
     }
 
     compareButtonName = "Add";

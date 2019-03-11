@@ -27,7 +27,6 @@ private slots:
 
     void on_visualiseButton_clicked();
 
-    void on_modifyButton_clicked();
 
 private:
     Ui::Access *ui;

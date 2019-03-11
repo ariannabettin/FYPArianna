@@ -5,6 +5,8 @@
 #include "validplan.h"
 #include "invalidplan.h"
 
+
+
 namespace Ui {
 class Comparison;
 }
@@ -32,10 +34,20 @@ private slots:
 
     void on_valButton_clicked();
 
+    void on_noChangesButton_clicked();
+
+    void on_newsButton_clicked();
+
+    void on_replacedButton_clicked();
+
+    void on_removedButton_clicked();
+
 private:
     Ui::Comparison *ui;
     validPlan *valid;
     invalidPlan *invalid;
+
+
 
 };
 

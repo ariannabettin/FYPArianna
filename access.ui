@@ -13,23 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="modifyButton">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>0</y>
-     <width>71</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Modify</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="accessButton">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>210</x>
      <y>0</y>
      <width>91</width>
      <height>41</height>

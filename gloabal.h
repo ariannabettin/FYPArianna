@@ -7,10 +7,13 @@
 extern int k;
 extern int counter;
 extern int numItems;
+extern int numItemsConstant;
+extern int route;
 extern int id;
 extern int id2;
 extern int IDs[10];
 extern int j;
+extern int count;
 extern QString plans[10];
 extern QString domains[10];
 extern QString problems[10];
@@ -29,6 +32,8 @@ extern QString beforeafterOpt; //*
 extern QString beforeafterAction; //*
 extern QString steps; //*
 extern bool isValid;
+extern QString toReschedule[];
+extern QString windowORAct;
 
 
 #endif // GLOABAL_H

@@ -95,9 +95,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>200</y>
      <width>291</width>
-     <height>361</height>
+     <height>281</height>
     </rect>
    </property>
   </widget>
@@ -105,9 +105,9 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>130</y>
-     <width>291</width>
-     <height>361</height>
+     <y>200</y>
+     <width>281</width>
+     <height>281</height>
     </rect>
    </property>
   </widget>
@@ -115,8 +115,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
-     <width>67</width>
+     <y>170</y>
+     <width>281</width>
      <height>17</height>
     </rect>
    </property>
@@ -128,8 +128,8 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>110</y>
-     <width>67</width>
+     <y>170</y>
+     <width>281</width>
      <height>17</height>
     </rect>
    </property>
@@ -175,6 +175,54 @@
    <property name="text">
     <string>Please, save the plan if you want to keep working on it after the modification.</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>531</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="noChangesButton">
+        <property name="text">
+         <string>What has not changed?</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="newsButton">
+        <property name="text">
+         <string>What is new?</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="replacedButton">
+        <property name="text">
+         <string>What has been replaced?</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removedButton">
+        <property name="text">
+         <string>What's has been removed?</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -2,12 +2,44 @@
 #include "ui_beforeafter.h"
 #include <QMessageBox>
 #include "gloabal.h"
+#include <QFile>
+#include <QListWidgetItem>
+#include <QTextStream>
 
 BeforeAfter::BeforeAfter(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BeforeAfter)
 {
     ui->setupUi(this);
+    ui->statement->setText(" ");
+    int counter = 0;
+
+    QFont f( "Arial",8);
+    QStringList line = Plan.split("\n");
+    for(int i = 0; i<line.size(); i++ ){
+        if(!line[i].isEmpty()){
+            if(toReschedule[0] == " "){
+                QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                checkB->setCheckState(Qt::Unchecked);
+                ui->list->addItem(checkB);
+                ui->list->setFont(f);
+                counter++;
+            }else{
+                if(line[i] != toReschedule[0] && line[i] != toReschedule[2] && line[i] != toReschedule[2]){
+                    QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+                    checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                    checkB->setCheckState(Qt::Unchecked);
+                    ui->list->addItem(checkB);
+                    ui->list->setFont(f);
+                    counter++;
+                }
+
+            }
+        }
+    }
+    numItems = counter;
+
 }
 
 BeforeAfter::~BeforeAfter()
@@ -17,6 +49,7 @@ BeforeAfter::~BeforeAfter()
 
 void BeforeAfter::on_doneButton_clicked()
 {
+    isClicked ++;
     QString steps = ui->stepsLine->text();
 
     for(int i=0;i<steps.size();i++){
@@ -24,6 +57,21 @@ void BeforeAfter::on_doneButton_clicked()
             QMessageBox::warning(this,"Window size set up:", "Ops! You need to insert only numbers in the cells, not letters or other symbols");
         }
     }
+
+    numChecked = 0;
+    for(int i = 0; i < numItems; i++){
+        bool isChecked = ui->list->item(i)->checkState();                         // check which check boxes are checked
+        if(isChecked == true){
+            action[numChecked] = ui->list->item(i)->text();
+            numChecked++;
+        }
+     }
+        if(numChecked > 0){
+            beforeafterAction = action[0];
+        }else{
+            QMessageBox::information(this,"Error:","Please, select only one action.");
+        }
+
 
     if(ui->optionA->isChecked()){
             if(!steps.isEmpty()){
@@ -58,5 +106,11 @@ void BeforeAfter::on_doneButton_clicked()
 
 void BeforeAfter::on_closeButton_clicked()
 {
-    this->hide();
+    if(isClicked > 0){
+        windowORAct = "action";
+        this->hide();
+    }else{
+        QMessageBox::warning(this,"Check data: ", "Please, click button 'Done' to check if you have inserted the right data.");
+    }
+
 }
