@@ -19,6 +19,21 @@ RescheduleAction::RescheduleAction(QWidget *parent) :
     ui->reschButton->setIcon(ButtonIcon1);
     ui->reschButton->setIconSize(QSize(35, 45));
 
+    QFont f( "Arial",8);
+    QStringList line = Plan.split("\n");
+    for(int i = 0; i<line.size(); i++ ){
+        if(!line[i].isEmpty()){
+            if(line[i] != toAdd[0]){
+                QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                checkB->setCheckState(Qt::Unchecked);
+                ui->list->addItem(checkB);
+                ui->list->setFont(f);
+                numItems = i;
+            }
+        }
+    }
+    compareButtonName = "Reschedule";
 }
 
 RescheduleAction::~RescheduleAction()
@@ -34,16 +49,25 @@ void RescheduleAction::on_timeWindow_clicked()
     window->show();
 }
 
-void RescheduleAction::on_timeWindowSequence_clicked()
-{
-    beforeafterOpt = " ";
-    beforeafterAction = " ";
-    window2 = new Window(this);
-    window2->show();
-}
 
 void RescheduleAction::on_BAButton_clicked()
 {
+    numChecked = 0;
+    for(int i = 0; i<numItems-1; i++){
+        bool isChecked = ui->list->item(i)->checkState();
+        if(isChecked == true){
+                    action[numChecked] = ui->list->item(i)->text();
+                    numChecked++;
+         }
+     }
+    if(numChecked>0){
+        for(int i = 0; i<numChecked; i++){
+            toReschedule[i] = action[i];
+        }
+    }else{
+        toReschedule[0] = " ";
+    }
+
     windowOpt = " ";
     startTime = " ";
     endTime = " ";
@@ -51,14 +75,6 @@ void RescheduleAction::on_BAButton_clicked()
     befaft->show();
 }
 
-void RescheduleAction::on_BAButtonSeq_clicked()
-{
-    windowOpt = " ";
-    startTime = " ";
-    endTime = " ";
-    befaft2= new BeforeAfter(this);
-    befaft2->show();
-}
 
 void RescheduleAction::on_homeButton_clicked()
 {
@@ -90,8 +106,10 @@ void RescheduleAction::on_modifyButton_clicked()
 }
 
 
-void RescheduleAction::on_doneButton_clicked()
+
+void RescheduleAction::on_reschButton_clicked()
 {
+    bool checkMsgBox = false;
     numChecked = 0;
     for(int i = 0; i<numItems-1; i++){
         bool isChecked = ui->list->item(i)->checkState();
@@ -100,39 +118,39 @@ void RescheduleAction::on_doneButton_clicked()
                     numChecked++;
          }
      }
-    toAdd[0] = action[0];
-    ui->planArea->setText("The action that you want to analyse is:\n" + toAdd[0]);
-}
 
-void RescheduleAction::on_listButton_clicked()
-{
-    isClicked ++;
-    QFont f( "Arial",8);
-    QStringList line = Plan.split("\n");
-    for(int i = 0; i<line.size(); i++ ){
-        QListWidgetItem * checkB = new QListWidgetItem(line[i]);
-        checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-        checkB->setCheckState(Qt::Unchecked);
-        ui->list->addItem(checkB);
-        ui->list->setFont(f);
-        numItems = i;
+    if(numChecked == 0){
+        checkMsgBox = true;
+        QMessageBox::warning(this,"Error:","Please select an action from the list.");
+    }else if(numChecked > 0){
+        if(!beforeafterAction.isEmpty()){
+            if(beforeafterAction == action[0] || beforeafterAction == action[2] || beforeafterAction == action[3]){
+                QMessageBox::information(this,"Error: ","You can't choose the same action that you selected as 'action parameter'. Please, choose a different one from: " + beforeafterAction + ".");
+                checkMsgBox = true;
+            }else{
+                if(!toReschedule[1].isEmpty()){
+                    toAdd[0] = "SEQUENCE";
+                }else {
+                    toAdd[0] = action[0];
+                }
+
+            }
+        }
     }
-}
-
-
-void RescheduleAction::on_reschButton_clicked()
-{
-    if(isClicked > 0){
-    if ( windowOpt.isEmpty()){
-        Plan2 = Plan + "\n" + toAdd[0] + "\n" + beforeafterAction + " " + beforeafterOpt;
-    }else{
-        Plan2 = Plan + "\n" + toAdd[0] + "\n" + windowOpt + " " + startTime + " " + endTime;
+    if(windowORAct == " " && checkMsgBox == false){
+        QMessageBox::information(this,"Missing data:","Please choose one of the options between 'time-window' or 'before after' and instert data required");
+    }else if(windowORAct == "window" && checkMsgBox == false){
+            windowORAct = " ";
+            Plan2 = Plan + "\n"+ "to reschedule: " + toAdd[0] + "\n" + windowOpt + " [" + startTime + "][" + endTime + "]";
+            compare = new Comparison(this);
+            compare->show();
+            this->hide();
+    }else if (windowORAct == "action" && checkMsgBox == false){
+            windowORAct = " ";
+            Plan2 = Plan + "\n" + "to reschedule: " + toAdd[0] + "\n" + beforeafterOpt + " " + beforeafterAction + "\n" + "steps:" + steps;
+            compare = new Comparison(this);
+            compare->show();
+            this->hide();
     }
 
-    compare = new Comparison(this);
-    compare->show();
-    this->hide();
-    }else{
-         QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
-    }
 }

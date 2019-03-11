@@ -22,7 +22,7 @@ static const uint qt_meta_data_RescheduleAction[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,25 +32,18 @@ static const uint qt_meta_data_RescheduleAction[] = {
  // slots: signature, parameters, type, tag, flags
       18,   17,   17,   17, 0x08,
       42,   17,   17,   17, 0x08,
-      66,   17,   17,   17, 0x08,
-      90,   17,   17,   17, 0x08,
-     122,   17,   17,   17, 0x08,
-     144,   17,   17,   17, 0x08,
+      64,   17,   17,   17, 0x08,
+      88,   17,   17,   17, 0x08,
+     114,   17,   17,   17, 0x08,
+     143,   17,   17,   17, 0x08,
      169,   17,   17,   17, 0x08,
-     193,   17,   17,   17, 0x08,
-     219,   17,   17,   17, 0x08,
-     248,   17,   17,   17, 0x08,
-     274,   17,   17,   17, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_RescheduleAction[] = {
-    "RescheduleAction\0\0on_listButton_clicked()\0"
-    "on_doneButton_clicked()\0on_timeWindow_clicked()\0"
-    "on_timeWindowSequence_clicked()\0"
-    "on_BAButton_clicked()\0on_BAButtonSeq_clicked()\0"
-    "on_homeButton_clicked()\0"
+    "RescheduleAction\0\0on_timeWindow_clicked()\0"
+    "on_BAButton_clicked()\0on_homeButton_clicked()\0"
     "on_selectButton_clicked()\0"
     "on_visualiseButton_clicked()\0"
     "on_modifyButton_clicked()\0"
@@ -63,17 +56,13 @@ void RescheduleAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_ASSERT(staticMetaObject.cast(_o));
         RescheduleAction *_t = static_cast<RescheduleAction *>(_o);
         switch (_id) {
-        case 0: _t->on_listButton_clicked(); break;
-        case 1: _t->on_doneButton_clicked(); break;
-        case 2: _t->on_timeWindow_clicked(); break;
-        case 3: _t->on_timeWindowSequence_clicked(); break;
-        case 4: _t->on_BAButton_clicked(); break;
-        case 5: _t->on_BAButtonSeq_clicked(); break;
-        case 6: _t->on_homeButton_clicked(); break;
-        case 7: _t->on_selectButton_clicked(); break;
-        case 8: _t->on_visualiseButton_clicked(); break;
-        case 9: _t->on_modifyButton_clicked(); break;
-        case 10: _t->on_reschButton_clicked(); break;
+        case 0: _t->on_timeWindow_clicked(); break;
+        case 1: _t->on_BAButton_clicked(); break;
+        case 2: _t->on_homeButton_clicked(); break;
+        case 3: _t->on_selectButton_clicked(); break;
+        case 4: _t->on_visualiseButton_clicked(); break;
+        case 5: _t->on_modifyButton_clicked(); break;
+        case 6: _t->on_reschButton_clicked(); break;
         default: ;
         }
     }
@@ -112,9 +101,9 @@ int RescheduleAction::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 7;
     }
     return _id;
 }

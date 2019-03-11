@@ -21,17 +21,9 @@ public:
 
 private slots:
 
-    void on_listButton_clicked();
-
-    void on_doneButton_clicked();
-
     void on_timeWindow_clicked();
 
-    void on_timeWindowSequence_clicked();
-
     void on_BAButton_clicked();
-
-    void on_BAButtonSeq_clicked();
 
     void on_homeButton_clicked();
 
@@ -40,8 +32,6 @@ private slots:
     void on_visualiseButton_clicked();
 
     void on_modifyButton_clicked();
-
-
 
     void on_reschButton_clicked();
 

@@ -22,8 +22,6 @@ private slots:
     
     void on_doneButton_clicked();
     
-    void on_listButton_2_clicked();
-
     void on_selectButton_clicked();
 
     void on_visualiseButton_clicked();

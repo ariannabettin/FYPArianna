@@ -20,14 +20,18 @@ ReplaceAction::ReplaceAction(QWidget *parent) :
     ui->replaceActionsButton->setIcon(ButtonIcon1);
     ui->replaceActionsButton->setIconSize(QSize(35, 45));
 
+
     QStringList line = Plan.split("\n");
     for(int i = 0; i<line.size(); i++ ){
-        QListWidgetItem * checkB = new QListWidgetItem(line[i]);
-        checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-        checkB->setCheckState(Qt::Unchecked);
-        ui->planArea->addItem(checkB);
-
+        if(!line[i].isEmpty()){
+            QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+            checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+            checkB->setCheckState(Qt::Unchecked);
+            ui->planArea->addItem(checkB);
+            count++;
+        }
      }
+
 }
 
 ReplaceAction::~ReplaceAction()
@@ -81,7 +85,6 @@ void ReplaceAction::on_existingButton_clicked()
 {
     isClicked++;
 
-    QFont f( "Arial",8);
     QFile file(domains[id]);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
         QMessageBox::information(this, "Error: ", "Not file found");
@@ -104,14 +107,14 @@ void ReplaceAction::on_existingButton_clicked()
                     QStringList word = line[i].split(" ");
                     for(int j = 0; j<word.size(); j++ ){
                         if(word[j].contains("action")){
-                            linesValue[act] = word[j+1];
-                            act = act + 1;
                             if(firstActionInvalid){
-                                QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
-                                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-                                checkB->setCheckState(Qt::Unchecked);
-                                ui->list->addItem(checkB);
-                                ui->list->setFont(f);
+                                if(!Plan.contains(word[j+1])){
+                                    QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
+                                    checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                                    checkB->setCheckState(Qt::Unchecked);
+                                    ui->list->addItem(checkB);
+                                    act = act + 1;
+                                }
                             }
                             firstActionInvalid = true;
                         }
@@ -133,50 +136,63 @@ void ReplaceAction::on_existingButton_clicked()
 
 void ReplaceAction::on_replaceActionsButton_clicked()
 {
+
     if(isClicked > 0){
+
         int numChecked = 0;
-         for(int i = 0; i<numItems-1; i++){
+         for(int i = 0; i<numItems; i++){
             bool isChecked = ui->list->item(i)->checkState();
             if(isChecked == true){
                   action[numChecked] = ui->list->item(i)->text();
                   numChecked++;
              }
          }
+          toAdd[0] = action[0];
 
-         if(numChecked>1){
-             QMessageBox::information(this,"Error:","You can select only one action at once. Only the first action selected will be added.");
-         }
 
-         toAdd[0] = action[0];
 
-         for(int i = 0; i<numItems-1; i++){
-            bool isChecked = ui->planArea->item(i)->checkState();
-            if(isChecked == true){
-                  action[numChecked] = ui->planArea->item(i)->text();
-                  numChecked++;
+         if(numChecked == 0){
+             QMessageBox::information(this,"Error:","You need to select TWO actions for this operation. One from each list.");
+         }else if(numChecked!=1){
+             QMessageBox::information(this,"Error:","You can select only one action at once from each list.");
+         }else{
+
+             for(int i = 0; i<count; i++){
+                bool isChecked = ui->planArea->item(i)->checkState();
+                if(isChecked == true){
+                      action[numChecked] = ui->planArea->item(i)->text();
+                      numChecked++;
+                 }
              }
-         }
 
-         if(numChecked>2){
-             QMessageBox::information(this,"Error:","You can select only one action at once. Only the first action selected will be removed.");
-         }
+             toRemove = action[1];
 
-         toRemove = action[1];
-
-         QStringList line = Plan.split("\n");
-         for(int i = 0; i<line.size(); i++){
-             if(ui->planArea->item(i)->text() != toRemove){
-                 Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+             if(numChecked == 0){
+                 QMessageBox::information(this,"Error:","You need to select the action that you want to replace.");
+             }else if(numChecked!=2){
+                 QMessageBox::information(this,"Error:","You can select only one action at once from each list.");
              }else{
-                 Plan2 = Plan2 + "\n" + toAdd[0];
-             }
-        }
 
-        compareButtonName = "Replace";
-        compare = new Comparison(this);
-        compare->show();
-        this->hide();
-    }else{
+                 for(int i = 0; i<count; i++){
+                     if(i==0){
+                         Plan2 = ui->planArea->item(i)->text();
+                     }else{
+                         if(ui->planArea->item(i)->text() != toRemove){
+                             Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+                         }else{
+                             Plan2 = Plan2 + "\n" + toAdd[0];
+                         }
+                     }
+                    }
+                     count = 0;
+                     compareButtonName = "Replace";
+                     compare = new Comparison(this);
+                     compare->show();
+                     this->hide();
+              }
+         }
+
+      }else{
         QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
     }
 

@@ -19,6 +19,8 @@ RescheduleQuestion::RescheduleQuestion(QWidget *parent) :
     QIcon ButtonIcon2(pixmap2);
     ui->BAButton->setIcon(ButtonIcon2);
     ui->BAButton->setIconSize(QSize(30, 40));
+
+    route = 2;
 }
 
 RescheduleQuestion::~RescheduleQuestion()

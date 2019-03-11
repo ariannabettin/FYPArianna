@@ -13,6 +13,22 @@ reschduleBeforeAfter::reschduleBeforeAfter(QWidget *parent) :
     QIcon ButtonIcon1(pixmap1);
     ui->doneButton->setIcon(ButtonIcon1);
     ui->doneButton->setIconSize(QSize(35, 45));
+
+    QFont f( "Arial",8);
+    QStringList line = Plan.split("\n");
+    for(int i = 0; i<line.size(); i++ ){
+        if(!line[i].isEmpty()){
+            if(line[i] != toAdd[0]){
+                QListWidgetItem * checkB = new QListWidgetItem(line[i]);
+                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                checkB->setCheckState(Qt::Unchecked);
+                ui->list_2->addItem(checkB);
+                ui->list_2->setFont(f);
+                numItems = i;
+            }
+        }
+    }
+    steps = " ";
 }
 
 reschduleBeforeAfter::~reschduleBeforeAfter()
@@ -21,38 +37,22 @@ reschduleBeforeAfter::~reschduleBeforeAfter()
 }
 
 
-void reschduleBeforeAfter::on_listButton_2_clicked()
+void reschduleBeforeAfter::on_doneButton_clicked()
 {
-    //select B
-    isClicked ++;
-
-    ui->list_2->clear();
-    ui->list_2->addItem("B:");
-    QFont f( "Arial",8);
-    QStringList line = Plan.split("\n");
-    for(int i = 0; i<line.size(); i++ ){
-        QListWidgetItem * checkB = new QListWidgetItem(line[i]);
-        checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-        checkB->setCheckState(Qt::Unchecked);
-        ui->list_2->addItem(checkB);
-        ui->list_2->setFont(f);
-        numItems = i;
-    }
     for(int i = 0; i<numItems-1; i++){
        bool isChecked = ui->list_2->item(i)->checkState();
        if(isChecked == true){
             beforeafterAction = ui->list_2->item(i)->text();
         }
-    }
+     }
 
-}
-
-
-void reschduleBeforeAfter::on_doneButton_clicked()
-{
     compareButtonName = "B & A";
-
-    if(isClicked > 0){
+    QString A;
+    if(toAdd[1].isEmpty()){
+       A = toAdd[0];
+    }else{
+       A = "SEQUENCE";
+    }
 
         numChecked = 0;
         for(int i = 0; i<numItems-1; i++){
@@ -64,18 +64,18 @@ void reschduleBeforeAfter::on_doneButton_clicked()
          }
       //check if list is empty and set j == 0
         if(numChecked>1 || numChecked < 1){
-            QMessageBox::information(this,"Error:","You should select 1 action");
+            QMessageBox::information(this,"Error:","You should select ONE action");
         }else if(ui->optionD_2->isChecked() || ui->optionE_2->isChecked()){
-
             beforeafterAction = action[0];
-
             if(ui->optionD_2->isChecked()){
                 beforeafterOpt = "before";
             }else if (ui->optionE_2) {
                 beforeafterOpt = "after";
             }
-
-            Plan2 = Plan + "\n" + beforeafterAction + "\n" + beforeafterOpt;
+            if (steps != " "){
+                 QMessageBox::information(this,"Error:","You don't need to set the number of steps.");
+            }
+            Plan2 = Plan + "\n" + "You want that: " + A + " is executed " + beforeafterOpt + " " + beforeafterAction;
             compare = new Comparison(this);
             compare->show();
             this->hide();
@@ -91,15 +91,14 @@ void reschduleBeforeAfter::on_doneButton_clicked()
                  }else if (ui->optionG_2) {
                      beforeafterOpt = "after n steps";
                  }
-                 Plan2 = Plan + "\n" + beforeafterAction + "\n" + steps + "\n" +beforeafterOpt;
+                 Plan2 = Plan + "\n" + "You want that: " + action[0] + " is executed " +  beforeafterOpt + "\n\n" + "number of steps: " + steps + "\n" + "parameter action: " + A;
                  compare = new Comparison(this);
                  compare->show();
                  this->hide();
                  }
+        }else{
+            QMessageBox::warning(this,"Error:","You should choose one of the options available.");
         }
-    }else{
-        QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
-    }
 }
 
 void reschduleBeforeAfter::on_homeButton_clicked()

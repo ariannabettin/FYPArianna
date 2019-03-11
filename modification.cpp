@@ -10,6 +10,7 @@ Modification::Modification(QWidget *parent) :
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
+    route = 0;
 }
 
 Modification::~Modification()
