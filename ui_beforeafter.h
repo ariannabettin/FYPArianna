@@ -20,6 +20,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
+#include <QtGui/QListWidget>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
 #include <QtGui/QVBoxLayout>
@@ -47,12 +48,14 @@ public:
     QLineEdit *stepsLine;
     QPushButton *doneButton;
     QPushButton *closeButton;
+    QLabel *label;
+    QListWidget *list;
 
     void setupUi(QDialog *BeforeAfter)
     {
         if (BeforeAfter->objectName().isEmpty())
             BeforeAfter->setObjectName(QString::fromUtf8("BeforeAfter"));
-        BeforeAfter->resize(289, 356);
+        BeforeAfter->resize(567, 356);
         layoutWidget = new QWidget(BeforeAfter);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(20, 10, 251, 338));
@@ -127,6 +130,12 @@ public:
 
         verticalLayout_4->addWidget(closeButton);
 
+        label = new QLabel(BeforeAfter);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(300, 10, 201, 20));
+        list = new QListWidget(BeforeAfter);
+        list->setObjectName(QString::fromUtf8("list"));
+        list->setGeometry(QRect(300, 40, 211, 281));
 
         retranslateUi(BeforeAfter);
 
@@ -145,6 +154,7 @@ public:
         groupBox->setTitle(QApplication::translate("BeforeAfter", "  Set number of steps", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QApplication::translate("BeforeAfter", "Done", 0, QApplication::UnicodeUTF8));
         closeButton->setText(QApplication::translate("BeforeAfter", "Save", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("BeforeAfter", "List of parameter actions:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

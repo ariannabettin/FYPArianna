@@ -20,6 +20,7 @@ public:
     int twoActions;
     int numChecked;
     int isClicked = 0;
+    int isClicked2 = 0;
 
 
 private slots:

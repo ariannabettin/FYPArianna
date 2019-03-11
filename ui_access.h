@@ -24,7 +24,6 @@ QT_BEGIN_NAMESPACE
 class Ui_Access
 {
 public:
-    QPushButton *modifyButton;
     QPushButton *accessButton;
     QPushButton *homeButton;
     QPushButton *selecyButton;
@@ -41,12 +40,9 @@ public:
         if (Access->objectName().isEmpty())
             Access->setObjectName(QString::fromUtf8("Access"));
         Access->resize(640, 480);
-        modifyButton = new QPushButton(Access);
-        modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
         accessButton = new QPushButton(Access);
         accessButton->setObjectName(QString::fromUtf8("accessButton"));
-        accessButton->setGeometry(QRect(280, 0, 91, 41));
+        accessButton->setGeometry(QRect(210, 0, 91, 41));
         homeButton = new QPushButton(Access);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
@@ -87,7 +83,6 @@ public:
     void retranslateUi(QDialog *Access)
     {
         Access->setWindowTitle(QApplication::translate("Access", "Dialog", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("Access", "Modify", 0, QApplication::UnicodeUTF8));
         accessButton->setText(QApplication::translate("Access", " Access File", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Access", "Home", 0, QApplication::UnicodeUTF8));
         selecyButton->setText(QApplication::translate("Access", "Select", 0, QApplication::UnicodeUTF8));

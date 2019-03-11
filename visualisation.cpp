@@ -25,10 +25,10 @@ Visualisation::Visualisation(QWidget *parent) :
     ui->modifyButton->setIcon(ButtonIcon2);
     ui->modifyButton->setIconSize(QSize(65, 65));
 
-    /*QPixmap pixmap3("loadIcon.png");
+    QPixmap pixmap3("fileIcon.png");
     QIcon ButtonIcon3(pixmap3);
-    ui->accessButtom->setIcon(ButtonIcon3);
-    ui->addNewButton->setIconSize(QSize(65, 65));*/
+    ui->accessFile->setIcon(ButtonIcon3);
+    ui->accessFile->setIconSize(QSize(65, 65));
 
 
 }

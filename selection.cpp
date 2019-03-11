@@ -27,6 +27,15 @@ Selection::Selection(QWidget *parent) :
     QIcon ButtonIcon3(pixmap3);
     ui->visualiseButton->setIcon(ButtonIcon3);
     ui->visualiseButton->setIconSize(QSize(35, 45));
+
+    for(int i = 0; i<k;i++){
+              QListWidgetItem * checkB = new QListWidgetItem(plans[i]);          // Add checked boxes with all the remaining plans stored in the array
+              checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+              checkB->setCheckState(Qt::Unchecked);
+              ui->list->addItem(checkB);
+              numItems = numItems+1;
+    }
+
 }
 
 Selection::~Selection()
@@ -61,6 +70,7 @@ void Selection::on_showAllButton_clicked()
         }
     }
     counter = 0;
+    numItemsConstant = numItems;
 
 }
 
@@ -78,12 +88,14 @@ void Selection::on_showLastButton_clicked()
         counter = 0;
         numItems = 1;
     }
+    numItemsConstant = numItems;
 }
 
 void Selection::on_clearButton_clicked()
 {
     counter = 0;                                                                   // As the button "Clear" clears the list widget, both "counter" and "numItem" are set on 0.
     numItems = 0;
+    numItemsConstant = numItems;
 }
 
 
@@ -121,6 +133,7 @@ void Selection::on_deleteButton_clicked()
               counter = i;
               numItems = numItems+1;
     }
+     numItemsConstant = numItems;
 }
 
 
@@ -128,18 +141,20 @@ void Selection::on_deleteButton_clicked()
 
 void Selection::on_visualiseButton_clicked()
 {
-    j = 0;
-    for(int i = 0; i<numItems; i++){
+    numChecked = 0;
+    for(int i = 0; i<numItemsConstant; i++){
         bool isChecked = ui->list->item(i)->checkState();
         if(isChecked == true){
             for(int z = 0; z<k; z++){
                 if (plans[z] == ui->list->item(i)->text()){
-                    IDs[j] = z;
-                    j = j +1;
+                    IDs[numChecked] = z;
+                    numChecked ++;
                  }
             }
         }
     }
+    ui->list->clear();
+
 
     if ( k == 0){
         QMessageBox::warning(this,"Visualise Plan","Ops! It looks like there are not saved plans..");
@@ -147,22 +162,21 @@ void Selection::on_visualiseButton_clicked()
         parent->show();
         this->hide();
     }else {
-        if(j == 0){
-            Plan = plansContent[k-1];
+        if(numChecked == 0){
             id = k-1;
+            Plan = plansContent[id];
             visualise = new Visualisation(this);
             visualise->show();
             this->hide();
-        }else if (j == 1) {
-            j = j - 1;                                                          //if there is only one plan selected open the visualisation window.
+        }else if (numChecked == 1) {
+            numChecked = numChecked - 1;                                                          //if there is only one plan selected open the visualisation window.
             id = IDs[0];
             Plan = plansContent[id];
             visualise = new Visualisation(this);
             visualise->show();
             this->hide();
         }else {                                                                 // if more than 1 warn the user
-            QMessageBox::warning(this,"Visualise Plan","Ops! It looks like you have selected too many plans. You can select maximum 1 plan.");
-            j = 0;
+            QMessageBox::warning(this,"Visualise Plan","Ops! It looks like you have selected too many plans. You can select maximum 1 plan.");            
         }
     }
 }
@@ -170,6 +184,7 @@ void Selection::on_visualiseButton_clicked()
 
 void Selection::on_homeButton_clicked()
 {
+    //numItemsConstant = 0;
     QWidget *parent = this->parentWidget();
     parent->show();
      this->hide();

@@ -14,14 +14,9 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
-#include <QtGui/QFrame>
-#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -34,18 +29,8 @@ public:
     QPushButton *visualiseButton;
     QPushButton *Button;
     QPushButton *pushButton;
-    QFrame *frame;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_2;
     QPushButton *modifyButton;
-    QWidget *widget;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
+    QLabel *reportLabel;
 
     void setupUi(QDialog *validPlan)
     {
@@ -70,55 +55,12 @@ public:
         pushButton = new QPushButton(validPlan);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(430, 0, 89, 41));
-        frame = new QFrame(validPlan);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(50, 70, 531, 241));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        verticalLayout = new QVBoxLayout(frame);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        label = new QLabel(frame);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        horizontalLayout->addWidget(label);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
         modifyButton = new QPushButton(validPlan);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
-        widget = new QWidget(validPlan);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(50, 340, 531, 111));
-        verticalLayout_2 = new QVBoxLayout(widget);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        verticalLayout_2->addWidget(label_2);
-
-        label_3 = new QLabel(widget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        verticalLayout_2->addWidget(label_3);
-
-        label_4 = new QLabel(widget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        verticalLayout_2->addWidget(label_4);
-
+        reportLabel = new QLabel(validPlan);
+        reportLabel->setObjectName(QString::fromUtf8("reportLabel"));
+        reportLabel->setGeometry(QRect(80, 110, 421, 351));
 
         retranslateUi(validPlan);
 
@@ -134,11 +76,8 @@ public:
         visualiseButton->setText(QApplication::translate("validPlan", "Visualise", 0, QApplication::UnicodeUTF8));
         Button->setText(QApplication::translate("validPlan", "Add", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("validPlan", "Validate", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("validPlan", "Your plan is VALID!", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("validPlan", "Modify", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("validPlan", " The modifications that you applied generated a valid plan. ", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("validPlan", " This means that your plan is a possible solution. ", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("validPlan", " However, it could not be the optimal one.", 0, QApplication::UnicodeUTF8));
+        reportLabel->setText(QString());
     } // retranslateUi
 
 };

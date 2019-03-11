@@ -15,6 +15,10 @@ class Selection : public QDialog
 public:
     explicit Selection(QWidget *parent = 0);
     ~Selection();
+    int numChecked;
+
+
+
 
 private slots:
     void on_showAllButton_clicked();

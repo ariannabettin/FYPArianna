@@ -19,6 +19,7 @@ Window::~Window()
 
 void Window::on_doneButton_clicked()
 {
+    isClicked++;
     int mBox= 0;
     int mBox2 = 0;
     QString val1 = ui->lW1->text();
@@ -53,5 +54,11 @@ void Window::on_doneButton_clicked()
 
 void Window::on_closeButton_clicked()
 {
-    this->hide();
+    if(isClicked > 0){
+        windowORAct = "window";
+       this->hide();
+    }else{
+        QMessageBox::warning(this,"Check data: ", "Please, click button 'Done' to check if you have inserted the right data.");
+    }
+
 }

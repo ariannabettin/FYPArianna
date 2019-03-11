@@ -107,7 +107,7 @@
      <x>20</x>
      <y>70</y>
      <width>391</width>
-     <height>191</height>
+     <height>201</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -122,7 +122,7 @@
       <x>10</x>
       <y>10</y>
       <width>371</width>
-      <height>171</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="title">
@@ -134,35 +134,42 @@
        <x>10</x>
        <y>40</y>
        <width>351</width>
-       <height>112</height>
+       <height>135</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Do you want to know:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QRadioButton" name="addOption">
         <property name="text">
-         <string>Why A is not involved in the plan?</string>
+         <string>Why actionA is not involved in the plan?</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="removeOption">
         <property name="text">
-         <string>Why A is involved in the plan?</string>
+         <string>Why actionA is involved in the plan?</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="replaceOption">
         <property name="text">
-         <string>Why A insted of B? </string>
+         <string>Why actionA insted of actionB? </string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="rescheduleOption">
         <property name="text">
-         <string>Why A at this time? </string>
+         <string>Why actionA at this time? </string>
         </property>
        </widget>
       </item>
@@ -170,17 +177,17 @@
     </widget>
    </widget>
   </widget>
-  <widget class="QLabel" name="stetementLabel">
+  <widget class="QLabel" name="statementLabel">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>420</x>
      <y>40</y>
-     <width>181</width>
+     <width>221</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Choose A and/or B:</string>
+    <string>Choose actionA and/or actionB:</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">

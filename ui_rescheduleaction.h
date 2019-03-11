@@ -36,15 +36,9 @@ public:
     QGroupBox *groupBox;
     QPushButton *timeWindow;
     QPushButton *BAButton;
-    QFrame *frame_2;
-    QGroupBox *groupBox_2;
-    QPushButton *timeWindowSequence;
-    QPushButton *BAButtonSeq;
     QPushButton *modifyButton;
     QListWidget *list;
     QLabel *label;
-    QPushButton *doneButton;
-    QPushButton *listButton;
     QTextEdit *planArea;
     QPushButton *reschButton;
 
@@ -64,13 +58,13 @@ public:
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
         title_label = new QLabel(RescheduleAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(220, 200, 381, 17));
+        title_label->setGeometry(QRect(290, 70, 331, 20));
         RescheduleButton = new QPushButton(RescheduleAction);
         RescheduleButton->setObjectName(QString::fromUtf8("RescheduleButton"));
         RescheduleButton->setGeometry(QRect(280, 0, 91, 41));
         frame = new QFrame(RescheduleAction);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(20, 60, 251, 111));
+        frame->setGeometry(QRect(10, 70, 251, 111));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         groupBox = new QGroupBox(frame);
@@ -82,38 +76,18 @@ public:
         BAButton = new QPushButton(groupBox);
         BAButton->setObjectName(QString::fromUtf8("BAButton"));
         BAButton->setGeometry(QRect(10, 60, 201, 25));
-        frame_2 = new QFrame(RescheduleAction);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(350, 60, 251, 111));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        groupBox_2 = new QGroupBox(frame_2);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 10, 221, 91));
-        timeWindowSequence = new QPushButton(groupBox_2);
-        timeWindowSequence->setObjectName(QString::fromUtf8("timeWindowSequence"));
-        timeWindowSequence->setGeometry(QRect(10, 30, 201, 25));
-        BAButtonSeq = new QPushButton(groupBox_2);
-        BAButtonSeq->setObjectName(QString::fromUtf8("BAButtonSeq"));
-        BAButtonSeq->setGeometry(QRect(10, 60, 201, 25));
         modifyButton = new QPushButton(RescheduleAction);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
         list = new QListWidget(RescheduleAction);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(20, 230, 161, 201));
+        list->setGeometry(QRect(20, 230, 211, 201));
         label = new QLabel(RescheduleAction);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(20, 200, 161, 20));
-        doneButton = new QPushButton(RescheduleAction);
-        doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(110, 440, 71, 31));
-        listButton = new QPushButton(RescheduleAction);
-        listButton->setObjectName(QString::fromUtf8("listButton"));
-        listButton->setGeometry(QRect(20, 440, 71, 31));
         planArea = new QTextEdit(RescheduleAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(220, 230, 331, 261));
+        planArea->setGeometry(QRect(290, 100, 331, 311));
         reschButton = new QPushButton(RescheduleAction);
         reschButton->setObjectName(QString::fromUtf8("reschButton"));
         reschButton->setGeometry(QRect(570, 430, 51, 41));
@@ -124,11 +98,8 @@ public:
         title_label->raise();
         RescheduleButton->raise();
         frame->raise();
-        frame_2->raise();
         list->raise();
         label->raise();
-        doneButton->raise();
-        listButton->raise();
         planArea->raise();
         reschButton->raise();
 
@@ -148,13 +119,8 @@ public:
         groupBox->setTitle(QApplication::translate("RescheduleAction", "Action:", 0, QApplication::UnicodeUTF8));
         timeWindow->setText(QApplication::translate("RescheduleAction", "time window", 0, QApplication::UnicodeUTF8));
         BAButton->setText(QApplication::translate("RescheduleAction", "before-after", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("RescheduleAction", "Sequence:", 0, QApplication::UnicodeUTF8));
-        timeWindowSequence->setText(QApplication::translate("RescheduleAction", "time window", 0, QApplication::UnicodeUTF8));
-        BAButtonSeq->setText(QApplication::translate("RescheduleAction", "before-after", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("RescheduleAction", "Modify", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("RescheduleAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
-        doneButton->setText(QApplication::translate("RescheduleAction", "Done", 0, QApplication::UnicodeUTF8));
-        listButton->setText(QApplication::translate("RescheduleAction", "List", 0, QApplication::UnicodeUTF8));
         reschButton->setText(QString());
     } // retranslateUi
 

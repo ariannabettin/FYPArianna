@@ -1,11 +1,20 @@
 #include "validplan.h"
 #include "ui_validplan.h"
+#include "gloabal.h"
+#include "selection.h"
+#include <QFile>
+#include <QTextStream>
 
 validPlan::validPlan(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::validPlan)
 {
     ui->setupUi(this);
+
+    QFile file("/home/rosplan/Documents/Projects/FYP2019/ValidationReport.txt");
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->reportLabel->setText(text);
 
 }
 
@@ -26,11 +35,12 @@ void validPlan::on_selectButton_clicked()
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
+
 }
 
 void validPlan::on_visualiseButton_clicked()
 {
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }

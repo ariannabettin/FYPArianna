@@ -14,6 +14,7 @@ class Window : public QDialog
 public:
     explicit Window(QWidget *parent = 0);
     ~Window();
+    int isClicked = 0;
 
 
 private slots:

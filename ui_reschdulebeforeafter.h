@@ -42,7 +42,6 @@ public:
     QWidget *layoutWidget_2;
     QVBoxLayout *verticalLayout_9;
     QListWidget *list_2;
-    QPushButton *listButton_2;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout_10;
     QVBoxLayout *verticalLayout_11;
@@ -101,11 +100,6 @@ public:
         list_2->setObjectName(QString::fromUtf8("list_2"));
 
         verticalLayout_9->addWidget(list_2);
-
-        listButton_2 = new QPushButton(layoutWidget_2);
-        listButton_2->setObjectName(QString::fromUtf8("listButton_2"));
-
-        verticalLayout_9->addWidget(listButton_2);
 
         frame_2 = new QFrame(reschduleBeforeAfter);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
@@ -170,7 +164,6 @@ public:
         label_8->setText(QApplication::translate("reschduleBeforeAfter", " If so select one of the following options, click \"List\" and choose B:", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("reschduleBeforeAfter", "n:", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QString());
-        listButton_2->setText(QApplication::translate("reschduleBeforeAfter", "List", 0, QApplication::UnicodeUTF8));
         optionD_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A before B", 0, QApplication::UnicodeUTF8));
         optionE_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A after B", 0, QApplication::UnicodeUTF8));
         optionF_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A n step before B", 0, QApplication::UnicodeUTF8));

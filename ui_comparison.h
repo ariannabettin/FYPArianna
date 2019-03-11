@@ -14,10 +14,13 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QTextEdit>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -37,6 +40,14 @@ public:
     QPushButton *valButton;
     QPushButton *saveButton;
     QLabel *instruction;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *noChangesButton;
+    QPushButton *newsButton;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *replacedButton;
+    QPushButton *removedButton;
 
     void setupUi(QDialog *Comparison)
     {
@@ -63,16 +74,16 @@ public:
         compareButton->setGeometry(QRect(350, 0, 89, 41));
         planArea = new QTextEdit(Comparison);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(20, 130, 291, 361));
+        planArea->setGeometry(QRect(20, 200, 291, 281));
         planArea_2 = new QTextEdit(Comparison);
         planArea_2->setObjectName(QString::fromUtf8("planArea_2"));
-        planArea_2->setGeometry(QRect(330, 130, 291, 361));
+        planArea_2->setGeometry(QRect(330, 200, 281, 281));
         title_label = new QLabel(Comparison);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(20, 110, 67, 17));
+        title_label->setGeometry(QRect(20, 170, 281, 17));
         title_label2 = new QLabel(Comparison);
         title_label2->setObjectName(QString::fromUtf8("title_label2"));
-        title_label2->setGeometry(QRect(330, 110, 67, 17));
+        title_label2->setGeometry(QRect(330, 170, 281, 17));
         valButton = new QPushButton(Comparison);
         valButton->setObjectName(QString::fromUtf8("valButton"));
         valButton->setGeometry(QRect(550, 10, 61, 31));
@@ -82,6 +93,42 @@ public:
         instruction = new QLabel(Comparison);
         instruction->setObjectName(QString::fromUtf8("instruction"));
         instruction->setGeometry(QRect(20, 70, 531, 17));
+        layoutWidget = new QWidget(Comparison);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 100, 531, 62));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        noChangesButton = new QPushButton(layoutWidget);
+        noChangesButton->setObjectName(QString::fromUtf8("noChangesButton"));
+
+        horizontalLayout->addWidget(noChangesButton);
+
+        newsButton = new QPushButton(layoutWidget);
+        newsButton->setObjectName(QString::fromUtf8("newsButton"));
+
+        horizontalLayout->addWidget(newsButton);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        replacedButton = new QPushButton(layoutWidget);
+        replacedButton->setObjectName(QString::fromUtf8("replacedButton"));
+
+        horizontalLayout_2->addWidget(replacedButton);
+
+        removedButton = new QPushButton(layoutWidget);
+        removedButton->setObjectName(QString::fromUtf8("removedButton"));
+
+        horizontalLayout_2->addWidget(removedButton);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
 
         retranslateUi(Comparison);
         QObject::connect(Button, SIGNAL(clicked()), planArea, SLOT(clear()));
@@ -105,6 +152,10 @@ public:
         valButton->setText(QApplication::translate("Comparison", "VAL", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("Comparison", "Save", 0, QApplication::UnicodeUTF8));
         instruction->setText(QApplication::translate("Comparison", "Please, save the plan if you want to keep working on it after the modification.", 0, QApplication::UnicodeUTF8));
+        noChangesButton->setText(QApplication::translate("Comparison", "What has not changed?", 0, QApplication::UnicodeUTF8));
+        newsButton->setText(QApplication::translate("Comparison", "What is new?", 0, QApplication::UnicodeUTF8));
+        replacedButton->setText(QApplication::translate("Comparison", "What has been replaced?", 0, QApplication::UnicodeUTF8));
+        removedButton->setText(QApplication::translate("Comparison", "What's has been removed?", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

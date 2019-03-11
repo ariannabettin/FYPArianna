@@ -42,11 +42,12 @@ public:
     QGroupBox *groupBox;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
+    QLabel *label_2;
     QRadioButton *addOption;
     QRadioButton *removeOption;
     QRadioButton *replaceOption;
     QRadioButton *rescheduleOption;
-    QLabel *stetementLabel;
+    QLabel *statementLabel;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_3;
     QListWidget *list;
@@ -87,18 +88,23 @@ public:
         question_label3->setGeometry(QRect(490, 340, 67, 17));
         frame = new QFrame(UserQuestions);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(20, 70, 391, 191));
+        frame->setGeometry(QRect(20, 70, 391, 201));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         groupBox = new QGroupBox(frame);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(10, 10, 371, 171));
+        groupBox->setGeometry(QRect(10, 10, 371, 181));
         layoutWidget = new QWidget(groupBox);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 40, 351, 112));
+        layoutWidget->setGeometry(QRect(10, 40, 351, 135));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        verticalLayout->addWidget(label_2);
+
         addOption = new QRadioButton(layoutWidget);
         addOption->setObjectName(QString::fromUtf8("addOption"));
 
@@ -119,9 +125,9 @@ public:
 
         verticalLayout->addWidget(rescheduleOption);
 
-        stetementLabel = new QLabel(UserQuestions);
-        stetementLabel->setObjectName(QString::fromUtf8("stetementLabel"));
-        stetementLabel->setGeometry(QRect(440, 40, 181, 17));
+        statementLabel = new QLabel(UserQuestions);
+        statementLabel->setObjectName(QString::fromUtf8("statementLabel"));
+        statementLabel->setGeometry(QRect(420, 40, 221, 17));
         layoutWidget1 = new QWidget(UserQuestions);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(440, 70, 181, 211));
@@ -186,11 +192,12 @@ public:
         addButton_2->setText(QApplication::translate("UserQuestions", "Add", 0, QApplication::UnicodeUTF8));
         question_label3->setText(QString());
         groupBox->setTitle(QApplication::translate("UserQuestions", "Select one of the following question and click \"List\":", 0, QApplication::UnicodeUTF8));
-        addOption->setText(QApplication::translate("UserQuestions", "Why A is not involved in the plan?", 0, QApplication::UnicodeUTF8));
-        removeOption->setText(QApplication::translate("UserQuestions", "Why A is involved in the plan?", 0, QApplication::UnicodeUTF8));
-        replaceOption->setText(QApplication::translate("UserQuestions", "Why A insted of B? ", 0, QApplication::UnicodeUTF8));
-        rescheduleOption->setText(QApplication::translate("UserQuestions", "Why A at this time? ", 0, QApplication::UnicodeUTF8));
-        stetementLabel->setText(QApplication::translate("UserQuestions", "Choose A and/or B:", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("UserQuestions", "Do you want to know:", 0, QApplication::UnicodeUTF8));
+        addOption->setText(QApplication::translate("UserQuestions", "Why actionA is not involved in the plan?", 0, QApplication::UnicodeUTF8));
+        removeOption->setText(QApplication::translate("UserQuestions", "Why actionA is involved in the plan?", 0, QApplication::UnicodeUTF8));
+        replaceOption->setText(QApplication::translate("UserQuestions", "Why actionA insted of actionB? ", 0, QApplication::UnicodeUTF8));
+        rescheduleOption->setText(QApplication::translate("UserQuestions", "Why actionA at this time? ", 0, QApplication::UnicodeUTF8));
+        statementLabel->setText(QApplication::translate("UserQuestions", "Choose actionA and/or actionB:", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QApplication::translate("UserQuestions", "List", 0, QApplication::UnicodeUTF8));
         completeButton->setText(QApplication::translate("UserQuestions", "Done", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("UserQuestions", "Is this your question? ", 0, QApplication::UnicodeUTF8));
