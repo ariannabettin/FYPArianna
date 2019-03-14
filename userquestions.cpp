@@ -110,7 +110,7 @@ void UserQuestions::on_doneButton_clicked()
         QFont f( "Arial",8);
         QStringList line = Plan.split("\n");
         for(int i = 0; i<line.size(); i++ ){
-            if(!line[i].isEmpty()){
+            if(!line[i].isEmpty() || line[i] == " "){
                 QListWidgetItem * checkB = new QListWidgetItem(line[i]);
                 checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
                 checkB->setCheckState(Qt::Unchecked);
@@ -119,7 +119,7 @@ void UserQuestions::on_doneButton_clicked()
                 numItems = i;
             }
         }
-
+        numItems = numItems+1;
 
     }else if(ui->replaceOption->isChecked()){
             ui->statementLabel->setText("Choose actionA and actionB:");
@@ -128,7 +128,7 @@ void UserQuestions::on_doneButton_clicked()
             QFont f( "Arial",8);
             QStringList line = Plan.split("\n");
             for(int i = 0; i<line.size(); i++ ){
-                if(!line[i].isEmpty()){
+                if(!line[i].isEmpty() || line[i] == " "){
                     QListWidgetItem * checkB = new QListWidgetItem(line[i]);
                     checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
                     checkB->setCheckState(Qt::Unchecked);
@@ -137,6 +137,7 @@ void UserQuestions::on_doneButton_clicked()
                     numItems = i;
                 }
             }
+            numItems = numItems+1;
             ui->list->addItem("B:");
             QFile file(domains[id]);
             if(!file.open(QFile::ReadOnly | QFile::Text)){
@@ -213,7 +214,7 @@ void UserQuestions::on_completeButton_clicked()
                         action[numChecked] = ui->list->item(i)->text();
                         numChecked++;
              }
-         }   
+         }
 
         if(numChecked == 1 && (ui->addOption->isChecked() || ui->removeOption->isChecked() || ui->rescheduleOption->isChecked())){
             if(ui->addOption->isChecked()){
@@ -263,14 +264,14 @@ void UserQuestions::on_completeButton_clicked()
                 str3= str3 + " " + list[i];
             }
             ui->addButton_2->setText("Replace");
-            QStringList actionName = action[0].split(" ");
-            str2 = actionName[1];
-            toRemove = str2;
-            str4 = action[1];
-            toAdd[0] = str4;
             if(!action[0].contains(":") || (action[1].contains(":"))){
                 QMessageBox::warning(this,"Warning!","Please, select one action from list A and one from list B.");
             }else{
+                QStringList actionName = action[0].split(" ");
+                str2 = actionName[1];
+                toRemove = str2;
+                str4 = action[1];
+                toAdd[0] = str4;
                 ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
             }
         }else if(numChecked == 0){
@@ -302,15 +303,27 @@ void UserQuestions::on_addButton_2_clicked() // to check
            }else if(ui->addButton_2->text() == "Remove"){
                   compareButtonName = "Remove";
                   QStringList line = Plan.split("\n");                   //splits the text
-                  for(int i = 0; i<line.size(); i++ ){
-                        if(i == 0){
-                            Plan2 = line[i];
-                        }else{
-                            if (line[i] != action[0]){
-                                Plan2 = Plan2 + "\n" + line[i];
-                            }
-                        }
-                  }
+                  int helper = 0;
+                  for(int i = 0; i<line.size(); i++){
+                      if(line[i] == action[0]){
+                          if(i == 0){
+                             Plan2 =  line[1];
+                             helper = 1;
+                          }
+                      }else{
+                          if(i == 0){
+                              Plan2 = line[0];
+                          }else if(i == 1){
+                              if(helper == 0){
+                                 Plan2 = Plan2 + "\n" + line[i];
+                              }
+                          }else{
+                              Plan2 = Plan2 + "\n" + line[i];
+                          }
+                      }
+                 }
+                  Plan2 = Plan2 + "\n";
+
                   compare = new Comparison(this);
                   compare->show();
                   this->hide();
@@ -322,17 +335,22 @@ void UserQuestions::on_addButton_2_clicked() // to check
             }else if(ui->addButton_2->text() == "Replace"){
                   compareButtonName = "Replace";
                   QStringList line = Plan.split("\n");                   //splits the text
-                  for(int i = 0; i<line.size(); i++ ){
-                   if(i == 0){
-                        Plan2 = line[i];
-                   }else{
-                       if (line[i] != action[0]){
-                           Plan2 = Plan2 + "\n" + line[i];
-                       }else{
-                            Plan2 = Plan2 + "\n" + action[1];
-                       }
-                   }
-                 }
+                  for(int i = 0; i<line.size(); i++){
+                      if(i==0){
+                          if(line[0] != action[0]){
+                             Plan2 = line[i];
+                          }else{
+                             Plan2 = action[1];
+                          }
+                      }else{
+                          if(line[i] != action[0]){
+                              Plan2 = Plan2 + "\n" + line[i];
+                          }else{
+                              Plan2 = Plan2 + "\n" + action[1];
+                          }
+                      }
+                     }
+
                   compare = new Comparison(this);
                   compare->show();
                   this->hide();

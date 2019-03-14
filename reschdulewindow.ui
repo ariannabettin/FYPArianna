@@ -200,7 +200,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Modify</string>
+    <string>Questions</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">

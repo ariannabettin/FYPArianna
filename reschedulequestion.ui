@@ -42,7 +42,7 @@
   <widget class="QPushButton" name="Button">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>290</x>
      <y>0</y>
      <width>81</width>
      <height>41</height>
@@ -57,12 +57,12 @@
     <rect>
      <x>210</x>
      <y>0</y>
-     <width>71</width>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Modify</string>
+    <string>Questions</string>
    </property>
   </widget>
   <widget class="QPushButton" name="homeButton">

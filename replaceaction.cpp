@@ -40,47 +40,6 @@ ReplaceAction::~ReplaceAction()
 }
 
 
-
-
-void ReplaceAction::on_valButton_clicked()
-{
-    //external validator
-}
-
-
-
-void ReplaceAction::on_homeButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-
-
-void ReplaceAction::on_selectButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-
-void ReplaceAction::on_visualiseButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-
-void ReplaceAction::on_modifyButton_clicked()
-{
-    QWidget *parent = this->parentWidget();
-    parent->show();
-     this->hide();
-}
-
 void ReplaceAction::on_existingButton_clicked()
 {
     isClicked++;
@@ -136,10 +95,9 @@ void ReplaceAction::on_existingButton_clicked()
 
 void ReplaceAction::on_replaceActionsButton_clicked()
 {
-
+    int numChecked = 0;
     if(isClicked > 0){
 
-        int numChecked = 0;
          for(int i = 0; i<numItems; i++){
             bool isChecked = ui->list->item(i)->checkState();
             if(isChecked == true){
@@ -175,7 +133,11 @@ void ReplaceAction::on_replaceActionsButton_clicked()
 
                  for(int i = 0; i<count; i++){
                      if(i==0){
-                         Plan2 = ui->planArea->item(i)->text();
+                         if(ui->planArea->item(0)->text() != toRemove){
+                            Plan2 = ui->planArea->item(i)->text();
+                         }else{
+                            Plan2 = toAdd[0];
+                         }
                      }else{
                          if(ui->planArea->item(i)->text() != toRemove){
                              Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
@@ -199,3 +161,31 @@ void ReplaceAction::on_replaceActionsButton_clicked()
 }
 
 
+
+void ReplaceAction::on_homeButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+void ReplaceAction::on_selectButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+void ReplaceAction::on_visualiseButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+void ReplaceAction::on_modifyButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+}

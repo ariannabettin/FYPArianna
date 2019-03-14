@@ -16,7 +16,7 @@ RemoveAction::RemoveAction(QWidget *parent) :
     int counter = 0;
     QStringList line = Plan.split("\n");
     for(int i = 0; i<line.size(); i++ ){
-        if(!line[i].isEmpty()){
+        if(!line[i].isEmpty() || line[i] == " "){
             QListWidgetItem * checkB = new QListWidgetItem(line[i]);
             checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
             checkB->setCheckState(Qt::Unchecked);
@@ -80,19 +80,27 @@ void RemoveAction::on_removePlanButton_clicked()
          toRemove = action[0];
 
          QStringList line = Plan.split("\n");
+         int helper = 0;
          for(int i = 0; i<numItems; i++){
-             if(ui->planArea->item(i)->text() != toRemove){
-                    if(i == 0){
-                    Plan2 =  ui->planArea->item(i)->text();
-                 }else if(toRemove == ui->planArea->item(0)->text()){
+             if(ui->planArea->item(i)->text() == toRemove){
+                 if(i == 0){
                     Plan2 =  ui->planArea->item(1)->text();
-                    toRemove = toRemove+"e"; //REMEMBER ABOUT IT!!
+                    helper = 1;
+                 }
+             }else{
+                 if(i == 0){
+                     Plan2 = ui->planArea->item(0)->text();
+                 }else if(i == 1){
+                     if(helper == 0){
+                        Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+                     }
                  }else{
-                    Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+                     Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
                  }
              }
         }
          Plan2 = Plan2 + "\n";
+
         compareButtonName = "Remove";
         compare = new Comparison(this);
         compare->show();

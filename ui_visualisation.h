@@ -48,6 +48,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_3;
+    QPushButton *reloadButton;
 
     void setupUi(QDialog *Visualisation)
     {
@@ -65,7 +66,7 @@ public:
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
         valButton = new QPushButton(Visualisation);
         valButton->setObjectName(QString::fromUtf8("valButton"));
-        valButton->setGeometry(QRect(560, 430, 51, 31));
+        valButton->setGeometry(QRect(580, 430, 51, 31));
         frame = new QFrame(Visualisation);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(0, 50, 221, 111));
@@ -123,6 +124,9 @@ public:
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        reloadButton = new QPushButton(Visualisation);
+        reloadButton->setObjectName(QString::fromUtf8("reloadButton"));
+        reloadButton->setGeometry(QRect(530, 430, 31, 31));
 
         retranslateUi(Visualisation);
 
@@ -143,6 +147,7 @@ public:
         modifyButton->setText(QString());
         stetement1_3->setText(QApplication::translate("Visualisation", "Access your files:", 0, QApplication::UnicodeUTF8));
         accessFile->setText(QString());
+        reloadButton->setText(QString());
     } // retranslateUi
 
 };

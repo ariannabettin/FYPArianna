@@ -20,21 +20,17 @@ public:
 
 private slots:
 
-    void on_valButton_clicked();
-
-    void on_homeButton_clicked();
-
-    void on_visualiseButton_clicked();
-
-    void on_selectButton_clicked();
-
-    void on_modifyButton_clicked();
-
     void on_existingButton_clicked();
 
     void on_replaceActionsButton_clicked();
 
+    void on_homeButton_2_clicked();
 
+    void on_selectButton_2_clicked();
+
+    void on_visualiseButton_2_clicked();
+
+    void on_modifyButton_2_clicked();
 
 private:
     Ui::ReplaceAction *ui;

@@ -203,7 +203,7 @@ public:
         Button->setText(QApplication::translate("reschduleWindow", "Reschedule", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("reschduleWindow", " Do you want your action/s to happen within a specific time window?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("reschduleWindow", " If so select one of the following options and set the time window:", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("reschduleWindow", "Modify", 0, QApplication::UnicodeUTF8));
+        modifyButton->setText(QApplication::translate("reschduleWindow", "Questions", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("reschduleWindow", "Set time window:", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QString());
         pushButton->setText(QApplication::translate("reschduleWindow", "Window", 0, QApplication::UnicodeUTF8));

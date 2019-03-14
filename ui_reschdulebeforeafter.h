@@ -170,7 +170,7 @@ public:
         optionG_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A n step after B", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("reschduleBeforeAfter", "Visualise", 0, QApplication::UnicodeUTF8));
         selectButton->setText(QApplication::translate("reschduleBeforeAfter", "Select", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("reschduleBeforeAfter", "Modify", 0, QApplication::UnicodeUTF8));
+        modifyButton->setText(QApplication::translate("reschduleBeforeAfter", "Questions", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("reschduleBeforeAfter", "Home", 0, QApplication::UnicodeUTF8));
         Button->setText(QApplication::translate("reschduleBeforeAfter", "Reschedule", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("reschduleBeforeAfter", "Before and After", 0, QApplication::UnicodeUTF8));

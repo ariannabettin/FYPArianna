@@ -25,11 +25,6 @@ QT_BEGIN_NAMESPACE
 class Ui_ReplaceAction
 {
 public:
-    QPushButton *visualiseButton;
-    QPushButton *modifyButton;
-    QPushButton *selectButton;
-    QPushButton *replaceButton;
-    QPushButton *homeButton;
     QLabel *title_label;
     QPushButton *existingButton;
     QListWidget *list;
@@ -37,27 +32,17 @@ public:
     QPushButton *replaceActionsButton;
     QListWidget *planArea;
     QTextEdit *plan;
+    QPushButton *homeButton_2;
+    QPushButton *modifyButton_2;
+    QPushButton *replaceButton;
+    QPushButton *visualiseButton_2;
+    QPushButton *selectButton_2;
 
     void setupUi(QDialog *ReplaceAction)
     {
         if (ReplaceAction->objectName().isEmpty())
             ReplaceAction->setObjectName(QString::fromUtf8("ReplaceAction"));
         ReplaceAction->resize(640, 480);
-        visualiseButton = new QPushButton(ReplaceAction);
-        visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
-        visualiseButton->setGeometry(QRect(140, 0, 71, 41));
-        modifyButton = new QPushButton(ReplaceAction);
-        modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
-        selectButton = new QPushButton(ReplaceAction);
-        selectButton->setObjectName(QString::fromUtf8("selectButton"));
-        selectButton->setGeometry(QRect(70, 0, 71, 41));
-        replaceButton = new QPushButton(ReplaceAction);
-        replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
-        replaceButton->setGeometry(QRect(280, 0, 71, 41));
-        homeButton = new QPushButton(ReplaceAction);
-        homeButton->setObjectName(QString::fromUtf8("homeButton"));
-        homeButton->setGeometry(QRect(0, 0, 71, 41));
         title_label = new QLabel(ReplaceAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
         title_label->setGeometry(QRect(40, 100, 371, 17));
@@ -79,6 +64,21 @@ public:
         plan = new QTextEdit(ReplaceAction);
         plan->setObjectName(QString::fromUtf8("plan"));
         plan->setGeometry(QRect(10, 450, 21, 20));
+        homeButton_2 = new QPushButton(ReplaceAction);
+        homeButton_2->setObjectName(QString::fromUtf8("homeButton_2"));
+        homeButton_2->setGeometry(QRect(0, 0, 71, 41));
+        modifyButton_2 = new QPushButton(ReplaceAction);
+        modifyButton_2->setObjectName(QString::fromUtf8("modifyButton_2"));
+        modifyButton_2->setGeometry(QRect(210, 0, 71, 41));
+        replaceButton = new QPushButton(ReplaceAction);
+        replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
+        replaceButton->setGeometry(QRect(280, 0, 71, 41));
+        visualiseButton_2 = new QPushButton(ReplaceAction);
+        visualiseButton_2->setObjectName(QString::fromUtf8("visualiseButton_2"));
+        visualiseButton_2->setGeometry(QRect(140, 0, 71, 41));
+        selectButton_2 = new QPushButton(ReplaceAction);
+        selectButton_2->setObjectName(QString::fromUtf8("selectButton_2"));
+        selectButton_2->setGeometry(QRect(70, 0, 71, 41));
 
         retranslateUi(ReplaceAction);
 
@@ -88,15 +88,15 @@ public:
     void retranslateUi(QDialog *ReplaceAction)
     {
         ReplaceAction->setWindowTitle(QApplication::translate("ReplaceAction", "Dialog", 0, QApplication::UnicodeUTF8));
-        visualiseButton->setText(QApplication::translate("ReplaceAction", "Visualise", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("ReplaceAction", "Modify", 0, QApplication::UnicodeUTF8));
-        selectButton->setText(QApplication::translate("ReplaceAction", "Select", 0, QApplication::UnicodeUTF8));
-        replaceButton->setText(QApplication::translate("ReplaceAction", "Replace", 0, QApplication::UnicodeUTF8));
-        homeButton->setText(QApplication::translate("ReplaceAction", "Home", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("ReplaceAction", "TextLabel", 0, QApplication::UnicodeUTF8));
         existingButton->setText(QApplication::translate("ReplaceAction", "Existing", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("ReplaceAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
         replaceActionsButton->setText(QString());
+        homeButton_2->setText(QApplication::translate("ReplaceAction", "Home", 0, QApplication::UnicodeUTF8));
+        modifyButton_2->setText(QApplication::translate("ReplaceAction", "Modify", 0, QApplication::UnicodeUTF8));
+        replaceButton->setText(QApplication::translate("ReplaceAction", "Replace", 0, QApplication::UnicodeUTF8));
+        visualiseButton_2->setText(QApplication::translate("ReplaceAction", "Visualise", 0, QApplication::UnicodeUTF8));
+        selectButton_2->setText(QApplication::translate("ReplaceAction", "Select", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

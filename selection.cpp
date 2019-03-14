@@ -198,7 +198,7 @@ void Selection::on_saveButton_clicked()
         bool isChecked = ui->list->item(i)->checkState();
         if(isChecked == true){
             for(int z = 0; z<k; z++){
-                QMessageBox::information(this,"a",plans[z]+" "+ ui->list->item(i)->text());
+                //QMessageBox::information(this,"a",plans[z]+" "+ ui->list->item(i)->text());
                 if (plans[z] == ui->list->item(i)->text()){
                     IDs[d] = z;
                     d = d +1;

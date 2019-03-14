@@ -27,11 +27,9 @@ QT_BEGIN_NAMESPACE
 class Ui_Comparison
 {
 public:
-    QPushButton *modifyButton;
     QPushButton *homeButton;
     QPushButton *selectButton;
     QPushButton *visualiseButton;
-    QPushButton *Button;
     QPushButton *compareButton;
     QTextEdit *planArea;
     QTextEdit *planArea_2;
@@ -48,15 +46,13 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *replacedButton;
     QPushButton *removedButton;
+    QLabel *label;
 
     void setupUi(QDialog *Comparison)
     {
         if (Comparison->objectName().isEmpty())
             Comparison->setObjectName(QString::fromUtf8("Comparison"));
         Comparison->resize(640, 480);
-        modifyButton = new QPushButton(Comparison);
-        modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
         homeButton = new QPushButton(Comparison);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
@@ -66,12 +62,9 @@ public:
         visualiseButton = new QPushButton(Comparison);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
-        Button = new QPushButton(Comparison);
-        Button->setObjectName(QString::fromUtf8("Button"));
-        Button->setGeometry(QRect(280, 0, 71, 41));
         compareButton = new QPushButton(Comparison);
         compareButton->setObjectName(QString::fromUtf8("compareButton"));
-        compareButton->setGeometry(QRect(350, 0, 89, 41));
+        compareButton->setGeometry(QRect(210, 0, 89, 41));
         planArea = new QTextEdit(Comparison);
         planArea->setObjectName(QString::fromUtf8("planArea"));
         planArea->setGeometry(QRect(20, 200, 291, 281));
@@ -92,7 +85,7 @@ public:
         saveButton->setGeometry(QRect(550, 60, 61, 31));
         instruction = new QLabel(Comparison);
         instruction->setObjectName(QString::fromUtf8("instruction"));
-        instruction->setGeometry(QRect(20, 70, 531, 17));
+        instruction->setGeometry(QRect(10, 50, 531, 17));
         layoutWidget = new QWidget(Comparison);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(20, 100, 531, 62));
@@ -129,10 +122,11 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        label = new QLabel(Comparison);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(10, 70, 521, 17));
 
         retranslateUi(Comparison);
-        QObject::connect(Button, SIGNAL(clicked()), planArea, SLOT(clear()));
-        QObject::connect(Button, SIGNAL(clicked()), planArea_2, SLOT(clear()));
         QObject::connect(saveButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Comparison);
@@ -141,11 +135,9 @@ public:
     void retranslateUi(QDialog *Comparison)
     {
         Comparison->setWindowTitle(QApplication::translate("Comparison", "Dialog", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("Comparison", "Modify", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Comparison", "Home", 0, QApplication::UnicodeUTF8));
         selectButton->setText(QApplication::translate("Comparison", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("Comparison", "Visualise", 0, QApplication::UnicodeUTF8));
-        Button->setText(QApplication::translate("Comparison", "Add", 0, QApplication::UnicodeUTF8));
         compareButton->setText(QApplication::translate("Comparison", "Compare", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
         title_label2->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
@@ -156,6 +148,7 @@ public:
         newsButton->setText(QApplication::translate("Comparison", "What is new?", 0, QApplication::UnicodeUTF8));
         replacedButton->setText(QApplication::translate("Comparison", "What has been replaced?", 0, QApplication::UnicodeUTF8));
         removedButton->setText(QApplication::translate("Comparison", "What's has been removed?", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Comparison", "Be aware that the old plan will be overwritten for the current session.", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

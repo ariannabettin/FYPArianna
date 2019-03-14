@@ -61,7 +61,7 @@ public:
         title_label->setGeometry(QRect(290, 70, 331, 20));
         RescheduleButton = new QPushButton(RescheduleAction);
         RescheduleButton->setObjectName(QString::fromUtf8("RescheduleButton"));
-        RescheduleButton->setGeometry(QRect(280, 0, 91, 41));
+        RescheduleButton->setGeometry(QRect(290, 0, 81, 41));
         frame = new QFrame(RescheduleAction);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(10, 70, 251, 111));
@@ -78,7 +78,7 @@ public:
         BAButton->setGeometry(QRect(10, 60, 201, 25));
         modifyButton = new QPushButton(RescheduleAction);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
+        modifyButton->setGeometry(QRect(210, 0, 81, 41));
         list = new QListWidget(RescheduleAction);
         list->setObjectName(QString::fromUtf8("list"));
         list->setGeometry(QRect(20, 230, 211, 201));

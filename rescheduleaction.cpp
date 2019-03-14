@@ -138,7 +138,7 @@ void RescheduleAction::on_reschButton_clicked()
         }
     }
     if(windowORAct == " " && checkMsgBox == false){
-        QMessageBox::information(this,"Missing data:","Please choose one of the options between 'time-window' or 'before after' and instert data required");
+        QMessageBox::information(this,"Missing data:","Please choose one of the options between 'time window' or 'before-after' and instert data required");
     }else if(windowORAct == "window" && checkMsgBox == false){
             windowORAct = " ";
             Plan2 = Plan + "\n"+ "to reschedule: " + toAdd[0] + "\n" + windowOpt + " [" + startTime + "][" + endTime + "]";

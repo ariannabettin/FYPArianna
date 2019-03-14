@@ -52,10 +52,10 @@ public:
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
         Button = new QPushButton(RescheduleQuestion);
         Button->setObjectName(QString::fromUtf8("Button"));
-        Button->setGeometry(QRect(280, 0, 81, 41));
+        Button->setGeometry(QRect(290, 0, 81, 41));
         modifyButton = new QPushButton(RescheduleQuestion);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
+        modifyButton->setGeometry(QRect(210, 0, 81, 41));
         homeButton = new QPushButton(RescheduleQuestion);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
@@ -101,7 +101,7 @@ public:
         selectButton->setText(QApplication::translate("RescheduleQuestion", "Select", 0, QApplication::UnicodeUTF8));
         visualiseButton->setText(QApplication::translate("RescheduleQuestion", "Visualise", 0, QApplication::UnicodeUTF8));
         Button->setText(QApplication::translate("RescheduleQuestion", "Reschedule", 0, QApplication::UnicodeUTF8));
-        modifyButton->setText(QApplication::translate("RescheduleQuestion", "Modify", 0, QApplication::UnicodeUTF8));
+        modifyButton->setText(QApplication::translate("RescheduleQuestion", "Questions", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("RescheduleQuestion", "Home", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("RescheduleQuestion", " Do you want your action/s to happen within a specific time window?", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("RescheduleQuestion", "Do you want your action/s to happen before or after another action?", 0, QApplication::UnicodeUTF8));
