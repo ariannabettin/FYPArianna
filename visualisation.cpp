@@ -30,6 +30,11 @@ Visualisation::Visualisation(QWidget *parent) :
     ui->accessFile->setIcon(ButtonIcon3);
     ui->accessFile->setIconSize(QSize(65, 65));
 
+    QPixmap pixmap4("reloadIcon.png");
+    QIcon ButtonIcon4(pixmap4);
+    ui->reloadButton->setIcon(ButtonIcon4);
+    ui->reloadButton->setIconSize(QSize(35, 35));
+
 
 }
 
@@ -78,4 +83,10 @@ void Visualisation::on_accessFile_clicked()
     access = new Access(this);
     access->show();
     this->hide();
+}
+
+void Visualisation::on_reloadButton_clicked()
+{
+    ui->planArea->setText(Plan);
+
 }

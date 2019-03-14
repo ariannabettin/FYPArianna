@@ -55,7 +55,7 @@
   <widget class="QPushButton" name="valButton">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>580</x>
      <y>430</y>
      <width>51</width>
      <height>31</height>
@@ -246,6 +246,19 @@
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3"/>
+  </widget>
+  <widget class="QPushButton" name="reloadButton">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>430</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>

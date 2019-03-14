@@ -38,9 +38,9 @@ void Window::on_doneButton_clicked()
         if(ui->optionA->isChecked()){
             windowOpt =  ui->optionA->text();
         }else if(ui->optionB->isChecked()){
-            windowOpt =  ui->optionA->text();
-        }else if(ui->optionB->isChecked()){
-            windowOpt =  ui->optionA->text();
+            windowOpt =  ui->optionB->text();
+        }else if(ui->optionC->isChecked()){
+            windowOpt =  ui->optionC->text();
         }else{
             QMessageBox::warning(this,"Window options:", "Please, select one of the options available");
         }

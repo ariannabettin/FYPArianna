@@ -4,6 +4,7 @@
 #include "selection.h"
 #include <QFile>
 #include <QTextStream>
+#include <QMessageBox>
 
 validPlan::validPlan(QWidget *parent) :
     QDialog(parent),
@@ -11,11 +12,14 @@ validPlan::validPlan(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QFile file("/home/rosplan/Documents/Projects/FYP2019/ValidationReport.txt");
+    QFile file("ValidationReport.txt");
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::information(this, "Error: ", "Not file found");
+    }
     QTextStream in(&file);
     QString text = in.readAll();
     ui->reportLabel->setText(text);
-
+    file.close();
 }
 
 validPlan::~validPlan()

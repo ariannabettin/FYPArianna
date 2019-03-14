@@ -30,6 +30,8 @@ private slots:
 
     void on_accessFile_clicked();
 
+    void on_reloadButton_clicked();
+
 private:
     Ui::Visualisation *ui;
     Modification *modify;

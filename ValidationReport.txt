@@ -1,1 +1,6 @@
-Your plan is valid:
+Validation Report received from an external Validator.
+It should state whether the plan is valid or not.
+
+
+
+
