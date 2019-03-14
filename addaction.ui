@@ -137,44 +137,11 @@
     <string>Done</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label1">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>440</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Order of actions:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="actionToAdd">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>440</y>
-     <width>471</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="actionToAdd2">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>470</y>
-     <width>371</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="addButton_2">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>470</y>
+     <x>570</x>
+     <y>440</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -227,6 +194,68 @@
          <string>Existing</string>
         </property>
        </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>430</y>
+     <width>541</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLineEdit" name="label1"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_1"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="label2"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_2"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="label3"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_3"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLineEdit" name="label4"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_4"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLineEdit" name="label5"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_5"/>
       </item>
      </layout>
     </item>

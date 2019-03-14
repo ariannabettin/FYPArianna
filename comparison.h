@@ -18,6 +18,10 @@ class Comparison : public QDialog
 public:
     explicit Comparison(QWidget *parent = 0);
     ~Comparison();
+    bool cNoChanges;
+    bool cNews;
+    bool cReplaced;
+    bool cRemoved;
 
 private slots:
     void on_saveButton_clicked();
@@ -27,10 +31,6 @@ private slots:
     void on_selectButton_clicked();
 
     void on_visualiseButton_clicked();
-
-    void on_modifyButton_clicked();
-
-    void on_Button_clicked();
 
     void on_valButton_clicked();
 

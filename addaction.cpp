@@ -22,6 +22,46 @@ AddAction::AddAction(QWidget *parent) :
     QIcon ButtonIcon1(pixmap1);
     ui->addButton_2->setIcon(ButtonIcon1);
     ui->addButton_2->setIconSize(QSize(35, 45));
+
+    ui->comboBox_1->addItem("1");
+    ui->comboBox_1->addItem("2");
+    ui->comboBox_1->addItem("3");
+    ui->comboBox_1->addItem("4");
+    ui->comboBox_1->addItem("5");
+    ui->comboBox_1->addItem("--");
+    ui->comboBox_1->setCurrentIndex(ui->comboBox_1->findText("1"));
+
+     ui->comboBox_2->addItem("1");
+     ui->comboBox_2->addItem("2");
+     ui->comboBox_2->addItem("3");
+     ui->comboBox_2->addItem("4");
+     ui->comboBox_2->addItem("5");
+     ui->comboBox_2->addItem("--");
+     ui->comboBox_2->setCurrentIndex(ui->comboBox_2->findText("2"));
+
+     ui->comboBox_3->addItem("1");
+     ui->comboBox_3->addItem("2");
+     ui->comboBox_3->addItem("3");
+     ui->comboBox_3->addItem("4");
+     ui->comboBox_3->addItem("5");
+     ui->comboBox_3->addItem("--");
+     ui->comboBox_3->setCurrentIndex(ui->comboBox_3->findText("3"));
+
+     ui->comboBox_4->addItem("1");
+     ui->comboBox_4->addItem("2");
+     ui->comboBox_4->addItem("3");
+     ui->comboBox_4->addItem("4");
+     ui->comboBox_4->addItem("5");
+     ui->comboBox_4->addItem("--");
+     ui->comboBox_4->setCurrentIndex(ui->comboBox_4->findText("4"));
+
+     ui->comboBox_5->addItem("1");
+     ui->comboBox_5->addItem("2");
+     ui->comboBox_5->addItem("3");
+     ui->comboBox_5->addItem("4");
+     ui->comboBox_5->addItem("5");
+     ui->comboBox_5->addItem("--");
+     ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("5"));
 }
 
 AddAction::~AddAction()
@@ -125,56 +165,61 @@ void AddAction::on_existinButton_clicked()
 void AddAction::on_doneButton_clicked()                                                             // finds the checked actions and adds them to the edit lines.
 {
     //code partially taken by StackOverFlow or by QtFroum
+    isClicked2++;
    if(isClicked>0){
+
+       for (int i = 0;i<5;i++){
+           action[i]=" ";
+       }
 
         numChecked = 0;
         for(int i = 0; i<numItems; i++){
             bool isChecked = ui->list->item(i)->checkState();
             if(isChecked == true){
-                        toAdd[numChecked] = ui->list->item(i)->text();
+                        action[numChecked] = ui->list->item(i)->text();
                         numChecked++;
              }
          }
 
-         QString actionlist1;
-         QString actionlist2;
+        QFont f( "Arial",8);
 
-            if (numChecked < 4){
+        if(numChecked>5){
+            QMessageBox::information(this,"Error:","You can not add more than 5 actions at the same time.");
+        }else if(numChecked == 0){
+            QMessageBox::information(this,"Error:","Please, select at least one action");
+        }else{
+           ui->label1->setText(action[0]);
+           ui->label1->setFont(f);
+           ui->label2->setText(action[1]);
+           ui->label2->setFont(f);
+           ui->label3->setText(action[2]);
+           ui->label3->setFont(f);
+           ui->label4->setText(action[3]);
+           ui->label4->setFont(f);
+           ui->label5->setText(action[4]);
+           ui->label5->setFont(f);
 
-                for (int i = 0; i<numChecked; i++){                         //adds first 4 actions to the first edit line
-                    if (i==0){
-                      actionlist1 = toAdd[0];
-                    }else{
-                      actionlist1 =  actionlist1 + "," + toAdd[i];
-                    }
-                }
-            }else{
-                for (int i = 0; i<4; i++){                         //adds first 4 actions to the first edit line
-                    if (i==0){
-                      actionlist1 = toAdd[0];
-                    }else{
-                      actionlist1 =  actionlist1 + "," + toAdd[i];
-                    }
-                }
-
-                for (int i = 4; i<numChecked; i++){                //adds all other to the second edit line
-                    if (i==4){
-                      actionlist2 = toAdd[4];
-                    }else{
-                      actionlist2 =  actionlist2 + "," + toAdd[i];
-                    }
-
-            }
+           if(numChecked == 1){
+               ui->comboBox_2->setCurrentIndex(ui->comboBox_2->findText("--"));
+               ui->comboBox_3->setCurrentIndex(ui->comboBox_3->findText("--"));
+               ui->comboBox_4->setCurrentIndex(ui->comboBox_4->findText("--"));
+               ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("--"));
+           }else if(numChecked == 2){
+               ui->comboBox_3->setCurrentIndex(ui->comboBox_3->findText("--"));
+               ui->comboBox_4->setCurrentIndex(ui->comboBox_4->findText("--"));
+               ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("--"));
+           }else if(numChecked == 3){
+               ui->comboBox_4->setCurrentIndex(ui->comboBox_4->findText("--"));
+               ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("--"));
+           }else if(numChecked == 4){
+               ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("--"));
+           }
 
 
 
-             }
-             ui->label1->setText("Orders of actions:");
-             ui->actionToAdd->setText(actionlist1);
-             //ui->actionToAdd->setFont(f);
-             ui->actionToAdd2->setText(actionlist2);
-             //ui->actionToAdd2->setFont(f);
 
+
+        }
 
 
 
@@ -186,17 +231,83 @@ void AddAction::on_doneButton_clicked()                                         
 
 void AddAction::on_addButton_2_clicked()                                                                  // adds the selected action to the global variable Plan2 and opens the comparison window
 {
-    if(isClicked>0){
-    Plan2 =Plan;
-    for(int i = 0; i< numChecked; i++){
-            Plan2 = Plan2 + "\n" + toAdd[i] + "\n";
-    }
+    if(isClicked>0 && isClicked2 > 0){
 
-    compareButtonName = "Add";
-    compare = new Comparison(this);
-    compare->show();
-    this->hide();
-    }else{
-        QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
-    }
+        QString val1 = ui->comboBox_1->currentText();
+        QString val2 = ui->comboBox_2->currentText();
+        QString val3 = ui->comboBox_3->currentText();
+        QString val4 = ui->comboBox_3->currentText();
+        QString val5 = ui->comboBox_3->currentText();
+
+        QString actionArray[5]={ui->label1->text(),ui->label2->text(),ui->label3->text(),ui->label4->text(),ui->label5->text()};
+        QString valuesArray[5] ={val1,val2,val3,val4,val5};
+
+        QString indexesUsed[5];
+        int somethingWrong = 0;
+        int somethingRight = 0;
+
+        for(int i = 0;i<numChecked;i++){
+
+            QString index = QString::number(i+1);
+            for(int k = 0; k < numChecked; k++){
+                if(valuesArray[k] == index){
+                        indexesUsed[k]=valuesArray[k];
+                        toAdd[i]=actionArray[k];
+                   }
+             }
+      }
+
+        if(somethingWrong == 0){
+            Plan2 =Plan;
+
+            QStringList a = Plan2.split("\n");
+            for(int i = 0; i<4; i++){
+                if(i == 0){
+                    Plan2 = a[0];
+                }else{
+                    Plan2 = Plan2 + "\n"+ a[i];
+                }
+            }
+            for(int i = 0; i< 1; i++){
+                        Plan2 = Plan2 + "\n" + toAdd[i];
+                }
+            for(int i = 4; i<7; i++){
+                if(i == 0){
+                    Plan2 = a[0];
+                }else{
+                    Plan2 = Plan2 + "\n"+ a[i];
+                }
+            }
+            for(int i = 1; i< numChecked; i++){
+                        Plan2 = Plan2 + "\n" + toAdd[i];
+                }
+            for(int i = 7; i<a.size(); i++){
+                    if(i == 0){
+                        Plan2 = a[0];
+                    }else{
+                        Plan2 = Plan2 + "\n"+ a[i];
+                    }
+                }
+
+
+            Plan2 = Plan2 + "\n";
+
+
+            compareButtonName = "Add";
+            compare = new Comparison(this);
+            compare->show();
+            this->hide();
+        }
+      }else{
+        if(isClicked == 0){
+            QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
+        }else if(isClicked2 == 0){
+            QMessageBox::warning(this,"Error","You forgot to click 'Done'");
+        }else if(isClicked == 0 && isClicked2 == 0){
+            QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
+        }
+
+      }
+
+
 }

@@ -19,6 +19,7 @@ public:
     ~AddAction();
     int numChecked;
     int isClicked = 0;
+    int isClicked2 = 0;
 
 private slots:
     void on_homeButton_clicked();
