@@ -44,6 +44,7 @@ public:
         if (fileclassPF->objectName().isEmpty())
             fileclassPF->setObjectName(QString::fromUtf8("fileclassPF"));
         fileclassPF->resize(640, 480);
+        fileclassPF->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         label_2 = new QLabel(fileclassPF);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(10, 340, 161, 17));
@@ -79,7 +80,7 @@ public:
         replaceButton->setGeometry(QRect(30, 410, 111, 25));
         groupBox = new QGroupBox(fileclassPF);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 30, 291, 61));
+        groupBox->setGeometry(QRect(20, 30, 341, 61));
         openFileButton = new QPushButton(groupBox);
         openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
         openFileButton->setGeometry(QRect(10, 30, 141, 25));

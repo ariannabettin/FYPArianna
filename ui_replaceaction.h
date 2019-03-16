@@ -37,12 +37,14 @@ public:
     QPushButton *replaceButton;
     QPushButton *visualiseButton_2;
     QPushButton *selectButton_2;
+    QPushButton *backButton;
 
     void setupUi(QDialog *ReplaceAction)
     {
         if (ReplaceAction->objectName().isEmpty())
             ReplaceAction->setObjectName(QString::fromUtf8("ReplaceAction"));
         ReplaceAction->resize(640, 480);
+        ReplaceAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         title_label = new QLabel(ReplaceAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
         title_label->setGeometry(QRect(40, 100, 371, 17));
@@ -51,7 +53,7 @@ public:
         existingButton->setGeometry(QRect(460, 50, 111, 30));
         list = new QListWidget(ReplaceAction);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(390, 120, 231, 261));
+        list->setGeometry(QRect(390, 130, 231, 251));
         label = new QLabel(ReplaceAction);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(390, 100, 161, 20));
@@ -60,7 +62,7 @@ public:
         replaceActionsButton->setGeometry(QRect(570, 410, 51, 41));
         planArea = new QListWidget(ReplaceAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(40, 120, 321, 361));
+        planArea->setGeometry(QRect(40, 130, 321, 341));
         plan = new QTextEdit(ReplaceAction);
         plan->setObjectName(QString::fromUtf8("plan"));
         plan->setGeometry(QRect(10, 450, 21, 20));
@@ -79,6 +81,9 @@ public:
         selectButton_2 = new QPushButton(ReplaceAction);
         selectButton_2->setObjectName(QString::fromUtf8("selectButton_2"));
         selectButton_2->setGeometry(QRect(70, 0, 71, 41));
+        backButton = new QPushButton(ReplaceAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(ReplaceAction);
 
@@ -97,6 +102,7 @@ public:
         replaceButton->setText(QApplication::translate("ReplaceAction", "Replace", 0, QApplication::UnicodeUTF8));
         visualiseButton_2->setText(QApplication::translate("ReplaceAction", "Visualise", 0, QApplication::UnicodeUTF8));
         selectButton_2->setText(QApplication::translate("ReplaceAction", "Select", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("ReplaceAction", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -3,6 +3,12 @@
 
 #include "visualisation.h"
 #include <QDialog>
+#include "ui_selection.h"
+#include "gloabal.h"
+#include "visualisation.h"
+#include <QMessageBox>
+#include <QListWidgetItem>
+
 
 namespace Ui {
 class Selection;
@@ -16,6 +22,7 @@ public:
     explicit Selection(QWidget *parent = 0);
     ~Selection();
     int numChecked;
+    bool saveClicked = false;
 
 
 
@@ -34,6 +41,8 @@ private slots:
     void on_homeButton_clicked();
 
     void on_saveButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::Selection *ui;

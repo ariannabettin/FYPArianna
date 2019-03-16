@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+
 namespace Ui {
 class validPlan;
 }
@@ -22,11 +23,11 @@ private slots:
 
     void on_visualiseButton_clicked();
 
-    void on_modifyButton_clicked();
-
-    void on_Button_clicked();
-
     void on_compareButton_clicked();
+
+    void on_backButton_clicked();
+
+    void on_exportButton_clicked();
 
 private:
     Ui::validPlan *ui;

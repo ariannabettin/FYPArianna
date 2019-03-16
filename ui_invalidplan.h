@@ -41,12 +41,13 @@ public:
     QPushButton *Button;
     QPushButton *pushButton;
     QPushButton *modifyButton;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_3;
     QLabel *label_4;
+    QPushButton *backButton;
 
     void setupUi(QDialog *invalidPlan)
     {
@@ -99,25 +100,25 @@ public:
         modifyButton = new QPushButton(invalidPlan);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
-        widget = new QWidget(invalidPlan);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(60, 340, 521, 101));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(invalidPlan);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(60, 340, 521, 101));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         verticalLayout_3->addWidget(label_2);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout_2->addWidget(label_3);
 
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         verticalLayout_2->addWidget(label_4);
@@ -125,6 +126,9 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
+        backButton = new QPushButton(invalidPlan);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(invalidPlan);
 
@@ -145,6 +149,7 @@ public:
         label_2->setText(QApplication::translate("invalidPlan", "It looks like your modifications lead to an invalid plan.", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("invalidPlan", "This can explain why the planner took some decisions instead of the ones", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("invalidPlan", "that you applied.", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("invalidPlan", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -38,12 +38,14 @@ public:
     QLabel *label_2;
     QPushButton *windowButton;
     QPushButton *BAButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *RescheduleQuestion)
     {
         if (RescheduleQuestion->objectName().isEmpty())
             RescheduleQuestion->setObjectName(QString::fromUtf8("RescheduleQuestion"));
         RescheduleQuestion->resize(650, 480);
+        RescheduleQuestion->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(RescheduleQuestion);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(70, 0, 71, 41));
@@ -52,7 +54,7 @@ public:
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
         Button = new QPushButton(RescheduleQuestion);
         Button->setObjectName(QString::fromUtf8("Button"));
-        Button->setGeometry(QRect(290, 0, 81, 41));
+        Button->setGeometry(QRect(290, 0, 91, 41));
         modifyButton = new QPushButton(RescheduleQuestion);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 81, 41));
@@ -61,7 +63,7 @@ public:
         homeButton->setGeometry(QRect(0, 0, 71, 41));
         frame = new QFrame(RescheduleQuestion);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(30, 100, 483, 37));
+        frame->setGeometry(QRect(30, 100, 541, 37));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(frame);
@@ -73,7 +75,7 @@ public:
 
         frame_2 = new QFrame(RescheduleQuestion);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(30, 170, 484, 37));
+        frame_2->setGeometry(QRect(30, 170, 541, 37));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout_2 = new QVBoxLayout(frame_2);
@@ -85,10 +87,13 @@ public:
 
         windowButton = new QPushButton(RescheduleQuestion);
         windowButton->setObjectName(QString::fromUtf8("windowButton"));
-        windowButton->setGeometry(QRect(560, 110, 41, 31));
+        windowButton->setGeometry(QRect(580, 100, 41, 31));
         BAButton = new QPushButton(RescheduleQuestion);
         BAButton->setObjectName(QString::fromUtf8("BAButton"));
-        BAButton->setGeometry(QRect(560, 180, 41, 31));
+        BAButton->setGeometry(QRect(580, 170, 41, 31));
+        backButton = new QPushButton(RescheduleQuestion);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(RescheduleQuestion);
 
@@ -107,6 +112,7 @@ public:
         label_2->setText(QApplication::translate("RescheduleQuestion", "Do you want your action/s to happen before or after another action?", 0, QApplication::UnicodeUTF8));
         windowButton->setText(QString());
         BAButton->setText(QString());
+        backButton->setText(QApplication::translate("RescheduleQuestion", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

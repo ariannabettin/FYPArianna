@@ -4,6 +4,13 @@
 #include "userquestions.h"
 #include <QDialog>
 #include "accessfile.h"
+#include "ui_visualisation.h"
+#include "gloabal.h"
+#include "modification.h"
+#include <QFile>
+#include <QMessageBox>
+#include <QTextStream>
+#include "accessfile.h"
 
 namespace Ui {
 class Visualisation;
@@ -31,6 +38,8 @@ private slots:
     void on_accessFile_clicked();
 
     void on_reloadButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::Visualisation *ui;

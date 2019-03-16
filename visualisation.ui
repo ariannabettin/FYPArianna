@@ -22,6 +22,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="text">
     <string>Home</string>
    </property>
@@ -34,6 +37,9 @@
      <width>71</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
    </property>
    <property name="text">
     <string>Select</string>
@@ -48,6 +54,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="text">
     <string>Visualise</string>
    </property>
@@ -60,6 +69,9 @@
      <width>51</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
    </property>
    <property name="text">
     <string>VAL</string>
@@ -96,11 +108,14 @@
    <widget class="QLabel" name="stetement1">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>0</y>
-      <width>121</width>
+      <x>50</x>
+      <y>10</y>
+      <width>131</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
     </property>
     <property name="text">
      <string> Ask a questions:</string>
@@ -111,10 +126,14 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>180</y>
+     <y>170</y>
      <width>379</width>
      <height>17</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;
+border-color: rgb(92, 53, 102);</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -128,6 +147,9 @@
      <width>401</width>
      <height>281</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame_2">
@@ -149,10 +171,13 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>0</y>
-      <width>121</width>
+      <y>10</y>
+      <width>141</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
     </property>
     <property name="text">
      <string>Modify your plan:</string>
@@ -181,25 +206,15 @@
      <height>111</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="stetement1_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>0</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Access your files:</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="accessFile">
     <property name="geometry">
      <rect>
@@ -211,6 +226,19 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="stetement1_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Access your files:</string>
     </property>
    </widget>
   </widget>
@@ -258,6 +286,22 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>go back</string>
    </property>
   </widget>
  </widget>

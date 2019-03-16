@@ -66,18 +66,22 @@ public:
     QVBoxLayout *verticalLayout_5;
     QLineEdit *label5;
     QComboBox *comboBox_5;
+    QPushButton *backButton;
 
     void setupUi(QDialog *AddAction)
     {
         if (AddAction->objectName().isEmpty())
             AddAction->setObjectName(QString::fromUtf8("AddAction"));
         AddAction->resize(632, 520);
+        AddAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(AddAction);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
+        homeButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(AddAction);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(70, 0, 71, 41));
+        selectButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         visualiseButton = new QPushButton(AddAction);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
@@ -93,12 +97,14 @@ public:
         title_label = new QLabel(AddAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
         title_label->setGeometry(QRect(40, 130, 371, 17));
+        title_label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         list = new QListWidget(AddAction);
         list->setObjectName(QString::fromUtf8("list"));
         list->setGeometry(QRect(440, 160, 161, 201));
         label = new QLabel(AddAction);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(440, 130, 161, 20));
+        label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         doneButton = new QPushButton(AddAction);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
         doneButton->setGeometry(QRect(540, 370, 61, 31));
@@ -212,6 +218,9 @@ public:
 
         horizontalLayout_3->addLayout(verticalLayout_5);
 
+        backButton = new QPushButton(AddAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(AddAction);
 
@@ -232,6 +241,7 @@ public:
         addButton_2->setText(QString());
         newActionButton->setText(QApplication::translate("AddAction", "New Action", 0, QApplication::UnicodeUTF8));
         existinButton->setText(QApplication::translate("AddAction", "Existing", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("AddAction", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

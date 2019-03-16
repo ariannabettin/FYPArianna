@@ -53,6 +53,7 @@ public:
         if (Comparison->objectName().isEmpty())
             Comparison->setObjectName(QString::fromUtf8("Comparison"));
         Comparison->resize(640, 480);
+        Comparison->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(Comparison);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
@@ -148,7 +149,7 @@ public:
         newsButton->setText(QApplication::translate("Comparison", "What is new?", 0, QApplication::UnicodeUTF8));
         replacedButton->setText(QApplication::translate("Comparison", "What has been replaced?", 0, QApplication::UnicodeUTF8));
         removedButton->setText(QApplication::translate("Comparison", "What's has been removed?", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("Comparison", "Be aware that the old plan will be overwritten for the current session.", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Comparison", "If this is your final version, validate the new XPlan with VAL button.", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

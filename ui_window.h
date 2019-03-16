@@ -57,7 +57,8 @@ public:
     {
         if (Window->objectName().isEmpty())
             Window->setObjectName(QString::fromUtf8("Window"));
-        Window->resize(301, 339);
+        Window->resize(301, 362);
+        Window->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         verticalLayout_3 = new QVBoxLayout(Window);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         groupBox = new QGroupBox(Window);

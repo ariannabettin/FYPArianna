@@ -41,12 +41,14 @@ public:
     QLabel *label_5;
     QPushButton *removeFileButton;
     QListWidget *planArea;
+    QPushButton *backButton;
 
     void setupUi(QDialog *RemoveAction)
     {
         if (RemoveAction->objectName().isEmpty())
             RemoveAction->setObjectName(QString::fromUtf8("RemoveAction"));
         RemoveAction->resize(640, 480);
+        RemoveAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(RemoveAction);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
@@ -64,41 +66,50 @@ public:
         removeButton->setGeometry(QRect(280, 0, 71, 41));
         title_label = new QLabel(RemoveAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(140, 150, 371, 17));
+        title_label->setGeometry(QRect(140, 160, 371, 17));
         label_4 = new QLabel(RemoveAction);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(340, 70, 67, 17));
         frame = new QFrame(RemoveAction);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(10, 50, 311, 80));
+        frame->setGeometry(QRect(0, 50, 321, 91));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         label = new QLabel(frame);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 0, 311, 21));
+        label->setGeometry(QRect(10, 10, 301, 21));
+        label->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         label_2 = new QLabel(frame);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(0, 20, 311, 17));
+        label_2->setGeometry(QRect(10, 30, 301, 17));
+        label_2->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         removePlanButton = new QPushButton(frame);
         removePlanButton->setObjectName(QString::fromUtf8("removePlanButton"));
-        removePlanButton->setGeometry(QRect(10, 40, 131, 31));
+        removePlanButton->setGeometry(QRect(10, 50, 151, 31));
+        removePlanButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         frame_2 = new QFrame(RemoveAction);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(330, 50, 301, 80));
+        frame_2->setGeometry(QRect(330, 50, 311, 91));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         label_3 = new QLabel(frame_2);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(0, 0, 291, 21));
+        label_3->setGeometry(QRect(10, 10, 281, 21));
+        label_3->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         label_5 = new QLabel(frame_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(0, 20, 291, 17));
+        label_5->setGeometry(QRect(20, 30, 201, 17));
         removeFileButton = new QPushButton(frame_2);
         removeFileButton->setObjectName(QString::fromUtf8("removeFileButton"));
-        removeFileButton->setGeometry(QRect(160, 40, 131, 31));
+        removeFileButton->setGeometry(QRect(150, 50, 151, 31));
+        removeFileButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         planArea = new QListWidget(RemoveAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(140, 170, 381, 311));
+        planArea->setGeometry(QRect(140, 190, 381, 291));
+        backButton = new QPushButton(RemoveAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
         retranslateUi(RemoveAction);
 
@@ -115,12 +126,13 @@ public:
         removeButton->setText(QApplication::translate("RemoveAction", "Remove", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("RemoveAction", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_4->setText(QString());
-        label->setText(QApplication::translate("RemoveAction", " Delete actions from the text area and use the", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("RemoveAction", " Delete actions from the text area and use", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("RemoveAction", " button below to see the modified plan:", 0, QApplication::UnicodeUTF8));
         removePlanButton->setText(QApplication::translate("RemoveAction", "Remove from plan", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("RemoveAction", " Remove an action directly from the domain", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("RemoveAction", " file:", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("RemoveAction", " Remove an action directly from the ", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("RemoveAction", "domain  file:", 0, QApplication::UnicodeUTF8));
         removeFileButton->setText(QApplication::translate("RemoveAction", "Remove from file", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("RemoveAction", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

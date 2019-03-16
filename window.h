@@ -2,6 +2,10 @@
 #define WINDOW_H
 
 #include <QDialog>
+#include "ui_window.h"
+#include <QButtonGroup>
+#include <QMessageBox>
+#include "gloabal.h"
 
 namespace Ui {
 class Window;

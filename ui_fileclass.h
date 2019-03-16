@@ -44,12 +44,13 @@ public:
         if (fileClass->objectName().isEmpty())
             fileClass->setObjectName(QString::fromUtf8("fileClass"));
         fileClass->resize(640, 480);
+        fileClass->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QPlainTextEdit(fileClass);
         planArea->setObjectName(QString::fromUtf8("planArea"));
         planArea->setGeometry(QRect(190, 140, 371, 341));
         groupBox = new QGroupBox(fileClass);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 30, 291, 61));
+        groupBox->setGeometry(QRect(20, 30, 341, 61));
         openFileButton = new QPushButton(groupBox);
         openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
         openFileButton->setGeometry(QRect(10, 30, 141, 25));
@@ -61,7 +62,7 @@ public:
         title_label->setGeometry(QRect(270, 120, 251, 17));
         groupBox_2 = new QGroupBox(fileClass);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(20, 120, 131, 181));
+        groupBox_2->setGeometry(QRect(20, 120, 141, 181));
         newFile = new QPushButton(groupBox_2);
         newFile->setObjectName(QString::fromUtf8("newFile"));
         newFile->setGeometry(QRect(10, 90, 111, 25));

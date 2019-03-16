@@ -1,8 +1,5 @@
 #include "window.h"
-#include "ui_window.h"
-#include <QButtonGroup>
-#include <QMessageBox>
-#include "gloabal.h"
+
 
 Window::Window(QWidget *parent) :
     QDialog(parent),
@@ -10,12 +7,32 @@ Window::Window(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->statementLabel->setText(" ");
+
+    if(themeColor == "white"){
+
+        ui->closeButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->doneButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->groupBox_2->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->groupBox->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+
+    }else if(themeColor == "black"){
+
+        ui->closeButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->doneButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->groupBox_2->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
+        ui->groupBox->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
+
+    }
+
 }
 
 Window::~Window()
 {
     delete ui;
 }
+
 
 void Window::on_doneButton_clicked()
 {
@@ -49,7 +66,6 @@ void Window::on_doneButton_clicked()
 
     }
 }
-
 
 
 void Window::on_closeButton_clicked()

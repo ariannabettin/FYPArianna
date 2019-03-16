@@ -56,6 +56,7 @@ public:
         if (BeforeAfter->objectName().isEmpty())
             BeforeAfter->setObjectName(QString::fromUtf8("BeforeAfter"));
         BeforeAfter->resize(567, 356);
+        BeforeAfter->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         layoutWidget = new QWidget(BeforeAfter);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(20, 10, 251, 338));
@@ -135,7 +136,7 @@ public:
         label->setGeometry(QRect(300, 10, 201, 20));
         list = new QListWidget(BeforeAfter);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(300, 40, 211, 281));
+        list->setGeometry(QRect(300, 40, 251, 281));
 
         retranslateUi(BeforeAfter);
 

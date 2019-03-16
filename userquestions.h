@@ -4,6 +4,15 @@
 #include <QDialog>
 #include "comparison.h"
 #include "reschedulequestion.h"
+#include "ui_userquestions.h"
+#include <QMessageBox>
+#include <QFile>
+#include "gloabal.h"
+#include <QListWidgetItem>
+#include <QTextStream>
+#include <qlabel.h>
+#include "comparison.h"
+#include "reschedulequestion.h"
 
 namespace Ui {
 class UserQuestions;
@@ -21,6 +30,10 @@ public:
     int numChecked;
     int isClicked = 0;
     int isClicked2 = 0;
+    bool secondClick;
+    QString str2;
+    QString str4;
+    QString to_compare;
 
 
 private slots:
@@ -37,6 +50,8 @@ private slots:
 
     void on_completeButton_clicked();
 
+
+    void on_backButton_clicked();
 
 private:
     Ui::UserQuestions *ui;

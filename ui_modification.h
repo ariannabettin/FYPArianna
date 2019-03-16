@@ -34,7 +34,6 @@ public:
     QPushButton *modifyButton;
     QTextEdit *planArea;
     QLabel *title_label;
-    QPushButton *valButton;
     QFrame *frame;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -46,33 +45,38 @@ public:
     QPushButton *removeButton;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *replaceButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *Modification)
     {
         if (Modification->objectName().isEmpty())
             Modification->setObjectName(QString::fromUtf8("Modification"));
         Modification->resize(640, 480);
+        Modification->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(Modification);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
+        homeButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(Modification);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(70, 0, 71, 41));
+        selectButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         visualiseButton = new QPushButton(Modification);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
+        visualiseButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         modifyButton = new QPushButton(Modification);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(210, 0, 71, 41));
+        modifyButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QTextEdit(Modification);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(130, 190, 381, 291));
+        planArea->setGeometry(QRect(130, 200, 381, 281));
+        planArea->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         title_label = new QLabel(Modification);
         title_label->setObjectName(QString::fromUtf8("title_label"));
         title_label->setGeometry(QRect(130, 170, 371, 17));
-        valButton = new QPushButton(Modification);
-        valButton->setObjectName(QString::fromUtf8("valButton"));
-        valButton->setGeometry(QRect(570, 440, 51, 31));
+        title_label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame = new QFrame(Modification);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(130, 60, 381, 101));
@@ -86,6 +90,7 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         addButton = new QPushButton(frame);
         addButton->setObjectName(QString::fromUtf8("addButton"));
+        addButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         horizontalLayout->addWidget(addButton);
 
@@ -95,6 +100,7 @@ public:
 
         rescheduleButton = new QPushButton(frame);
         rescheduleButton->setObjectName(QString::fromUtf8("rescheduleButton"));
+        rescheduleButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         horizontalLayout->addWidget(rescheduleButton);
 
@@ -105,6 +111,7 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         removeButton = new QPushButton(frame);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
+        removeButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         horizontalLayout_2->addWidget(removeButton);
 
@@ -114,6 +121,7 @@ public:
 
         replaceButton = new QPushButton(frame);
         replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
+        replaceButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         horizontalLayout_2->addWidget(replaceButton);
 
@@ -123,6 +131,10 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+        backButton = new QPushButton(Modification);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         retranslateUi(Modification);
 
@@ -137,11 +149,11 @@ public:
         visualiseButton->setText(QApplication::translate("Modification", "Visualise", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QApplication::translate("Modification", "Modify", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("Modification", "TextLabel", 0, QApplication::UnicodeUTF8));
-        valButton->setText(QApplication::translate("Modification", "VAL", 0, QApplication::UnicodeUTF8));
         addButton->setText(QApplication::translate("Modification", "Add", 0, QApplication::UnicodeUTF8));
         rescheduleButton->setText(QApplication::translate("Modification", "Reschedule", 0, QApplication::UnicodeUTF8));
         removeButton->setText(QApplication::translate("Modification", "Remove", 0, QApplication::UnicodeUTF8));
         replaceButton->setText(QApplication::translate("Modification", "Replace", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("Modification", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

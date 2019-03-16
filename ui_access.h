@@ -34,12 +34,14 @@ public:
     QPushButton *domainButton;
     QPushButton *problemButton;
     QFrame *line;
+    QPushButton *backButton;
 
     void setupUi(QDialog *Access)
     {
         if (Access->objectName().isEmpty())
             Access->setObjectName(QString::fromUtf8("Access"));
         Access->resize(640, 480);
+        Access->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         accessButton = new QPushButton(Access);
         accessButton->setObjectName(QString::fromUtf8("accessButton"));
         accessButton->setGeometry(QRect(210, 0, 91, 41));
@@ -59,10 +61,12 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         label = new QLabel(frame);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 10, 271, 17));
+        label->setGeometry(QRect(10, 10, 261, 20));
+        label->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         label_2 = new QLabel(frame);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(290, 10, 261, 17));
+        label_2->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         domainButton = new QPushButton(frame);
         domainButton->setObjectName(QString::fromUtf8("domainButton"));
         domainButton->setGeometry(QRect(70, 60, 121, 31));
@@ -74,6 +78,9 @@ public:
         line->setGeometry(QRect(270, 0, 20, 121));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
+        backButton = new QPushButton(Access);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(Access);
 
@@ -91,6 +98,7 @@ public:
         label_2->setText(QApplication::translate("Access", "Access Problem File using this button:", 0, QApplication::UnicodeUTF8));
         domainButton->setText(QApplication::translate("Access", "Domain File", 0, QApplication::UnicodeUTF8));
         problemButton->setText(QApplication::translate("Access", "Problem File", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("Access", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

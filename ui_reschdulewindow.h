@@ -57,13 +57,15 @@ public:
     QPushButton *modifyButton;
     QLabel *label_5;
     QPushButton *doneButton;
-    QPushButton *pushButton;
+    QPushButton *windowButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *reschduleWindow)
     {
         if (reschduleWindow->objectName().isEmpty())
             reschduleWindow->setObjectName(QString::fromUtf8("reschduleWindow"));
         reschduleWindow->resize(640, 480);
+        reschduleWindow->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame_3 = new QFrame(reschduleWindow);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
         frame_3->setGeometry(QRect(70, 290, 101, 91));
@@ -127,7 +129,7 @@ public:
         homeButton->setGeometry(QRect(0, 0, 71, 41));
         frame = new QFrame(reschduleWindow);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(70, 130, 499, 103));
+        frame->setGeometry(QRect(30, 130, 499, 103));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout_2 = new QVBoxLayout(frame);
@@ -154,10 +156,10 @@ public:
 
         Button = new QPushButton(reschduleWindow);
         Button->setObjectName(QString::fromUtf8("Button"));
-        Button->setGeometry(QRect(280, 0, 81, 41));
+        Button->setGeometry(QRect(290, 0, 91, 41));
         layoutWidget_2 = new QWidget(reschduleWindow);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(20, 70, 465, 42));
+        layoutWidget_2->setGeometry(QRect(30, 70, 518, 42));
         verticalLayout_7 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -173,16 +175,19 @@ public:
 
         modifyButton = new QPushButton(reschduleWindow);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
-        modifyButton->setGeometry(QRect(210, 0, 71, 41));
+        modifyButton->setGeometry(QRect(210, 0, 81, 41));
         label_5 = new QLabel(reschduleWindow);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(30, 260, 231, 17));
         doneButton = new QPushButton(reschduleWindow);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
         doneButton->setGeometry(QRect(550, 400, 51, 41));
-        pushButton = new QPushButton(reschduleWindow);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(360, 0, 71, 41));
+        windowButton = new QPushButton(reschduleWindow);
+        windowButton->setObjectName(QString::fromUtf8("windowButton"));
+        windowButton->setGeometry(QRect(380, 0, 71, 41));
+        backButton = new QPushButton(reschduleWindow);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(reschduleWindow);
 
@@ -206,7 +211,8 @@ public:
         modifyButton->setText(QApplication::translate("reschduleWindow", "Questions", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("reschduleWindow", "Set time window:", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QString());
-        pushButton->setText(QApplication::translate("reschduleWindow", "Window", 0, QApplication::UnicodeUTF8));
+        windowButton->setText(QApplication::translate("reschduleWindow", "Window", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("reschduleWindow", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -1,13 +1,5 @@
 #include "userquestions.h"
-#include "ui_userquestions.h"
-#include <QMessageBox>
-#include <QFile>
-#include "gloabal.h"
-#include <QListWidgetItem>
-#include <QTextStream>
-#include <qlabel.h>
-#include "comparison.h"
-#include "reschedulequestion.h"
+
 
 UserQuestions::UserQuestions(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +9,35 @@ UserQuestions::UserQuestions(QWidget *parent) :
     ui->question_label->setText(" ");
     ui->addButton_2->setText("Complete");
     route = 1;
+    secondClick = true;
+
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->questionsButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+    if(themeColor == "white"){
+
+        ui->doneButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->completeButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->addButton_2->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->frame->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->frame_2->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+
+    }else if(themeColor == "black"){
+
+        ui->doneButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->completeButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->addButton_2->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
+        ui->frame->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+        ui->frame_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+
+    }
+
 }
 
 UserQuestions::~UserQuestions()
@@ -27,10 +48,12 @@ UserQuestions::~UserQuestions()
 
 void UserQuestions::on_homeButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
+
 
 void UserQuestions::on_selectButton_clicked()
 {
@@ -39,13 +62,16 @@ void UserQuestions::on_selectButton_clicked()
      this->hide();
 }
 
+
 void UserQuestions::on_visualiseButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget();
     parent->show();
      this->hide();
 }
 
+//this is ListButton
 void UserQuestions::on_doneButton_clicked()
 {
     //list the actions in the list area
@@ -53,10 +79,10 @@ void UserQuestions::on_doneButton_clicked()
     isClicked2++;
 
     if(ui->addOption->isChecked()){
-        ui->statementLabel->setText("Choose actionA:");
+        ui->statementLabel->setText("Choose action A:");
         ui->list->clear();
         ui->list->addItem("A:");
-        QFont f( "Arial",8);
+        QFont f( "Arial",4);
         QFile file(domains[id]);
         if(!file.open(QFile::ReadOnly | QFile::Text)){
             QMessageBox::information(this, "Error: ", "Not file found");
@@ -104,10 +130,10 @@ void UserQuestions::on_doneButton_clicked()
     }
 
     }else if(ui->removeOption->isChecked()  || ui->rescheduleOption->isChecked()){
-        ui->statementLabel->setText("Choose actionA:");
+        ui->statementLabel->setText("Choose action A:");
         ui->list->clear();
         ui->list->addItem("A:");
-        QFont f( "Arial",8);
+        QFont f( "Arial",4);
         QStringList line = Plan.split("\n");
         for(int i = 0; i<line.size(); i++ ){
             if(!line[i].isEmpty() || line[i] == " "){
@@ -122,7 +148,8 @@ void UserQuestions::on_doneButton_clicked()
         numItems = numItems+1;
 
     }else if(ui->replaceOption->isChecked()){
-            ui->statementLabel->setText("Choose actionA and actionB:");
+       if(secondClick){
+            ui->statementLabel->setText("Choose action A:");
             ui->list->clear();
             ui->list->addItem("A:");
             QFont f( "Arial",8);
@@ -133,57 +160,59 @@ void UserQuestions::on_doneButton_clicked()
                     checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
                     checkB->setCheckState(Qt::Unchecked);
                     ui->list->addItem(checkB);
-                    ui->list->setFont(f);
                     numItems = i;
                 }
             }
             numItems = numItems+1;
-            ui->list->addItem("B:");
-            QFile file(domains[id]);
-            if(!file.open(QFile::ReadOnly | QFile::Text)){
-                QMessageBox::information(this, "Error: ", "Not file found");
-            }
-            QTextStream in(&file);
-            QString text = in.readAll();
-            ui->planArea->setPlainText(text);
-            QString t = ui->planArea->toPlainText();
-            int act = 0;
-            int isDomain = 0;
-            bool firstActionInvalid  = false;
-            if(text.contains("action")){
-                isDomain++;
+            secondClick = false;
+    }else if(!secondClick){
+                 ui->statementLabel->setText("Choose action B:");
+                ui->list->addItem("B:");
+                QFile file(domains[id]);
+                if(!file.open(QFile::ReadOnly | QFile::Text)){
+                    QMessageBox::information(this, "Error: ", "Not file found");
+                }
+                QTextStream in(&file);
+                QString text = in.readAll();
+                ui->planArea->setPlainText(text);
+                QString t = ui->planArea->toPlainText();
+                int act = 0;
+                int isDomain = 0;
+                bool firstActionInvalid  = false;
+                if(text.contains("action")){
+                    isDomain++;
 
-                if(isDomain == 1){
-                    QStringList line = t.split("\n");
-                    for(int i = 0; i<line.size(); i++ ){
-                        if(line[i].contains("action")){
-                            QStringList word = line[i].split(" ");
-                            for(int j = 0; j<word.size(); j++ ){
-                                if(word[j].contains("action")){
-                                    if(firstActionInvalid){
-                                        if(!Plan.contains(word[j+1])){
-                                            QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
-                                            checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-                                            checkB->setCheckState(Qt::Unchecked);
-                                            ui->list->addItem(checkB);
-                                            ui->list->setFont(f);
-                                            act = act + 1;
+                    if(isDomain == 1){
+                        QStringList line = t.split("\n");
+                        for(int i = 0; i<line.size(); i++ ){
+                            if(line[i].contains("action")){
+                                QStringList word = line[i].split(" ");
+                                for(int j = 0; j<word.size(); j++ ){
+                                    if(word[j].contains("action")){
+                                        if(firstActionInvalid){
+                                                QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
+                                                checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                                                checkB->setCheckState(Qt::Unchecked);
+                                                ui->list->addItem(checkB);
+                                                //ui->list->setFont(f);
+                                                act = act + 1;
                                         }
+                                        firstActionInvalid = true;
                                     }
-                                    firstActionInvalid = true;
                                 }
                             }
                         }
+
+                    }else{
+                        QMessageBox::information(this, "Error: ", "Are you sure that the file you uploaded is a domain file?");
                     }
 
-                }else{
-                    QMessageBox::information(this, "Error: ", "Are you sure that the file you uploaded is a domain file?");
-                }
+                   numItems = act;
 
-               numItems = numItems + act +1;
-
-               file.close();
-        }
+                   file.close();
+            }
+                secondClick = true;
+            }
 
     }else{
         QMessageBox::information(this,"List of Action:","According to your question, the list of actions available will be different. Please, select the question first.");
@@ -192,22 +221,21 @@ void UserQuestions::on_doneButton_clicked()
 
 }
 
-
-
+//this is done button
 void UserQuestions::on_completeButton_clicked()
 {
    if(isClicked > 0){
         ui->question_label->clear();
         QString str1;
-        QString str2;
         QString str3;
-        QString str4;
+
         QString quest;
         QStringList list;
         oneAction = 0;
         twoActions = 0;
 
         numChecked = 0;
+
         for(int i = 0; i<numItems+1; i++){
             bool isChecked = ui->list->item(i)->checkState();
             if(isChecked == true){
@@ -221,7 +249,7 @@ void UserQuestions::on_completeButton_clicked()
                            quest = ui->addOption->text();
                            list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
                             str1 = list[0];
-                            for(int i = 2; i<list.size(); i++){
+                            for(int i = 3; i<list.size(); i++){
                                 str3= str3 + " " + list[i];
                             }
                             ui->addButton_2->setText("Add");
@@ -232,7 +260,7 @@ void UserQuestions::on_completeButton_clicked()
                             quest = ui->removeOption->text();
                             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
                             str1 = list[0];
-                            for(int i = 2; i<list.size(); i++){
+                            for(int i = 3; i<list.size(); i++){
                                 str3= str3 + " " + list[i];
                             }
                             ui->addButton_2->setText("Remove");
@@ -244,7 +272,7 @@ void UserQuestions::on_completeButton_clicked()
                             quest = ui->rescheduleOption->text();
                             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
                             str1 = list[0];
-                            for(int i = 2; i<list.size()-2; i++){
+                            for(int i = 3; i<list.size()-2; i++){
                                 str3= str3 + " " + list[i];
                             }
                             ui->addButton_2->setText("Reschedule");
@@ -256,28 +284,39 @@ void UserQuestions::on_completeButton_clicked()
                     }
 
 
-        }else if(numChecked == 2 && ui->replaceOption->isChecked()){
+        }else if(numChecked == 1 && ui->replaceOption->isChecked()){
             quest = ui->replaceOption->text();
             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
             str1 = list[0];
-            for(int i = 2; i<list.size()-1; i++){
+            for(int i = 3; i<list.size()-2; i++){
                 str3= str3 + " " + list[i];
             }
             ui->addButton_2->setText("Replace");
-            if(!action[0].contains(":") || (action[1].contains(":"))){
-                QMessageBox::warning(this,"Warning!","Please, select one action from list A and one from list B.");
-            }else{
+            if(!secondClick){
                 QStringList actionName = action[0].split(" ");
+                to_compare = action[0];
                 str2 = actionName[1];
                 toRemove = str2;
-                str4 = action[1];
+                 ui->doneButton->setText("Click for B");
+            }else if(secondClick){
+                str4 = action[0];
                 toAdd[0] = str4;
+                ui->doneButton->setText("List");
                 ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
             }
         }else if(numChecked == 0){
              QMessageBox::warning(this,"Error:","Please select the number of action required.");
         }else{
-            QMessageBox::warning(this,"Error:","You have selected the wrong number of action for this question.");
+            if(ui->rescheduleOption->isChecked()){
+                 QMessageBox::warning(this,"Error:","Please select one actio from list A and one from list B.");
+            }else{
+                QMessageBox::warning(this,"Error:","You have selected the wrong number of action for this question.");
+            }
+            if(!secondClick){
+                secondClick = true;
+            } else if (secondClick){
+                secondClick = false;
+            }
         }
    }else{
        QMessageBox::information(this,"'List' not clicked","Please, click 'List' Button");
@@ -288,11 +327,13 @@ void UserQuestions::on_completeButton_clicked()
 }
 
 
-
+//this is complete button
 void UserQuestions::on_addButton_2_clicked() // to check
 {
     if(isClicked2 > 0){
-
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
            if(ui->addButton_2->text() == "Add"){
                   compareButtonName = "Add";
@@ -337,16 +378,16 @@ void UserQuestions::on_addButton_2_clicked() // to check
                   QStringList line = Plan.split("\n");                   //splits the text
                   for(int i = 0; i<line.size(); i++){
                       if(i==0){
-                          if(line[0] != action[0]){
+                          if(line[0] != to_compare){
                              Plan2 = line[i];
                           }else{
-                             Plan2 = action[1];
+                             Plan2 = str4;
                           }
                       }else{
-                          if(line[i] != action[0]){
+                          if(line[i] != to_compare){
                               Plan2 = Plan2 + "\n" + line[i];
                           }else{
-                              Plan2 = Plan2 + "\n" + action[1];
+                              Plan2 = Plan2 + "\n" + str4;
                           }
                       }
                      }
@@ -354,7 +395,17 @@ void UserQuestions::on_addButton_2_clicked() // to check
                   compare = new Comparison(this);
                   compare->show();
                   this->hide();
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
+                /* if(ui->addButton_2->text() == "Reschedule"){
+                     * reschedule = new RescheduleQuestion(this);
+                     * reschedule->show();
+                     * this->hide();
+                 * }else{
+                     * compare = new Comparison(this);
+                     * compare->show();
+                     * this->hide();
+                  */
             }else{
                 QMessageBox::warning(this,"Error:","Please, click 'Done' button to verify your question.");
             }
@@ -362,4 +413,11 @@ void UserQuestions::on_addButton_2_clicked() // to check
     }else{
         QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
     }
+}
+
+void UserQuestions::on_backButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+    this->hide();
 }

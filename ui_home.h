@@ -13,8 +13,8 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QFormLayout>
-#include <QtGui/QGroupBox>
+#include <QtGui/QComboBox>
+#include <QtGui/QFrame>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -33,248 +33,225 @@ class Ui_Home
 public:
     QWidget *centralWidget;
     QPushButton *homeButton;
+    QLabel *savedPlanlabel;
+    QPushButton *doneButton;
+    QLabel *label_5;
+    QLabel *label_6;
+    QFrame *frame;
     QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout_5;
-    QGroupBox *groupBox;
-    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_5;
-    QFormLayout *formLayout;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLineEdit *domainPathLine;
+    QPushButton *DomainLoadButton;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_2;
     QLineEdit *problemPathLine;
-    QLabel *label_3;
-    QLineEdit *PathLine;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *DomainLoadButton;
     QPushButton *ProblemLoadButton;
-    QPushButton *PathLoadButton;
-    QHBoxLayout *horizontalLayout_3;
-    QHBoxLayout *horizontalLayout_7;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_3;
+    QLineEdit *PlanLine;
+    QPushButton *PlanLoadButton;
+    QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer;
     QPushButton *cancelButton;
-    QHBoxLayout *horizontalLayout_6;
-    QGroupBox *groupBox_2;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_7;
-    QVBoxLayout *verticalLayout_6;
-    QHBoxLayout *horizontalLayout_4;
+    QFrame *frame_2;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_3;
     QLineEdit *NamePlanLine;
     QPushButton *saveButton;
-    QSpacerItem *horizontalSpacer_2;
-    QVBoxLayout *verticalLayout_8;
-    QLabel *savedPlanlabel;
-    QPushButton *loadNewButton;
-    QPushButton *doneButton;
+    QWidget *layoutWidget2;
+    QVBoxLayout *verticalLayout_9;
+    QComboBox *ThemeComboBox;
+    QPushButton *switchThemeButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *Home)
     {
         if (Home->objectName().isEmpty())
             Home->setObjectName(QString::fromUtf8("Home"));
-        Home->resize(653, 514);
+        Home->resize(660, 564);
+        Home->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         centralWidget = new QWidget(Home);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         homeButton = new QPushButton(centralWidget);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
-        homeButton->setGeometry(QRect(0, 0, 71, 41));
-        layoutWidget = new QWidget(centralWidget);
+        homeButton->setGeometry(QRect(0, 0, 81, 51));
+        homeButton->setStyleSheet(QString::fromUtf8("font: 75 13pt \"TakaoPGothic\";"));
+        savedPlanlabel = new QLabel(centralWidget);
+        savedPlanlabel->setObjectName(QString::fromUtf8("savedPlanlabel"));
+        savedPlanlabel->setGeometry(QRect(40, 500, 531, 21));
+        savedPlanlabel->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
+        doneButton = new QPushButton(centralWidget);
+        doneButton->setObjectName(QString::fromUtf8("doneButton"));
+        doneButton->setGeometry(QRect(580, 490, 51, 41));
+        doneButton->setAutoFillBackground(true);
+        doneButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"URW Bookman L\";"));
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(40, 110, 551, 17));
+        label_5->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";\n"
+""));
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(40, 360, 211, 17));
+        label_6->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
+        frame = new QFrame(centralWidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(40, 130, 591, 221));
+        frame->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 60, 621, 341));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        groupBox = new QGroupBox(layoutWidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        horizontalLayout_2 = new QHBoxLayout(groupBox);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        layoutWidget->setGeometry(QRect(10, 20, 571, 181));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        formLayout = new QFormLayout();
-        formLayout->setSpacing(6);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        label = new QLabel(groupBox);
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+        horizontalLayout_2->addWidget(label);
 
-        domainPathLine = new QLineEdit(groupBox);
+        domainPathLine = new QLineEdit(layoutWidget);
         domainPathLine->setObjectName(QString::fromUtf8("domainPathLine"));
+        domainPathLine->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, domainPathLine);
+        horizontalLayout_2->addWidget(domainPathLine);
 
-        label_2 = new QLabel(groupBox);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
-
-        problemPathLine = new QLineEdit(groupBox);
-        problemPathLine->setObjectName(QString::fromUtf8("problemPathLine"));
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, problemPathLine);
-
-        label_3 = new QLabel(groupBox);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        formLayout->setWidget(2, QFormLayout::LabelRole, label_3);
-
-        PathLine = new QLineEdit(groupBox);
-        PathLine->setObjectName(QString::fromUtf8("PathLine"));
-
-        formLayout->setWidget(2, QFormLayout::FieldRole, PathLine);
-
-
-        horizontalLayout_5->addLayout(formLayout);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        DomainLoadButton = new QPushButton(groupBox);
+        DomainLoadButton = new QPushButton(layoutWidget);
         DomainLoadButton->setObjectName(QString::fromUtf8("DomainLoadButton"));
+        DomainLoadButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        verticalLayout_2->addWidget(DomainLoadButton);
-
-        ProblemLoadButton = new QPushButton(groupBox);
-        ProblemLoadButton->setObjectName(QString::fromUtf8("ProblemLoadButton"));
-
-        verticalLayout_2->addWidget(ProblemLoadButton);
-
-        PathLoadButton = new QPushButton(groupBox);
-        PathLoadButton->setObjectName(QString::fromUtf8("PathLoadButton"));
-
-        verticalLayout_2->addWidget(PathLoadButton);
+        horizontalLayout_2->addWidget(DomainLoadButton);
 
 
-        horizontalLayout_5->addLayout(verticalLayout_2);
-
-
-        verticalLayout->addLayout(horizontalLayout_5);
+        verticalLayout->addLayout(horizontalLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalSpacer = new QSpacerItem(438, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        horizontalLayout_7->addItem(horizontalSpacer);
+        horizontalLayout_3->addWidget(label_2);
 
-        cancelButton = new QPushButton(groupBox);
-        cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
+        problemPathLine = new QLineEdit(layoutWidget);
+        problemPathLine->setObjectName(QString::fromUtf8("problemPathLine"));
+        problemPathLine->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        horizontalLayout_7->addWidget(cancelButton);
+        horizontalLayout_3->addWidget(problemPathLine);
 
+        ProblemLoadButton = new QPushButton(layoutWidget);
+        ProblemLoadButton->setObjectName(QString::fromUtf8("ProblemLoadButton"));
+        ProblemLoadButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        horizontalLayout_3->addLayout(horizontalLayout_7);
+        horizontalLayout_3->addWidget(ProblemLoadButton);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
 
-
-        horizontalLayout_2->addLayout(verticalLayout);
-
-
-        verticalLayout_5->addWidget(groupBox);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        groupBox_2 = new QGroupBox(layoutWidget);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        verticalLayout_4 = new QVBoxLayout(groupBox_2);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        label_3 = new QLabel(layoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
+
+        horizontalLayout->addWidget(label_3);
+
+        PlanLine = new QLineEdit(layoutWidget);
+        PlanLine->setObjectName(QString::fromUtf8("PlanLine"));
+        PlanLine->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
+
+        horizontalLayout->addWidget(PlanLine);
+
+        PlanLoadButton = new QPushButton(layoutWidget);
+        PlanLoadButton->setObjectName(QString::fromUtf8("PlanLoadButton"));
+        PlanLoadButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
+
+        horizontalLayout->addWidget(PlanLoadButton);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        verticalLayout_3 = new QVBoxLayout();
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer);
+
+        cancelButton = new QPushButton(layoutWidget);
+        cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
+        cancelButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
+
+        horizontalLayout_4->addWidget(cancelButton);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        frame_2 = new QFrame(centralWidget);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setGeometry(QRect(40, 380, 261, 101));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        layoutWidget1 = new QWidget(frame_2);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 20, 231, 64));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget1);
         verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        NamePlanLine = new QLineEdit(groupBox_2);
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        NamePlanLine = new QLineEdit(layoutWidget1);
         NamePlanLine->setObjectName(QString::fromUtf8("NamePlanLine"));
+        NamePlanLine->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
         verticalLayout_3->addWidget(NamePlanLine);
 
-        saveButton = new QPushButton(groupBox_2);
+        saveButton = new QPushButton(layoutWidget1);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
         verticalLayout_3->addWidget(saveButton);
 
+        layoutWidget2 = new QWidget(centralWidget);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(480, 20, 151, 61));
+        verticalLayout_9 = new QVBoxLayout(layoutWidget2);
+        verticalLayout_9->setSpacing(6);
+        verticalLayout_9->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
+        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
+        ThemeComboBox = new QComboBox(layoutWidget2);
+        ThemeComboBox->setObjectName(QString::fromUtf8("ThemeComboBox"));
+        ThemeComboBox->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        horizontalLayout_4->addLayout(verticalLayout_3);
+        verticalLayout_9->addWidget(ThemeComboBox);
 
-        horizontalSpacer_2 = new QSpacerItem(208, 28, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        switchThemeButton = new QPushButton(layoutWidget2);
+        switchThemeButton->setObjectName(QString::fromUtf8("switchThemeButton"));
+        switchThemeButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
-        horizontalLayout_4->addItem(horizontalSpacer_2);
+        verticalLayout_9->addWidget(switchThemeButton);
 
-        verticalLayout_8 = new QVBoxLayout();
-        verticalLayout_8->setSpacing(6);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-
-        horizontalLayout_4->addLayout(verticalLayout_8);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_4);
-
-
-        verticalLayout_7->addLayout(verticalLayout_6);
-
-
-        horizontalLayout->addLayout(verticalLayout_7);
-
-
-        verticalLayout_4->addLayout(horizontalLayout);
-
-
-        horizontalLayout_6->addWidget(groupBox_2);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_6);
-
-        savedPlanlabel = new QLabel(centralWidget);
-        savedPlanlabel->setObjectName(QString::fromUtf8("savedPlanlabel"));
-        savedPlanlabel->setGeometry(QRect(20, 420, 601, 21));
-        loadNewButton = new QPushButton(centralWidget);
-        loadNewButton->setObjectName(QString::fromUtf8("loadNewButton"));
-        loadNewButton->setGeometry(QRect(460, 450, 107, 25));
-        doneButton = new QPushButton(centralWidget);
-        doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(582, 444, 51, 41));
         Home->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(Home);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         Home->setStatusBar(statusBar);
 
         retranslateUi(Home);
-        QObject::connect(loadNewButton, SIGNAL(clicked()), NamePlanLine, SLOT(clear()));
-        QObject::connect(loadNewButton, SIGNAL(clicked()), problemPathLine, SLOT(clear()));
-        QObject::connect(loadNewButton, SIGNAL(clicked()), domainPathLine, SLOT(clear()));
-        QObject::connect(cancelButton, SIGNAL(clicked()), problemPathLine, SLOT(clear()));
+        QObject::connect(cancelButton, SIGNAL(clicked()), PlanLine, SLOT(clear()));
         QObject::connect(cancelButton, SIGNAL(clicked()), domainPathLine, SLOT(clear()));
-        QObject::connect(cancelButton, SIGNAL(clicked()), PathLine, SLOT(clear()));
-        QObject::connect(loadNewButton, SIGNAL(clicked()), PathLine, SLOT(clear()));
+        QObject::connect(cancelButton, SIGNAL(clicked()), problemPathLine, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Home);
     } // setupUi
@@ -283,19 +260,19 @@ public:
     {
         Home->setWindowTitle(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("Home", " Load the domain file, problem file and the plan:", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("Home", "Domain:", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("Home", "Problem:", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("Home", "Plan:", 0, QApplication::UnicodeUTF8));
-        DomainLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
-        ProblemLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
-        PathLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
-        cancelButton->setText(QApplication::translate("Home", "Cancel", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("Home", " Give your plan a name:", 0, QApplication::UnicodeUTF8));
-        saveButton->setText(QApplication::translate("Home", "Save", 0, QApplication::UnicodeUTF8));
         savedPlanlabel->setText(QApplication::translate("Home", "TextLabel", 0, QApplication::UnicodeUTF8));
-        loadNewButton->setText(QApplication::translate("Home", "Load new Plan", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QString());
+        label_5->setText(QApplication::translate("Home", "Upload the domain file, the problem file and (*optional) your plan:", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("Home", " Give a name to your plan:", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Home", "Domain:", 0, QApplication::UnicodeUTF8));
+        DomainLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("Home", "Problem:", 0, QApplication::UnicodeUTF8));
+        ProblemLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("Home", "Plan:", 0, QApplication::UnicodeUTF8));
+        PlanLoadButton->setText(QApplication::translate("Home", "Load", 0, QApplication::UnicodeUTF8));
+        cancelButton->setText(QApplication::translate("Home", "Cancel", 0, QApplication::UnicodeUTF8));
+        saveButton->setText(QApplication::translate("Home", "Save", 0, QApplication::UnicodeUTF8));
+        switchThemeButton->setText(QApplication::translate("Home", "Apply", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

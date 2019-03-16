@@ -1,9 +1,4 @@
 #include "selection.h"
-#include "ui_selection.h"
-#include "gloabal.h"
-#include "visualisation.h"
-#include <QMessageBox>
-#include <QListWidgetItem>
 
 
 Selection::Selection(QWidget *parent) :
@@ -13,23 +8,39 @@ Selection::Selection(QWidget *parent) :
     ui->setupUi(this);
     ui->renamedPlanLabel->setText(" ");
 
-    QPixmap pixmap1("binIcon.jpeg");
-    QIcon ButtonIcon1(pixmap1);
-    ui->deleteButton->setIcon(ButtonIcon1);
-    ui->deleteButton->setIconSize(QSize(25, 25));
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
-    QPixmap pixmap2("clearIcon.jpeg");
-    QIcon ButtonIcon2(pixmap2);
-    ui->clearButton->setIcon(ButtonIcon2);
-    ui->clearButton->setIconSize(QSize(25, 25));
+    if(themeColor == "white"){
 
-    QPixmap pixmap3("doneIcon.png");
-    QIcon ButtonIcon3(pixmap3);
-    ui->visualiseButton->setIcon(ButtonIcon3);
-    ui->visualiseButton->setIconSize(QSize(35, 45));
+        ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->showAllButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->showLastButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->deleteButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->clearButton->setStyleSheet("background-color:#25245e; color: #FFFFFF");
+
+        ui->NamePlanLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+
+    }else if(themeColor == "black"){
+
+
+        ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->showAllButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->showLastButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->deleteButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->clearButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->NamePlanLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
+
 
     for(int i = 0; i<k;i++){
-              QListWidgetItem * checkB = new QListWidgetItem(plans[i]);          // Add checked boxes with all the remaining plans stored in the array
+              QListWidgetItem * checkB = new QListWidgetItem(plans[i]);
               checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
               checkB->setCheckState(Qt::Unchecked);
               ui->list->addItem(checkB);
@@ -38,13 +49,25 @@ Selection::Selection(QWidget *parent) :
 
 }
 
+
 Selection::~Selection()
 {
     delete ui;
 }
 
+
+void Selection::on_homeButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
 void Selection::on_showAllButton_clicked()
 {
+    saveClicked = false;
     if(k == 0){
         QMessageBox::warning(this,"Select Plans:","Ops! It looks like there are not saved plans..");
     }else{
@@ -52,7 +75,7 @@ void Selection::on_showAllButton_clicked()
             numItems = 0;
             ui->list->clear();
             for(int i = 0; i<k;i++){
-                      QListWidgetItem * checkB = new QListWidgetItem(plans[i]);    // Add checked boxes with all the plans stored in the array, if the list widget is empty
+                      QListWidgetItem * checkB = new QListWidgetItem(plans[i]);
                       checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
                       checkB->setCheckState(Qt::Unchecked);
                       ui->list->addItem(checkB);
@@ -61,7 +84,7 @@ void Selection::on_showAllButton_clicked()
             }
         }else{
             for(int i = counter+1; i<k;i++){
-                      QListWidgetItem *checkB = new QListWidgetItem(plans[i]);     // Add checked boxes with the remaining plans stored in the array, which are not already listed
+                      QListWidgetItem *checkB = new QListWidgetItem(plans[i]);
                       checkB->setCheckState(Qt::Unchecked);
                       ui->list->addItem(checkB);
                       counter = i;
@@ -75,14 +98,13 @@ void Selection::on_showAllButton_clicked()
 }
 
 
-
 void Selection::on_showLastButton_clicked()
 {
     if(k == 0){
         QMessageBox::warning(this,"Select Plans:","Ops! It looks like there are not saved plans..");
     }else {
         ui->list->clear();
-        QListWidgetItem *checkB = new QListWidgetItem(plans[k-1]);                  // Shows only the last plan added, the one with index k-1
+        QListWidgetItem *checkB = new QListWidgetItem(plans[k-1]);
         checkB->setCheckState(Qt::Unchecked);
         ui->list->addItem(checkB);
         counter = 0;
@@ -91,52 +113,77 @@ void Selection::on_showLastButton_clicked()
     numItemsConstant = numItems;
 }
 
+
 void Selection::on_clearButton_clicked()
 {
-    counter = 0;                                                                   // As the button "Clear" clears the list widget, both "counter" and "numItem" are set on 0.
+    counter = 0;
     numItems = 0;
     numItemsConstant = numItems;
 }
 
 
-
 void Selection::on_deleteButton_clicked()
 {
-    QMessageBox::warning(this,"Warning!","The plans selected will be deleted!");
+    saveClicked = false;
+    bool dontSave = false;
+    QMessageBox deleteMsgBox;
+    if(themeColor == "white"){
+       deleteMsgBox.setStyleSheet("background-color: #f1f2ed;color: #282827");
+    }else{
+       deleteMsgBox.setStyleSheet("background-color: #3E4C5E;color: #FFFFFF");
+    }
+    deleteMsgBox.setInformativeText("Are you sure you want to cancel the selcted plan/s?");
+    deleteMsgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    deleteMsgBox.setDefaultButton(QMessageBox::No);
+    int answer =  deleteMsgBox.exec();
 
-    for(int i = 0; i<numItems; i++){
-        bool isChecked = ui->list->item(i)->checkState();                         // check which check boxes are checked
-        if(isChecked == true){                                                  // if one is checked
-            for(int idx = 0; idx<k; idx++){
-                if (plans[idx] == ui->list->item(i)->text()){                     // check if text of check box is equal to one of the plan names store in the array
-                    plans[idx] = plans[idx+1];                                  // overwrite the selected plan name, domain path and problem path with the data stored in the next cell
-                    domains[idx] = domains[idx+1];
-                    problems[idx]= problems[idx+1];
-                    k = k-1;                                                    // decrease number of elements stored
-                    for (int idx2 = idx+1; idx2 < k; idx2++ ){
-                          plans[idx2] = plans[idx2+1];                          // shift all other elements of the arrays
-                          domains[idx2] = domains[idx2+1];
-                          problems[idx2]= problems[idx2+1];
+    switch (answer) {
+      case QMessageBox::Yes:
+          dontSave = true;
+          break;
+      case QMessageBox::No:
+          dontSave = false;
+          break;
+    }
 
+    if(dontSave){
+
+        for(int i = 0; i<numItems; i++){
+            bool isChecked = ui->list->item(i)->checkState();
+            if(isChecked == true){
+                  for(int idx = 0; idx<k; idx++){
+                    if (plans[idx] == ui->list->item(i)->text()){
+                        plans[idx] = plans[idx+1];
+                        domains[idx] = domains[idx+1];
+                        problems[idx]= problems[idx+1];
+                        k = k-1;
+                        for (int idx2 = idx+1; idx2 < k; idx2++ ){
+                              plans[idx2] = plans[idx2+1];
+                              domains[idx2] = domains[idx2+1];
+                              problems[idx2]= problems[idx2+1];
+
+                        }
                     }
                 }
-            }
-       }
+           }
+        }
+        QMessageBox::information(this,"Information: ","The plan selected will be deleted.");
+        ui->list->clear();
+        numItems = 0;
+        for(int i = 0; i<k;i++){
+                  QListWidgetItem * checkB = new QListWidgetItem(plans[i]);
+                  checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
+                  checkB->setCheckState(Qt::Unchecked);
+                  ui->list->addItem(checkB);
+                  counter = i;
+                  numItems = numItems+1;
+        }
+         numItemsConstant = numItems;
+         dontSave = false;
+    }else{
+      QMessageBox::information(this,"Information:","Nothing has been deleted.");
     }
-    ui->list->clear();                                                             //clear the widget list
-    numItems = 0;
-    for(int i = 0; i<k;i++){
-              QListWidgetItem * checkB = new QListWidgetItem(plans[i]);          // Add checked boxes with all the remaining plans stored in the array
-              checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
-              checkB->setCheckState(Qt::Unchecked);
-              ui->list->addItem(checkB);
-              counter = i;
-              numItems = numItems+1;
-    }
-     numItemsConstant = numItems;
 }
-
-
 
 
 void Selection::on_visualiseButton_clicked()
@@ -158,6 +205,7 @@ void Selection::on_visualiseButton_clicked()
 
     if ( k == 0){
         QMessageBox::warning(this,"Visualise Plan","Ops! It looks like there are not saved plans..");
+        numItems = 0;
         QWidget *parent = this->parentWidget();
         parent->show();
         this->hide();
@@ -169,30 +217,23 @@ void Selection::on_visualiseButton_clicked()
             visualise->show();
             this->hide();
         }else if (numChecked == 1) {
-            numChecked = numChecked - 1;                                                          //if there is only one plan selected open the visualisation window.
-            id = IDs[0];
+            numChecked = numChecked - 1;
             Plan = plansContent[id];
             visualise = new Visualisation(this);
             visualise->show();
             this->hide();
-        }else {                                                                 // if more than 1 warn the user
+        }else {
             QMessageBox::warning(this,"Visualise Plan","Ops! It looks like you have selected too many plans. You can select maximum 1 plan.");            
         }
     }
 }
 
 
-void Selection::on_homeButton_clicked()
-{
-    //numItemsConstant = 0;
-    QWidget *parent = this->parentWidget();
-    parent->show();
-     this->hide();
-
-}
-
 void Selection::on_saveButton_clicked()
 {
+    if(saveClicked){
+        numItems = 1;
+    }
     int d = 0;
     for(int i = 0; i<numItems; i++){
         bool isChecked = ui->list->item(i)->checkState();
@@ -227,11 +268,20 @@ void Selection::on_saveButton_clicked()
                 QString oldName = plans[id];
                 plans[id] = plan_name;
                 ui->list->clear();
-                QListWidgetItem *checkB = new QListWidgetItem(plans[id]);                  // Shows only the last plan added, the one with index k-1
+                QListWidgetItem *checkB = new QListWidgetItem(plans[id]);
                 checkB->setCheckState(Qt::Checked);
                 ui->list->addItem(checkB);
                 ui->renamedPlanLabel->setText("You have renamed '" + oldName + "' with '" + plan_name + "'");
             }
         }
     }
+    saveClicked = true;
+}
+
+void Selection::on_backButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
 }

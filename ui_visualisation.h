@@ -40,8 +40,8 @@ public:
     QLabel *stetement1_2;
     QPushButton *modifyButton;
     QFrame *frame_3;
-    QLabel *stetement1_3;
     QPushButton *accessFile;
+    QLabel *stetement1_3;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QWidget *verticalLayoutWidget_2;
@@ -49,6 +49,7 @@ public:
     QWidget *verticalLayoutWidget_3;
     QVBoxLayout *verticalLayout_3;
     QPushButton *reloadButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *Visualisation)
     {
@@ -58,15 +59,19 @@ public:
         homeButton = new QPushButton(Visualisation);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(0, 0, 71, 41));
+        homeButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(Visualisation);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(70, 0, 71, 41));
+        selectButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         visualiseButton = new QPushButton(Visualisation);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
+        visualiseButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         valButton = new QPushButton(Visualisation);
         valButton->setObjectName(QString::fromUtf8("valButton"));
         valButton->setGeometry(QRect(580, 430, 51, 31));
+        valButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         frame = new QFrame(Visualisation);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(0, 50, 221, 111));
@@ -77,13 +82,17 @@ public:
         questionButton->setGeometry(QRect(80, 30, 71, 71));
         stetement1 = new QLabel(frame);
         stetement1->setObjectName(QString::fromUtf8("stetement1"));
-        stetement1->setGeometry(QRect(60, 0, 121, 21));
+        stetement1->setGeometry(QRect(50, 10, 131, 21));
+        stetement1->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         title_label = new QLabel(Visualisation);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(130, 180, 379, 17));
+        title_label->setGeometry(QRect(130, 170, 379, 17));
+        title_label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";\n"
+"border-color: rgb(92, 53, 102);"));
         planArea = new QTextEdit(Visualisation);
         planArea->setObjectName(QString::fromUtf8("planArea"));
         planArea->setGeometry(QRect(120, 200, 401, 281));
+        planArea->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame_2 = new QFrame(Visualisation);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
         frame_2->setGeometry(QRect(220, 50, 211, 111));
@@ -91,21 +100,23 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         stetement1_2 = new QLabel(frame_2);
         stetement1_2->setObjectName(QString::fromUtf8("stetement1_2"));
-        stetement1_2->setGeometry(QRect(40, 0, 121, 21));
+        stetement1_2->setGeometry(QRect(40, 10, 141, 21));
+        stetement1_2->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         modifyButton = new QPushButton(frame_2);
         modifyButton->setObjectName(QString::fromUtf8("modifyButton"));
         modifyButton->setGeometry(QRect(70, 30, 71, 71));
         frame_3 = new QFrame(Visualisation);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
         frame_3->setGeometry(QRect(430, 50, 211, 111));
+        frame_3->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
-        stetement1_3 = new QLabel(frame_3);
-        stetement1_3->setObjectName(QString::fromUtf8("stetement1_3"));
-        stetement1_3->setGeometry(QRect(40, 0, 231, 21));
         accessFile = new QPushButton(frame_3);
         accessFile->setObjectName(QString::fromUtf8("accessFile"));
         accessFile->setGeometry(QRect(70, 30, 71, 71));
+        stetement1_3 = new QLabel(frame_3);
+        stetement1_3->setObjectName(QString::fromUtf8("stetement1_3"));
+        stetement1_3->setGeometry(QRect(50, 10, 121, 21));
         verticalLayoutWidget = new QWidget(Visualisation);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(0, 160, 121, 351));
@@ -127,6 +138,10 @@ public:
         reloadButton = new QPushButton(Visualisation);
         reloadButton->setObjectName(QString::fromUtf8("reloadButton"));
         reloadButton->setGeometry(QRect(530, 430, 31, 31));
+        backButton = new QPushButton(Visualisation);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         retranslateUi(Visualisation);
 
@@ -145,9 +160,10 @@ public:
         title_label->setText(QApplication::translate("Visualisation", "TextLabel", 0, QApplication::UnicodeUTF8));
         stetement1_2->setText(QApplication::translate("Visualisation", "Modify your plan:", 0, QApplication::UnicodeUTF8));
         modifyButton->setText(QString());
-        stetement1_3->setText(QApplication::translate("Visualisation", "Access your files:", 0, QApplication::UnicodeUTF8));
         accessFile->setText(QString());
+        stetement1_3->setText(QApplication::translate("Visualisation", "Access your files:", 0, QApplication::UnicodeUTF8));
         reloadButton->setText(QString());
+        backButton->setText(QApplication::translate("Visualisation", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -40,6 +40,7 @@ public:
         if (domainFile->objectName().isEmpty())
             domainFile->setObjectName(QString::fromUtf8("domainFile"));
         domainFile->resize(640, 480);
+        domainFile->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QPlainTextEdit(domainFile);
         planArea->setObjectName(QString::fromUtf8("planArea"));
         planArea->setGeometry(QRect(190, 150, 371, 341));
@@ -48,7 +49,7 @@ public:
         label->setGeometry(QRect(190, 130, 81, 17));
         groupBox = new QGroupBox(domainFile);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 40, 291, 61));
+        groupBox->setGeometry(QRect(20, 30, 311, 61));
         openFileButton = new QPushButton(groupBox);
         openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
         openFileButton->setGeometry(QRect(10, 30, 141, 25));
@@ -57,7 +58,7 @@ public:
         title_label->setGeometry(QRect(270, 130, 251, 17));
         groupBox_2 = new QGroupBox(domainFile);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(20, 130, 131, 181));
+        groupBox_2->setGeometry(QRect(20, 130, 141, 181));
         newFile = new QPushButton(groupBox_2);
         newFile->setObjectName(QString::fromUtf8("newFile"));
         newFile->setGeometry(QRect(10, 90, 111, 25));

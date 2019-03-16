@@ -28,6 +28,7 @@ public:
     QPushButton *modifyButton;
     QPushButton *addButton;
     QPushButton *valButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *ChangeAction)
     {
@@ -52,6 +53,9 @@ public:
         valButton = new QPushButton(ChangeAction);
         valButton->setObjectName(QString::fromUtf8("valButton"));
         valButton->setGeometry(QRect(570, 430, 51, 31));
+        backButton = new QPushButton(ChangeAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(ChangeAction);
 
@@ -67,6 +71,7 @@ public:
         modifyButton->setText(QApplication::translate("ChangeAction", "Modify", 0, QApplication::UnicodeUTF8));
         addButton->setText(QApplication::translate("ChangeAction", "Change", 0, QApplication::UnicodeUTF8));
         valButton->setText(QApplication::translate("ChangeAction", "VAL", 0, QApplication::UnicodeUTF8));
+        backButton->setText(QApplication::translate("ChangeAction", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

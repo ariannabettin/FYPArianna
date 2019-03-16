@@ -41,12 +41,14 @@ public:
     QLabel *label;
     QTextEdit *planArea;
     QPushButton *reschButton;
+    QPushButton *backButton;
 
     void setupUi(QDialog *RescheduleAction)
     {
         if (RescheduleAction->objectName().isEmpty())
             RescheduleAction->setObjectName(QString::fromUtf8("RescheduleAction"));
         RescheduleAction->resize(640, 480);
+        RescheduleAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(RescheduleAction);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(70, 0, 71, 41));
@@ -61,7 +63,7 @@ public:
         title_label->setGeometry(QRect(290, 70, 331, 20));
         RescheduleButton = new QPushButton(RescheduleAction);
         RescheduleButton->setObjectName(QString::fromUtf8("RescheduleButton"));
-        RescheduleButton->setGeometry(QRect(290, 0, 81, 41));
+        RescheduleButton->setGeometry(QRect(290, 0, 101, 41));
         frame = new QFrame(RescheduleAction);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(10, 70, 251, 111));
@@ -81,16 +83,19 @@ public:
         modifyButton->setGeometry(QRect(210, 0, 81, 41));
         list = new QListWidget(RescheduleAction);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(20, 230, 211, 201));
+        list->setGeometry(QRect(20, 230, 241, 241));
         label = new QLabel(RescheduleAction);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 200, 161, 20));
+        label->setGeometry(QRect(20, 200, 181, 20));
         planArea = new QTextEdit(RescheduleAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
         planArea->setGeometry(QRect(290, 100, 331, 311));
         reschButton = new QPushButton(RescheduleAction);
         reschButton->setObjectName(QString::fromUtf8("reschButton"));
         reschButton->setGeometry(QRect(570, 430, 51, 41));
+        backButton = new QPushButton(RescheduleAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(520, 10, 89, 25));
         modifyButton->raise();
         selectButton->raise();
         homeButton->raise();
@@ -102,6 +107,7 @@ public:
         label->raise();
         planArea->raise();
         reschButton->raise();
+        backButton->raise();
 
         retranslateUi(RescheduleAction);
 
@@ -122,6 +128,7 @@ public:
         modifyButton->setText(QApplication::translate("RescheduleAction", "Modify", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("RescheduleAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
         reschButton->setText(QString());
+        backButton->setText(QApplication::translate("RescheduleAction", "go back", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
