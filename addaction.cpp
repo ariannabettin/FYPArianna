@@ -1,13 +1,4 @@
 #include "addaction.h"
-#include "ui_addaction.h"
-#include "gloabal.h"
-#include "newaction.h"
-#include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
-#include <QDebug>
-#include <QListWidgetItem>
-#include "comparison.h"
 
 
 AddAction::AddAction(QWidget *parent) :
@@ -18,10 +9,7 @@ AddAction::AddAction(QWidget *parent) :
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->addButton_2->setIcon(ButtonIcon1);
-    ui->addButton_2->setIconSize(QSize(35, 45));
+    ui->addButton_2->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
     ui->comboBox_1->addItem("1");
     ui->comboBox_1->addItem("2");
@@ -62,6 +50,54 @@ AddAction::AddAction(QWidget *parent) :
      ui->comboBox_5->addItem("5");
      ui->comboBox_5->addItem("--");
      ui->comboBox_5->setCurrentIndex(ui->comboBox_5->findText("5"));
+
+     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+     ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+     ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+     ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+     ui->addButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+
+
+     if(themeColor == "white"){
+
+         ui->existinButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+         ui->doneButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+         ui->newActionButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+
+         ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->comboBox_1->setStyleSheet("background-color: #6d76a3; color: #ffffff;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->comboBox_2->setStyleSheet("background-color: #6d76a3; color: #ffffff;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->comboBox_3->setStyleSheet("background-color: #6d76a3; color: #ffffff;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->comboBox_4->setStyleSheet("background-color: #6d76a3; color: #ffffff;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->comboBox_5->setStyleSheet("background-color: #6d76a3; color: #ffffff;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->label1->setStyleSheet("background-color: #eae8f4; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->label2->setStyleSheet("background-color: #eae8f4; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->label3->setStyleSheet("background-color: #eae8f4; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->label4->setStyleSheet("background-color: #eae8f4; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+         ui->label5->setStyleSheet("background-color: #eae8f4; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+
+     }else if(themeColor == "black"){
+
+         ui->existinButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+         ui->doneButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+         ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->comboBox_1->setStyleSheet("background-color: #b6bcc4; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->comboBox_2->setStyleSheet("background-color: #b6bcc4; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->comboBox_3->setStyleSheet("background-color: #b6bcc4; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->comboBox_4->setStyleSheet("background-color: #b6bcc4; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->comboBox_5->setStyleSheet("background-color: #b6bcc4; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->label1->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->label2->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->label3->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->label4->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+         ui->label5->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+     }
 }
 
 AddAction::~AddAction()
@@ -71,13 +107,16 @@ AddAction::~AddAction()
 
 void AddAction::on_homeButton_clicked()                                                             //goes back to the home
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
 
+
 void AddAction::on_selectButton_clicked()                                                           //goes back to the selection window
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
@@ -90,6 +129,7 @@ void AddAction::on_visualiseButton_clicked()                                    
     parent->show();
      this->hide();
 }
+
 
 void AddAction::on_modifyButton_clicked()                                                          //goes back to the modification window                                                   //goes back to the modification window
 {
@@ -106,9 +146,9 @@ void AddAction::on_newActionButton_clicked()                                    
 
 }
 
+
 void AddAction::on_existinButton_clicked()
 {
-    // code partially taken by YouTube tutorials.
     isClicked++;
     QFont f( "Arial",8);
     QFile file(domains[id]);
@@ -158,13 +198,8 @@ void AddAction::on_existinButton_clicked()
 }
 
 
-
-
-
-
 void AddAction::on_doneButton_clicked()                                                             // finds the checked actions and adds them to the edit lines.
 {
-    //code partially taken by StackOverFlow or by QtFroum
     isClicked2++;
    if(isClicked>0){
 
@@ -221,17 +256,19 @@ void AddAction::on_doneButton_clicked()                                         
 
         }
 
-
-
     }else{
              QMessageBox::warning(this,"Error","You need to list the actions in your domain file first.");
     }
 
 }
 
+
 void AddAction::on_addButton_2_clicked()                                                                  // adds the selected action to the global variable Plan2 and opens the comparison window
 {
     if(isClicked>0 && isClicked2 > 0){
+
+        bool doubleIndex = false;
+        bool wrongIndex = false;
 
         QString val1 = ui->comboBox_1->currentText();
         QString val2 = ui->comboBox_2->currentText();
@@ -242,61 +279,77 @@ void AddAction::on_addButton_2_clicked()                                        
         QString actionArray[5]={ui->label1->text(),ui->label2->text(),ui->label3->text(),ui->label4->text(),ui->label5->text()};
         QString valuesArray[5] ={val1,val2,val3,val4,val5};
 
-        QString indexesUsed[5];
-        int somethingWrong = 0;
-        int somethingRight = 0;
-
-        for(int i = 0;i<numChecked;i++){
-
-            QString index = QString::number(i+1);
-            for(int k = 0; k < numChecked; k++){
-                if(valuesArray[k] == index){
-                        indexesUsed[k]=valuesArray[k];
-                        toAdd[i]=actionArray[k];
-                   }
-             }
-      }
-
-        if(somethingWrong == 0){
-            Plan2 =Plan;
-
-            QStringList a = Plan2.split("\n");
-            for(int i = 0; i<4; i++){
-                if(i == 0){
-                    Plan2 = a[0];
-                }else{
-                    Plan2 = Plan2 + "\n"+ a[i];
+        for (int i = 0; i<valuesArray->size();i++){
+            for (int j = 0;j<valuesArray->size();j++){
+                if(valuesArray[i] == valuesArray[k]){
+                    doubleIndex = true;
                 }
             }
-            for(int i = 0; i< 1; i++){
-                        Plan2 = Plan2 + "\n" + toAdd[i];
-                }
-            for(int i = 4; i<7; i++){
-                if(i == 0){
-                    Plan2 = a[0];
-                }else{
-                    Plan2 = Plan2 + "\n"+ a[i];
-                }
+        }
+        if(!doubleIndex){
+            for(int i = 0;i<numChecked;i++){
+                QString index = QString::number(i+1);
+                for(int k = 0; k < numChecked; k++){
+                    if(valuesArray[k] == index){
+                          toAdd[i]=actionArray[k];
+                       }
+                 }
+          }
+           for(int i = 0; i<numChecked; i++){
+               if(toAdd[i].isEmpty()){
+                   wrongIndex = true;
+               }
             }
-            for(int i = 1; i< numChecked; i++){
-                        Plan2 = Plan2 + "\n" + toAdd[i];
-                }
-            for(int i = 7; i<a.size(); i++){
-                    if(i == 0){
-                        Plan2 = a[0];
-                    }else{
-                        Plan2 = Plan2 + "\n"+ a[i];
+            if(!wrongIndex){
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//               Not part of the interface, I will use this for the presentation
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+                Plan2 =Plan;
+
+                    QStringList a = Plan2.split("\n");
+                    for(int i = 0; i<4; i++){
+                        if(i == 0){
+                            Plan2 = a[0];
+                        }else{
+                            Plan2 = Plan2 + "\n"+ a[i];
+                        }
                     }
-                }
+                    for(int i = 0; i< 1; i++){
+                                Plan2 = Plan2 + "\n" + toAdd[i];
+                        }
+                    for(int i = 4; i<7; i++){
+                        if(i == 0){
+                            Plan2 = a[0];
+                        }else{
+                            Plan2 = Plan2 + "\n"+ a[i];
+                        }
+                    }
+                    for(int i = 1; i< numChecked; i++){
+                                Plan2 = Plan2 + "\n" + toAdd[i];
+                        }
+                    for(int i = 7; i<a.size(); i++){
+                            if(i == 0){
+                                Plan2 = a[0];
+                            }else{
+                                Plan2 = Plan2 + "\n"+ a[i];
+                            }
+                        }
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+                    Plan2 = Plan2 + "\n";
 
 
-            Plan2 = Plan2 + "\n";
+                    compareButtonName = "Add";
+                    compare = new Comparison(this);
+                    compare->show();
+                    this->hide();
+               }else{
+                    QMessageBox::warning(this,"Error:","You have assigned a wrong position");
+               }
 
-
-            compareButtonName = "Add";
-            compare = new Comparison(this);
-            compare->show();
-            this->hide();
+        }else{
+            QMessageBox::warning(this,"Error:","You have assigned the same position twice.");
         }
       }else{
         if(isClicked == 0){
@@ -308,6 +361,13 @@ void AddAction::on_addButton_2_clicked()                                        
         }
 
       }
+}
 
+
+void AddAction::on_backButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
 
 }

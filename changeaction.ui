@@ -91,6 +91,19 @@
     <string>VAL</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>go back</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="9"/>
  <resources/>

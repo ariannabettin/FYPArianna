@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPlainTextEdit" name="planArea">
    <property name="geometry">
     <rect>
@@ -39,9 +42,9 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
-     <width>291</width>
+     <x>20</x>
+     <y>30</y>
+     <width>311</width>
      <height>61</height>
     </rect>
    </property>
@@ -80,7 +83,7 @@
     <rect>
      <x>20</x>
      <y>130</y>
-     <width>131</width>
+     <width>141</width>
      <height>181</height>
     </rect>
    </property>

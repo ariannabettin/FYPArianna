@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -129,7 +132,7 @@
     <rect>
      <x>300</x>
      <y>40</y>
-     <width>211</width>
+     <width>251</width>
      <height>281</height>
     </rect>
    </property>

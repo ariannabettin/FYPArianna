@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPushButton" name="homeButton">
    <property name="geometry">
     <rect>
@@ -208,7 +211,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Be aware that the old plan will be overwritten for the current session.</string>
+    <string>If this is your final version, validate the new XPlan with VAL button.</string>
    </property>
   </widget>
  </widget>

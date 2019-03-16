@@ -2,6 +2,11 @@
 #define FILECLASSPF_H
 
 #include <QDialog>
+#include "ui_fileclasspf.h"
+#include <QMessageBox>
+#include <QFile>
+#include "gloabal.h"
+#include <QTextStream>
 
 namespace Ui {
 class fileclassPF;

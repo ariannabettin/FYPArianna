@@ -17,7 +17,6 @@ public:
     ~ListOfActions();
 
 private slots:
-    void on_listButton_clicked();
 
 private:
     Ui::ListOfActions *ui;

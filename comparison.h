@@ -3,8 +3,9 @@
 
 #include <QDialog>
 #include "validplan.h"
-#include "invalidplan.h"
-
+#include "ui_comparison.h"
+#include "gloabal.h"
+#include <QMessageBox>
 
 
 namespace Ui {
@@ -45,7 +46,7 @@ private slots:
 private:
     Ui::Comparison *ui;
     validPlan *valid;
-    invalidPlan *invalid;
+
 
 
 

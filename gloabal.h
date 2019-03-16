@@ -14,6 +14,7 @@ extern int id2;
 extern int IDs[10];
 extern int j;
 extern int count;
+extern int fileNameNumber;
 extern QString plans[10];
 extern QString domains[10];
 extern QString problems[10];
@@ -34,6 +35,7 @@ extern QString steps; //*
 extern bool isValid;
 extern QString toReschedule[];
 extern QString windowORAct;
+extern QString themeColor;
 
 
 #endif // GLOABAL_H

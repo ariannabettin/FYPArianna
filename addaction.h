@@ -3,7 +3,15 @@
 
 #include <QDialog>
 #include "domainfile.h"
-#include "listofactions.h"
+#include "comparison.h"
+#include "ui_addaction.h"
+#include "gloabal.h"
+#include "newaction.h"
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QDebug>
+#include <QListWidgetItem>
 #include "comparison.h"
 
 namespace Ui {
@@ -38,10 +46,11 @@ private slots:
 
     void on_addButton_2_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::AddAction *ui;
     domainFile *file;
-    ListOfActions * lists;
     Comparison * compare;
 
 };

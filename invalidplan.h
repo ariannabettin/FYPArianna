@@ -16,17 +16,7 @@ public:
     ~invalidPlan();
 
 private slots:
-    void on_homeButton_clicked();
 
-    void on_selectButton_clicked();
-
-    void on_visualiseButton_clicked();
-
-    void on_modifyButton_clicked();
-
-    void on_Button_clicked();
-
-    void on_compareButton_clicked();
 
 private:
     Ui::invalidPlan *ui;

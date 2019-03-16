@@ -1,10 +1,5 @@
 #include "home.h"
-#include "ui_home.h"
-#include "gloabal.h"
-#include "selection.h"
-#include <QFileDialog>
-#include <QTextStream>
-#include <QMessageBox>
+
 
 Home::Home(QWidget *parent) :
     QMainWindow(parent),
@@ -13,10 +8,28 @@ Home::Home(QWidget *parent) :
     ui->setupUi(this);
     ui->savedPlanlabel->setText(" ");
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->doneButton->setIcon(ButtonIcon1);
-    ui->doneButton->setIconSize(QSize(35, 45));
+    ui->ThemeComboBox->addItem("Black Theme");
+    ui->ThemeComboBox->addItem("White Theme");
+    ui->ThemeComboBox->setCurrentIndex(ui->ThemeComboBox->findText("White Theme"));
+    ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
+
+    this->setStyleSheet("background-color: #f1f2ed;color: #282827");
+
+    ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+    ui->DomainLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+    ui->ProblemLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+    ui->PlanLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+    ui->cancelButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->switchThemeButton->setStyleSheet("background-color:#25245e; color: #FFFFFF");
+
+    ui->PlanLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+    ui->problemPathLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+    ui->domainPathLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+    ui->NamePlanLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+    ui->ThemeComboBox->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
 
      numItemsConstant = 0;
 }
@@ -25,6 +38,7 @@ Home::~Home()
 {
     delete ui;
 }
+
 
 void Home::on_DomainLoadButton_clicked()
 {
@@ -37,6 +51,7 @@ void Home::on_DomainLoadButton_clicked()
     }
 }
 
+
 void Home::on_ProblemLoadButton_clicked()
 {
     problem_path = QFileDialog::getOpenFileName(this,"Problem File", "C://");
@@ -48,22 +63,25 @@ void Home::on_ProblemLoadButton_clicked()
     }
 }
 
-void Home::on_PathLoadButton_clicked()
+
+void Home::on_PlanLoadButton_clicked()
 {
     plan_path = QFileDialog::getOpenFileName(this,"Plan", "C://");
     if(plan_path.isEmpty()){
-         ui->problemPathLine->setText("");
+         ui->PlanLine->setText("");
     }else{
-         ui->PathLine->setText(plan_path);
+         ui->PlanLine->setText(plan_path);
     }
 }
 
+
 void Home::on_doneButton_clicked()
 {
-    select = new Selection(this);                               // go to "selection" window
+    select = new Selection(this);
     select->show();
     this->hide();
 }
+
 
 void Home::on_saveButton_clicked()
 {
@@ -74,18 +92,18 @@ void Home::on_saveButton_clicked()
 
     QString planSaved;
 
-    if (k < 10){                                               // A maximum of 10 plans can be saved in one session
-        int counter = 0;                                       // used to check if the name given to the plan is unique
+    if (k < 10){
+        int counter = 0;
         if( ui->NamePlanLine->text().isEmpty()) {
             QMessageBox::warning(this,"Give your plan a title:","Ops! You need to give a title to the plan. ");
         } else {
             for (int i = 0; i<k; i++){
                 if(plan_name == plans[i]){
                    QMessageBox::warning(this,"Give your plan a title:","Ops! You have already used this name for a plan ");
-                   counter = counter + 1;                       //if it is not, the counter increases
+                   counter = counter + 1;
                 }
             }
-            if(counter == 0){                                   // if the counter is == 0, the name is saved
+            if(counter == 0){
                 plans[k] = plan_name;
                 domains[k] = domain_path;
                 problems[k] = problem_path;
@@ -94,7 +112,7 @@ void Home::on_saveButton_clicked()
             }
         }
     }
-    else {                                                      // if more than 10 are loaded the user is warned.
+    else {
         QMessageBox::warning(this,"Give your plan a title:","Ops! Too many plans loaded, please try to delete one before than adding a new one.");
     }
 
@@ -109,5 +127,46 @@ void Home::on_saveButton_clicked()
 }
 
 
+void Home::on_switchThemeButton_clicked()
+{
+    if(ui->ThemeComboBox->currentText() == "Black Theme"){
+        this->setStyleSheet("background-color: #3E4C5E;color: #FFFFFF");
+
+            ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+            ui->DomainLoadButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->ProblemLoadButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->PlanLoadButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->cancelButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->switchThemeButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+            ui->PlanLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->problemPathLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->domainPathLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->NamePlanLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+
+            ui->ThemeComboBox->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+
+            themeColor = "black";
+    }else{
+        this->setStyleSheet("background-color: #f1f2ed;color: #282827");
+
+            ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+            ui->DomainLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            ui->ProblemLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            ui->PlanLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            ui->cancelButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            ui->switchThemeButton->setStyleSheet("background-color:#25245e; color: #FFFFFF");
+
+            ui->PlanLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+            ui->problemPathLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+            ui->domainPathLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+            ui->NamePlanLine->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+            ui->ThemeComboBox->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+            themeColor = "white";
+    }
+
+}
 
 

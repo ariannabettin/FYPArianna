@@ -1,10 +1,5 @@
 #include "beforeafter.h"
-#include "ui_beforeafter.h"
-#include <QMessageBox>
-#include "gloabal.h"
-#include <QFile>
-#include <QListWidgetItem>
-#include <QTextStream>
+
 
 BeforeAfter::BeforeAfter(QWidget *parent) :
     QDialog(parent),
@@ -13,6 +8,25 @@ BeforeAfter::BeforeAfter(QWidget *parent) :
     ui->setupUi(this);
     ui->statement->setText(" ");
     int counter = 0;
+
+    if(themeColor == "white"){
+
+        ui->closeButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->doneButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->groupBox_2->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+
+    }else if(themeColor == "black"){
+
+        ui->closeButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->doneButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->groupBox_2->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
+        ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
+
+    }
+
 
     QFont f( "Arial",8);
     QStringList line = Plan.split("\n");
@@ -46,6 +60,7 @@ BeforeAfter::~BeforeAfter()
 {
     delete ui;
 }
+
 
 void BeforeAfter::on_doneButton_clicked()
 {
@@ -103,6 +118,7 @@ void BeforeAfter::on_doneButton_clicked()
          QMessageBox::warning(this,"Window options:", "Please, select one of the options available");
     }
 }
+
 
 void BeforeAfter::on_closeButton_clicked()
 {

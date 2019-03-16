@@ -3,6 +3,12 @@
 
 #include "selection.h"
 #include <QMainWindow>
+#include "ui_home.h"
+#include "gloabal.h"
+#include "selection.h"
+#include <QFileDialog>
+#include <QTextStream>
+#include <QMessageBox>
 
 namespace Ui {
 class Home;
@@ -22,15 +28,18 @@ public:
 
 
 private slots:
+
     void on_DomainLoadButton_clicked();
 
     void on_ProblemLoadButton_clicked();
 
-    void on_PathLoadButton_clicked();
+    void on_PlanLoadButton_clicked();
 
     void on_doneButton_clicked();
 
     void on_saveButton_clicked();
+
+    void on_switchThemeButton_clicked();
 
 
 

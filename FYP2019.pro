@@ -40,13 +40,11 @@ SOURCES += \
     window.cpp \
     beforeafter.cpp \
     fileclass.cpp \
-    listofactions.cpp \
     userquestions.cpp \
     comparison.cpp \
     fileclasspf.cpp \
     reschedulequestion.cpp \
     validplan.cpp \
-    invalidplan.cpp \
     domainfile.cpp \
     reschdulewindow.cpp \
     reschdulebeforeafter.cpp
@@ -66,13 +64,11 @@ HEADERS += \
     window.h \
     beforeafter.h \
     fileclass.h \
-    listofactions.h \
     userquestions.h \
     comparison.h \
     fileclasspf.h \
     reschedulequestion.h \
     validplan.h \
-    invalidplan.h \
     domainfile.h \
     reschdulewindow.h \
     reschdulebeforeafter.h

@@ -2,6 +2,12 @@
 #define BEFOREAFTER_H
 
 #include <QDialog>
+#include "ui_beforeafter.h"
+#include <QMessageBox>
+#include "gloabal.h"
+#include <QFile>
+#include <QListWidgetItem>
+#include <QTextStream>
 
 namespace Ui {
 class BeforeAfter;

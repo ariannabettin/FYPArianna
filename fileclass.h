@@ -2,6 +2,11 @@
 #define FILECLASS_H
 
 #include <QDialog>
+#include "ui_fileclass.h"
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include "gloabal.h"
 
 namespace Ui {
 class fileClass;

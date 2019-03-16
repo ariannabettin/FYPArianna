@@ -3,6 +3,9 @@
 #include "fileclass.h"
 #include "fileclasspf.h"
 #include <QDialog>
+#include "ui_access.h"
+#include "newaction.h"
+
 
 namespace Ui {
 class Access;
@@ -27,6 +30,8 @@ private slots:
 
     void on_visualiseButton_clicked();
 
+
+    void on_backButton_clicked();
 
 private:
     Ui::Access *ui;

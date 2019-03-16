@@ -22,7 +22,7 @@ static const uint qt_meta_data_Home[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,7 @@ static const uint qt_meta_data_Home[] = {
       67,    5,    5,    5, 0x08,
       95,    5,    5,    5, 0x08,
      119,    5,    5,    5, 0x08,
+     143,    5,    5,    5, 0x08,
 
        0        // eod
 };
@@ -42,8 +43,9 @@ static const uint qt_meta_data_Home[] = {
 static const char qt_meta_stringdata_Home[] = {
     "Home\0\0on_DomainLoadButton_clicked()\0"
     "on_ProblemLoadButton_clicked()\0"
-    "on_PathLoadButton_clicked()\0"
+    "on_PlanLoadButton_clicked()\0"
     "on_doneButton_clicked()\0on_saveButton_clicked()\0"
+    "on_switchThemeButton_clicked()\0"
 };
 
 void Home::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,9 +56,10 @@ void Home::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->on_DomainLoadButton_clicked(); break;
         case 1: _t->on_ProblemLoadButton_clicked(); break;
-        case 2: _t->on_PathLoadButton_clicked(); break;
+        case 2: _t->on_PlanLoadButton_clicked(); break;
         case 3: _t->on_doneButton_clicked(); break;
         case 4: _t->on_saveButton_clicked(); break;
+        case 5: _t->on_switchThemeButton_clicked(); break;
         default: ;
         }
     }
@@ -95,9 +98,9 @@ int Home::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

@@ -1,8 +1,5 @@
 #include "domainfile.h"
-#include "ui_domainfile.h"
-#include <QTextStream>
-#include <QMessageBox>
-#include "gloabal.h"
+
 
 
 domainFile::domainFile(QWidget *parent) :
@@ -10,7 +7,34 @@ domainFile::domainFile(QWidget *parent) :
     ui(new Ui::domainFile)
 {
     ui->setupUi(this);
-    ui->title_label->setText(plans[id]);
+    ui->title_label->setText(" "+ plans[id]);
+
+    if(themeColor == "white"){
+
+        ui->newFile->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->openFileButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->close->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+        ui->groupBox_2->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->groupBox->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+
+
+    }else if(themeColor == "black"){
+
+        ui->newFile->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->openFileButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->close->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+
+        ui->planArea->setStyleSheet("background-color: #eae8f4; color: #282827;");
+        ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->groupBox_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+        ui->groupBox->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+
+    }
 
     QFile file(domains[id]);
     if(!file.open(QFile::ReadOnly | QFile::Text)){
@@ -26,6 +50,7 @@ domainFile::~domainFile()
     delete ui;
 }
 
+
 void domainFile::on_openFileButton_clicked()
 {
     QFile file(domains[id]);
@@ -37,6 +62,7 @@ void domainFile::on_openFileButton_clicked()
     ui->planArea->setPlainText(text);
     file.close();
 }
+
 
 void domainFile::on_saveButton_clicked()
 {
@@ -50,6 +76,7 @@ void domainFile::on_saveButton_clicked()
     file.close();
 }
 
+
 void domainFile::on_newFile_clicked()
 {
     QFile file("newDomainAIP.pddl");
@@ -61,6 +88,7 @@ void domainFile::on_newFile_clicked()
     ui->planArea->setPlainText(text);
     file.close();
 }
+
 
 void domainFile::on_close_clicked()
 {

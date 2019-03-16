@@ -1,7 +1,5 @@
 #include "comparison.h"
-#include "ui_comparison.h"
-#include "gloabal.h"
-#include <QMessageBox>
+
 
 Comparison::Comparison(QWidget *parent) :
     QDialog(parent),
@@ -9,10 +7,43 @@ Comparison::Comparison(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->title_label->setText("Original Plan: " + plans[id]);
-    ui->title_label2->setText("New Plan: " + plans[id]+" 2");
+    ui->title_label2->setText("New XPlan: " + plans[id]+" 2");
     ui->planArea->setText(Plan);                                               // displays the old and the new plan
     ui->planArea_2->setText(Plan2);
     ui->instruction->setText("Please, save the plan if you want to keep working on it after the modification.");
+
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->compareButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+
+    if(themeColor == "white"){
+
+        ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->newsButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->replacedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->removedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        ui->valButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+
+        ui->planArea->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }else if(themeColor == "black"){
+
+        ui->noChangesButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->newsButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->replacedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->removedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        ui->valButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
 
 
     QStringList originalPlan = Plan.split("\n");
@@ -42,36 +73,10 @@ Comparison::~Comparison()
     delete ui;
 }
 
-void Comparison::on_saveButton_clicked()    //saves the new plan and deletes the previous one
-{
-
-
-    if(isValid == true){
-        QStringList newPlan = Plan2.split("\n");
-        for(int i = 0; i< newPlan.size(); i++){
-            if(!newPlan[i].isEmpty()){
-                if(i == 0){
-                    Plan = newPlan[i];
-                }else{
-                    Plan = Plan + "\n" + newPlan[i];
-                }
-            }
-        }
-        Plan = Plan2;
-        plansContent[id] = Plan2;
-        Plan2 = " ";
-
-    }else{
-        QMessageBox::warning(this,"Error:","You can't save this plan because it is invalid.");
-    }
-    ui->planArea->setText(Plan);
-    ui->planArea_2->clear();
-
-
-}
 
 void Comparison::on_homeButton_clicked()
 {
+    numItems = 0;
      QStringList originalPlan = Plan.split("\n");
      for(int i = 0; i< originalPlan.size(); i++){
          if(!originalPlan[i].isEmpty()){
@@ -103,6 +108,7 @@ void Comparison::on_homeButton_clicked()
 
 void Comparison::on_selectButton_clicked()
 {
+    numItems = 0;
     QStringList originalPlan = Plan.split("\n");
     for(int i = 0; i< originalPlan.size(); i++){
         if(!originalPlan[i].isEmpty() || originalPlan[i] == " "){
@@ -131,6 +137,7 @@ void Comparison::on_selectButton_clicked()
 
     this->hide();
 }
+
 
 void Comparison::on_visualiseButton_clicked()
 {
@@ -171,6 +178,34 @@ void Comparison::on_valButton_clicked()
         this->hide();
 }
 
+void Comparison::on_saveButton_clicked()    //saves the new plan and deletes the previous one
+{
+
+
+    if(isValid == true){
+        QStringList newPlan = Plan2.split("\n");
+        for(int i = 0; i< newPlan.size(); i++){
+            if(!newPlan[i].isEmpty()){
+                if(i == 0){
+                    Plan = newPlan[i];
+                }else{
+                    Plan = Plan + "\n" + newPlan[i];
+                }
+            }
+        }
+        Plan = Plan2;
+        plansContent[id] = Plan2;
+        Plan2 = " ";
+
+    }else{
+        QMessageBox::warning(this,"Error:","You can't save this plan because it is invalid.");
+    }
+    ui->planArea->setText(Plan);
+    ui->planArea_2->clear();
+
+
+}
+
 
 void Comparison::on_noChangesButton_clicked()
 {
@@ -188,6 +223,7 @@ void Comparison::on_noChangesButton_clicked()
         ui->noChangesButton->setText("Hide what has changed");
         int next = 0;
         if (originalPlan.size() == newPlan.size()){
+            ui->noChangesButton->setStyleSheet("background-color: #88a7d8; color: #000000;");
             for(int i = 0; i<newPlan.size(); i++){
                 if(newPlan[i] == originalPlan[i-next]){
                      QTextBlockFormat f;
@@ -271,6 +307,20 @@ void Comparison::on_noChangesButton_clicked()
             }
     }else if(!cNoChanges){
             ui->noChangesButton->setText("What has not changed?");
+            ui->removedButton->setText("What has been removed?");
+            ui->newsButton->setText("What is new?");
+            ui->replacedButton->setText("What has been replaced?");
+            if(themeColor == "white"){
+                ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->replacedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->removedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            }else{
+                ui->noChangesButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->replacedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->removedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            }
             for(int i = 0; i< newPlan.size(); i++){
                 QTextBlockFormat f;
                 f.setBackground(QColor(255, 255, 255));
@@ -292,8 +342,6 @@ void Comparison::on_noChangesButton_clicked()
 }
 
 
-
-
 void Comparison::on_newsButton_clicked()
 {
     QTextCursor cur = ui->planArea->textCursor();
@@ -304,7 +352,9 @@ void Comparison::on_newsButton_clicked()
     QStringList originalPlan = Plan.split("\n");
     QStringList newPlan = Plan2.split("\n");
     QTextBlockFormat f;
-    f.setBackground(QColor(216, 135, 165));
+    f.setBackground(QColor(209, 197, 72));
+
+
     int changes = 0;
 
     if(cNews){
@@ -324,6 +374,8 @@ void Comparison::on_newsButton_clicked()
                                 if(isNotReplacement){
                                     cur2.select(QTextCursor::LineUnderCursor);
                                     cur2.setBlockFormat(f);
+                                    ui->newsButton->setStyleSheet("background-color: #d1c548; color: #000000");
+
                                     changes++;
                                     if(i+next+1 <= newPlan.size()){
                                        next++;
@@ -339,6 +391,20 @@ void Comparison::on_newsButton_clicked()
             cNews = false;
     }else if(!cNews){
             ui->newsButton->setText("What is new?");
+            ui->removedButton->setText("What has been removed?");
+            ui->noChangesButton->setText("What has not changed?");
+            ui->replacedButton->setText("What has been replaced?");
+            if(themeColor == "white"){
+                ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->replacedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->removedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            }else{
+                ui->noChangesButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->replacedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->removedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            }
             for(int i = 0; i< newPlan.size(); i++){
                 QTextBlockFormat f;
                 f.setBackground(QColor(255, 255, 255));
@@ -360,8 +426,6 @@ void Comparison::on_newsButton_clicked()
  }
 
 
-
-
 void Comparison::on_replacedButton_clicked()
 {
     QTextCursor cur = ui->planArea->textCursor();
@@ -371,6 +435,9 @@ void Comparison::on_replacedButton_clicked()
     QStringList originalPlan = Plan.split("\n");
     QStringList newPlan = Plan2.split("\n");
     int changes = 0;
+    QTextBlockFormat f;
+    f.setBackground(QColor(121, 196, 117));
+
 
     if(cReplaced){
         ui->replacedButton->setText("Hide what has been replaced");
@@ -378,33 +445,30 @@ void Comparison::on_replacedButton_clicked()
             if(newPlan[i] != originalPlan[i]){
                 if(i==0){
                     if(originalPlan[i+1] == newPlan[i+1] && (!originalPlan[i].isEmpty() || !newPlan[i].isEmpty())){
-                        QTextBlockFormat f;
-                        f.setBackground(QColor(103, 206, 182));
                         cur2.select(QTextCursor::LineUnderCursor);
                         cur2.setBlockFormat(f);
                         cur.select(QTextCursor::LineUnderCursor);
                         cur.setBlockFormat(f);
+                        ui->replacedButton->setStyleSheet("background-color: #79c475; color: #000000");
                         changes++;
                     }
                 }else if(i+1>=newPlan.size()){
                     if(originalPlan[i-1] == newPlan[i-1] && (!originalPlan[i].isEmpty() || !newPlan[i].isEmpty())){
-                        QTextBlockFormat f;
-                        f.setBackground(QColor(103, 206, 182));
                         cur2.select(QTextCursor::LineUnderCursor);
                         cur2.setBlockFormat(f);
                         cur.select(QTextCursor::LineUnderCursor);
                         cur.setBlockFormat(f);
+                         ui->replacedButton->setStyleSheet("background-color: #79c475; color: #000000");
                         changes++;
                     }
                 }else{
                     if(originalPlan[i+1] == newPlan[i+1] && originalPlan[i-1] == newPlan[i-1]){
-                         QTextBlockFormat f;
-                         f.setBackground(QColor(103, 206, 182));
                          if(!newPlan[i].isEmpty() && !originalPlan[i].isEmpty()){
                              cur.select(QTextCursor::LineUnderCursor);
                              cur.setBlockFormat(f);
                              cur2.select(QTextCursor::LineUnderCursor);
                              cur2.setBlockFormat(f);
+                             ui->replacedButton->setStyleSheet("background-color: #79c475; color: #000000");
                              changes++;
                          }
                     }
@@ -418,6 +482,20 @@ void Comparison::on_replacedButton_clicked()
         cReplaced = false;
     }else if(!cReplaced){
         ui->replacedButton->setText("What has been replaced?");
+        ui->newsButton->setText("What is new?");
+        ui->removedButton->setText("What has been removed?");
+        ui->noChangesButton->setText("What has not changed?");
+        if(themeColor == "white"){
+            ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+            ui->replacedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            ui->newsButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+            ui->removedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+        }else{
+            ui->noChangesButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->replacedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->newsButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            ui->removedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+        }
         for(int i = 0; i< newPlan.size(); i++){
             QTextBlockFormat f;
             f.setBackground(QColor(255, 255, 255));
@@ -439,13 +517,15 @@ void Comparison::on_replacedButton_clicked()
 }
 
 
-
 void Comparison::on_removedButton_clicked()
 {
     QTextCursor cur = ui->planArea->textCursor();
     cur.setPosition(0,QTextCursor::MoveAnchor);
     QTextCursor cur2 = ui->planArea_2->textCursor();
     cur2.setPosition(0,QTextCursor::MoveAnchor);
+    QTextBlockFormat f;
+    f.setBackground(QColor(221, 113, 113));
+
 
     int next = 0;
     Plan = Plan + "\n";
@@ -459,10 +539,9 @@ void Comparison::on_removedButton_clicked()
             for(int i = 0; i<newPlan.size()-1; i++){
                 if(newPlan[i-next] != originalPlan[i]) {
                     if(originalPlan[i+1] == newPlan[i-next]){
-                            QTextBlockFormat f;
-                            f.setBackground(QColor(216, 135, 165));
                             cur.select(QTextCursor::LineUnderCursor);
                             cur.setBlockFormat(f);
+                            ui->removedButton->setStyleSheet("background-color: #dd7171; color: #000000");
                             changes++;
                             next++;
                     }
@@ -474,6 +553,20 @@ void Comparison::on_removedButton_clicked()
 
     }else if(!cRemoved){
             ui->removedButton->setText("What has been removed?");
+            ui->newsButton->setText("What is new?");
+            ui->noChangesButton->setText("What has not changed?");
+            ui->replacedButton->setText("What has been replaced?");
+            if(themeColor == "white"){
+                ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->replacedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+                ui->removedButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+            }else{
+                ui->noChangesButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->replacedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->newsButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+                ui->removedButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+            }
             for(int i = 0; i< newPlan.size(); i++){
                 QTextBlockFormat f;
                 f.setBackground(QColor(255, 255, 255));

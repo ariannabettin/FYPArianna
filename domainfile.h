@@ -2,6 +2,10 @@
 #define DOMAINFILE_H
 
 #include <QDialog>
+#include "ui_domainfile.h"
+#include <QTextStream>
+#include <QMessageBox>
+#include "gloabal.h"
 
 namespace Ui {
 class domainFile;

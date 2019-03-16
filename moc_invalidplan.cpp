@@ -22,47 +22,25 @@ static const uint qt_meta_data_invalidPlan[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x08,
-      37,   12,   12,   12, 0x08,
-      63,   12,   12,   12, 0x08,
-      92,   12,   12,   12, 0x08,
-     118,   12,   12,   12, 0x08,
-     138,   12,   12,   12, 0x08,
-
        0        // eod
 };
 
 static const char qt_meta_stringdata_invalidPlan[] = {
-    "invalidPlan\0\0on_homeButton_clicked()\0"
-    "on_selectButton_clicked()\0"
-    "on_visualiseButton_clicked()\0"
-    "on_modifyButton_clicked()\0on_Button_clicked()\0"
-    "on_compareButton_clicked()\0"
+    "invalidPlan\0"
 };
 
 void invalidPlan::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        invalidPlan *_t = static_cast<invalidPlan *>(_o);
-        switch (_id) {
-        case 0: _t->on_homeButton_clicked(); break;
-        case 1: _t->on_selectButton_clicked(); break;
-        case 2: _t->on_visualiseButton_clicked(); break;
-        case 3: _t->on_modifyButton_clicked(); break;
-        case 4: _t->on_Button_clicked(); break;
-        case 5: _t->on_compareButton_clicked(); break;
-        default: ;
-        }
-    }
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -97,11 +75,6 @@ int invalidPlan::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
-    }
     return _id;
 }
 QT_END_MOC_NAMESPACE
