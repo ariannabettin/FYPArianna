@@ -35,6 +35,8 @@ private slots:
 
 
 
+    void on_backButton_clicked();
+
 private:
     Ui::RemoveAction *ui;
     domainFile* file;

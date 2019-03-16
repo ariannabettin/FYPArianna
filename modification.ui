@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPushButton" name="homeButton">
    <property name="geometry">
     <rect>
@@ -21,6 +24,9 @@
      <width>71</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
    </property>
    <property name="text">
     <string>Home</string>
@@ -35,6 +41,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="text">
     <string>Select</string>
    </property>
@@ -47,6 +56,9 @@
      <width>71</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
    </property>
    <property name="text">
     <string>Visualise</string>
@@ -61,6 +73,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="text">
     <string>Modify</string>
    </property>
@@ -69,10 +84,13 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>190</y>
+     <y>200</y>
      <width>381</width>
-     <height>291</height>
+     <height>281</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
    </property>
   </widget>
   <widget class="QLabel" name="title_label">
@@ -84,21 +102,11 @@
      <height>17</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
    <property name="text">
     <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="valButton">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>440</y>
-     <width>51</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>VAL</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -123,6 +131,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QPushButton" name="addButton">
+          <property name="styleSheet">
+           <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+          </property>
           <property name="text">
            <string>Add</string>
           </property>
@@ -143,6 +154,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="rescheduleButton">
+          <property name="styleSheet">
+           <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+          </property>
           <property name="text">
            <string>Reschedule</string>
           </property>
@@ -154,6 +168,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QPushButton" name="removeButton">
+          <property name="styleSheet">
+           <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+          </property>
           <property name="text">
            <string>Remove</string>
           </property>
@@ -174,6 +191,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="replaceButton">
+          <property name="styleSheet">
+           <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+          </property>
           <property name="text">
            <string>Replace</string>
           </property>
@@ -184,6 +204,22 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>go back</string>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPushButton" name="selectButton">
    <property name="geometry">
     <rect>
@@ -70,7 +73,7 @@
     <rect>
      <x>290</x>
      <y>0</y>
-     <width>81</width>
+     <width>101</width>
      <height>41</height>
     </rect>
    </property>
@@ -151,8 +154,8 @@
     <rect>
      <x>20</x>
      <y>230</y>
-     <width>211</width>
-     <height>201</height>
+     <width>241</width>
+     <height>241</height>
     </rect>
    </property>
   </widget>
@@ -161,7 +164,7 @@
     <rect>
      <x>20</x>
      <y>200</y>
-     <width>161</width>
+     <width>181</width>
      <height>20</height>
     </rect>
    </property>
@@ -192,6 +195,19 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>go back</string>
+   </property>
+  </widget>
   <zorder>modifyButton</zorder>
   <zorder>selectButton</zorder>
   <zorder>homeButton</zorder>
@@ -203,6 +219,7 @@
   <zorder>label</zorder>
   <zorder>planArea</zorder>
   <zorder>reschButton</zorder>
+  <zorder>backButton</zorder>
  </widget>
  <resources/>
  <connections/>

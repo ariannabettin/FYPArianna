@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
@@ -43,9 +46,9 @@
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>120</y>
+     <y>130</y>
      <width>231</width>
-     <height>261</height>
+     <height>251</height>
     </rect>
    </property>
   </widget>
@@ -79,9 +82,9 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>120</y>
+     <y>130</y>
      <width>321</width>
-     <height>361</height>
+     <height>341</height>
     </rect>
    </property>
   </widget>
@@ -158,6 +161,19 @@
    </property>
    <property name="text">
     <string>Select</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>go back</string>
    </property>
   </widget>
  </widget>

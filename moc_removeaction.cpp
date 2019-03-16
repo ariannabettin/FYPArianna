@@ -22,7 +22,7 @@ static const uint qt_meta_data_RemoveAction[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,7 @@ static const uint qt_meta_data_RemoveAction[] = {
       93,   13,   13,   13, 0x08,
      123,   13,   13,   13, 0x08,
      153,   13,   13,   13, 0x08,
+     179,   13,   13,   13, 0x08,
 
        0        // eod
 };
@@ -47,6 +48,7 @@ static const char qt_meta_stringdata_RemoveAction[] = {
     "on_removePlanButton_clicked()\0"
     "on_removeFileButton_clicked()\0"
     "on_modifyButton_clicked()\0"
+    "on_backButton_clicked()\0"
 };
 
 void RemoveAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -61,6 +63,7 @@ void RemoveAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 3: _t->on_removePlanButton_clicked(); break;
         case 4: _t->on_removeFileButton_clicked(); break;
         case 5: _t->on_modifyButton_clicked(); break;
+        case 6: _t->on_backButton_clicked(); break;
         default: ;
         }
     }
@@ -99,9 +102,9 @@ int RemoveAction::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

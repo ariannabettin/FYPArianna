@@ -5,6 +5,10 @@
 #include "comparison.h"
 #include "reschdulebeforeafter.h"
 #include "reschdulewindow.h"
+#include "ui_reschedulequestion.h"
+#include "gloabal.h"
+#include <QMessageBox>
+#include "comparison.h"
 
 namespace Ui {
 class RescheduleQuestion;
@@ -32,6 +36,8 @@ private slots:
     void on_windowButton_clicked();
 
     void on_BAButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::RescheduleQuestion *ui;

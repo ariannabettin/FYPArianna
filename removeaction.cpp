@@ -13,6 +13,29 @@ RemoveAction::RemoveAction(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
+
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->removeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+    if(themeColor == "white"){
+
+        ui->removeFileButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->removePlanButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+    }else if(themeColor == "black"){
+
+        ui->removePlanButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->removeFileButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
+
     int counter = 0;
     QStringList line = Plan.split("\n");
     for(int i = 0; i<line.size(); i++ ){
@@ -27,24 +50,30 @@ RemoveAction::RemoveAction(QWidget *parent) :
     numItems = counter;
 }
 
+
 RemoveAction::~RemoveAction()
 {
     delete ui;
 }
 
+
 void RemoveAction::on_homeButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
 
+
 void RemoveAction::on_selectButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
+
 
 void RemoveAction::on_visualiseButton_clicked()
 {
@@ -52,6 +81,7 @@ void RemoveAction::on_visualiseButton_clicked()
     parent->show();
      this->hide();
 }
+
 
 void RemoveAction::on_modifyButton_clicked()
 {
@@ -79,6 +109,10 @@ void RemoveAction::on_removePlanButton_clicked()
     }else if (numChecked ==1){
          toRemove = action[0];
 
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
          QStringList line = Plan.split("\n");
          int helper = 0;
          for(int i = 0; i<numItems; i++){
@@ -99,6 +133,8 @@ void RemoveAction::on_removePlanButton_clicked()
                  }
              }
         }
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
          Plan2 = Plan2 + "\n";
 
         compareButtonName = "Remove";
@@ -118,6 +154,9 @@ void RemoveAction::on_removeFileButton_clicked()
 }
 
 
-
-
-
+void RemoveAction::on_backButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+}

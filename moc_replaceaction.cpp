@@ -31,24 +31,24 @@ static const uint qt_meta_data_ReplaceAction[] = {
 
  // slots: signature, parameters, type, tag, flags
       15,   14,   14,   14, 0x08,
-      38,   14,   14,   14, 0x08,
-      62,   14,   14,   14, 0x08,
-      91,   14,   14,   14, 0x08,
-     117,   14,   14,   14, 0x08,
-     143,   14,   14,   14, 0x08,
-     171,   14,   14,   14, 0x08,
+      43,   14,   14,   14, 0x08,
+      77,   14,   14,   14, 0x08,
+     103,   14,   14,   14, 0x08,
+     131,   14,   14,   14, 0x08,
+     162,   14,   14,   14, 0x08,
+     190,   14,   14,   14, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_ReplaceAction[] = {
-    "ReplaceAction\0\0on_valButton_clicked()\0"
-    "on_homeButton_clicked()\0"
-    "on_visualiseButton_clicked()\0"
-    "on_selectButton_clicked()\0"
-    "on_modifyButton_clicked()\0"
-    "on_existingButton_clicked()\0"
+    "ReplaceAction\0\0on_existingButton_clicked()\0"
     "on_replaceActionsButton_clicked()\0"
+    "on_homeButton_2_clicked()\0"
+    "on_selectButton_2_clicked()\0"
+    "on_visualiseButton_2_clicked()\0"
+    "on_modifyButton_2_clicked()\0"
+    "on_backButton_clicked()\0"
 };
 
 void ReplaceAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,13 +57,13 @@ void ReplaceAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         Q_ASSERT(staticMetaObject.cast(_o));
         ReplaceAction *_t = static_cast<ReplaceAction *>(_o);
         switch (_id) {
-        case 0: _t->on_valButton_clicked(); break;
-        case 1: _t->on_homeButton_clicked(); break;
-        case 2: _t->on_visualiseButton_clicked(); break;
-        case 3: _t->on_selectButton_clicked(); break;
-        case 4: _t->on_modifyButton_clicked(); break;
-        case 5: _t->on_existingButton_clicked(); break;
-        case 6: _t->on_replaceActionsButton_clicked(); break;
+        case 0: _t->on_existingButton_clicked(); break;
+        case 1: _t->on_replaceActionsButton_clicked(); break;
+        case 2: _t->on_homeButton_2_clicked(); break;
+        case 3: _t->on_selectButton_2_clicked(); break;
+        case 4: _t->on_visualiseButton_2_clicked(); break;
+        case 5: _t->on_modifyButton_2_clicked(); break;
+        case 6: _t->on_backButton_clicked(); break;
         default: ;
         }
     }

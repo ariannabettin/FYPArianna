@@ -1,8 +1,5 @@
 #include "reschedulequestion.h"
-#include "ui_reschedulequestion.h"
-#include "gloabal.h"
-#include <QMessageBox>
-#include "comparison.h"
+
 
 RescheduleQuestion::RescheduleQuestion(QWidget *parent) :
     QDialog(parent),
@@ -10,15 +7,29 @@ RescheduleQuestion::RescheduleQuestion(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->windowButton->setIcon(ButtonIcon1);
-    ui->windowButton->setIconSize(QSize(30, 40));
 
-    QPixmap pixmap2("doneIcon.png");
-    QIcon ButtonIcon2(pixmap2);
-    ui->BAButton->setIcon(ButtonIcon2);
-    ui->BAButton->setIconSize(QSize(30, 40));
+    ui->windowButton->setStyleSheet("border-image:url(forward.jpeg);");
+    ui->BAButton->setStyleSheet("border-image:url(forward.jpeg);");
+
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->Button->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+
+    if(themeColor == "white"){
+
+        ui->frame->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+        ui->frame_2->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+    }else if(themeColor == "black"){
+
+        ui->frame->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->frame_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
+
 
     route = 2;
 }
@@ -31,17 +42,21 @@ RescheduleQuestion::~RescheduleQuestion()
 
 void RescheduleQuestion::on_homeButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
 
+
 void RescheduleQuestion::on_selectButton_clicked()
 {
+    numItems = 0;
     QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
     parent->show();
      this->hide();
 }
+
 
 void RescheduleQuestion::on_visualiseButton_clicked()
 {
@@ -50,12 +65,14 @@ void RescheduleQuestion::on_visualiseButton_clicked()
      this->hide();
 }
 
+
 void RescheduleQuestion::on_modifyButton_clicked()
 {
     QWidget *parent = this->parentWidget();
     parent->show();
      this->hide();
 }
+
 
 void RescheduleQuestion::on_windowButton_clicked()
 {
@@ -69,4 +86,11 @@ void RescheduleQuestion::on_BAButton_clicked()
     rescheduleBA = new reschduleBeforeAfter(this);
     rescheduleBA->show();
     this->hide();
+}
+
+void RescheduleQuestion::on_backButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
 }

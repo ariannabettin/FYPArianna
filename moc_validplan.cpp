@@ -34,8 +34,8 @@ static const uint qt_meta_data_validPlan[] = {
       35,   10,   10,   10, 0x08,
       61,   10,   10,   10, 0x08,
       90,   10,   10,   10, 0x08,
-     116,   10,   10,   10, 0x08,
-     136,   10,   10,   10, 0x08,
+     117,   10,   10,   10, 0x08,
+     141,   10,   10,   10, 0x08,
 
        0        // eod
 };
@@ -44,8 +44,9 @@ static const char qt_meta_stringdata_validPlan[] = {
     "validPlan\0\0on_homeButton_clicked()\0"
     "on_selectButton_clicked()\0"
     "on_visualiseButton_clicked()\0"
-    "on_modifyButton_clicked()\0on_Button_clicked()\0"
     "on_compareButton_clicked()\0"
+    "on_backButton_clicked()\0"
+    "on_exportButton_clicked()\0"
 };
 
 void validPlan::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,9 +58,9 @@ void validPlan::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->on_homeButton_clicked(); break;
         case 1: _t->on_selectButton_clicked(); break;
         case 2: _t->on_visualiseButton_clicked(); break;
-        case 3: _t->on_modifyButton_clicked(); break;
-        case 4: _t->on_Button_clicked(); break;
-        case 5: _t->on_compareButton_clicked(); break;
+        case 3: _t->on_compareButton_clicked(); break;
+        case 4: _t->on_backButton_clicked(); break;
+        case 5: _t->on_exportButton_clicked(); break;
         default: ;
         }
     }

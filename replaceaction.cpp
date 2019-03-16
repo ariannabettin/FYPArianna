@@ -1,12 +1,5 @@
 #include "replaceaction.h"
-#include "ui_replaceaction.h"
-#include "gloabal.h"
-#include <QListWidgetItem>
-#include <QMessageBox>
-#include <QFile>
-#include <QTextStream>
-#include "comparison.h"
-#include "gloabal.h"
+
 
 ReplaceAction::ReplaceAction(QWidget *parent) :
     QDialog(parent),
@@ -15,11 +8,29 @@ ReplaceAction::ReplaceAction(QWidget *parent) :
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->replaceActionsButton->setIcon(ButtonIcon1);
-    ui->replaceActionsButton->setIconSize(QSize(35, 45));
+    ui->homeButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->replaceButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
 
+    ui->replaceActionsButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
+
+    if(themeColor == "white"){
+
+        ui->existingButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+
+        ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+    }else if(themeColor == "black"){
+
+        ui->existingButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+
+        ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
 
     QStringList line = Plan.split("\n");
     for(int i = 0; i<line.size(); i++ ){
@@ -40,6 +51,38 @@ ReplaceAction::~ReplaceAction()
 }
 
 
+void ReplaceAction::on_homeButton_2_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void ReplaceAction::on_selectButton_2_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void ReplaceAction::on_visualiseButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void ReplaceAction::on_modifyButton_2_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+}
 void ReplaceAction::on_existingButton_clicked()
 {
     isClicked++;
@@ -67,13 +110,11 @@ void ReplaceAction::on_existingButton_clicked()
                     for(int j = 0; j<word.size(); j++ ){
                         if(word[j].contains("action")){
                             if(firstActionInvalid){
-                                if(!Plan.contains(word[j+1])){
                                     QListWidgetItem * checkB = new QListWidgetItem(word[j+1]);
                                     checkB->setFlags(checkB->flags() | Qt::ItemIsUserCheckable);
                                     checkB->setCheckState(Qt::Unchecked);
                                     ui->list->addItem(checkB);
                                     act = act + 1;
-                                }
                             }
                             firstActionInvalid = true;
                         }
@@ -131,6 +172,10 @@ void ReplaceAction::on_replaceActionsButton_clicked()
                  QMessageBox::information(this,"Error:","You can select only one action at once from each list.");
              }else{
 
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
                  for(int i = 0; i<count; i++){
                      if(i==0){
                          if(ui->planArea->item(0)->text() != toRemove){
@@ -146,6 +191,8 @@ void ReplaceAction::on_replaceActionsButton_clicked()
                          }
                      }
                     }
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
                      count = 0;
                      compareButtonName = "Replace";
                      compare = new Comparison(this);
@@ -161,29 +208,7 @@ void ReplaceAction::on_replaceActionsButton_clicked()
 }
 
 
-
-void ReplaceAction::on_homeButton_2_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void ReplaceAction::on_selectButton_2_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void ReplaceAction::on_visualiseButton_2_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void ReplaceAction::on_modifyButton_2_clicked()
+void ReplaceAction::on_backButton_clicked()
 {
     QWidget *parent = this->parentWidget();
     parent->show();

@@ -3,6 +3,9 @@
 
 #include <QDialog>
 #include "comparison.h"
+#include "ui_reschdulebeforeafter.h"
+#include "gloabal.h"
+#include <QMessageBox>
 
 namespace Ui {
 class reschduleBeforeAfter;
@@ -31,6 +34,8 @@ private slots:
     void on_Button_clicked();
 
     void on_homeButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::reschduleBeforeAfter *ui;

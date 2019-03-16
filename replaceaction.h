@@ -3,6 +3,14 @@
 
 #include <QDialog>
 #include "comparison.h"
+#include "ui_replaceaction.h"
+#include "gloabal.h"
+#include <QListWidgetItem>
+#include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
+#include "comparison.h"
+#include "gloabal.h"
 
 namespace Ui {
 class ReplaceAction;
@@ -31,6 +39,8 @@ private slots:
     void on_visualiseButton_2_clicked();
 
     void on_modifyButton_2_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::ReplaceAction *ui;

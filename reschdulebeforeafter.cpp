@@ -1,7 +1,5 @@
 #include "reschdulebeforeafter.h"
-#include "ui_reschdulebeforeafter.h"
-#include "gloabal.h"
-#include <QMessageBox>
+
 
 reschduleBeforeAfter::reschduleBeforeAfter(QWidget *parent) :
     QDialog(parent),
@@ -9,12 +7,29 @@ reschduleBeforeAfter::reschduleBeforeAfter(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->doneButton->setIcon(ButtonIcon1);
-    ui->doneButton->setIconSize(QSize(35, 45));
+    ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
-    QFont f( "Arial",8);
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->Button->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->BAButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+    if(themeColor == "white"){
+
+        ui->frame_2->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->frame->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->list_2->setStyleSheet("background-color: #eae8f4; color: #282827;");
+
+    }else if(themeColor == "black"){
+
+        ui->frame->setStyleSheet("background-color: #548da5; color: #000000;");
+        ui->frame_2->setStyleSheet("background-color: #548da5; color: #000000;");
+        ui->list_2->setStyleSheet("background-color: #bfd2f2; color: #3E4C5E;");
+
+    }
+    QFont f( "Arial",4);
     QStringList line = Plan.split("\n");
     for(int i = 0; i<line.size(); i++ ){
         if(!line[i].isEmpty()){
@@ -36,6 +51,47 @@ reschduleBeforeAfter::~reschduleBeforeAfter()
     delete ui;
 }
 
+
+void reschduleBeforeAfter::on_homeButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+
+}
+
+
+void reschduleBeforeAfter::on_selectButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void reschduleBeforeAfter::on_visualiseButton_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void reschduleBeforeAfter::on_modifyButton_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+void reschduleBeforeAfter::on_Button_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+    this->hide();
+}
 
 void reschduleBeforeAfter::on_doneButton_clicked()
 {
@@ -75,7 +131,13 @@ void reschduleBeforeAfter::on_doneButton_clicked()
             if (steps != " "){
                  QMessageBox::information(this,"Error:","You don't need to set the number of steps.");
             }
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
             Plan2 = Plan + "\n" + "You want that: " + A + " is executed " + beforeafterOpt + " " + beforeafterAction;
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
             compare = new Comparison(this);
             compare->show();
             this->hide();
@@ -91,7 +153,12 @@ void reschduleBeforeAfter::on_doneButton_clicked()
                  }else if (ui->optionG_2) {
                      beforeafterOpt = "after n steps";
                  }
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
                  Plan2 = Plan + "\n" + "You want that: " + action[0] + " is executed " +  beforeafterOpt + "\n\n" + "number of steps: " + steps + "\n" + "parameter action: " + A;
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
                  compare = new Comparison(this);
                  compare->show();
                  this->hide();
@@ -101,39 +168,10 @@ void reschduleBeforeAfter::on_doneButton_clicked()
         }
 }
 
-void reschduleBeforeAfter::on_homeButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
 
-}
-
-void reschduleBeforeAfter::on_selectButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void reschduleBeforeAfter::on_visualiseButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void reschduleBeforeAfter::on_modifyButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void reschduleBeforeAfter::on_Button_clicked()
+void reschduleBeforeAfter::on_backButton_clicked()
 {
     QWidget *parent = this->parentWidget();
     parent->show();
-    this->hide();
+     this->hide();
 }
-

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPushButton" name="homeButton">
    <property name="geometry">
     <rect>
@@ -82,7 +85,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>150</y>
+     <y>160</y>
      <width>371</width>
      <height>17</height>
     </rect>
@@ -107,10 +110,10 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>50</y>
-     <width>311</width>
-     <height>80</height>
+     <width>321</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -122,24 +125,30 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>311</width>
+      <x>10</x>
+      <y>10</y>
+      <width>301</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
+    </property>
     <property name="text">
-     <string> Delete actions from the text area and use the</string>
+     <string> Delete actions from the text area and use</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>311</width>
+      <x>10</x>
+      <y>30</y>
+      <width>301</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
     </property>
     <property name="text">
      <string> button below to see the modified plan:</string>
@@ -149,10 +158,13 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
-      <width>131</width>
+      <y>50</y>
+      <width>151</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
     </property>
     <property name="text">
      <string>Remove from plan</string>
@@ -164,8 +176,8 @@
     <rect>
      <x>330</x>
      <y>50</y>
-     <width>301</width>
-     <height>80</height>
+     <width>311</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -177,37 +189,43 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>291</width>
+      <x>10</x>
+      <y>10</y>
+      <width>281</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
+    </property>
     <property name="text">
-     <string> Remove an action directly from the domain</string>
+     <string> Remove an action directly from the </string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>291</width>
+      <x>20</x>
+      <y>30</y>
+      <width>201</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string> file:</string>
+     <string>domain  file:</string>
     </property>
    </widget>
    <widget class="QPushButton" name="removeFileButton">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>40</y>
-      <width>131</width>
+      <x>150</x>
+      <y>50</y>
+      <width>151</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
     </property>
     <property name="text">
      <string>Remove from file</string>
@@ -218,10 +236,26 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>170</y>
+     <y>190</y>
      <width>381</width>
-     <height>311</height>
+     <height>291</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;TakaoPGothic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>go back</string>
    </property>
   </widget>
  </widget>

@@ -7,6 +7,9 @@
 #include "changeaction.h"
 #include "access.h"
 #include <QDialog>
+#include "ui_modification.h"
+#include "gloabal.h"
+#include <QMessageBox>
 
 namespace Ui {
 class Modification;
@@ -35,6 +38,8 @@ private slots:
 
     void on_rescheduleButton_clicked();
 
+
+    void on_backButton_clicked();
 
 private:
     Ui::Modification *ui;

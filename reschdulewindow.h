@@ -2,6 +2,9 @@
 #define RESCHDULEWINDOW_H
 #include "comparison.h"
 #include <QDialog>
+#include "ui_reschdulewindow.h"
+#include "gloabal.h"
+#include <QMessageBox>
 
 namespace Ui {
 class reschduleWindow;
@@ -27,6 +30,8 @@ private slots:
     void on_modifyButton_clicked();
 
     void on_Button_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::reschduleWindow *ui;

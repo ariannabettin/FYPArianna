@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;TakaoPGothic&quot;;</string>
+  </property>
   <widget class="QPushButton" name="selectButton">
    <property name="geometry">
     <rect>
@@ -44,7 +47,7 @@
     <rect>
      <x>290</x>
      <y>0</y>
-     <width>81</width>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -83,7 +86,7 @@
     <rect>
      <x>30</x>
      <y>100</y>
-     <width>483</width>
+     <width>541</width>
      <height>37</height>
     </rect>
    </property>
@@ -108,7 +111,7 @@
     <rect>
      <x>30</x>
      <y>170</y>
-     <width>484</width>
+     <width>541</width>
      <height>37</height>
     </rect>
    </property>
@@ -131,8 +134,8 @@
   <widget class="QPushButton" name="windowButton">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>110</y>
+     <x>580</x>
+     <y>100</y>
      <width>41</width>
      <height>31</height>
     </rect>
@@ -144,14 +147,27 @@
   <widget class="QPushButton" name="BAButton">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>180</y>
+     <x>580</x>
+     <y>170</y>
      <width>41</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>go back</string>
    </property>
   </widget>
  </widget>

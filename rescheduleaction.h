@@ -4,6 +4,12 @@
 #include "beforeafter.h"
 #include "comparison.h"
 #include <QDialog>
+#include "ui_rescheduleaction.h"
+#include "gloabal.h"
+#include "window.h"
+#include "comparison.h"
+#include <QListWidget>
+#include <QMessageBox>
 
 namespace Ui {
 class RescheduleAction;
@@ -34,6 +40,8 @@ private slots:
     void on_modifyButton_clicked();
 
     void on_reschButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::RescheduleAction *ui;

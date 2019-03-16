@@ -1,7 +1,5 @@
 #include "reschdulewindow.h"
-#include "ui_reschdulewindow.h"
-#include "gloabal.h"
-#include <QMessageBox>
+
 
 reschduleWindow::reschduleWindow(QWidget *parent) :
     QDialog(parent),
@@ -9,10 +7,24 @@ reschduleWindow::reschduleWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->doneButton->setIcon(ButtonIcon1);
-    ui->doneButton->setIconSize(QSize(35, 45));
+    ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->Button->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->windowButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+    if(themeColor == "white"){
+
+        ui->frame_3->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+        ui->frame->setStyleSheet("background-color: #c6c3dd; color: #282827;");
+
+    }else if(themeColor == "black"){
+
+        ui->frame->setStyleSheet("background-color: #548da5; color: #000000;");
+        ui->frame_3->setStyleSheet("background-color: #548da5; color: #000000;");
+    }
 }
 
 reschduleWindow::~reschduleWindow()
@@ -21,10 +33,50 @@ reschduleWindow::~reschduleWindow()
 }
 
 
+void reschduleWindow::on_homeButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+    this->hide();
+}
+
+
+void reschduleWindow::on_selectButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+    this->hide();
+}
+
+
+void reschduleWindow::on_visualiseButton_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+    this->hide();
+}
+
+
+void reschduleWindow::on_modifyButton_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget();
+    parent->show();
+    this->hide();
+}
+
+
+void reschduleWindow::on_Button_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+    this->hide();
+}
+
 
 void reschduleWindow::on_doneButton_clicked()
 {
-    // set time window
      compareButtonName = "Window";
 
      QString val1 = ui->lW1->text();
@@ -32,9 +84,6 @@ void reschduleWindow::on_doneButton_clicked()
 
      QString val1_2 = ui->lW1_2->text();
      QString val2_2 = ui->lW2_2->text();
-
-    //QString s = QString::number(i);
-     //check option
 
      if(ui->optionA->isChecked() || ui->optionB->isChecked() || ui->optionC->isChecked()){
 
@@ -51,8 +100,11 @@ void reschduleWindow::on_doneButton_clicked()
                  }else if (ui->optionC) {
                       windowOpt = "constrain and force";
                  }
-
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
                  Plan2 = Plan + "\n" + "Start Time: " + startTime + "\n" + "End Time: " + endTime + "\n" + "Option Chosen: '" + windowOpt + "'";
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
                  compare = new Comparison(this);
                  compare->show();
                  this->hide();
@@ -63,37 +115,10 @@ void reschduleWindow::on_doneButton_clicked()
      }
 }
 
-void reschduleWindow::on_homeButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-    this->hide();
-}
 
-void reschduleWindow::on_selectButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-    this->hide();
-}
-
-void reschduleWindow::on_visualiseButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-    this->hide();
-}
-
-void reschduleWindow::on_modifyButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget();
-    parent->show();
-    this->hide();
-}
-
-void reschduleWindow::on_Button_clicked()
+void reschduleWindow::on_backButton_clicked()
 {
     QWidget *parent = this->parentWidget();
     parent->show();
-    this->hide();
+     this->hide();
 }

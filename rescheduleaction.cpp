@@ -1,10 +1,4 @@
 #include "rescheduleaction.h"
-#include "ui_rescheduleaction.h"
-#include "gloabal.h"
-#include "window.h"
-#include "comparison.h"
-#include <QListWidget>
-#include <QMessageBox>
 
 RescheduleAction::RescheduleAction(QWidget *parent) :
     QDialog(parent),
@@ -14,10 +8,32 @@ RescheduleAction::RescheduleAction(QWidget *parent) :
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
 
-    QPixmap pixmap1("doneIcon.png");
-    QIcon ButtonIcon1(pixmap1);
-    ui->reschButton->setIcon(ButtonIcon1);
-    ui->reschButton->setIconSize(QSize(35, 45));
+
+    ui->reschButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
+
+    ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->modifyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->RescheduleButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+
+    if(themeColor == "white"){
+
+        ui->BAButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
+        ui->timeWindow->setStyleSheet("background-color: #25245e; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
+
+    }else if(themeColor == "black"){
+
+        ui->BAButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
+        ui->timeWindow->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
+
+        ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+
+    }
 
     QFont f( "Arial",8);
     QStringList line = Plan.split("\n");
@@ -40,6 +56,41 @@ RescheduleAction::~RescheduleAction()
 {
     delete ui;
 }
+
+
+void RescheduleAction::on_homeButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void RescheduleAction::on_selectButton_clicked()
+{
+    numItems = 0;
+    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void RescheduleAction::on_visualiseButton_clicked()
+{
+    QWidget *parent = this->parentWidget()->parentWidget();
+    parent->show();
+     this->hide();
+}
+
+
+void RescheduleAction::on_modifyButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
+}
+
 
 void RescheduleAction::on_timeWindow_clicked()
 {
@@ -76,37 +127,6 @@ void RescheduleAction::on_BAButton_clicked()
 }
 
 
-void RescheduleAction::on_homeButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void RescheduleAction::on_selectButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-
-void RescheduleAction::on_visualiseButton_clicked()
-{
-    QWidget *parent = this->parentWidget()->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-void RescheduleAction::on_modifyButton_clicked()
-{
-    QWidget *parent = this->parentWidget();
-    parent->show();
-     this->hide();
-}
-
-
-
 void RescheduleAction::on_reschButton_clicked()
 {
     bool checkMsgBox = false;
@@ -139,7 +159,13 @@ void RescheduleAction::on_reschButton_clicked()
     }
     if(windowORAct == " " && checkMsgBox == false){
         QMessageBox::information(this,"Missing data:","Please choose one of the options between 'time window' or 'before-after' and instert data required");
-    }else if(windowORAct == "window" && checkMsgBox == false){
+    }//else{
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//              Not part of the interface, I will use this for the presentaction
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+    else if(windowORAct == "window" && checkMsgBox == false){
             windowORAct = " ";
             Plan2 = Plan + "\n"+ "to reschedule: " + toAdd[0] + "\n" + windowOpt + " [" + startTime + "][" + endTime + "]";
             compare = new Comparison(this);
@@ -152,5 +178,17 @@ void RescheduleAction::on_reschButton_clicked()
             compare->show();
             this->hide();
     }
+ //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
+    /* compare = new Comparison(this);
+    compare->show();
+    this->hide();
+    }*/
+}
+
+void RescheduleAction::on_backButton_clicked()
+{
+    QWidget *parent = this->parentWidget();
+    parent->show();
+     this->hide();
 }
