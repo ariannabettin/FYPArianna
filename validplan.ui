@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>803</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,7 +87,7 @@
      <x>30</x>
      <y>130</y>
      <width>331</width>
-     <height>351</height>
+     <height>451</height>
     </rect>
    </property>
    <property name="text">
@@ -97,7 +97,7 @@
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>690</x>
      <y>10</y>
      <width>89</width>
      <height>25</height>
@@ -113,7 +113,7 @@
      <x>380</x>
      <y>110</y>
      <width>20</width>
-     <height>371</height>
+     <height>501</height>
     </rect>
    </property>
    <property name="orientation">
@@ -123,9 +123,9 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>110</y>
-     <width>171</width>
+     <x>440</x>
+     <y>120</y>
+     <width>311</width>
      <height>101</height>
     </rect>
    </property>
@@ -146,6 +146,49 @@
        <string>Export File</string>
       </property>
      </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>280</y>
+     <width>261</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="conf1Label">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="conf2Label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="conf3Label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

@@ -34,6 +34,7 @@ public:
     QString str2;
     QString str4;
     QString to_compare;
+    QString listType;
 
 
 private slots:

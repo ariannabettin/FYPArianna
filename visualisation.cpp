@@ -7,6 +7,7 @@ Visualisation::Visualisation(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
+    this->setFixedSize(800,600);
     ui->planArea->setText(Plan);
 
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
@@ -39,7 +40,6 @@ Visualisation::Visualisation(QWidget *parent) :
         ui->questionButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
         ui->accessFile->setStyleSheet("background-color: #25245e; color: #FFFFFF");
         ui->reloadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
-        ui->valButton->setStyleSheet("background-color:#25245e; color: #FFFFFF");
 
         ui->planArea->setStyleSheet("background-color: #c6c3dd; color: #282827;""border: 1px solid #3b2baf;""height: 25px;");
 
@@ -51,7 +51,6 @@ Visualisation::Visualisation(QWidget *parent) :
         ui->questionButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
         ui->accessFile->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
         ui->reloadButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
-        ui->valButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
 
         ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
     }

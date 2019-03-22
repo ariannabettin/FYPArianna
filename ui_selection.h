@@ -57,7 +57,7 @@ public:
     {
         if (Selection->objectName().isEmpty())
             Selection->setObjectName(QString::fromUtf8("Selection"));
-        Selection->resize(640, 592);
+        Selection->resize(797, 592);
         Selection->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(Selection);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
@@ -69,7 +69,7 @@ public:
         selectButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         groupBox = new QGroupBox(Selection);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(30, 60, 581, 301));
+        groupBox->setGeometry(QRect(120, 70, 581, 301));
         groupBox->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         verticalLayout_2 = new QVBoxLayout(groupBox);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
@@ -124,14 +124,14 @@ public:
 
         visualiseButton = new QPushButton(Selection);
         visualiseButton->setObjectName(QString::fromUtf8("visualiseButton"));
-        visualiseButton->setGeometry(QRect(559, 534, 51, 41));
+        visualiseButton->setGeometry(QRect(700, 520, 51, 41));
         renamedPlanLabel = new QLabel(Selection);
         renamedPlanLabel->setObjectName(QString::fromUtf8("renamedPlanLabel"));
-        renamedPlanLabel->setGeometry(QRect(30, 520, 541, 16));
+        renamedPlanLabel->setGeometry(QRect(120, 540, 551, 16));
         renamedPlanLabel->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame_2 = new QFrame(Selection);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(60, 370, 331, 131));
+        frame_2->setGeometry(QRect(120, 380, 331, 131));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout_5 = new QVBoxLayout(frame_2);

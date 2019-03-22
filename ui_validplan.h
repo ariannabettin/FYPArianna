@@ -40,12 +40,18 @@ public:
     QLabel *statementLabel;
     QLineEdit *renameLine;
     QPushButton *exportButton;
+    QFrame *frame;
+    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *conf1Label;
+    QLabel *conf2Label;
+    QLabel *conf3Label;
 
     void setupUi(QDialog *validPlan)
     {
         if (validPlan->objectName().isEmpty())
             validPlan->setObjectName(QString::fromUtf8("validPlan"));
-        validPlan->resize(640, 480);
+        validPlan->resize(803, 612);
         validPlan->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         compareButton = new QPushButton(validPlan);
         compareButton->setObjectName(QString::fromUtf8("compareButton"));
@@ -64,18 +70,18 @@ public:
         validatePlan->setGeometry(QRect(300, 0, 89, 41));
         reportLabel = new QLabel(validPlan);
         reportLabel->setObjectName(QString::fromUtf8("reportLabel"));
-        reportLabel->setGeometry(QRect(30, 130, 331, 351));
+        reportLabel->setGeometry(QRect(30, 130, 331, 451));
         backButton = new QPushButton(validPlan);
         backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setGeometry(QRect(690, 10, 89, 25));
         line = new QFrame(validPlan);
         line->setObjectName(QString::fromUtf8("line"));
-        line->setGeometry(QRect(380, 110, 20, 371));
+        line->setGeometry(QRect(380, 110, 20, 501));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
         layoutWidget = new QWidget(validPlan);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(410, 110, 171, 101));
+        layoutWidget->setGeometry(QRect(440, 120, 311, 101));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -93,6 +99,33 @@ public:
         exportButton->setObjectName(QString::fromUtf8("exportButton"));
 
         verticalLayout->addWidget(exportButton);
+
+        frame = new QFrame(validPlan);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(470, 280, 261, 101));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        verticalLayout_2 = new QVBoxLayout(frame);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        conf1Label = new QLabel(frame);
+        conf1Label->setObjectName(QString::fromUtf8("conf1Label"));
+
+        verticalLayout_3->addWidget(conf1Label);
+
+        conf2Label = new QLabel(frame);
+        conf2Label->setObjectName(QString::fromUtf8("conf2Label"));
+
+        verticalLayout_3->addWidget(conf2Label);
+
+        conf3Label = new QLabel(frame);
+        conf3Label->setObjectName(QString::fromUtf8("conf3Label"));
+
+        verticalLayout_3->addWidget(conf3Label);
+
+
+        verticalLayout_2->addLayout(verticalLayout_3);
 
 
         retranslateUi(validPlan);
@@ -112,6 +145,9 @@ public:
         backButton->setText(QApplication::translate("validPlan", "go back", 0, QApplication::UnicodeUTF8));
         statementLabel->setText(QApplication::translate("validPlan", "Rename your XPlan:", 0, QApplication::UnicodeUTF8));
         exportButton->setText(QApplication::translate("validPlan", "Export File", 0, QApplication::UnicodeUTF8));
+        conf1Label->setText(QString());
+        conf2Label->setText(QApplication::translate("validPlan", "TextLabel", 0, QApplication::UnicodeUTF8));
+        conf3Label->setText(QApplication::translate("validPlan", "TextLabel", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

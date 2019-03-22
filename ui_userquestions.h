@@ -66,7 +66,7 @@ public:
     {
         if (UserQuestions->objectName().isEmpty())
             UserQuestions->setObjectName(QString::fromUtf8("UserQuestions"));
-        UserQuestions->resize(640, 430);
+        UserQuestions->resize(798, 584);
         UserQuestions->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QPlainTextEdit(UserQuestions);
         planArea->setObjectName(QString::fromUtf8("planArea"));
@@ -85,22 +85,22 @@ public:
         selectButton->setGeometry(QRect(70, 0, 71, 41));
         addButton_2 = new QPushButton(UserQuestions);
         addButton_2->setObjectName(QString::fromUtf8("addButton_2"));
-        addButton_2->setGeometry(QRect(520, 379, 111, 31));
+        addButton_2->setGeometry(QRect(660, 520, 111, 31));
         question_label3 = new QLabel(UserQuestions);
         question_label3->setObjectName(QString::fromUtf8("question_label3"));
         question_label3->setGeometry(QRect(490, 340, 67, 17));
         frame = new QFrame(UserQuestions);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(10, 70, 371, 201));
+        frame->setGeometry(QRect(50, 100, 381, 251));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         groupBox = new QGroupBox(frame);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(10, 10, 341, 181));
+        groupBox->setGeometry(QRect(10, 10, 351, 221));
         groupBox->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         layoutWidget = new QWidget(groupBox);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 40, 311, 135));
+        layoutWidget->setGeometry(QRect(10, 40, 331, 161));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -129,10 +129,10 @@ public:
         label_2->setGeometry(QRect(10, 10, 309, 25));
         statementLabel = new QLabel(UserQuestions);
         statementLabel->setObjectName(QString::fromUtf8("statementLabel"));
-        statementLabel->setGeometry(QRect(410, 40, 121, 17));
+        statementLabel->setGeometry(QRect(470, 60, 291, 17));
         layoutWidget1 = new QWidget(UserQuestions);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(390, 70, 241, 211));
+        layoutWidget1->setGeometry(QRect(470, 90, 291, 261));
         verticalLayout_3 = new QVBoxLayout(layoutWidget1);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -159,7 +159,7 @@ public:
 
         frame_2 = new QFrame(UserQuestions);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(20, 290, 481, 91));
+        frame_2->setGeometry(QRect(60, 410, 481, 91));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout_4 = new QVBoxLayout(frame_2);
@@ -185,7 +185,7 @@ public:
         backButton->setGeometry(QRect(520, 10, 89, 25));
         label_3 = new QLabel(UserQuestions);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(10, 50, 371, 17));
+        label_3->setGeometry(QRect(50, 60, 391, 17));
         label_3->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
 
         retranslateUi(UserQuestions);

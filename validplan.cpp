@@ -11,12 +11,15 @@ validPlan::validPlan(QWidget *parent) :
     ui(new Ui::validPlan)
 {
     ui->setupUi(this);
-
+    this->setFixedSize(800,600);
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->compareButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->validatePlan->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
+    ui->conf1Label->setText(" ");
+    ui->conf2Label->setText(" ");
+    ui->conf3Label->setText(" ");
 
 
     if(themeColor == "white"){
@@ -33,9 +36,9 @@ validPlan::validPlan(QWidget *parent) :
 
         ui->exportButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
 
-        ui->reportLabel->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+        ui->reportLabel->setStyleSheet("background-color: #92afd3; color: #3E4C5E;");
 
-        ui->renameLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->renameLine->setStyleSheet("background-color: #92afd3; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
 
 
     }
@@ -111,6 +114,10 @@ void validPlan::on_exportButton_clicked()
     }else{
         filename = ui->renameLine->text() + ".txt";
     }
+
+    ui->conf1Label->setText("Your plan has been saved in ");
+    ui->conf2Label->setText("the project directory as: ");
+    ui->conf3Label->setText(filename);
 
     QFile file(filename);
     if(!file.open(QFile::WriteOnly | QFile::Text)){

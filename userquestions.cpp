@@ -6,6 +6,7 @@ UserQuestions::UserQuestions(QWidget *parent) :
     ui(new Ui::UserQuestions)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
     ui->question_label->setText(" ");
     ui->addButton_2->setText("Complete");
     route = 1;
@@ -33,8 +34,8 @@ UserQuestions::UserQuestions(QWidget *parent) :
         ui->addButton_2->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
 
         ui->list->setStyleSheet("background-color: #dedfea; color: #3E4C5E;");
-        ui->frame->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
-        ui->frame_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+        ui->frame->setStyleSheet("background-color: #92afd3; color: #000000;");
+        ui->frame_2->setStyleSheet("background-color: #92afd3; color: #000000;");
 
     }
 
@@ -265,10 +266,15 @@ void UserQuestions::on_completeButton_clicked()
                             }
                             ui->addButton_2->setText("Remove");
                             QStringList actionName = action[0].split(" ");
-                            str2 = actionName[1];
-                            toRemove = str2;
-                            ui->question_label->setText(str1 + " " + str2 + " " + str3);
+                            if(actionName.size() == 1){
+                                QMessageBox::warning(this,"Error:","Probably you have selected an action from the wrong list. Please, click 'List' button again");
+                            }else{
+                                str2 = actionName[1];
+                                toRemove = str2;
+                                ui->question_label->setText(str1 + " " + str2 + " " + str3);
+                            }
                     }else if(ui->rescheduleOption->isChecked()){
+                            secondClick = false;
                             quest = ui->rescheduleOption->text();
                             list = quest.split(QRegExp("\\s+"), QString::SkipEmptyParts);
                             str1 = list[0];
@@ -277,10 +283,14 @@ void UserQuestions::on_completeButton_clicked()
                             }
                             ui->addButton_2->setText("Reschedule");
                             QStringList actionName = action[0].split(" ");
-                            str2 = actionName[1];
-                            str4 = actionName[0];
-                            toAdd[0] = action[0];
-                            ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
+                            if(actionName.size() == 1){
+                                QMessageBox::warning(this,"Error:","Probably you have selected an action from the wrong list. Please, click 'List' button again");
+                            }else{
+                                str2 = actionName[1];
+                                str4 = actionName[0];
+                                toAdd[0] = action[0];
+                                ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
+                            }
                     }
 
 
@@ -302,6 +312,9 @@ void UserQuestions::on_completeButton_clicked()
                 str4 = action[0];
                 toAdd[0] = str4;
                 ui->doneButton->setText("List");
+                if(str2 == str4){
+                    QMessageBox::information(this,"Warning:","You have selected two identical actions. Be aware that your choices will have no effects on the planner's decisions.");
+                }
                 ui->question_label->setText(str1 + " " + str2 + " " + str3 + " " + str4 + " " + "?");
             }
         }else if(numChecked == 0){
