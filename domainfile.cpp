@@ -7,6 +7,7 @@ domainFile::domainFile(QWidget *parent) :
     ui(new Ui::domainFile)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
     ui->title_label->setText(" "+ plans[id]);
 
     if(themeColor == "white"){
@@ -31,8 +32,8 @@ domainFile::domainFile(QWidget *parent) :
 
         ui->planArea->setStyleSheet("background-color: #eae8f4; color: #282827;");
         ui->planArea->setStyleSheet("background-color: #dedfea; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
-        ui->groupBox_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
-        ui->groupBox->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;");
+        ui->groupBox_2->setStyleSheet("background-color: #92afd3; color: #000000;");
+        ui->groupBox->setStyleSheet("background-color: #92afd3; color: #000000;");
 
     }
 

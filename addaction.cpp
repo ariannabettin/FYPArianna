@@ -10,6 +10,7 @@ AddAction::AddAction(QWidget *parent) :
     ui->planArea->setText(Plan);
 
     ui->addButton_2->setStyleSheet("border-image:url(checkIcon.jpeg);");
+      this->setFixedSize(800,600);
 
     ui->comboBox_1->addItem("1");
     ui->comboBox_1->addItem("2");

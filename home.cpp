@@ -8,12 +8,13 @@ Home::Home(QWidget *parent) :
     ui->setupUi(this);
     ui->savedPlanlabel->setText(" ");
 
-    ui->ThemeComboBox->addItem("Black Theme");
+    ui->ThemeComboBox->addItem("Blue Theme");
     ui->ThemeComboBox->addItem("White Theme");
     ui->ThemeComboBox->setCurrentIndex(ui->ThemeComboBox->findText("White Theme"));
     ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
     this->setStyleSheet("background-color: #f1f2ed;color: #282827");
+    this->setFixedSize(800,600);
 
     ui->saveButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
     ui->DomainLoadButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
@@ -129,8 +130,8 @@ void Home::on_saveButton_clicked()
 
 void Home::on_switchThemeButton_clicked()
 {
-    if(ui->ThemeComboBox->currentText() == "Black Theme"){
-        this->setStyleSheet("background-color: #3E4C5E;color: #FFFFFF");
+    if(ui->ThemeComboBox->currentText() == "Blue Theme"){
+        this->setStyleSheet("background-color: #25245e; color: #FFFFFF");
 
             ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF;");
             ui->DomainLoadButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
@@ -139,12 +140,12 @@ void Home::on_switchThemeButton_clicked()
             ui->cancelButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
             ui->switchThemeButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
 
-            ui->PlanLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
-            ui->problemPathLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
-            ui->domainPathLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
-            ui->NamePlanLine->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->PlanLine->setStyleSheet("background-color:#92afd3; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->problemPathLine->setStyleSheet("background-color: #92afd3; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->domainPathLine->setStyleSheet("background-color: #92afd3; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->NamePlanLine->setStyleSheet("background-color: #92afd3; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
 
-            ui->ThemeComboBox->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+            ui->ThemeComboBox->setStyleSheet("background-color: #92afd3; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
 
             themeColor = "black";
     }else{

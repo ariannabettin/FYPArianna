@@ -6,6 +6,7 @@ ChangeAction::ChangeAction(QWidget *parent) :
     ui(new Ui::ChangeAction)
 {
     ui->setupUi(this);
+
 }
 
 ChangeAction::~ChangeAction()

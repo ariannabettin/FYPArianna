@@ -5,6 +5,7 @@ Access::Access(QWidget *parent) :
     ui(new Ui::Access)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
 
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selecyButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");

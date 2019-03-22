@@ -6,6 +6,7 @@ Comparison::Comparison(QWidget *parent) :
     ui(new Ui::Comparison)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
     ui->title_label->setText("Original Plan: " + plans[id]);
     ui->title_label2->setText("New XPlan: " + plans[id]+" 2");
     ui->planArea->setText(Plan);                                               // displays the old and the new plan
@@ -28,8 +29,8 @@ Comparison::Comparison(QWidget *parent) :
         ui->valButton->setStyleSheet("background-color: #25245e; color: #FFFFFF");
 
 
-        ui->planArea->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
-        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea->setStyleSheet("background-color: #ffffff; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
 
     }else if(themeColor == "black"){
 
@@ -40,8 +41,8 @@ Comparison::Comparison(QWidget *parent) :
         ui->saveButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
         ui->valButton->setStyleSheet("background-color: #498AA0; color: #FFFFFF");
 
-        ui->planArea->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
-        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #3E4C5E;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea->setStyleSheet("background-color: #ffffff; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->planArea_2->setStyleSheet("background-color: #ffffff; color: #000000;""border: 1px solid #cdd1d6;""height: 25px;");
 
     }
 
@@ -524,7 +525,7 @@ void Comparison::on_removedButton_clicked()
     QTextCursor cur2 = ui->planArea_2->textCursor();
     cur2.setPosition(0,QTextCursor::MoveAnchor);
     QTextBlockFormat f;
-    f.setBackground(QColor(221, 113, 113));
+    f.setBackground(QColor(229, 94, 150));
 
 
     int next = 0;
@@ -541,7 +542,7 @@ void Comparison::on_removedButton_clicked()
                     if(originalPlan[i+1] == newPlan[i-next]){
                             cur.select(QTextCursor::LineUnderCursor);
                             cur.setBlockFormat(f);
-                            ui->removedButton->setStyleSheet("background-color: #dd7171; color: #000000");
+                            ui->removedButton->setStyleSheet("background-color: #e55e96; color: #000000");
                             changes++;
                             next++;
                     }
