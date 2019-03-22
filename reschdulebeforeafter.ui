@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>795</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,9 +19,9 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>50</x>
      <y>70</y>
-     <width>515</width>
+     <width>531</width>
      <height>42</height>
     </rect>
    </property>
@@ -36,7 +36,7 @@
     <item>
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string> If so select one of the following options, click &quot;List&quot; and choose B:</string>
+       <string> If so select one of the following options, and a parameter action:</string>
       </property>
      </widget>
     </item>
@@ -45,8 +45,8 @@
   <widget class="QPushButton" name="doneButton">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>400</y>
+     <x>690</x>
+     <y>480</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -58,8 +58,8 @@
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>140</y>
+     <x>50</x>
+     <y>190</y>
      <width>261</width>
      <height>131</height>
     </rect>
@@ -186,7 +186,7 @@
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>680</x>
      <y>10</y>
      <width>89</width>
      <height>25</height>
@@ -199,9 +199,9 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>300</y>
-     <width>81</width>
+     <x>50</x>
+     <y>350</y>
+     <width>111</width>
      <height>91</height>
     </rect>
    </property>
@@ -216,12 +216,12 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>51</width>
+      <width>91</width>
       <height>81</height>
      </rect>
     </property>
     <property name="title">
-     <string>n:</string>
+     <string>steps (n): </string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
@@ -233,11 +233,37 @@
   <widget class="QListWidget" name="list_2">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>140</y>
-     <width>251</width>
-     <height>241</height>
+     <x>420</x>
+     <y>190</y>
+     <width>321</width>
+     <height>251</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>160</y>
+     <width>321</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>List of parameter actions:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>160</y>
+     <width>261</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Options:</string>
    </property>
   </widget>
  </widget>

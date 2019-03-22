@@ -7,6 +7,7 @@ ReplaceAction::ReplaceAction(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
+    this->setFixedSize(800,600);
 
     ui->homeButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selectButton_2->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
@@ -83,6 +84,7 @@ void ReplaceAction::on_modifyButton_2_clicked()
     parent->show();
      this->hide();
 }
+
 void ReplaceAction::on_existingButton_clicked()
 {
     isClicked++;
@@ -165,39 +167,45 @@ void ReplaceAction::on_replaceActionsButton_clicked()
              }
 
              toRemove = action[1];
+             QStringList toRemovePt2 = toRemove.split(" ");
 
-             if(numChecked == 0){
-                 QMessageBox::information(this,"Error:","You need to select the action that you want to replace.");
-             }else if(numChecked!=2){
-                 QMessageBox::information(this,"Error:","You can select only one action at once from each list.");
+             if(toRemovePt2[1] == toAdd[0]){
+                 QMessageBox::information(this,"Error:","With the actions you have selected, the same action will be removed from the plan and then added again.");
              }else{
 
-//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-//              Not part of the interface, I will use this for the presentaction
-//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+                 if(numChecked == 0){
+                     QMessageBox::information(this,"Error:","You need to select the action that you want to replace.");
+                 }else if(numChecked!=2){
+                     QMessageBox::information(this,"Error:","You can select only one action at once from each list.");
+                 }else{
 
-                 for(int i = 0; i<count; i++){
-                     if(i==0){
-                         if(ui->planArea->item(0)->text() != toRemove){
-                            Plan2 = ui->planArea->item(i)->text();
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //              Not part of the interface, I will use this for the presentaction
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+                     for(int i = 0; i<count; i++){
+                         if(i==0){
+                             if(ui->planArea->item(0)->text() != toRemove){
+                                Plan2 = ui->planArea->item(i)->text();
+                             }else{
+                                Plan2 = toAdd[0];
+                             }
                          }else{
-                            Plan2 = toAdd[0];
+                             if(ui->planArea->item(i)->text() != toRemove){
+                                 Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
+                             }else{
+                                 Plan2 = Plan2 + "\n" + toAdd[0];
+                             }
                          }
-                     }else{
-                         if(ui->planArea->item(i)->text() != toRemove){
-                             Plan2 = Plan2 + "\n" + ui->planArea->item(i)->text();
-                         }else{
-                             Plan2 = Plan2 + "\n" + toAdd[0];
-                         }
-                     }
+                        }
+    //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+                         count = 0;
+                         compareButtonName = "Replace";
+                         compare = new Comparison(this);
+                         compare->show();
+                         this->hide();
                     }
-//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
-                     count = 0;
-                     compareButtonName = "Replace";
-                     compare = new Comparison(this);
-                     compare->show();
-                     this->hide();
               }
          }
 

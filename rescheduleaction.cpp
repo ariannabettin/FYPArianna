@@ -7,7 +7,7 @@ RescheduleAction::RescheduleAction(QWidget *parent) :
     ui->setupUi(this);
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
-
+    this->setFixedSize(800,600);
 
     ui->reschButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
@@ -142,7 +142,7 @@ void RescheduleAction::on_reschButton_clicked()
     if(numChecked == 0){
         checkMsgBox = true;
         QMessageBox::warning(this,"Error:","Please select an action from the list.");
-    }else if(numChecked > 0){
+    }else if(numChecked > 0 && numChecked< 4){
         if(!beforeafterAction.isEmpty()){
             if(beforeafterAction == action[0] || beforeafterAction == action[2] || beforeafterAction == action[3]){
                 QMessageBox::information(this,"Error: ","You can't choose the same action that you selected as 'action parameter'. Please, choose a different one from: " + beforeafterAction + ".");
@@ -156,6 +156,8 @@ void RescheduleAction::on_reschButton_clicked()
 
             }
         }
+    }else{
+        QMessageBox::warning(this,"Error:","You are allowed to reschedule maximum 3 actions at once.");
     }
     if(windowORAct == " " && checkMsgBox == false){
         QMessageBox::information(this,"Missing data:","Please choose one of the options between 'time window' or 'before-after' and instert data required");

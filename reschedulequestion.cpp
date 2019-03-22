@@ -10,7 +10,7 @@ RescheduleQuestion::RescheduleQuestion(QWidget *parent) :
 
     ui->windowButton->setStyleSheet("border-image:url(forward.jpeg);");
     ui->BAButton->setStyleSheet("border-image:url(forward.jpeg);");
-
+    this->setFixedSize(800,600);
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
@@ -25,8 +25,8 @@ RescheduleQuestion::RescheduleQuestion(QWidget *parent) :
 
     }else if(themeColor == "black"){
 
-        ui->frame->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
-        ui->frame_2->setStyleSheet("background-color: #6b7a8c; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->frame->setStyleSheet("background-color: #92afd; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
+        ui->frame_2->setStyleSheet("background-color: #92afd; color: #FFFFFF;""border: 1px solid #cdd1d6;""height: 25px;");
 
     }
 

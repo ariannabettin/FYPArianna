@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>798</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,9 +84,9 @@
   <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>160</y>
-     <width>371</width>
+     <x>130</x>
+     <y>220</y>
+     <width>521</width>
      <height>17</height>
     </rect>
    </property>
@@ -110,9 +110,9 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>50</y>
-     <width>321</width>
+     <x>50</x>
+     <y>100</y>
+     <width>351</width>
      <height>91</height>
     </rect>
    </property>
@@ -174,9 +174,9 @@
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>50</y>
-     <width>311</width>
+     <x>410</x>
+     <y>100</y>
+     <width>341</width>
      <height>91</height>
     </rect>
    </property>
@@ -235,10 +235,10 @@
   <widget class="QListWidget" name="planArea">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>190</y>
-     <width>381</width>
-     <height>291</height>
+     <x>130</x>
+     <y>250</y>
+     <width>521</width>
+     <height>331</height>
     </rect>
    </property>
   </widget>
@@ -256,6 +256,19 @@
    </property>
    <property name="text">
     <string>go back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>701</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select an action to remove from the plan, or remove the action directly from the domain file:</string>
    </property>
   </widget>
  </widget>

@@ -6,6 +6,7 @@ Modification::Modification(QWidget *parent) :
     ui(new Ui::Modification)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
     ui->title_label->setText(plans[id]);
     ui->planArea->setText(Plan);
     route = 0;

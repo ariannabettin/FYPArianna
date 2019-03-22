@@ -12,6 +12,7 @@ RemoveAction::RemoveAction(QWidget *parent) :
     ui(new Ui::RemoveAction)
 {
     ui->setupUi(this);
+    this->setFixedSize(800,600);
     ui->title_label->setText(plans[id]);
 
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>800</width>
+    <height>623</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,9 +58,9 @@
   <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>70</y>
-     <width>331</width>
+     <x>370</x>
+     <y>110</y>
+     <width>371</width>
      <height>20</height>
     </rect>
    </property>
@@ -84,10 +84,10 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>251</width>
-     <height>111</height>
+     <x>40</x>
+     <y>430</y>
+     <width>301</width>
+     <height>117</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -96,45 +96,31 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>221</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Action:</string>
-    </property>
-    <widget class="QPushButton" name="timeWindow">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>201</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>time window</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="BAButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>201</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>before-after</string>
-     </property>
-    </widget>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Method:</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="timeWindow">
+         <property name="text">
+          <string>time window</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="BAButton">
+         <property name="text">
+          <string>before-after</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QPushButton" name="modifyButton">
    <property name="geometry">
@@ -152,41 +138,41 @@
   <widget class="QListWidget" name="list">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>230</y>
-     <width>241</width>
-     <height>241</height>
+     <x>40</x>
+     <y>140</y>
+     <width>301</width>
+     <height>271</height>
     </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>181</width>
+     <x>30</x>
+     <y>110</y>
+     <width>321</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>List of existing actions:</string>
+    <string>List of actions to reschedule (3 max):</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="planArea">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>100</y>
-     <width>331</width>
-     <height>311</height>
+     <x>370</x>
+     <y>140</y>
+     <width>371</width>
+     <height>341</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="reschButton">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>430</y>
+     <x>690</x>
+     <y>530</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -208,6 +194,19 @@
     <string>go back</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>611</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select the action/s that you want to reshedule and the method you want to use.</string>
+   </property>
+  </widget>
   <zorder>modifyButton</zorder>
   <zorder>selectButton</zorder>
   <zorder>homeButton</zorder>
@@ -220,6 +219,7 @@
   <zorder>planArea</zorder>
   <zorder>reschButton</zorder>
   <zorder>backButton</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources/>
  <connections/>

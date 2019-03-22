@@ -6,7 +6,7 @@ reschduleWindow::reschduleWindow(QWidget *parent) :
     ui(new Ui::reschduleWindow)
 {
     ui->setupUi(this);
-
+    this->setFixedSize(800,600);
     ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
@@ -103,7 +103,7 @@ void reschduleWindow::on_doneButton_clicked()
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //              Not part of the interface, I will use this for the presentaction
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-                 Plan2 = Plan + "\n" + "Start Time: " + startTime + "\n" + "End Time: " + endTime + "\n" + "Option Chosen: '" + windowOpt + "'";
+                 Plan2 = Plan + "\n" + toAdd[0] + "\n" + "Start Time: " + startTime + "\n" + "End Time: " + endTime + "\n" + "Option Chosen: '" + windowOpt + "'";
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
                  compare = new Comparison(this);
                  compare->show();

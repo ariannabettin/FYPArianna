@@ -6,7 +6,7 @@ reschduleBeforeAfter::reschduleBeforeAfter(QWidget *parent) :
     ui(new Ui::reschduleBeforeAfter)
 {
     ui->setupUi(this);
-
+    this->setFixedSize(800,600);
     ui->doneButton->setStyleSheet("border-image:url(checkIcon.jpeg);");
 
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
