@@ -30,6 +30,7 @@ public:
     int isClicked2 = 0;
 
 private slots:
+
     void on_homeButton_clicked();
 
     void on_visualiseButton_clicked();
@@ -50,8 +51,8 @@ private slots:
 
 private:
     Ui::AddAction *ui;
-    domainFile *file;
-    Comparison * compare;
+    domainFile *file;    //[2]
+    Comparison * compare;    //[2]
 
 };
 

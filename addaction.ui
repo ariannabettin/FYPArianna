@@ -161,8 +161,11 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
-    <string/>
+    <string>Next</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -186,7 +189,7 @@
       <item>
        <widget class="QPushButton" name="newActionButton">
         <property name="text">
-         <string>New Action</string>
+         <string>Implement new action/s </string>
         </property>
        </widget>
       </item>
@@ -206,7 +209,7 @@
       <item>
        <widget class="QPushButton" name="existinButton">
         <property name="text">
-         <string>Existing</string>
+         <string>List existing action/s </string>
         </property>
        </widget>
       </item>

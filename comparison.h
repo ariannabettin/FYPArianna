@@ -25,6 +25,7 @@ public:
     bool cRemoved;
 
 private slots:
+
     void on_saveButton_clicked();
 
     void on_homeButton_clicked();
@@ -45,10 +46,7 @@ private slots:
 
 private:
     Ui::Comparison *ui;
-    validPlan *valid;
-
-
-
+    validPlan *valid;    //[2]
 
 };
 

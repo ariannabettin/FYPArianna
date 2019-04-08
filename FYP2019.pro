@@ -35,7 +35,6 @@ SOURCES += \
     removeaction.cpp \
     replaceaction.cpp \
     rescheduleaction.cpp \
-    changeaction.cpp \
     access.cpp \
     window.cpp \
     beforeafter.cpp \
@@ -59,7 +58,6 @@ HEADERS += \
     removeaction.h \
     replaceaction.h \
     rescheduleaction.h \
-    changeaction.h \
     access.h \
     window.h \
     beforeafter.h \

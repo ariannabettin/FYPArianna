@@ -51,10 +51,7 @@ void ChangeAction::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         Q_ASSERT(staticMetaObject.cast(_o));
         ChangeAction *_t = static_cast<ChangeAction *>(_o);
         switch (_id) {
-        case 0: _t->on_homeButton_clicked(); break;
-        case 1: _t->on_homeButton_2_clicked(); break;
-        case 2: _t->on_visualiseButton_clicked(); break;
-        case 3: _t->on_modifyButton_clicked(); break;
+
         default: ;
         }
     }

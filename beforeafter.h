@@ -24,6 +24,7 @@ public:
     int numChecked;
 
 private slots:
+
     void on_doneButton_clicked();
 
     void on_closeButton_clicked();

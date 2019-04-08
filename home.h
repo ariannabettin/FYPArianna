@@ -45,7 +45,7 @@ private slots:
 
 private:
     Ui::Home *ui;
-    Selection *select;
+    Selection *select;    //[2]
 
 };
 

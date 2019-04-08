@@ -1,24 +1,33 @@
 #include "comparison.h"
 
+/*Comparison allows the user to compare the original plan and the XPlan, highlighting equalities and differences.
+ It also allows the user to save the XPlan and validate it.*/
 
 Comparison::Comparison(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Comparison)
 {
     ui->setupUi(this);
-    this->setFixedSize(800,600);
     ui->title_label->setText("Original Plan: " + plans[id]);
     ui->title_label2->setText("New XPlan: " + plans[id]+" 2");
     ui->planArea->setText(Plan);                                               // displays the old and the new plan
     ui->planArea_2->setText(Plan2);
     ui->instruction->setText("Please, save the plan if you want to keep working on it after the modification.");
+    this->setFixedSize(800,600);
 
+    //set red colour for components of the tracking bar in the left corner of the window
+    /*Reference to the code:
+     * How to Change the Background Color of QWidget - Using Style Sheet. (2018).Qt Wiki.
+     Available at: https://wiki.qt.io/How_to_Change_the_Background_Color_of_QWidget.*/
     ui->homeButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->selectButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->visualiseButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
     ui->compareButton->setStyleSheet("background-color:#ad2b2b; color: #FFFFFF");
 
-
+    //the themeColor value determines the theme that will be applied to the current window.
+    /*Reference to the code:
+     * How to Change the Background Color of QWidget - Using Style Sheet. (2018).Qt Wiki.
+     Available at: https://wiki.qt.io/How_to_Change_the_Background_Color_of_QWidget.*/
     if(themeColor == "white"){
 
         ui->noChangesButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
@@ -46,7 +55,9 @@ Comparison::Comparison(QWidget *parent) :
 
     }
 
-
+    /*This part of the code checks the length of the original plan and the XPlan and resizes the
+    shortest one in order to prevent the program from crashing.
+    START ->*/
     QStringList originalPlan = Plan.split("\n");
     QStringList newPlan = Plan2.split("\n");
     if (newPlan.size() > originalPlan.size()){
@@ -62,7 +73,11 @@ Comparison::Comparison(QWidget *parent) :
         }
         QStringList newPlan = Plan2.split("\n");
     }
+    //<- END.
 
+    //Variables which check if text is highlighted or not.
+    /*When these are true, it means that the background is white, while when these are false
+     the background is coloured.*/
     cNoChanges = true;
     cNews = true;
     cReplaced = true;
@@ -74,7 +89,7 @@ Comparison::~Comparison()
     delete ui;
 }
 
-
+//Tracking bar component which links the current window with the Home window.
 void Comparison::on_homeButton_clicked()
 {
     numItems = 0;
@@ -93,6 +108,7 @@ void Comparison::on_homeButton_clicked()
     ui->planArea_2->clear();
 
     Plan2 = " ";
+     // [*]
     if(route == 1){
         QWidget *parent = this->parentWidget()->parentWidget()->parentWidget()->parentWidget();
         parent->show();
@@ -107,6 +123,7 @@ void Comparison::on_homeButton_clicked()
 
 }
 
+//Tracking bar component which links the current window with the Select window.
 void Comparison::on_selectButton_clicked()
 {
     numItems = 0;
@@ -124,6 +141,8 @@ void Comparison::on_selectButton_clicked()
     ui->planArea->clear();
     ui->planArea_2->clear();
     Plan2 = " ";
+
+     // [*]
     if(route == 1){
        QWidget *parent = this->parentWidget()->parentWidget()->parentWidget();
        parent->show();
@@ -139,7 +158,7 @@ void Comparison::on_selectButton_clicked()
     this->hide();
 }
 
-
+//Tracking bar component which links the current window with the Visualise window.
 void Comparison::on_visualiseButton_clicked()
 {
     QStringList originalPlan = Plan.split("\n");
@@ -156,6 +175,8 @@ void Comparison::on_visualiseButton_clicked()
     ui->planArea->clear();
     ui->planArea_2->clear();
     Plan2 = " ";
+
+     // [*]
     if(route == 1){
         QWidget *parent = this->parentWidget()->parentWidget();
         parent->show();
@@ -169,20 +190,23 @@ void Comparison::on_visualiseButton_clicked()
      this->hide();
 }
 
-
+//Button which opens the Validate Plan window
 void Comparison::on_valButton_clicked()
 {
     ui->planArea->clear();
     ui->planArea_2->clear();
     valid = new validPlan(this);
     valid->show();
-        this->hide();
+    this->hide();
 }
 
-void Comparison::on_saveButton_clicked()    //saves the new plan and deletes the previous one
+/*If the plan is valid, the user can choose to replace the original plan with the XPlan and keep
+working on the modified plan.*/
+void Comparison::on_saveButton_clicked()
 {
-
-
+    /*If the plan is valid, the user will be allowed to replace the original plan with
+     the XPlan and keep editing it.
+     Empty lines will be deleted when the plan is saved.*/
     if(isValid == true){
         QStringList newPlan = Plan2.split("\n");
         for(int i = 0; i< newPlan.size(); i++){
@@ -204,28 +228,43 @@ void Comparison::on_saveButton_clicked()    //saves the new plan and deletes the
     ui->planArea->setText(Plan);
     ui->planArea_2->clear();
 
-
 }
 
-
+//Button which finds equalities between the original plan and the XPlan.
 void Comparison::on_noChangesButton_clicked()
 {
     Plan = Plan + "\n";
     Plan2 = Plan2 + "\n";
     QStringList originalPlan = Plan.split("\n");
     QStringList newPlan = Plan2.split("\n");
+
+    /*Parts of this method related to the cursor are based on the following codes:
+     * titoaii (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     * Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.
+
+     *  Lykurg (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     * Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.*/
+
+    /*Parts related to the change of the background and to the cursor are based on the following code:
+     * mrjj (2018). Trying to select one line in QPlainTextEdit using QTextCursor. [online] Qt Forum.
+     Available at: https://forum.qt.io/topic/89365/trying-to-select-one-line-in-qplaintextedit-using-qtextcursor.*/
+
     QTextCursor cur = ui->planArea->textCursor();
     cur.setPosition(0,QTextCursor::MoveAnchor);
     QTextCursor cur2 = ui->planArea_2->textCursor();
     cur2.setPosition(0,QTextCursor::MoveAnchor);
+
     int changes = 0;
 
     if(cNoChanges){
         ui->noChangesButton->setText("Hide what has changed");
-        int next = 0;
+        /*"next" is a variable which allows the program to skip lines where something has been added or removed
+        and compare lines of code which are not on the same row.*/
+        int next = 0; 
         if (originalPlan.size() == newPlan.size()){
             ui->noChangesButton->setStyleSheet("background-color: #88a7d8; color: #000000;");
             for(int i = 0; i<newPlan.size(); i++){
+                //if the two lines are equal and none of them is empty, the button color and background color change...
                 if(newPlan[i] == originalPlan[i-next]){
                      QTextBlockFormat f;
                      f.setBackground(QColor(136, 167, 216));
@@ -240,6 +279,10 @@ void Comparison::on_noChangesButton_clicked()
                          changes++;
                      }
                 }else{
+                    /*...else there is the need to check if previous lines or next lines are equal and if we need to move the
+                    cursor. If the cursor is moved, "next" will be incremented.
+                    If the line that we are analysing is the firts one or the last one the program checks  only the successor or
+                    predecessor.*/
                     if(i != 0){
                         if(newPlan[i] == originalPlan[i-1]){
                             QTextBlockFormat f;
@@ -299,6 +342,7 @@ void Comparison::on_noChangesButton_clicked()
                         }
                     }
                 }
+                // Once everything is complete, the cursor is moved down by 1.
                 cur.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
                 cur2.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
             }
@@ -307,6 +351,8 @@ void Comparison::on_noChangesButton_clicked()
                 QMessageBox::information(this, "Error:","Probably something went wrong. Please try again!");
             }
     }else if(!cNoChanges){
+            /*If text is highlighted and the button is clicked again, the background returns white and the button gets
+             its original colour.*/
             ui->noChangesButton->setText("What has not changed?");
             ui->removedButton->setText("What has been removed?");
             ui->newsButton->setText("What is new?");
@@ -335,6 +381,8 @@ void Comparison::on_noChangesButton_clicked()
             }
             cNoChanges = true;
         }
+    /*Variable "change" checks if any part of the plan has been coloured. If it remains 0, the
+    button values change and informs the user.*/
     if(changes == 0){
         ui->noChangesButton->setText("No unchanged parts.");
     }
@@ -342,9 +390,20 @@ void Comparison::on_noChangesButton_clicked()
 
 }
 
-
+//Button which finds actions that have been added in the XPlan.
 void Comparison::on_newsButton_clicked()
 {
+    /*Parts related to the cursor are based on the following codes:
+     * titoaii (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.
+
+     *  Lykurg (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.*/
+
+    /*Parts related to the change of the background and to the cursor are based on the following code:
+     * mrjj (2018). Trying to select one line in QPlainTextEdit using QTextCursor. [online] Qt Forum.
+     Available at: https://forum.qt.io/topic/89365/trying-to-select-one-line-in-qplaintextedit-using-qtextcursor.*/
+
     QTextCursor cur = ui->planArea->textCursor();
     cur.setPosition(0,QTextCursor::MoveAnchor);
     QTextCursor cur2 = ui->planArea_2->textCursor();
@@ -362,7 +421,8 @@ void Comparison::on_newsButton_clicked()
             ui->newsButton->setText("Hide what is new");
             int next = 0;
             for(int i = 0; i<newPlan.size()-1; i++){
-
+                /*if the lines compare are different and we know that the difference is not representing something
+                that has been removed or replace...*/
                 if(newPlan[i] != originalPlan[i-next]) {
                             bool isNotReplacement = false;
                             if(newPlan[i] != originalPlan[i+1]){
@@ -373,6 +433,7 @@ void Comparison::on_newsButton_clicked()
                                     }
                                 }
                                 if(isNotReplacement){
+                                    //...the background colour and the button colour change.
                                     cur2.select(QTextCursor::LineUnderCursor);
                                     cur2.setBlockFormat(f);
                                     ui->newsButton->setStyleSheet("background-color: #d1c548; color: #000000");
@@ -385,12 +446,14 @@ void Comparison::on_newsButton_clicked()
 
                             }
                     }
-
+                // Once everything is complete, the cursor is moved down by 1.
                 cur.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
                 cur2.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
             }
             cNews = false;
     }else if(!cNews){
+            /*If text is highlighted and the button is clicked again, the background returns white and the button gets
+            its original colour.*/
             ui->newsButton->setText("What is new?");
             ui->removedButton->setText("What has been removed?");
             ui->noChangesButton->setText("What has not changed?");
@@ -419,6 +482,8 @@ void Comparison::on_newsButton_clicked()
             }
             cNews = true;
     }
+    /*Variable "change" checks if any part of the plan has been coloured. If it remains 0, the
+    button values change and informs the user.*/
     if(changes == 0){
         ui->newsButton->setText("No additions have been made.");
     }
@@ -426,9 +491,20 @@ void Comparison::on_newsButton_clicked()
 
  }
 
-
+//Button which finds what has been replaced in the two plans.
 void Comparison::on_replacedButton_clicked()
 {
+    /*Parts related to the cursor are based on the following codes:
+     * titoaii (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.
+
+     *  Lykurg (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.*/
+
+    /*Parts related to the change of the background and to the cursor are based on the following code:
+     * mrjj (2018). Trying to select one line in QPlainTextEdit using QTextCursor. [online] Qt Forum.
+     Available at: https://forum.qt.io/topic/89365/trying-to-select-one-line-in-qplaintextedit-using-qtextcursor.*/
+
     QTextCursor cur = ui->planArea->textCursor();
     cur.setPosition(0,QTextCursor::MoveAnchor);
     QTextCursor cur2 = ui->planArea_2->textCursor();
@@ -443,6 +519,9 @@ void Comparison::on_replacedButton_clicked()
     if(cReplaced){
         ui->replacedButton->setText("Hide what has been replaced");
         for(int i = 0; i<newPlan.size(); i++){
+            /*If there is a difference between the compared lines, the successors and predecessors are checked.
+            If those are equal the difference represents a replacement.
+            If the lines analysed are the first ones or the last ones, only the successor or predecessor are analysed.*/
             if(newPlan[i] != originalPlan[i]){
                 if(i==0){
                     if(originalPlan[i+1] == newPlan[i+1] && (!originalPlan[i].isEmpty() || !newPlan[i].isEmpty())){
@@ -475,13 +554,15 @@ void Comparison::on_replacedButton_clicked()
                     }
                 }
             }
-
+            // Once everything is complete, the cursor is moved down by 1.
             cur.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
             cur2.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
         }
 
         cReplaced = false;
     }else if(!cReplaced){
+        /*If text is highlighted and the button is clicked again, the background returns white and the button gets
+         its original colour.*/
         ui->replacedButton->setText("What has been replaced?");
         ui->newsButton->setText("What is new?");
         ui->removedButton->setText("What has been removed?");
@@ -510,6 +591,8 @@ void Comparison::on_replacedButton_clicked()
         }
         cReplaced = true;
     }
+    /*Variable "change" checks if any part of the plan has been coloured. If it remains 0, the
+    button values change and informs the user.*/
     if(changes == 0){
         ui->replacedButton->setText("No replaced parts.");
     }
@@ -517,9 +600,20 @@ void Comparison::on_replacedButton_clicked()
 
 }
 
-
+//Button which finds what has been removed from the orginal plan.
 void Comparison::on_removedButton_clicked()
 {
+    /*Parts related to the cursor are based on the following codes:
+     * titoaii (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.
+
+     *  Lykurg (2010). Setting textCursor position with line and column. [online] Qtcentre.org.
+     Available at: https://www.qtcentre.org/threads/29863-Setting-textCursor-position-with-line-and-column.*/
+
+    /*Parts related to the change of the background and to the cursor are based on the following code:
+     * mrjj (2018). Trying to select one line in QPlainTextEdit using QTextCursor. [online] Qt Forum.
+     Available at: https://forum.qt.io/topic/89365/trying-to-select-one-line-in-qplaintextedit-using-qtextcursor.*/
+
     QTextCursor cur = ui->planArea->textCursor();
     cur.setPosition(0,QTextCursor::MoveAnchor);
     QTextCursor cur2 = ui->planArea_2->textCursor();
@@ -538,6 +632,9 @@ void Comparison::on_removedButton_clicked()
     if(cRemoved){
             ui->removedButton->setText("Hide what has been removed");
             for(int i = 0; i<newPlan.size()-1; i++){
+                /*If there is a difference between the compared lines, check if the successor of the
+                 original plan is equal to the current line of the XPlan. If it does, it means that something has
+                been removed.*/
                 if(newPlan[i-next] != originalPlan[i]) {
                     if(originalPlan[i+1] == newPlan[i-next]){
                             cur.select(QTextCursor::LineUnderCursor);
@@ -547,12 +644,15 @@ void Comparison::on_removedButton_clicked()
                             next++;
                     }
                 }
+                // Once everything is complete, the cursor is moved down by 1.
                 cur.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
                 cur2.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor);
             }
             cRemoved = false;
 
     }else if(!cRemoved){
+            /*If text is highlighted and the button is clicked again, the background returns white and the button gets
+            its original colour.*/
             ui->removedButton->setText("What has been removed?");
             ui->newsButton->setText("What is new?");
             ui->noChangesButton->setText("What has not changed?");
@@ -581,9 +681,12 @@ void Comparison::on_removedButton_clicked()
             }
             cRemoved = true;
     }
-
+    /*Variable "change" checks if any part of the plan has been coloured. If it remains 0, the
+    button values change and informs the user.*/
     if(changes == 0){
         ui->removedButton->setText("No removed parts.");
     }
     changes = 0;
 }
+
+

@@ -20,6 +20,7 @@ public:
     ~Access();
 
 private slots:
+
     void on_domainButton_clicked();
 
     void on_problemButton_clicked();
@@ -30,13 +31,12 @@ private slots:
 
     void on_visualiseButton_clicked();
 
-
     void on_backButton_clicked();
 
 private:
     Ui::Access *ui;
-    fileClass *file;
-    fileclassPF * PFfile;
+    fileClass *file;        //[2]
+    fileclassPF * PFfile;   //[2]
 };
 
 #endif // ACCESS_H

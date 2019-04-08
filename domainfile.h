@@ -20,6 +20,7 @@ public:
     ~domainFile();
 
 private slots:
+
     void on_openFileButton_clicked();
 
     void on_saveButton_clicked();

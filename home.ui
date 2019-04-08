@@ -62,10 +62,10 @@
      <bool>true</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;URW Bookman L&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string/>
+     <string>Next</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
