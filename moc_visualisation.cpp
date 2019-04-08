@@ -22,7 +22,7 @@ static const uint qt_meta_data_Visualisation[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,10 +34,9 @@ static const uint qt_meta_data_Visualisation[] = {
       39,   14,   14,   14, 0x08,
       65,   14,   14,   14, 0x08,
       91,   14,   14,   14, 0x08,
-     114,   14,   14,   14, 0x08,
-     142,   14,   14,   14, 0x08,
-     166,   14,   14,   14, 0x08,
-     192,   14,   14,   14, 0x08,
+     119,   14,   14,   14, 0x08,
+     143,   14,   14,   14, 0x08,
+     169,   14,   14,   14, 0x08,
 
        0        // eod
 };
@@ -46,7 +45,6 @@ static const char qt_meta_stringdata_Visualisation[] = {
     "Visualisation\0\0on_homeButton_clicked()\0"
     "on_selectButton_clicked()\0"
     "on_modifyButton_clicked()\0"
-    "on_valButton_clicked()\0"
     "on_questionButton_clicked()\0"
     "on_accessFile_clicked()\0"
     "on_reloadButton_clicked()\0"
@@ -62,11 +60,10 @@ void Visualisation::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 0: _t->on_homeButton_clicked(); break;
         case 1: _t->on_selectButton_clicked(); break;
         case 2: _t->on_modifyButton_clicked(); break;
-        case 3: _t->on_valButton_clicked(); break;
-        case 4: _t->on_questionButton_clicked(); break;
-        case 5: _t->on_accessFile_clicked(); break;
-        case 6: _t->on_reloadButton_clicked(); break;
-        case 7: _t->on_backButton_clicked(); break;
+        case 3: _t->on_questionButton_clicked(); break;
+        case 4: _t->on_accessFile_clicked(); break;
+        case 5: _t->on_reloadButton_clicked(); break;
+        case 6: _t->on_backButton_clicked(); break;
         default: ;
         }
     }
@@ -105,9 +102,9 @@ int Visualisation::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }
