@@ -52,7 +52,7 @@ public:
     {
         if (Comparison->objectName().isEmpty())
             Comparison->setObjectName(QString::fromUtf8("Comparison"));
-        Comparison->resize(640, 480);
+        Comparison->resize(799, 617);
         Comparison->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(Comparison);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
@@ -68,28 +68,28 @@ public:
         compareButton->setGeometry(QRect(210, 0, 89, 41));
         planArea = new QTextEdit(Comparison);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(20, 200, 291, 281));
+        planArea->setGeometry(QRect(50, 260, 331, 301));
         planArea_2 = new QTextEdit(Comparison);
         planArea_2->setObjectName(QString::fromUtf8("planArea_2"));
-        planArea_2->setGeometry(QRect(330, 200, 281, 281));
+        planArea_2->setGeometry(QRect(430, 260, 321, 301));
         title_label = new QLabel(Comparison);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(20, 170, 281, 17));
+        title_label->setGeometry(QRect(50, 230, 331, 17));
         title_label2 = new QLabel(Comparison);
         title_label2->setObjectName(QString::fromUtf8("title_label2"));
-        title_label2->setGeometry(QRect(330, 170, 281, 17));
+        title_label2->setGeometry(QRect(430, 230, 321, 17));
         valButton = new QPushButton(Comparison);
         valButton->setObjectName(QString::fromUtf8("valButton"));
-        valButton->setGeometry(QRect(550, 10, 61, 31));
+        valButton->setGeometry(QRect(720, 90, 61, 31));
         saveButton = new QPushButton(Comparison);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
-        saveButton->setGeometry(QRect(550, 60, 61, 31));
+        saveButton->setGeometry(QRect(720, 40, 61, 31));
         instruction = new QLabel(Comparison);
         instruction->setObjectName(QString::fromUtf8("instruction"));
-        instruction->setGeometry(QRect(10, 50, 531, 17));
+        instruction->setGeometry(QRect(50, 60, 441, 17));
         layoutWidget = new QWidget(Comparison);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 100, 531, 62));
+        layoutWidget->setGeometry(QRect(100, 140, 601, 62));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -125,7 +125,7 @@ public:
 
         label = new QLabel(Comparison);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 70, 521, 17));
+        label->setGeometry(QRect(50, 90, 641, 17));
 
         retranslateUi(Comparison);
         QObject::connect(saveButton, SIGNAL(clicked()), planArea_2, SLOT(clear()));
@@ -144,12 +144,12 @@ public:
         title_label2->setText(QApplication::translate("Comparison", "TextLabel", 0, QApplication::UnicodeUTF8));
         valButton->setText(QApplication::translate("Comparison", "VAL", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("Comparison", "Save", 0, QApplication::UnicodeUTF8));
-        instruction->setText(QApplication::translate("Comparison", "Please, save the plan if you want to keep working on it after the modification.", 0, QApplication::UnicodeUTF8));
+        instruction->setText(QApplication::translate("Comparison", "Please, save the XPlan if you want to keep working on it.", 0, QApplication::UnicodeUTF8));
         noChangesButton->setText(QApplication::translate("Comparison", "What has not changed?", 0, QApplication::UnicodeUTF8));
         newsButton->setText(QApplication::translate("Comparison", "What is new?", 0, QApplication::UnicodeUTF8));
         replacedButton->setText(QApplication::translate("Comparison", "What has been replaced?", 0, QApplication::UnicodeUTF8));
         removedButton->setText(QApplication::translate("Comparison", "What's has been removed?", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("Comparison", "If this is your final version, validate the new XPlan with VAL button.", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("Comparison", "If this is your final version, validate the new XPlan using VAL button.", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

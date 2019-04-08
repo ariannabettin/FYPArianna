@@ -1,5 +1,7 @@
 #include "window.h"
 
+/*Window which gathers all the information needed for the rescheduling. This window asks for
+a time window and a method which determines how the action will be executed.*/
 
 Window::Window(QWidget *parent) :
     QDialog(parent),
@@ -8,6 +10,10 @@ Window::Window(QWidget *parent) :
     ui->setupUi(this);
     ui->statementLabel->setText(" ");
 
+    //the themeColor value determines the theme that will be applied to the current window.
+    /*Reference to the code:
+     * How to Change the Background Color of QWidget - Using Style Sheet. (2018).Qt Wiki.
+     Available at: https://wiki.qt.io/How_to_Change_the_Background_Color_of_QWidget.*/
     if(themeColor == "white"){
 
         ui->closeButton->setStyleSheet("background-color: #25245e; color: #FFFFFF;");
@@ -33,12 +39,15 @@ Window::~Window()
     delete ui;
 }
 
-
+//Button which displays choices made by the user and checks that everything has been provided correctly.
+// It also saves data into the right variables.
 void Window::on_doneButton_clicked()
 {
+     //variable which gets value graeter than 0 when the button is clicked. Prevent the program from crashing.
     isClicked++;
-    int mBox= 0;
-    int mBox2 = 0;
+
+    //Code which stores values inserted for the time-window.
+    /*In order to be valid, the user needs to insert numbers and fill every available cell.*/
     QString val1 = ui->lW1->text();
     QString val2 = ui->lW2->text();
 
@@ -52,6 +61,7 @@ void Window::on_doneButton_clicked()
         startTime= val1 + " : " + val2;
         endTime= val1_2 + " : " + val2_2;
 
+        //If the user has chosen one of the available options, it means that every data has been provided.
         if(ui->optionA->isChecked()){
             windowOpt =  ui->optionA->text();
         }else if(ui->optionB->isChecked()){
@@ -62,14 +72,15 @@ void Window::on_doneButton_clicked()
             QMessageBox::warning(this,"Window options:", "Please, select one of the options available");
         }
 
-    ui->statementLabel->setText("Window time chosen: " + startTime + " - " + endTime);
+        //label which informs the user about the choice made
+        ui->statementLabel->setText("Window time chosen: " + startTime + " - " + endTime);
 
     }
 }
-
-
+//Button which saves the method of rescheduling chosen by the user and confirms data provided.
 void Window::on_closeButton_clicked()
 {
+    //Checks if the "Done" button has been clicked
     if(isClicked > 0){
         windowORAct = "window";
        this->hide();

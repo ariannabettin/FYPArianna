@@ -19,6 +19,8 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -35,6 +37,8 @@ public:
     QPushButton *close;
     QPushButton *saveButton;
     QPushButton *replaceButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
@@ -43,11 +47,11 @@ public:
     {
         if (fileClass->objectName().isEmpty())
             fileClass->setObjectName(QString::fromUtf8("fileClass"));
-        fileClass->resize(640, 480);
+        fileClass->resize(795, 593);
         fileClass->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QPlainTextEdit(fileClass);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(190, 140, 371, 341));
+        planArea->setGeometry(QRect(260, 160, 491, 351));
         groupBox = new QGroupBox(fileClass);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(20, 30, 341, 61));
@@ -56,34 +60,46 @@ public:
         openFileButton->setGeometry(QRect(10, 30, 141, 25));
         label = new QLabel(fileClass);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(190, 120, 81, 17));
+        label->setGeometry(QRect(260, 130, 81, 17));
         title_label = new QLabel(fileClass);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(270, 120, 251, 17));
+        title_label->setGeometry(QRect(350, 130, 391, 17));
         groupBox_2 = new QGroupBox(fileClass);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(20, 120, 141, 181));
+        groupBox_2->setGeometry(QRect(30, 140, 201, 181));
         newFile = new QPushButton(groupBox_2);
         newFile->setObjectName(QString::fromUtf8("newFile"));
-        newFile->setGeometry(QRect(10, 90, 111, 25));
+        newFile->setGeometry(QRect(30, 90, 141, 25));
         close = new QPushButton(groupBox_2);
         close->setObjectName(QString::fromUtf8("close"));
-        close->setGeometry(QRect(20, 140, 89, 25));
+        close->setGeometry(QRect(30, 140, 141, 25));
         saveButton = new QPushButton(groupBox_2);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
-        saveButton->setGeometry(QRect(20, 40, 89, 25));
+        saveButton->setGeometry(QRect(30, 40, 141, 25));
         replaceButton = new QPushButton(fileClass);
         replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
-        replaceButton->setGeometry(QRect(30, 410, 111, 25));
-        label_2 = new QLabel(fileClass);
+        replaceButton->setGeometry(QRect(60, 450, 141, 25));
+        widget = new QWidget(fileClass);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(40, 380, 181, 62));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 340, 161, 17));
-        label_3 = new QLabel(fileClass);
+
+        verticalLayout->addWidget(label_2);
+
+        label_3 = new QLabel(widget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(30, 360, 121, 20));
-        label_4 = new QLabel(fileClass);
+
+        verticalLayout->addWidget(label_3);
+
+        label_4 = new QLabel(widget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(30, 380, 111, 20));
+
+        verticalLayout->addWidget(label_4);
+
 
         retranslateUi(fileClass);
 

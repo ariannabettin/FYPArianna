@@ -70,7 +70,7 @@ public:
     {
         if (Home->objectName().isEmpty())
             Home->setObjectName(QString::fromUtf8("Home"));
-        Home->resize(660, 564);
+        Home->resize(798, 564);
         Home->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         centralWidget = new QWidget(Home);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
@@ -80,13 +80,13 @@ public:
         homeButton->setStyleSheet(QString::fromUtf8("font: 75 13pt \"TakaoPGothic\";"));
         savedPlanlabel = new QLabel(centralWidget);
         savedPlanlabel->setObjectName(QString::fromUtf8("savedPlanlabel"));
-        savedPlanlabel->setGeometry(QRect(40, 500, 531, 21));
+        savedPlanlabel->setGeometry(QRect(40, 520, 531, 21));
         savedPlanlabel->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         doneButton = new QPushButton(centralWidget);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(580, 490, 51, 41));
+        doneButton->setGeometry(QRect(700, 500, 51, 41));
         doneButton->setAutoFillBackground(true);
-        doneButton->setStyleSheet(QString::fromUtf8("font: 75 11pt \"URW Bookman L\";"));
+        doneButton->setStyleSheet(QString::fromUtf8(""));
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(40, 110, 551, 17));
@@ -94,17 +94,17 @@ public:
 ""));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(40, 360, 211, 17));
+        label_6->setGeometry(QRect(40, 370, 211, 17));
         label_6->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame = new QFrame(centralWidget);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(40, 130, 591, 221));
+        frame->setGeometry(QRect(40, 130, 711, 221));
         frame->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         layoutWidget = new QWidget(frame);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 20, 571, 181));
+        layoutWidget->setGeometry(QRect(10, 20, 691, 181));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -200,7 +200,7 @@ public:
 
         frame_2 = new QFrame(centralWidget);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(40, 380, 261, 101));
+        frame_2->setGeometry(QRect(40, 390, 261, 101));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         layoutWidget1 = new QWidget(frame_2);
@@ -225,7 +225,7 @@ public:
 
         layoutWidget2 = new QWidget(centralWidget);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(480, 20, 151, 61));
+        layoutWidget2->setGeometry(QRect(620, 20, 151, 61));
         verticalLayout_9 = new QVBoxLayout(layoutWidget2);
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
@@ -261,7 +261,7 @@ public:
         Home->setWindowTitle(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
         homeButton->setText(QApplication::translate("Home", "Home", 0, QApplication::UnicodeUTF8));
         savedPlanlabel->setText(QApplication::translate("Home", "TextLabel", 0, QApplication::UnicodeUTF8));
-        doneButton->setText(QString());
+        doneButton->setText(QApplication::translate("Home", "Next", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("Home", "Upload the domain file, the problem file and (*optional) your plan:", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("Home", " Give a name to your plan:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("Home", "Domain:", 0, QApplication::UnicodeUTF8));

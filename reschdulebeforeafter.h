@@ -39,7 +39,7 @@ private slots:
 
 private:
     Ui::reschduleBeforeAfter *ui;
-    Comparison * compare;
+    Comparison * compare;    //[2]
 };
 
 #endif // RESCHDULEBEFOREAFTER_H

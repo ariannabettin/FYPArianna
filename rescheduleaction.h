@@ -45,10 +45,8 @@ private slots:
 
 private:
     Ui::RescheduleAction *ui;
-    Window *window;
-    Window *window2;
-    BeforeAfter *befaft;
-    BeforeAfter *befaft2;
+    Window *window;    //[2]
+    BeforeAfter *befaft;    //[2]
     Comparison *compare;
 
 };

@@ -178,7 +178,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Next</string>
    </property>
   </widget>
   <widget class="QPushButton" name="backButton">

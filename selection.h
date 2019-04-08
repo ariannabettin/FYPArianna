@@ -28,6 +28,7 @@ public:
 
 
 private slots:
+
     void on_showAllButton_clicked();
 
     void on_showLastButton_clicked();
@@ -46,7 +47,7 @@ private slots:
 
 private:
     Ui::Selection *ui;
-    Visualisation *visualise;
+    Visualisation *visualise;    //[2]
 };
 
 #endif // SELECTION_H

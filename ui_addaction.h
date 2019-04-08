@@ -49,6 +49,8 @@ public:
     QPushButton *newActionButton;
     QSpacerItem *horizontalSpacer;
     QPushButton *existinButton;
+    QPushButton *backButton;
+    QLabel *label_2;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout;
@@ -66,13 +68,12 @@ public:
     QVBoxLayout *verticalLayout_5;
     QLineEdit *label5;
     QComboBox *comboBox_5;
-    QPushButton *backButton;
 
     void setupUi(QDialog *AddAction)
     {
         if (AddAction->objectName().isEmpty())
             AddAction->setObjectName(QString::fromUtf8("AddAction"));
-        AddAction->resize(632, 520);
+        AddAction->resize(799, 608);
         AddAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(AddAction);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
@@ -93,27 +94,28 @@ public:
         addButton->setGeometry(QRect(280, 0, 71, 41));
         planArea = new QTextEdit(AddAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(40, 160, 381, 251));
+        planArea->setGeometry(QRect(40, 180, 381, 231));
         title_label = new QLabel(AddAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(40, 130, 371, 17));
+        title_label->setGeometry(QRect(40, 150, 381, 20));
         title_label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         list = new QListWidget(AddAction);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(440, 160, 161, 201));
+        list->setGeometry(QRect(500, 180, 261, 181));
         label = new QLabel(AddAction);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(440, 130, 161, 20));
+        label->setGeometry(QRect(500, 150, 261, 20));
         label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         doneButton = new QPushButton(AddAction);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(540, 370, 61, 31));
+        doneButton->setGeometry(QRect(700, 380, 61, 31));
         addButton_2 = new QPushButton(AddAction);
         addButton_2->setObjectName(QString::fromUtf8("addButton_2"));
-        addButton_2->setGeometry(QRect(570, 440, 51, 41));
+        addButton_2->setGeometry(QRect(710, 540, 51, 41));
+        addButton_2->setStyleSheet(QString::fromUtf8(""));
         frame = new QFrame(AddAction);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(40, 60, 551, 61));
+        frame->setGeometry(QRect(40, 80, 711, 61));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         horizontalLayout_2 = new QHBoxLayout(frame);
@@ -137,9 +139,15 @@ public:
 
         horizontalLayout_2->addLayout(horizontalLayout);
 
+        backButton = new QPushButton(AddAction);
+        backButton->setObjectName(QString::fromUtf8("backButton"));
+        backButton->setGeometry(QRect(690, 10, 89, 25));
+        label_2 = new QLabel(AddAction);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(40, 50, 561, 17));
         layoutWidget = new QWidget(AddAction);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 430, 541, 71));
+        layoutWidget->setGeometry(QRect(40, 450, 721, 61));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -147,11 +155,13 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         label1 = new QLineEdit(layoutWidget);
         label1->setObjectName(QString::fromUtf8("label1"));
+        label1->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout->addWidget(label1);
 
         comboBox_1 = new QComboBox(layoutWidget);
         comboBox_1->setObjectName(QString::fromUtf8("comboBox_1"));
+        comboBox_1->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout->addWidget(comboBox_1);
 
@@ -162,11 +172,13 @@ public:
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         label2 = new QLineEdit(layoutWidget);
         label2->setObjectName(QString::fromUtf8("label2"));
+        label2->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_2->addWidget(label2);
 
         comboBox_2 = new QComboBox(layoutWidget);
         comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
+        comboBox_2->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_2->addWidget(comboBox_2);
 
@@ -177,11 +189,13 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         label3 = new QLineEdit(layoutWidget);
         label3->setObjectName(QString::fromUtf8("label3"));
+        label3->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_3->addWidget(label3);
 
         comboBox_3 = new QComboBox(layoutWidget);
         comboBox_3->setObjectName(QString::fromUtf8("comboBox_3"));
+        comboBox_3->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_3->addWidget(comboBox_3);
 
@@ -192,11 +206,13 @@ public:
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         label4 = new QLineEdit(layoutWidget);
         label4->setObjectName(QString::fromUtf8("label4"));
+        label4->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_4->addWidget(label4);
 
         comboBox_4 = new QComboBox(layoutWidget);
         comboBox_4->setObjectName(QString::fromUtf8("comboBox_4"));
+        comboBox_4->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_4->addWidget(comboBox_4);
 
@@ -207,20 +223,19 @@ public:
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         label5 = new QLineEdit(layoutWidget);
         label5->setObjectName(QString::fromUtf8("label5"));
+        label5->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_5->addWidget(label5);
 
         comboBox_5 = new QComboBox(layoutWidget);
         comboBox_5->setObjectName(QString::fromUtf8("comboBox_5"));
+        comboBox_5->setStyleSheet(QString::fromUtf8("font: 75 8pt \"TakaoPGothic\";"));
 
         verticalLayout_5->addWidget(comboBox_5);
 
 
         horizontalLayout_3->addLayout(verticalLayout_5);
 
-        backButton = new QPushButton(AddAction);
-        backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
 
         retranslateUi(AddAction);
 
@@ -238,10 +253,11 @@ public:
         title_label->setText(QApplication::translate("AddAction", "title", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("AddAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
         doneButton->setText(QApplication::translate("AddAction", "Done", 0, QApplication::UnicodeUTF8));
-        addButton_2->setText(QString());
-        newActionButton->setText(QApplication::translate("AddAction", "New Action", 0, QApplication::UnicodeUTF8));
-        existinButton->setText(QApplication::translate("AddAction", "Existing", 0, QApplication::UnicodeUTF8));
+        addButton_2->setText(QApplication::translate("AddAction", "Next", 0, QApplication::UnicodeUTF8));
+        newActionButton->setText(QApplication::translate("AddAction", "Implement new action/s ", 0, QApplication::UnicodeUTF8));
+        existinButton->setText(QApplication::translate("AddAction", "List existing action/s ", 0, QApplication::UnicodeUTF8));
         backButton->setText(QApplication::translate("AddAction", "go back", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("AddAction", "Select an action to add from the list or add a new action in the domain file:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

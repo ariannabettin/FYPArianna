@@ -19,6 +19,7 @@ public:
     ~reschduleWindow();
 
 private slots:
+
     void on_doneButton_clicked();
     
     void on_homeButton_clicked();
@@ -35,7 +36,7 @@ private slots:
 
 private:
     Ui::reschduleWindow *ui;
-    Comparison *compare;
+    Comparison *compare;    //[2]
 };
 
 #endif // RESCHDULEWINDOW_H

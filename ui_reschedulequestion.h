@@ -44,7 +44,7 @@ public:
     {
         if (RescheduleQuestion->objectName().isEmpty())
             RescheduleQuestion->setObjectName(QString::fromUtf8("RescheduleQuestion"));
-        RescheduleQuestion->resize(650, 480);
+        RescheduleQuestion->resize(796, 480);
         RescheduleQuestion->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         selectButton = new QPushButton(RescheduleQuestion);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
@@ -63,7 +63,7 @@ public:
         homeButton->setGeometry(QRect(0, 0, 71, 41));
         frame = new QFrame(RescheduleQuestion);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(30, 100, 541, 37));
+        frame->setGeometry(QRect(70, 100, 541, 37));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(frame);
@@ -75,7 +75,7 @@ public:
 
         frame_2 = new QFrame(RescheduleQuestion);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(30, 170, 541, 37));
+        frame_2->setGeometry(QRect(70, 190, 541, 37));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout_2 = new QVBoxLayout(frame_2);
@@ -87,10 +87,10 @@ public:
 
         windowButton = new QPushButton(RescheduleQuestion);
         windowButton->setObjectName(QString::fromUtf8("windowButton"));
-        windowButton->setGeometry(QRect(580, 100, 41, 31));
+        windowButton->setGeometry(QRect(680, 100, 41, 31));
         BAButton = new QPushButton(RescheduleQuestion);
         BAButton->setObjectName(QString::fromUtf8("BAButton"));
-        BAButton->setGeometry(QRect(580, 170, 41, 31));
+        BAButton->setGeometry(QRect(680, 190, 41, 31));
         backButton = new QPushButton(RescheduleQuestion);
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(520, 10, 89, 25));

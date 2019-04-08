@@ -19,71 +19,87 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_fileclassPF
 {
 public:
-    QLabel *label_2;
-    QLabel *label_3;
     QGroupBox *groupBox_2;
     QPushButton *newFile;
     QPushButton *close;
     QPushButton *saveButton;
-    QLabel *label_4;
     QPlainTextEdit *planArea;
     QLabel *label;
     QLabel *title_label;
     QPushButton *replaceButton;
     QGroupBox *groupBox;
     QPushButton *openFileButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
 
     void setupUi(QDialog *fileclassPF)
     {
         if (fileclassPF->objectName().isEmpty())
             fileclassPF->setObjectName(QString::fromUtf8("fileclassPF"));
-        fileclassPF->resize(640, 480);
+        fileclassPF->resize(795, 587);
         fileclassPF->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
-        label_2 = new QLabel(fileclassPF);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 340, 161, 17));
-        label_3 = new QLabel(fileclassPF);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(30, 360, 121, 20));
         groupBox_2 = new QGroupBox(fileclassPF);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(20, 120, 131, 181));
+        groupBox_2->setGeometry(QRect(30, 120, 201, 181));
         newFile = new QPushButton(groupBox_2);
         newFile->setObjectName(QString::fromUtf8("newFile"));
-        newFile->setGeometry(QRect(10, 90, 111, 25));
+        newFile->setGeometry(QRect(30, 90, 141, 25));
         close = new QPushButton(groupBox_2);
         close->setObjectName(QString::fromUtf8("close"));
-        close->setGeometry(QRect(20, 140, 89, 25));
+        close->setGeometry(QRect(30, 140, 141, 25));
         saveButton = new QPushButton(groupBox_2);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
-        saveButton->setGeometry(QRect(20, 40, 89, 25));
-        label_4 = new QLabel(fileclassPF);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(30, 380, 111, 20));
+        saveButton->setGeometry(QRect(30, 40, 141, 25));
         planArea = new QPlainTextEdit(fileclassPF);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(190, 140, 371, 341));
+        planArea->setGeometry(QRect(380, 140, 371, 401));
         label = new QLabel(fileclassPF);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(190, 120, 111, 17));
+        label->setGeometry(QRect(430, 40, 111, 17));
         title_label = new QLabel(fileclassPF);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(300, 120, 251, 17));
+        title_label->setGeometry(QRect(560, 70, 251, 17));
         replaceButton = new QPushButton(fileclassPF);
         replaceButton->setObjectName(QString::fromUtf8("replaceButton"));
-        replaceButton->setGeometry(QRect(30, 410, 111, 25));
+        replaceButton->setGeometry(QRect(60, 470, 141, 25));
         groupBox = new QGroupBox(fileclassPF);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(20, 30, 341, 61));
         openFileButton = new QPushButton(groupBox);
         openFileButton->setObjectName(QString::fromUtf8("openFileButton"));
         openFileButton->setGeometry(QRect(10, 30, 141, 25));
+        widget = new QWidget(fileclassPF);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(40, 400, 181, 62));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        verticalLayout->addWidget(label_2);
+
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout->addWidget(label_3);
+
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        verticalLayout->addWidget(label_4);
+
 
         retranslateUi(fileclassPF);
 
@@ -93,18 +109,18 @@ public:
     void retranslateUi(QDialog *fileclassPF)
     {
         fileclassPF->setWindowTitle(QApplication::translate("fileclassPF", "Dialog", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("fileclassPF", "Use the plan showed in ", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("fileclassPF", " the the text area", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("fileclassPF", "New file buttons:", 0, QApplication::UnicodeUTF8));
         newFile->setText(QApplication::translate("fileclassPF", "Open new File", 0, QApplication::UnicodeUTF8));
         close->setText(QApplication::translate("fileclassPF", "Close", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("fileclassPF", "Save", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("fileclassPF", " for this session:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("fileclassPF", "Problem file of:", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("fileclassPF", "TextLabel", 0, QApplication::UnicodeUTF8));
         replaceButton->setText(QApplication::translate("fileclassPF", "Replace", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QApplication::translate("fileclassPF", "Use this button to open the domain file:", 0, QApplication::UnicodeUTF8));
         openFileButton->setText(QApplication::translate("fileclassPF", "Open Original File", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("fileclassPF", "Use the plan showed in ", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("fileclassPF", " the the text area", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("fileclassPF", " for this session:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

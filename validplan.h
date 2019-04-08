@@ -4,6 +4,7 @@
 #include <QDialog>
 
 
+
 namespace Ui {
 class validPlan;
 }
@@ -17,6 +18,7 @@ public:
     ~validPlan();
 
 private slots:
+
     void on_homeButton_clicked();
 
     void on_selectButton_clicked();

@@ -43,8 +43,8 @@ private slots:
     void on_backButton_clicked();
 
 private:
-    Ui::ReplaceAction *ui;
-    Comparison *compare;
+    Ui::ReplaceAction *ui;    //[2]
+    Comparison *compare;    //[2]
 };
 
 #endif // REPLACEACTION_H

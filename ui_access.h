@@ -40,7 +40,7 @@ public:
     {
         if (Access->objectName().isEmpty())
             Access->setObjectName(QString::fromUtf8("Access"));
-        Access->resize(640, 480);
+        Access->resize(792, 569);
         Access->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         accessButton = new QPushButton(Access);
         accessButton->setObjectName(QString::fromUtf8("accessButton"));
@@ -56,7 +56,7 @@ public:
         visualiseButton->setGeometry(QRect(140, 0, 71, 41));
         frame = new QFrame(Access);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(40, 90, 561, 121));
+        frame->setGeometry(QRect(120, 160, 561, 121));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         label = new QLabel(frame);
@@ -80,7 +80,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         backButton = new QPushButton(Access);
         backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setGeometry(QRect(680, 10, 89, 25));
 
         retranslateUi(Access);
 

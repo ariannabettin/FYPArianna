@@ -4,7 +4,6 @@
 #include "removeaction.h"
 #include "replaceaction.h"
 #include "rescheduleaction.h"
-#include "changeaction.h"
 #include "access.h"
 #include <QDialog>
 #include "ui_modification.h"
@@ -24,6 +23,7 @@ public:
     ~Modification();
 
 private slots:
+
     void on_homeButton_clicked();
 
     void on_selectButton_clicked();
@@ -43,12 +43,11 @@ private slots:
 
 private:
     Ui::Modification *ui;
-    AddAction *add;
-    RemoveAction *remove;
-    ReplaceAction *replace;
-    RescheduleAction *reschedule;
-    ChangeAction *change;
-    Access *access;
+    AddAction *add;    //[2]
+    RemoveAction *remove;    //[2]
+    ReplaceAction *replace;    //[2]
+    RescheduleAction *reschedule;    //[2]
+    Access *access;    //[2]
 };
 
 #endif // MODIFICATION_H

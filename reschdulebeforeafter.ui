@@ -52,7 +52,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Next</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame_2">

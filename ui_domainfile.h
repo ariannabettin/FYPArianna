@@ -39,14 +39,14 @@ public:
     {
         if (domainFile->objectName().isEmpty())
             domainFile->setObjectName(QString::fromUtf8("domainFile"));
-        domainFile->resize(640, 480);
+        domainFile->resize(795, 584);
         domainFile->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QPlainTextEdit(domainFile);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(190, 150, 371, 341));
+        planArea->setGeometry(QRect(260, 150, 491, 391));
         label = new QLabel(domainFile);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(190, 130, 81, 17));
+        label->setGeometry(QRect(260, 120, 81, 17));
         groupBox = new QGroupBox(domainFile);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(20, 30, 311, 61));
@@ -55,19 +55,19 @@ public:
         openFileButton->setGeometry(QRect(10, 30, 141, 25));
         title_label = new QLabel(domainFile);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(270, 130, 251, 17));
+        title_label->setGeometry(QRect(350, 120, 401, 17));
         groupBox_2 = new QGroupBox(domainFile);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(20, 130, 141, 181));
+        groupBox_2->setGeometry(QRect(30, 130, 201, 211));
         newFile = new QPushButton(groupBox_2);
         newFile->setObjectName(QString::fromUtf8("newFile"));
-        newFile->setGeometry(QRect(10, 90, 111, 25));
+        newFile->setGeometry(QRect(30, 100, 141, 25));
         close = new QPushButton(groupBox_2);
         close->setObjectName(QString::fromUtf8("close"));
-        close->setGeometry(QRect(20, 140, 89, 25));
+        close->setGeometry(QRect(30, 160, 141, 25));
         saveButton = new QPushButton(groupBox_2);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
-        saveButton->setGeometry(QRect(20, 40, 89, 25));
+        saveButton->setGeometry(QRect(30, 40, 141, 25));
 
         retranslateUi(domainFile);
 

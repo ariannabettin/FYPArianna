@@ -181,7 +181,7 @@ public:
         showLastButton->setText(QApplication::translate("Selection", "Show last", 0, QApplication::UnicodeUTF8));
         deleteButton->setText(QApplication::translate("Selection", "Delete", 0, QApplication::UnicodeUTF8));
         clearButton->setText(QApplication::translate("Selection", "Clear", 0, QApplication::UnicodeUTF8));
-        visualiseButton->setText(QString());
+        visualiseButton->setText(QApplication::translate("Selection", "Next", 0, QApplication::UnicodeUTF8));
         renamedPlanLabel->setText(QApplication::translate("Selection", "TextLabel", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("Selection", " Rename the selected plan:", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("Selection", "Save", 0, QApplication::UnicodeUTF8));

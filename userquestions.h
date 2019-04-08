@@ -51,13 +51,12 @@ private slots:
 
     void on_completeButton_clicked();
 
-
     void on_backButton_clicked();
 
 private:
     Ui::UserQuestions *ui;
-    Comparison * compare;
-    RescheduleQuestion *reschedule;
+    Comparison * compare;    //[2]
+    RescheduleQuestion *reschedule;    //[2]
 };
 
 #endif // USERQUESTIONS_H

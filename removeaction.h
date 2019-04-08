@@ -2,6 +2,13 @@
 #define REMOVEACTION_H
 #include "domainfile.h"
 #include "comparison.h"
+#include "ui_removeaction.h"
+#include "newaction.h"
+#include "gloabal.h"
+#include "comparison.h"
+#include <QListWidgetItem>
+#include <QMessageBox>
+#include "gloabal.h"
 #include <QDialog>
 
 namespace Ui {
@@ -39,8 +46,8 @@ private slots:
 
 private:
     Ui::RemoveAction *ui;
-    domainFile* file;
-    Comparison *compare;
+    domainFile* file;    //[2]
+    Comparison *compare;    //[2]
 
 };
 

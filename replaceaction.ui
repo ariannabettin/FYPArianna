@@ -32,14 +32,14 @@
   <widget class="QPushButton" name="existingButton">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>620</x>
      <y>110</y>
-     <width>111</width>
+     <width>161</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Existing</string>
+    <string>List existing action/s</string>
    </property>
   </widget>
   <widget class="QListWidget" name="list">
@@ -55,10 +55,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>120</y>
+     <x>440</x>
+     <y>110</y>
      <width>171</width>
-     <height>20</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -75,7 +75,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Next</string>
    </property>
   </widget>
   <widget class="QListWidget" name="planArea">

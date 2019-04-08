@@ -41,9 +41,9 @@ private slots:
 
 private:
     Ui::RescheduleQuestion *ui;
-    Comparison *compare;
-    reschduleBeforeAfter * rescheduleBA;
-    reschduleWindow * rescheduleW;
+    Comparison *compare;    //[2]
+    reschduleBeforeAfter * rescheduleBA;    //[2]
+    reschduleWindow * rescheduleW;    //[2]
 };
 
 #endif // RESCHEDULEQUESTION_H

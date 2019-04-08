@@ -38,31 +38,32 @@ public:
     QPushButton *visualiseButton_2;
     QPushButton *selectButton_2;
     QPushButton *backButton;
+    QLabel *label_2;
 
     void setupUi(QDialog *ReplaceAction)
     {
         if (ReplaceAction->objectName().isEmpty())
             ReplaceAction->setObjectName(QString::fromUtf8("ReplaceAction"));
-        ReplaceAction->resize(640, 480);
+        ReplaceAction->resize(797, 605);
         ReplaceAction->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         title_label = new QLabel(ReplaceAction);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(40, 100, 371, 17));
+        title_label->setGeometry(QRect(40, 120, 371, 17));
         existingButton = new QPushButton(ReplaceAction);
         existingButton->setObjectName(QString::fromUtf8("existingButton"));
-        existingButton->setGeometry(QRect(460, 50, 111, 30));
+        existingButton->setGeometry(QRect(620, 110, 161, 30));
         list = new QListWidget(ReplaceAction);
         list->setObjectName(QString::fromUtf8("list"));
-        list->setGeometry(QRect(390, 130, 231, 251));
+        list->setGeometry(QRect(450, 160, 311, 281));
         label = new QLabel(ReplaceAction);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(390, 100, 161, 20));
+        label->setGeometry(QRect(440, 110, 171, 31));
         replaceActionsButton = new QPushButton(ReplaceAction);
         replaceActionsButton->setObjectName(QString::fromUtf8("replaceActionsButton"));
-        replaceActionsButton->setGeometry(QRect(570, 410, 51, 41));
+        replaceActionsButton->setGeometry(QRect(710, 520, 51, 41));
         planArea = new QListWidget(ReplaceAction);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(40, 130, 321, 341));
+        planArea->setGeometry(QRect(40, 160, 381, 351));
         plan = new QTextEdit(ReplaceAction);
         plan->setObjectName(QString::fromUtf8("plan"));
         plan->setGeometry(QRect(10, 450, 21, 20));
@@ -83,7 +84,10 @@ public:
         selectButton_2->setGeometry(QRect(70, 0, 71, 41));
         backButton = new QPushButton(ReplaceAction);
         backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setGeometry(QRect(690, 10, 89, 25));
+        label_2 = new QLabel(ReplaceAction);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(40, 70, 731, 16));
 
         retranslateUi(ReplaceAction);
 
@@ -94,15 +98,16 @@ public:
     {
         ReplaceAction->setWindowTitle(QApplication::translate("ReplaceAction", "Dialog", 0, QApplication::UnicodeUTF8));
         title_label->setText(QApplication::translate("ReplaceAction", "TextLabel", 0, QApplication::UnicodeUTF8));
-        existingButton->setText(QApplication::translate("ReplaceAction", "Existing", 0, QApplication::UnicodeUTF8));
+        existingButton->setText(QApplication::translate("ReplaceAction", "List existing action/s", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("ReplaceAction", "List of existing actions:", 0, QApplication::UnicodeUTF8));
-        replaceActionsButton->setText(QString());
+        replaceActionsButton->setText(QApplication::translate("ReplaceAction", "Next", 0, QApplication::UnicodeUTF8));
         homeButton_2->setText(QApplication::translate("ReplaceAction", "Home", 0, QApplication::UnicodeUTF8));
         modifyButton_2->setText(QApplication::translate("ReplaceAction", "Modify", 0, QApplication::UnicodeUTF8));
         replaceButton->setText(QApplication::translate("ReplaceAction", "Replace", 0, QApplication::UnicodeUTF8));
         visualiseButton_2->setText(QApplication::translate("ReplaceAction", "Visualise", 0, QApplication::UnicodeUTF8));
         selectButton_2->setText(QApplication::translate("ReplaceAction", "Select", 0, QApplication::UnicodeUTF8));
         backButton->setText(QApplication::translate("ReplaceAction", "go back", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("ReplaceAction", "Select the action to remove from the plan, and the action to add from the list.", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

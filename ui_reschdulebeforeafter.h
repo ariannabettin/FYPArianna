@@ -55,16 +55,18 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *stepsLine_2;
     QListWidget *list_2;
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QDialog *reschduleBeforeAfter)
     {
         if (reschduleBeforeAfter->objectName().isEmpty())
             reschduleBeforeAfter->setObjectName(QString::fromUtf8("reschduleBeforeAfter"));
-        reschduleBeforeAfter->resize(640, 480);
+        reschduleBeforeAfter->resize(795, 566);
         reschduleBeforeAfter->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         layoutWidget = new QWidget(reschduleBeforeAfter);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 70, 515, 42));
+        layoutWidget->setGeometry(QRect(50, 70, 531, 42));
         verticalLayout_7 = new QVBoxLayout(layoutWidget);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -80,10 +82,10 @@ public:
 
         doneButton = new QPushButton(reschduleBeforeAfter);
         doneButton->setObjectName(QString::fromUtf8("doneButton"));
-        doneButton->setGeometry(QRect(570, 400, 51, 41));
+        doneButton->setGeometry(QRect(690, 480, 51, 41));
         frame_2 = new QFrame(reschduleBeforeAfter);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(40, 140, 261, 131));
+        frame_2->setGeometry(QRect(50, 190, 261, 131));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout_10 = new QVBoxLayout(frame_2);
@@ -133,15 +135,15 @@ public:
         BAButton->setGeometry(QRect(370, 0, 131, 41));
         backButton = new QPushButton(reschduleBeforeAfter);
         backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setGeometry(QRect(680, 10, 89, 25));
         frame = new QFrame(reschduleBeforeAfter);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(40, 300, 81, 91));
+        frame->setGeometry(QRect(50, 350, 111, 91));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         groupBox = new QGroupBox(frame);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(10, 0, 51, 81));
+        groupBox->setGeometry(QRect(10, 0, 91, 81));
         horizontalLayout_2 = new QHBoxLayout(groupBox);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         stepsLine_2 = new QLineEdit(groupBox);
@@ -151,7 +153,13 @@ public:
 
         list_2 = new QListWidget(reschduleBeforeAfter);
         list_2->setObjectName(QString::fromUtf8("list_2"));
-        list_2->setGeometry(QRect(340, 140, 251, 241));
+        list_2->setGeometry(QRect(420, 190, 321, 251));
+        label = new QLabel(reschduleBeforeAfter);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(420, 160, 321, 17));
+        label_2 = new QLabel(reschduleBeforeAfter);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(50, 160, 261, 17));
 
         retranslateUi(reschduleBeforeAfter);
 
@@ -162,8 +170,8 @@ public:
     {
         reschduleBeforeAfter->setWindowTitle(QApplication::translate("reschduleBeforeAfter", "Dialog", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("reschduleBeforeAfter", "Do you want your action/s to happen before or after another action?", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("reschduleBeforeAfter", " If so select one of the following options, click \"List\" and choose B:", 0, QApplication::UnicodeUTF8));
-        doneButton->setText(QString());
+        label_8->setText(QApplication::translate("reschduleBeforeAfter", " If so select one of the following options, and a parameter action:", 0, QApplication::UnicodeUTF8));
+        doneButton->setText(QApplication::translate("reschduleBeforeAfter", "Next", 0, QApplication::UnicodeUTF8));
         optionD_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A before B", 0, QApplication::UnicodeUTF8));
         optionE_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A after B", 0, QApplication::UnicodeUTF8));
         optionF_2->setText(QApplication::translate("reschduleBeforeAfter", "Execute A n step before B", 0, QApplication::UnicodeUTF8));
@@ -175,7 +183,9 @@ public:
         Button->setText(QApplication::translate("reschduleBeforeAfter", "Reschedule", 0, QApplication::UnicodeUTF8));
         BAButton->setText(QApplication::translate("reschduleBeforeAfter", "Before and After", 0, QApplication::UnicodeUTF8));
         backButton->setText(QApplication::translate("reschduleBeforeAfter", "go back", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("reschduleBeforeAfter", "n:", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("reschduleBeforeAfter", "steps (n): ", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("reschduleBeforeAfter", "List of parameter actions:", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("reschduleBeforeAfter", "Options:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -1,14 +1,14 @@
 (define (problem City1)
 (:domain Delivery)
 (:objects
-bb
+
     truck1 - truck
     drone1 drone2 drone3 - drone
     package1 package2 package3 package4 package5 - item
     DroneBase1 DroneBase2 - dronebase
     PON blue_street red_street WH pink_street orange_street yellow_street white_street POS green_street turquoise_street  - place )
 
-(:init
+(:initciao
 
     (at truck1 WH)
     (at drone1 PON)

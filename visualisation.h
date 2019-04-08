@@ -25,13 +25,12 @@ public:
     ~Visualisation();
 
 private slots:
+
     void on_homeButton_clicked();
 
     void on_selectButton_clicked();
 
     void on_modifyButton_clicked();
-
-    void on_valButton_clicked();
 
     void on_questionButton_clicked();
 
@@ -43,9 +42,9 @@ private slots:
 
 private:
     Ui::Visualisation *ui;
-    Modification *modify;
-    UserQuestions * question;
-    Access *access;
+    Modification *modify;    //[2]
+    UserQuestions * question;    //[2]
+    Access *access;    //[2]
 };
 
 #endif // VISUALISATION_H

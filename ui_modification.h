@@ -51,7 +51,7 @@ public:
     {
         if (Modification->objectName().isEmpty())
             Modification->setObjectName(QString::fromUtf8("Modification"));
-        Modification->resize(640, 480);
+        Modification->resize(800, 574);
         Modification->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         homeButton = new QPushButton(Modification);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
@@ -71,15 +71,15 @@ public:
         modifyButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         planArea = new QTextEdit(Modification);
         planArea->setObjectName(QString::fromUtf8("planArea"));
-        planArea->setGeometry(QRect(130, 200, 381, 281));
+        planArea->setGeometry(QRect(150, 240, 501, 321));
         planArea->setStyleSheet(QString::fromUtf8("font: 75 11pt \"TakaoPGothic\";"));
         title_label = new QLabel(Modification);
         title_label->setObjectName(QString::fromUtf8("title_label"));
-        title_label->setGeometry(QRect(130, 170, 371, 17));
+        title_label->setGeometry(QRect(150, 210, 371, 17));
         title_label->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
         frame = new QFrame(Modification);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(130, 60, 381, 101));
+        frame->setGeometry(QRect(180, 70, 431, 101));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout_2 = new QVBoxLayout(frame);
@@ -133,7 +133,7 @@ public:
 
         backButton = new QPushButton(Modification);
         backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(520, 10, 89, 25));
+        backButton->setGeometry(QRect(690, 10, 89, 25));
         backButton->setStyleSheet(QString::fromUtf8("font: 75 12pt \"TakaoPGothic\";"));
 
         retranslateUi(Modification);
